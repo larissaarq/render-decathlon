@@ -1,0 +1,345 @@
+<div class="showcase showcase--checkout hide"></div>
+
+<div class="av-modal av-modal--pickupstore" style="display: none">
+    <div class="av-modal__modal">
+        <div class="av-modal__header">
+            <a href="javascript:;" class="av-modal-close"></a>
+        </div>
+
+        <div class="av-modal__content">
+            <span class="pickupstore-title">Escolha uma loja para retirar o produto</span>
+
+            <div class="fake-select">
+                <select name="pickupstore-state" id="pickupstore-state">
+                    <option selected="selected" disabled="disabled">Selecione o estado</option>
+                </select>
+            </div>
+
+            <div class="fake-select">
+                <select name="pickupstore-city" id="pickupstore-city">
+                    <option selected="selected" disabled="disabled">Selecione a cidade</option>
+                </select>
+            </div>
+
+            <div class="fake-select">
+                <select name="pickupstore-store" id="pickupstore-store">
+                    <option selected="selected" disabled="disabled">Selecione a loja</option>
+                </select>
+            </div>
+
+            <div class="pickupstore-info">
+                <span class="pickupstore-info__name"></span>
+                <span class="pickupstore-info__text"></span>
+                <span class="pickupstore-info__text"></span>
+                <span class="pickupstore-info__text"></span>
+            </div>
+
+            <a href="javascript:;" class="pickupstore-btn">Selecionar</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer-checkout">
+    <div class="footer-barra-beneficios">
+        <div class="av-container">
+            <div class="av-row">
+                <div class="footer-barra-beneficios__title">
+                    <span>
+                        Nossas Vantagens
+                    </span>
+                </div>
+                <div class="slick-default slick-initialized slick-slider" style="display: flex; max-width: 100%; justify-content: center;">
+                    <div class="slick-list draggable">
+                        <div class="barra-beneficios__container" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                            <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false">
+                                <div>
+                                    <div class="footer-barra-beneficios__item footer-barra-beneficios__retire-loja">
+                                        <a href="/servicos/retire-na-loja">
+                                            <b>Retire na loja </b> com frete grátis
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false">
+                                <div>
+                                    <div class="footer-barra-beneficios__item footer-barra-beneficios__lojas-brasil">
+                                        <a href="/lojas">
+                                            <b>&plus;30 lojas no Brasil</b> e &plus; de 1500 no mundo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false">
+                                <div>
+                                    <div class="footer-barra-beneficios__item footer-barra-beneficios__troca">
+                                        <a href="/servicos/trocas-e-devolucoes">
+                                            <b>30 dias para</b> troca
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false">
+                                <div>
+                                    <div class="footer-barra-beneficios__item footer-barra-beneficios__formas-pagamento">
+                                        <a href="/servicos/formas-de-pagamento">
+                                            <b>Forma de pagamento</b> até 10 vezes sem juros
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- START: Footer Content -->
+    <div class="footer-content">
+        <div class="av-container">
+            <div class="av-row">
+                <div class="footer-col footer-col-pagamento">
+                    <div class="footer-content__wrap">
+                        <h4 class="footer-content__title"> Formas de pagamento
+                            <small>Parcele em até 10x sem juros</small>
+                        </h4>
+                        <ul class="footer-content__list footer-content__list--gateways">
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--visa"></span>
+                            </li>
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--mastercard"></span>
+                            </li>
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--elo"></span>
+                            </li>
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--amex"></span>
+                            </li>
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--diners"></span>
+                            </li>
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--paypal"></span>
+                            </li>
+                            <li class="footer-content__item">
+                                <span class="footer-content__link footer-content__link--gateways sprite sprite-icon-footer__gateways--boleto"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- .footer-content__wrap -->
+                </div>
+                <!-- .footer-col-pagamento -->
+
+                <div class="footer-col footer-col-premiacao">
+                    <div class="footer-content__wrap">
+                        <h4 class="footer-content__title"> Premiação
+                            <small> Selo e-bit </small>
+                        </h4>
+                        <div class="selo-ebit">
+                            <a id="seloEbit" href="http://www.ebit.com.br/46844" target="_blank" data-noop="redir(this.href);" height="68">
+                                <img src="https://newimgebit-a.akamaihd.net/ebitBR/selo/img_46844.png" style="border: 0px;">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- .footer-content__wrap -->
+                </div>
+                <!-- .footer-col-premiacao -->
+
+                <div class="footer-col footer-col-seguranca">
+                    <div class="footer-content__wrap">
+                        <h4 class="footer-content__title"> Transação Segura
+                            <small> Certificado SSL </small>
+                        </h4>
+                        <div class="selo-secure"> </div>
+                    </div>
+                    <!-- .footer-content__wrap -->
+                </div>
+                <!-- .seguranca -->
+
+                <div class="footer-col footer-col-protegido">
+                    <div class="footer-content__wrap">
+                        <h4 class="footer-content__title"> Site Protegido
+                            <small> Contra fraudes </small>
+                        </h4>
+                        <img src="/arquivos/konduto-logo.png" />
+                    </div>
+                    <!-- .footer-content__wrap -->
+                </div>
+                <!-- .footer-col-protegido -->
+
+            </div>
+            <!-- .av-row -->
+
+        </div>
+        <!-- .av-container -->
+
+    </div>
+    <!-- .footer-content -->
+    <!-- END: Footer Content -->
+
+    <!-- START: Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="av-container">
+            <div class="av-row">
+                <div class="footer-bottom-content">
+                    <div class="footer-bottom__text">
+                        <p>
+                            <small>Decathlon Brasil 2001 - 2018</small>
+                            Os preços e condições de pagamento são exclusivas para o site e podem divergir das lojas físicas. Os artigos disponibilizados
+                            no site tem estoque limitado, sujeito á disponibilidade no momento da confirmação do pagamento.
+                            O site www.decathlon.com.br é administrado por: IGUASPORT LTDA CNPJ 02.314.041/0021-21. Rua Pataxós,
+                            1650 - Embu das Artes/SP CEP: 06833-900. Todos os Direitos Reservados. Copyright - 2018 - www.decathlon.com.br.
+                        </p>
+                    </div>
+                    <!-- .footer-bottom__text -->
+
+                    <div class="footer-countries__content" style="display: none;">
+                        <nav class="footer-countries__navigation">
+                            <select class="custom-select custom-select--small custom-select--top" id="countries-navigation" data-size="12">
+                                <option> 45 países </option>
+                                <option>
+                                    <a href="https://www.decathlon.de/"> Alemanha </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.de/"> Áustria </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.be/fr/"> Bélgica </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.bg/"> Bulgária </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.hr/"> Croácia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.es/"> Espanha </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.dk/"> Dinamarca </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.fi"> Finlândia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.fr/"> França </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.hu/"> Graã-Bretanha </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.hu/"> Hungria </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.ie/"> Irlanda </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.is/"> Islândia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.it/"> Itália </a>
+                                </option>
+                                <option>
+                                    <a href="http://www.decathlon.lu/"> Luxemburgo </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.no/"> Noruega </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.nl/"> Holanda </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.pl/"> Pôlonia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.pt/"> Portugal </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.cz/"> República Tcheca </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.ro/"> Romênia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.ru/"> Russia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.sk/"> Eslováquia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.si/"> Eslovênia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.ch/"> Suíça </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.se/"> Suécia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.com.tr/"> Turquia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.com.cn/zh/"> China </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.com.hk/en/"> Hong Kong </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.in/"> Índia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.co.id/en/"> Indonésia </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.co.jp/"> Japão </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.my/"> Malásia </a>
+                                </option>
+                                <option>
+                                    <a href="#"> Filipinas </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.sg/"> Singapura </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.tw/zh"> Taiwan </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.co.th/th/"> Tailândia </a>
+                                </option>
+                                <option>
+                                    <a href="http://www.decathlon.com.br"> Brasil </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.ca/fr/"> Canadá </a>
+                                </option>
+                                <option>
+                                    <a href="http://www.decathlon.gp/"> Guadalupe </a>
+                                </option>
+                                <option>
+                                    <a href="http://www.decathlon.mq/"> Martinique </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon-sports.co.za/"> África do Sul </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.ma/"> Marrocos </a>
+                                </option>
+                                <option>
+                                    <a href="https://www.decathlon.re/"> Reunião </a>
+                                </option>
+                            </select>
+                        </nav>
+                    </div>
+                </div>
+                <!-- .footer-bottom-content -->
+            </div>
+            <!-- .av-row -->
+        </div>
+        <!-- av.container -->
+    </div>
+    <!-- .footer-bottom -->
+    <!-- END: Footer Bottom -->
+</footer>
+<!-- END: Footer -->

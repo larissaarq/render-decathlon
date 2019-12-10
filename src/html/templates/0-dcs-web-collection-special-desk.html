@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+    lang="pt-br">
+
+<head>
+    <meta name="controller" content="List" />
+    <vtex:metaTags/>
+    <vtex.cmc:productRichSnippets showFacebook="1" />
+
+
+    <!-- START - Subtemplate Metatags -->
+    <vtex:template id="0-dcs-web-metatags" />
+    <!-- END - Subtemplate Metatags -->
+    
+    <vtex:contentPlaceHolder id="title" />
+
+    <!-- START - Style e Subtemplate Styles -->
+     <!--<vtex:template id="0-dcs-web-styles" /> -->
+    <!-- END - Subtemplate Styles -->
+
+    <link rel="stylesheet" href="/arquivos/0-dcs-web-collection-special-style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <!-- START - Open Graph  -->
+    <vtex.cmc:productRichSnippets showGoogle="1" />
+    <!-- START - Open Graph -->
+
+
+    <!-- START - Subtemplate Header -->
+    <vtex:template id="0-dcs-web-header-desktop" />
+    <!-- END - Subtemplate Header -->
+
+    <!-- START - Main -->
+    <main class="main">   
+        <!-- START: Breadcrumb -->
+        <div class="av-container-fluid breadcrumb-back">
+            <div class="av-row">
+                <div class="av-col-xs-24 av-col-static">
+                    <a href="javascript:history.back();" class="btn-back">
+                        <i class="dkti-arrow2-left btn-back__icon"></i>
+                        <span>Voltar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END: Breadcrumb -->
+    
+        <!-- START: Section Banner -->
+        <section class="collection-banner">
+            <div class="av-container">
+                <div class="collection-banner__content align-center">
+                    <vtex:contentPlaceHolder id="Title and Subtitle" />
+                </div>
+            </div>
+        </section>
+        <!-- END: Section Banner -->
+    
+        <!-- START: Section Vitrine -->
+        <section class="collection-shelf">
+            <div class="av-container">
+                <div class="av-row">
+                    <!-- START: Shelf template -->
+                    <vtex:contentPlaceHolder id="Coleção" />
+                    <!--<vtex.cmc:searchResult layout="715d3f4c-9e34-47b8-b1d2-c285080e9d7c" itemCount="20" columnCount="20" />-->
+                    <!-- START: Section Vitrine -->
+                </div>
+            </div>
+        </section>
+    
+        <!-- START: Text SEO -->
+        <section class="section-seo">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24 wrap-seo">
+                        <!-- Content Place Holder: Text SEO -->
+                        <vtex:contentPlaceHolder id="Text SEO" />
+                        <!-- /Content Place Holder: Text SEO -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Text SEO -->
+    
+        <!-- START - Bg Mask -->
+        <div class="wrap-mask">
+            <span class="wrap-mask__bg"></span>
+        </div><!-- END - Bg Mask -->
+    </main>
+    <!-- END - Main -->
+
+    <!-- START - Subtemplate Footer -->
+    <vtex:template id="0-dcs-web-footer" />
+    <!-- END - Subtemplate Footer -->
+
+    <!-- START - Scripts e Subtemplate Scripts -->
+    <vtex:template id="0-dcs-web-common-script" />
+    <script type="text/javascript" src="/arquivos/0-dcs-web-list-script.js"></script>
+
+    <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

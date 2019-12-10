@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+  lang="pt-br">
+
+<head>
+  <vtex:metaTags/>
+  <meta name="controller" content="Account" />
+
+  <!-- INICIO - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- FIM - Subtemplate Metatags -->
+
+  <!-- INICIO - Style e Subtemplate Styles -->
+  <vtex:template id="0-dcs-web-styles" />
+  <!-- FIM - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- INICIO - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header" />
+  <!-- FIM - Subtemplate Header -->
+
+  <!-- INICIO - Miolo da página -->
+  <main class="main" id="main">
+    <div class="back-button av-hidden-md av-hidden-lg"><a href="" class="back-button--link">VOLTAR</a></div>
+    <div class="forgot-content account-content">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="account-form-main-content">
+            <div class="forgot-form-wrapper account-form-wrapper">
+              <h1 class="account-title">Esqueceu sua Senha?</h1>
+              <h2 class="account-subtitle">Informe seu email para recuperar a senha de sua conta Decathlon</h2>
+              <form class="forgot-password-form" name="forgot-password">
+                <label for="email">Informe seu Email *</label>
+                <div class="input-email">
+                  <input type="email" id="email" name="email" class="input-text" required="required"/>
+                  <span class="input-email-icon"></span>
+                </div>
+                <div class="btns-wrapper">
+                  <div class="btn-back-wrapper back-button">
+                    <a href="" class="back-button--link">VOLTAR</a>
+                  </div>
+                  <div class="btn-send-wrapper">
+                    <button type="submit" class="btn-send">Confirmar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="forgot-content-hidden">
+              <div class="forgot-form-wrapper account-form-wrapper">
+                <h1 class="account-title">Esqueceu sua Senha?</h1>
+                <p>Você receberá um e-mail com um link para redefinir sua senha em alguns instantes (dependendo da ocupação).</p>
+                <p>NOTA: Você NÃO será notificado quando você inserir um endereço incorreto. Se você não receber o e-mail, verifique sua pasta de spam. Caso contrário, verifique o endereço de e-mail que você digitou: pode não existir em nosso banco de dados. Nesse caso, tente um endereço de e-mail diferente ou entre em contato com o nosso atendimento ao cliente.</p>
+                <div class="btns-wrapper">
+                  <div class="btn-back-wrapper back-button">
+                    <a href="" class="back-button--link">VOLTAR</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>         
+        </div>      
+      </div>
+    </div>          
+
+  </main>
+  <!-- FIM - Miolo da página -->
+
+  <!-- INICIO - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- FIM - Subtemplate Footer -->
+
+  <!-- INICIO - Scripts e Subtemplate Scripts -->
+  <vtex:template id="0-dcs-web-scripts" />
+  <!-- FIM - Subtemplate Scripts -->
+</body>
+
+</html>

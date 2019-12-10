@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <vtex:metaTags />
+  <meta name="controller" content="AboutUs" />
+
+  <!-- START OPEN GRAPH -->
+  <meta property="og:title" content="Quem Somos - Decathlon" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description"
+    content="A maior loja de artigos esportivos. Produtos de fitness, musculação, ciclismo, futebol, corrida, camping, trilha, natação, surf, tênis, pesca e muito mais" />
+  <meta property="og:image" content="https://www.decathlon.com.br/arquivos/quem-somos-decathlon-marca.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1366" />
+  <meta property="og:image:height" content="647" />
+  <meta property="og:url" content="https://www.decathlon.com.br/institucional/quem-somos" />
+  <link rel="canonical" href="https://www.decathlon.com.br/institucional/quem-somos/" />
+  
+    <!--Buylist/Wishlist-->
+    <link rel="stylesheet" href="/arquivos/jquery.buylist.css" />
+    <link rel="stylesheet" href="/arquivos/0-dcs-web-buylist-style.css" />
+  <!-- END OPEN GRAPH -->
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+
+  <!-- START - Style e Subtemplate Styles -->
+  <vtex:template id="0-dcs-web-styles" />
+  <!-- END - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link rel="stylesheet" href="/arquivos/0-dcs-web-about-us-style.css" />
+  <vtex:contentPlaceHolder id="title" />
+</head>
+
+
+<body>
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-desktop" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  <main class="main" id="main">
+  <a href="/_secure/listas/lista/?listindex=0">Wishlist</a>
+            <!-- START: Shelf 2 -->
+                <div class="home-shelf">
+                  <div class="av-container">
+                    <div class="av-row">
+                    <div class="av-col-xs-24">
+                      <div class="shelf__content home-shelf__content">
+                        <vtex:contentPlaceHolder id="Vitrine Produtos - Destaque" />
+                      </div>
+            
+                      <div class="home-shelf__button">
+                        <vtex:contentPlaceHolder id="Vitrine Produtos Botão - Destaque" />
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            <!-- END: Shelf 2 -->
+  </main>
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <!-- <vtex:template id="0-dcs-web-scripts" /> -->
+  <!-- END - Subtemplate Scripts -->
+  <script src="/arquivos/0-dcs-web-common-script.js"></script>
+  <!-- START - Scripts About Us -->
+  <script src="/arquivos/0-dcs-web-about_us-script.js"></script>
+  <!-- END - Scripts About Us -->
+    <!-- Buylist/Wishlist -->
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/arquivos/jquery.buylist.js"></script>
+    <!-- <script>
+        $(document).ready(function() {
+            // Deixar a chamada dentro do getOrderForm(), para evitar erros de carregamento
+            window.vtexjs.checkout.getOrderForm().done(function(orderForm) {
+        
+                $("body").buylist({
+                    "prefix": "LP", // Entidade MasterData
+                    "storename": 'decathlonstore', // Host da loja,
+                    "wishlist": true // Marque como "true" caso seja uma lista de produto favoritos, "false" caso seja uma lista de compras
+                });
+        
+            });
+        
+        });
+    </script> -->
+</body>
+
+</html>

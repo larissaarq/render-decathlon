@@ -1,0 +1,350 @@
+<style>
+  .row-fluid .full-cart,
+  .row-fluid .orderform-template {
+    min-height: 450px;
+  }
+
+  .av-modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, .8);
+  }
+
+  .av-modal__modal {
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: relative;
+    left: 50%;
+    top: 50%;
+  }
+
+  .av-modal__header {
+    padding: 20px 0px 7px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .av-modal__content {
+    padding: 0 30px 25px;
+    text-align: center;
+  }
+
+  .av-modal__content img {
+    display: block;
+    width: 28px;
+    height: 21px;
+    margin: 0 auto 12px;
+  }
+
+  @media (max-width: 600px) {
+    .av-modal__modal {
+      -moz-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      left: 0;
+    }
+
+    .av-modal__header {
+      padding: 10px 20px 7px;
+    }
+
+    .av-modal__content {
+      padding: 20px;
+    }
+  }
+
+  .av-modal--confirmacao .av-modal__modal {
+    width: 450px;
+    background-color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .av-modal--confirmacao .av-modal__modal {
+      width: calc(100% - 40px);
+    }
+  }
+
+  .confirmacao-title {
+    display: inline-block;
+    font-size: 15px;
+    color: #6a6a6a;
+  }
+
+  .confirmacao-title.line1 {
+    font-size: 16px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 37px;
+  }
+
+  .confirmacao-title.line2 {
+    font-size: 16px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .confirmacao-btns {
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .confirmacao-btn {
+    display: inline-block;
+    padding: 11px 10px 11px 10px;
+    width: 130px;
+    margin: 0 auto;
+    font-size: 11px;
+    cursor: pointer;
+    text-align: center;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    background-repeat: no-repeat;
+    text-decoration: none !important;
+    line-height: 14px;
+  }
+
+  .confirmacao-btn--ok {
+    background: #fde94c url('https://decathlonpro.vteximg.com.br/arquivos/icon-errow-checkout.png') no-repeat top 12px right 10px;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .confirmacao-btn--cancel {
+    background: #fde94c url('https://decathlonpro.vteximg.com.br/arquivos/icon-errow-checkout.png') no-repeat top 12px right 10px;
+    color: #000 !important;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .change-selected-store-container-shipping {
+    margin-top: 20px;
+  }
+
+  .change-selected-store-container-shipping>a {
+    border: 1px dashed #bed0df;
+    text-align: center;
+    padding: 3px 8px;
+    font-size: 12px;
+    background: none;
+    cursor: pointer;
+    color: #0082c3;
+    text-shadow: none;
+    text-decoration: none;
+  }
+
+  .change-selected-store-container-shipping>a:hover {
+    border-color: #005580;
+    color: #005580;
+  }
+
+  /* .shipping-selected-sla {
+    display: none !important;
+  } */
+</style>
+<div class="av-modal av-modal--confirmacao" style="display: none">
+  <div class="av-modal__modal">
+    <div class="av-modal__header">
+      <a href="javascript:;" class="av-modal-close"></a>
+    </div>
+    <div class="av-modal__content">
+      <p class="confirmacao-title line1">Você selecionou para retirar suas compras</p>
+      <p class="confirmacao-title line2">em loja física. Deseja continuar?</p>
+      <div class="confirmacao-btns">
+        <a href="javascript:;" class="confirmacao-btn confirmacao-btn--ok">
+          Sim, Vou até a loja
+        </a>
+        <a href="javascript:;" class="confirmacao-btn confirmacao-btn--cancel">
+          Não, Quero receber em casa
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var RetirarLoja = {
+    init: function () {
+      this.setup();
+    },
+
+    setup: function () {
+      var _this = this;
+
+      // Variaveis de controle da seleção do usuário e confirmação do modal
+      this.userClickSla = false;
+      this.userConfirmSla = false;
+
+      // MODAL CONFIRM
+      this.modalConfirm = $('.av-modal--confirmacao');
+      this.modalConfirmBtnOk = this.modalConfirm.find('.confirmacao-btn--ok');
+      this.modalConfirmBtnClose = this.modalConfirm.find('.av-modal-close');
+      this.modalConfirmBtnCancel = this.modalConfirm.find('.confirmacao-btn--cancel');
+
+      // Espera vtex montar vtexjs, checkout, orderForm e logisticsInfo
+      this.startInterval = setInterval(function () {
+        if (_this.checkDependencies()) _this.start();
+      }, 200);
+    },
+
+    start: function () {
+      var _this = this;
+
+      // Cancela intervalo
+      clearInterval(this.startInterval);
+
+      // Chama os métodos para iniciar a aplicação
+      this.bind();
+
+      // Intervalo que controla tudo, já que os eventos não esperam o DOM ser manipulado
+      this.interval = setInterval(function () {
+        if (_this.checkDependencies()) _this.hashCheck();
+      }, 1000);
+    },
+
+    checkDependencies: function () {
+      return (
+        vtexjs &&
+        typeof vtexjs != "undefined" &&
+        vtexjs.checkout &&
+        typeof vtexjs.checkout != "undefined" &&
+        vtexjs.checkout.orderForm &&
+        typeof vtexjs.checkout.orderForm != "undefined" &&
+        vtexjs.checkout.orderForm.shippingData &&
+        typeof vtexjs.checkout.orderForm.shippingData != "undefined" &&
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0] &&
+        typeof vtexjs.checkout.orderForm.shippingData.logisticsInfo[0] != "undefined"
+      ) ? true : false;
+    },
+
+    selectedSlaIsLoja: function () {
+      return (
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla &&
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla.indexOf('Retira') > -1
+      ) ? true : false;
+    },
+
+    retiraIsEnabled: function () {
+      return ($('.shipping-option-item-name').text().indexOf('Retira') > -1) ? true : false;
+    },
+
+    selectFakeSla: function () {
+
+      $('.sla-items-list').each(function () {
+        $(this).find('label').removeClass('active');
+        $(this).find('.icon-ok-circle').addClass('icon-circle-blank').removeClass('icon-ok-circle');
+        $(this).find('input').prop('checked', false);
+      })
+
+    },
+
+    shippingCheck: function () {
+      var _this = this;
+
+      // Se usuário ainda não clicou em nenhuma opção de entrega mantém todas sem seleção e não exibe o botão de ir para pagamento
+      if (_this.retiraIsEnabled() && !_this.userClickSla) {
+        _this.selectFakeSla();
+        $('.btn-go-to-payment-wrapper, #payment-data').hide();
+      }
+    },
+
+    paymentCheck: function () {
+      var _this = this;
+
+      // Se o usuário não fez a escolha, volta para o shipping
+      if (_this.selectedSlaIsLoja() && !_this.userClickSla) {
+        _this.goToShipping();
+        return false;
+      }
+
+      if (_this.selectedSlaIsLoja() && !_this.userConfirmSla) _this.showModalConfirm();
+    },
+
+    resetUserActions: function () {
+      this.userClickSla = false;
+      this.userConfirmSla = false;
+    },
+
+    showModalConfirm: function () {
+      this.modalConfirm.show();
+    },
+
+    hideModalConfirm: function () {
+      this.modalConfirm.hide();
+    },
+
+    goToShipping: function () {
+      location.hash = '#/shipping';
+    },
+
+    hashCheck: function () {
+      var hash = location.hash;
+      switch (hash) {
+        case '#/shipping':
+          this.shippingCheck();
+          break;
+        case '#/payment':
+          this.paymentCheck();
+          break;
+        default:
+      }
+    },
+
+    bind: function () {
+      var _this = this;
+
+      // Clique do usuário na forma de entrega
+      $('body').on('click', 'label.shipping-option-item', function () {
+        _this.userClickSla = true;
+        _this.userConfirmSla = false;
+        $('.btn-go-to-payment-wrapper, #payment-data').show();
+      });
+
+      // Clique no botão fechar do modal confirm
+      _this.modalConfirmBtnClose.on('click', function () {
+        _this.goToShipping();
+        _this.hideModalConfirm();
+      });
+
+      // Clique no botão cancelar do modal confirm
+      _this.modalConfirmBtnCancel.on('click', function () {
+        _this.goToShipping();
+        _this.hideModalConfirm();
+      });
+
+      // Clique no botão confirmar do modal confirm
+      _this.modalConfirmBtnOk.on('click', function () {
+        _this.userConfirmSla = true;
+        _this.hideModalConfirm();
+      });
+
+      // Eventos vtex
+      $(window).on('addressKeysUpdated.vtex', function () {
+        _this.resetUserActions()
+      });
+
+      $(window).on('addressSearchResult.vtex', function () {
+        _this.resetUserActions()
+      });
+    }
+  };
+
+  $(document).ready(function () {
+    RetirarLoja.init();
+  });
+</script>

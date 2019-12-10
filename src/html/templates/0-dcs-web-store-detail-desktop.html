@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+  lang="pt-br">
+
+<head>
+  <meta name="controller" content="StoreDetail" />
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+  
+  <vtex.cmc:canonicalPage disable="true"/>
+  
+  <vtex:metaTags/>
+  <vtex:contentPlaceHolder id="metatags" />
+
+  <!-- START - Style e Subtemplate Styles -->
+  <!-- <vtex:template id="0-dcs-web-styles" /> -->
+  <link rel="stylesheet" type="text/css" href="/arquivos/0-dcs-web-store-detail-style.css" />
+  <!-- END - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-desktop" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  <main class="main" id="main">
+
+    <!-- START: Banner full -->
+    <section class="banner-full">
+      <div class="banner-full__wrap">
+        <div class="banner-full__img">
+          <vtex:contentPlaceHolder id="Banner principal" />
+        </div>
+        <div class="banner-full__content">
+          <h1 class="banner-full__title" id="name-store"><strong></strong></h1>
+          <p class="banner-full__text" id="address-store"></p>
+          <p class="banner-full__text address-complement" id="addressComplement-store"></p>
+          <vtex:contentPlaceHolder id="Banner texto e redes sociais" />
+        </div>
+      </div>
+
+      <!-- START: Banner Mask -->
+      <vtex.cmc:bannerMask />
+      <!-- END: Banner Mask -->
+    </section>
+    <!-- END: Banner full -->
+
+    <!-- START: Info -->
+    <section class="section-store-info">
+      <div class="av-container-fluid">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+
+            <div class="store-detail__info clearfix">
+              <div class="store-detail__info-hour">
+                <div class="section-title">
+                  <h2 class="section-title__text">Horário de Funcionamento</h2>
+                </div>
+                <div class="store-detail__info-hour--item">
+                  <span id="openingHours"></span>
+                  <span id="specialHolidaySchedule"></span>
+                </div>
+                
+                <div class="store-detail__info-hour--item">
+                  <span class="uppercase italic" id="phone">Contato com a Loja</span>
+                    <p id="telephone-number"></p>
+                </div>
+              </div>
+
+              <div class="store-detail__info-map" id="info-maps">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Info -->
+    
+    <!-- START: Sportive Events -->
+    <section class="section-sportive-events">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Eventos nesta loja</h2>
+            </div>
+
+            <div class="blog-entries slick-frame">
+              <!-- Blog Entries -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Sportive Events -->
+    
+    <!-- START: Partners -->
+    <div class="store-detail__parceiros">
+      <h2 class="store-detail__parceiros-title">
+          Parceiros Clube Decathlon
+      </h2>
+      <div class="store-detail__parceiros_box">
+          <vtex:contentPlaceHolder id="Parceiros" />
+      </div>
+    </div>
+    <!-- END: Partners -->
+        
+    <!-- START: Services -->
+    <section class="section-store-services">
+      <div class="av-container-fluid">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Serviços Disponíveis na Loja</h2>
+            </div>
+
+            <div class="store-detail__services">
+              <div class="store-detail__services-list">
+                <!--<vtex:contentPlaceHolder id="Serviços disponíves" />-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Services -->
+    
+
+    <!-- START: Trabalhe Conosco -->
+    <section class="section-store-trabalhe-conosco">
+      <div class="av-container-fluid">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Trabalhe Conosco</h2>
+            </div>
+            <div class="store-detail__trabalhe-conosco clearfix">
+              <p class="store-detail__trabalhe-conosco-desc">Você tem paixão por esporte?
+                <span class="uppercase">Estamos contratando!</span>
+              </p>
+              <div class="store-detail__trabalhe-conosco-img">
+                <vtex:contentPlaceHolder id="Imagem Trabalhe Conosco" />
+              </div>
+              <div class="store-detail__trabalhe-conosco-info">
+                <div class="store-detail__trabalhe-conosco-info--item">
+                  <span>Sentido:</span>
+                  <span class="uppercase italic featured">TORNAR O ESPORTE ACESSÍVEL AO MAIOR NÚMERO DE PESSOAS.</span>
+                </div>
+                <div class="store-detail__trabalhe-conosco-info--item">
+                  <span>Valores:</span>
+                  <span class="uppercase italic featured">VITALIDADE</span>
+                  <span class="uppercase italic">ESPÍRITO EMPREENDEDOR, "MÃO NA MASSA".</span>
+                </div>
+                <div class="store-detail__trabalhe-conosco-info--item">
+                  <span class="uppercase italic featured">RESPONSABILIDADE</span>
+                  <span class="uppercase italic">TOMAR DECISÕES, APRENDER COM OS ERROS.</span>
+                </div>
+                <a href="https://jobs.kenoby.com/vagasdecathlon" target="_blank" class="button button--small button--blue" data-event-category="Loja - Trabalhe Conosco" data-event-action="Click Button" data-event-label="Ver vagas">Ver todas as vagas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Trabalhe Conosco -->
+  </main>
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <!-- <vtex:template id="0-dcs-web-scripts" /> -->
+  <script type="text/javascript" src="/arquivos/0-dcs-web-store_detail-script.js"></script>
+  <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

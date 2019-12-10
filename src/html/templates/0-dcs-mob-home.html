@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <vtex:metaTags />
+  <meta name="controller" content="Home" />
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+
+  <!-- START - Style e Subtemplate Styles -->
+  <vtex:template id="0-dcs-web-styles" />
+  <!-- END - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-mobile" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  <main class="main" id="main">
+
+    <!-- START: Banner full -->
+    <section class="banner-full home-banner-full">
+      <div class="slick-frame">
+        <vtex:contentPlaceHolder id="Banners Principal" />
+      </div>
+    </section>
+    <!-- END: Banner full -->
+
+    <!-- START: Benefits Bar -->
+    <div class="benefits-bar__wrapper">
+      <vtex.cmc:benefitsBarStore />
+    </div>
+    <!-- END: Benefits Bar -->
+
+    <div class="bg-gradient bg-gradient--black-bottom">
+      <!-- START: Navigate By -->
+      <section class="section-navigate-by">
+        <div class="av-container">
+          <div class="av-row">
+            <div class="av-col-xs-24">
+              <div class="section-title">
+                <h1 class="section-title__text">Navegue Por</h1>
+              </div>
+
+              <div class="navigate-by">
+                <vtex:contentPlaceHolder id="Navegue Por" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: Navigate By -->
+
+      <!-- START: Featured Sports -->
+      <section class="section-featured-sports">
+        <div class="av-container">
+          <div class="av-row">
+            <div class="av-col-xs-24">
+              <div class="section-title">
+                <h1 class="section-title__text">Esportes em destaque</h1>
+              </div>
+
+              <div class="featured-sports">
+                <vtex:contentPlaceHolder id="Esportes em Destaque" />
+              </div>
+
+              <div class="featured-sports__button">
+                <a href="#" class="button button--small button--mobile-clean">Ver todos os esportes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: Featured Sports -->
+    </div>
+
+    <!-- START: Featured Categories -->
+    <section class="section-featured-categories">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h1 class="section-title__text">Categorias em destaque</h1>
+            </div>
+
+            <div class="featured-categories">
+              <vtex:contentPlaceHolder id="Categorias em Destaque" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Featured Categories -->
+
+    <!-- START: Shelf 1 -->
+    <div class="shelf-carousel home-shelf">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="shelf__content home-shelf__content">
+              <vtex:contentPlaceHolder id="Vitrine Produtos - 1" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Shelf 1 -->
+
+    <!-- START: Selection Offers -->
+    <section class="section-selection-offers">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h1 class="section-title__text">Seleção de ofertas</h1>
+            </div>
+
+            <div class="selection-offers">
+              <vtex:contentPlaceHolder id="Seleção de Ofertas" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Selection Offers -->
+
+    <!-- START: Custom Experience -->
+    <section class="section-custom-experience">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="custom-experience__img">
+              <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 395.000000 395.000000" preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,395.000000) scale(0.100000,-0.100000)" fill="#0082C3" stroke="none">
+                  <path d="M1823 3939 c-6 -6 -31 -89 -54 -184 l-43 -173 -82 -16 c-44 -9 -120 -28 -167 -44 l-86 -28 -128 128 c-70 70 -136 128 -146 128 -45 0 -257 -130 -257 -158 0 -9 20 -88 45 -174 25 -86 45 -163 44 -170 0 -7 -29 -37 -63 -67 -35 -30 -87 -82 -117 -117 -30 -34 -60 -63 -67 -63 -7 -1 -84 19 -170 44 -86 25 -165 45 -174 45 -28 0 -158 -212 -158 -257 0 -10 58 -76 128 -146 l128 -128 -28 -86 c-16 -47 -35 -123 -44 -167 l-16 -82 -173 -43 c-95 -23 -178 -48 -184 -54 -15 -15 -15 -289 0 -304 6 -6 89 -31 184 -54 l173 -43 16 -82 c9 -44 28 -120 44 -167 l28 -86 -128 -128 c-70 -70 -128 -136 -128 -146 0 -41 120 -242 151 -252 11 -4 90 14 179 39 87 25 165 46 172 45 7 0 37 -29 67 -63 30 -35 82 -87 117 -117 34 -30 63 -60 63 -67 1 -7 -20 -85 -45 -172 -25 -89 -43 -168 -39 -179 10 -31 211 -151 252 -151 10 0 76 58 146 128 l128 128 82 -27 c45 -15 121 -35 168 -45 l85 -18 43 -172 c23 -94 48 -177 54 -183 15 -15 289 -15 304 0 6 6 31 89 54 183 l43 172 85 18 c47 10 123 30 168 45 l82 27 128 -128 c70 -70 136 -128 146 -128 45 0 257 130 257 157 0 10 -20 90 -45 177 -25 87 -45 164 -44 170 0 6 29 35 64 64 34 30 87 83 117 117 29 35 58 64 63 65 6 0 85 -20 176 -46 92 -26 174 -44 182 -41 27 10 147 215 147 252 0 13 -48 68 -128 148 l-128 128 27 82 c15 45 35 121 45 168 l18 85 172 43 c94 23 177 48 183 54 15 15 15 289 0 304 -6 6 -89 31 -183 54 l-172 43 -18 85 c-10 47 -30 123 -45 168 l-27 82 128 128 c70 70 128 136 128 146 0 41 -120 242 -151 252 -11 4 -90 -14 -179 -39 -87 -25 -165 -46 -172 -45 -7 0 -39 30 -71 67 -31 37 -84 90 -116 117 -33 28 -60 55 -60 60 -1 6 19 82 44 170 25 88 45 169 43 180 -4 30 -209 155 -255 155 -10 0 -73 -55 -146 -128 l-128 -128 -82 27 c-45 15 -121 35 -168 45 l-85 18 -43 172 c-23 94 -48 177 -54 183 -7 7 -61 11 -152 11 -91 0 -145 -4 -152 -11z m267 -270 c23 -92 47 -172 54 -177 6 -5 54 -17 106 -27 52 -9 147 -35 211 -56 64 -21 120 -39 124 -39 5 0 66 57 137 127 l129 128 55 -30 c31 -17 58 -33 60 -36 2 -4 -17 -76 -41 -162 -25 -86 -45 -167 -45 -180 0 -18 21 -41 80 -91 44 -36 114 -107 157 -156 60 -71 83 -90 103 -90 15 0 95 20 179 45 85 24 156 43 160 41 3 -2 19 -29 36 -60 l30 -55 -128 -129 c-70 -71 -127 -132 -127 -137 0 -4 18 -60 39 -124 21 -64 47 -160 57 -215 14 -76 23 -101 39 -111 11 -7 91 -30 177 -50 l157 -37 3 -36 c2 -21 1 -53 0 -74 l-4 -36 -169 -42 c-92 -23 -172 -47 -177 -54 -5 -6 -17 -54 -27 -106 -9 -52 -35 -147 -56 -211 -21 -64 -39 -120 -39 -124 0 -5 57 -66 127 -137 l128 -129 -30 -55 c-17 -31 -33 -58 -36 -60 -4 -2 -76 17 -162 41 -86 25 -167 45 -180 45 -17 0 -42 -23 -95 -85 -40 -47 -110 -117 -157 -157 -62 -53 -85 -78 -85 -95 0 -13 20 -94 45 -180 24 -86 43 -158 41 -162 -2 -3 -29 -19 -60 -36 l-55 -30 -129 128 c-71 70 -132 127 -137 127 -4 0 -60 -18 -124 -39 -64 -21 -159 -47 -211 -56 -52 -10 -100 -22 -106 -27 -7 -5 -31 -85 -54 -178 l-42 -169 -37 -3 c-20 -2 -52 -1 -73 0 l-36 4 -42 169 c-23 92 -47 172 -54 177 -6 5 -54 17 -106 27 -52 9 -147 35 -211 56 -64 21 -120 39 -124 39 -5 0 -66 -57 -137 -127 l-129 -128 -55 30 c-31 17 -58 33 -60 36 -2 4 17 76 41 162 25 86 45 167 45 180 0 17 -23 43 -85 96 -46 39 -117 110 -156 156 -53 62 -79 85 -96 85 -13 0 -94 -20 -180 -45 -86 -24 -158 -43 -162 -41 -3 2 -19 29 -36 60 l-30 55 128 129 c70 71 127 134 127 140 0 6 -13 46 -29 89 -30 83 -65 217 -76 295 -3 25 -12 51 -18 57 -7 5 -88 29 -179 52 l-167 41 -3 37 c-2 20 -1 52 0 72 l4 37 166 42 c92 22 172 46 179 51 6 6 15 32 18 57 11 78 46 212 76 295 16 43 29 83 29 89 0 6 -57 69 -127 140 l-128 129 30 55 c17 31 33 58 36 60 4 2 76 -17 162 -41 86 -25 167 -45 180 -45 17 0 43 23 96 85 39 46 110 117 156 156 62 53 85 79 85 96 0 13 -20 94 -45 180 -24 86 -43 158 -41 162 2 3 29 19 60 36 l55 30 129 -128 c71 -70 134 -127 140 -127 6 0 46 13 89 29 83 30 217 65 295 76 25 3 51 12 57 18 5 7 29 88 52 179 l41 167 37 3 c20 2 52 1 73 0 l36 -4 42 -169z"/>
+                  <path d="M1933 2671 c-89 -23 -178 -107 -215 -203 -67 -177 -2 -375 152 -462 49 -28 64 -31 135 -31 67 0 88 5 131 27 63 33 118 94 153 167 23 49 26 69 26 156 0 87 -3 107 -26 156 -56 118 -152 189 -264 195 -33 2 -74 -1 -92 -5z m153 -122 c77 -37 124 -125 124 -228 -1 -102 -48 -184 -126 -222 -143 -69 -298 70 -281 252 14 162 155 261 283 198z"/>
+                  <path d="M1576 1904 c-9 -8 -16 -17 -16 -19 0 -1 -25 -133 -55 -291 -30 -159 -55 -304 -55 -322 0 -63 1 -62 516 37 258 50 493 96 522 102 89 18 89 20 37 263 -25 114 -45 209 -45 211 0 2 -7 11 -16 19 -14 14 -68 16 -444 16 -376 0 -430 -2 -444 -16z m841 -241 c17 -82 31 -149 30 -149 -5 -4 -873 -170 -875 -168 -4 2 75 428 83 452 3 9 86 12 367 12 l363 0 32 -147z"/>
+                </g>
+              </svg>
+            </div>
+
+            <h2 class="custom-experience__title">Viva uma experiência personalizada com a Decathlon</h2>
+            <p class="custom-experience__subtitle"><strong>Uma conta.</strong> Diversos benefícios para seu esporte ficar ainda mais completo!</p>
+
+            <div class="custom-experience__button">
+              <a href="/beneficios-conta-decathlon" class="button button--small button--blue">Eu quero</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Custom Experience -->
+
+    <!-- START: Shelf 2 -->
+    <div class="shelf-carousel home-shelf">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="shelf__content home-shelf__content">
+              <vtex:contentPlaceHolder id="Vitrine Produtos - Destaque" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Shelf 2 -->
+
+    <!-- START: Shelf 3  -->
+    <div class="shelf-carousel home-shelf">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="shelf__content home-shelf__content">
+              <vtex:contentPlaceHolder id="Vitrine Produtos - Os Mais Vendidos" />
+            </div>
+
+            <div class="home-shelf__button">
+              <vtex:contentPlaceHolder id="Os Mais Vendidos - Botão" />
+              <a href="#" class="button button--small button--mobile-clean">Ver os mais vendidos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Shelf 3 -->
+
+    <!-- START: Shelf 4  -->
+    <div class="shelf-carousel home-shelf">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="shelf__content home-shelf__content">
+              <vtex:contentPlaceHolder id="Vitrine Produtos - Mais Procurados" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Shelf 4 -->
+
+    <!-- START: Informative -->
+    <section class="section-informative">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Decathlon Informa</h2>
+            </div>
+
+            <div class="slick-frame">
+              <vtex:contentPlaceHolder id="Informativo Decathlon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Informative -->
+
+  </main>
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Generico -->
+  <vtex:template id="0-dcs-web-generico" />
+  <!-- END - Subtemplate Generico -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <vtex:template id="0-dcs-web-scripts" />
+  <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

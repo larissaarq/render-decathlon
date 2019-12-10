@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+  <head>
+    <vtex:metaTags />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <script>
+        $(function (){
+            document.title = 'Login - Decathlon';
+        });
+    </script>
+  </head>
+
+  <body>
+    <!-- INICIO - Miolo da página -->
+    <main class="main" id="main">
+      <vtex:renderPlaceHolder id="auth" myVtexPath="/legacy-extensions/auth" extensionPoint="legacy-auth" />
+    </main>
+    <!-- FIM - Miolo da página -->
+    <script>
+        $(function (){
+            $('.btn-password-forgotten').attr("href", "https://www.decathlon.com.br/esqueci-minha-senha");
+        });
+    </script>
+  </body>
+</html>

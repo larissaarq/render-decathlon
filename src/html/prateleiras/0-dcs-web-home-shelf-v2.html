@@ -1,0 +1,94 @@
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
+
+<div class="shelf-item" data-product-id="$id" data-product-department="$product.DepartmentName" data-product-category="$product.CategoryName" data-product-brand="$product.BrandName" data-loader="loadShelf">
+  <!-- START: Favorite -->
+  <div class="shelf-item__favorite shelf-item__hover">
+    <button class="shelf-item__favorite-button">Favoritar</button>
+  </div>
+  <!-- END: Favorite -->
+
+  <!-- START: Flags -->
+  <div class="shelf-item__flags">
+    <div class="flag-discount">
+      $product.DiscountHightLight
+    </div>
+
+    <div class="flag-promotion">
+      $product.HightLight
+    </div>
+
+    <div class="flag-bestprice">
+      #if ($product.HasBestPrice)
+        <p class="flag flag--bestprice"></p>
+      #end
+    </div>
+  </div>
+  <!-- END: Flags -->
+
+  <!-- START: Image -->
+  <a href="$uri" class="shelf-item__img shelf-item__img-link" title="$escapedName">
+    <div class="shelf-item__image">
+      $product.GetImageTag(150, 150)
+    </div>
+  </a>
+  <!-- END: Image -->
+
+  <!-- START: Info -->
+  <div class="shelf-item__info">
+    <!-- START: Colors -->
+    <div class="shelf-item__colors"></div>
+    <!-- END: Colors -->
+
+    <!-- START: Brand -->
+    <a href="$uri" class="shelf-item__brand">$product.BrandName</a>
+    <!-- END: Brand -->
+
+    <!-- START: Name -->
+    <h3 class="shelf-item__title">
+      <a title="$escapedName" href="$uri" class="shelf-item__title-link">$product.Name</a>
+    </h3>
+    <!-- END: Name -->
+
+    <!-- START: Rate -->
+    <div class="shelf-item__rate">
+      $product.ProductField(28)
+    </div>
+    <!-- END: Rate -->
+
+    <!-- START: Price -->
+    <a href="$uri" class="shelf-item__buy-info">
+      #if ($product.IsInStock)
+        <div class="shelf-item__price">
+          <div class="shelf-item__list-price">
+            #if ($product.HasBestPrice)
+              antes <span class="shelf-item__featured">$product.ListPrice</span>
+            #end
+          </div>
+
+          #if ($product.HasBestPrice)
+            <div class="shelf-item__best-price">$product.BestPrice</div>
+          #else
+            <div class="shelf-item__best-price shelf-item__best-price--featured">$product.BestPrice</div>
+          #end
+
+          <div class="shelf-item__installments">
+            #if ($product.NumbersOfInstallment > 1)
+              até ${product.NumbersOfInstallment}x de $product.InstallmentValue
+            #end
+          </div>
+        </div>
+      #else
+        <div class="product-item__no-stock">
+          <div class="product-item__no-stock-title">Produto indisponível</div>
+
+          <div class="product-item__no-stock-link">Avise-me quando chegar</div>
+        </div>
+      #end
+    </a>
+    <!-- END: Price -->
+  </div>
+  <!-- END: Info -->
+  <input type="hidden" name="hidden-link" class="shelf-item__hidden-link" value="$uri">
+</div>

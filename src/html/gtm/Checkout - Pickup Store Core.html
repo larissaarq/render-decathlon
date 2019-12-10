@@ -1,0 +1,874 @@
+<script type="text/javascript">
+  $('link[href="//io.vtex.com.br/front-libs/font-awesome/3.2.1/css/font-awesome.min.css"]').remove();
+
+
+  (function () {
+    var initializing = false,
+      fnTest = /xyz/.test(function () {
+        xyz;
+      }) ? /\b_super\b/ : /.*/;
+
+    // The base Class implementation (does nothing)
+    this.ClassAvanti = function () {};
+
+    // Create a new Class that inherits from this class
+    ClassAvanti.extend = function (prop) {
+      var _super = this.prototype;
+
+      // Instantiate a base class (but only create the instance,
+      // don't run the init constructor)
+      initializing = true;
+      var prototype = new this();
+      initializing = false;
+
+      // Copy the properties over onto the new prototype
+      for (var name in prop) {
+        // Check if we're overwriting an existing function
+        prototype[name] = typeof prop[name] == "function" &&
+          typeof _super[name] == "function" && fnTest.test(prop[name]) ?
+          (function (name, fn) {
+            return function () {
+              var tmp = this._super;
+
+              // Add a new ._super() method that is the same method
+              // but on the super-class
+              this._super = _super[name];
+
+              // The method only need to be bound temporarily, so we
+              // remove it when we're done executing
+              var ret = fn.apply(this, arguments);
+              this._super = tmp;
+
+              return ret;
+            };
+          })(name, prop[name]) :
+          prop[name];
+      }
+
+      // The dummy class constructor
+      function ClassAvanti() {
+        // All construction is actually done in the init method
+        if (!initializing && this.init)
+          this.init.apply(this, arguments);
+      }
+
+      // Populate our constructed prototype object
+      ClassAvanti.prototype = prototype;
+
+      // Enforce the constructor to be what we expect
+      ClassAvanti.prototype.constructor = ClassAvanti;
+
+      // And make this class extendable
+      ClassAvanti.extend = arguments.callee;
+
+      return ClassAvanti;
+    };
+  })();
+
+  /* ########################################################################################## */
+
+  var APP = APP || {
+    core: {},
+    component: {},
+    controller: {},
+    i: {}
+  };
+
+  /* ########################################################################################## */
+
+  APP.component.CustomSelect = ClassAvanti.extend({
+    init: function (settings) {
+      this.settings = settings;
+      this.setup();
+      this.start();
+      this.bind();
+    },
+
+    setup: function () {
+      this.settings = jQuery.extend({
+        scope: '',
+        span: '',
+        select: '',
+        populateSpan: false,
+        createSpan: false,
+        spanValue: 'Selecione',
+        callback: function (value, text) {}
+      }, this.settings);
+
+      this.scope = this.settings.scope;
+      this.span = this.settings.span;
+      this.select = this.settings.select;
+      this.callback = this.settings.callback;
+      this.createSpan = this.settings.createSpan;
+      this.spanValue = this.settings.spanValue;
+      this.populateSpan = this.settings.populateSpan;
+    },
+
+    start: function () {
+      var text = this.select.find('option:selected').text();
+      if (!this.createSpan) {
+        this.setText(text);
+      }
+      this.generateSpan();
+    },
+
+    generateSpan: function () {
+      if (this.createSpan) {
+        var text = this.select.find('option:selected').text();
+        if (this.populateSpan && this.select.find('option').length > 1) {
+          text = this.spanValue;
+        }
+
+        var span = $('<span>' + text + '</span>');
+
+        span.appendTo(this.scope);
+        this.span = span;
+      }
+    },
+
+    setText: function (text) {
+      this.span.text(text);
+    },
+
+    change: function () {
+      var text = this.select.find('option:selected').text(),
+        value = this.select.find('option:selected').val();
+
+      this.setText(text);
+      this.callback(value, text);
+    },
+
+    bind: function () {
+      var _this = this;
+
+      this.select.on({
+        change: function () {
+          _this.change();
+        }
+      });
+    }
+  });
+
+  /* ########################################################################################## */
+
+  var PickupStore = {
+    init: function () {
+      console.log('[PickupStore: init]');
+      this.setup();
+    },
+
+    setup: function () {
+      var _this = this;
+
+      // Gravação de dados da ferramenta Inspectlet
+      this.saveEmail = false;
+
+      // Variaveis de controle da seleção do usuário e confirmação do modal
+      this.userClickSla = false;
+      this.userConfirmSla = false;
+
+      // CORE
+      this.stores = [];
+      this.selectedState = {};
+      this.selectedCity = {};
+      this.selectedStore = {};
+      this.currentStore = {};
+      this.avaiableStates = [];
+      this.avaiableCities = [];
+      this.avaiableStores = [];
+
+      // MODAL STORES
+      this.modalStores = $('.av-modal--pickupstore');
+      this.modalStoresBtnClose = this.modalStores.find('.av-modal-close');
+      this.modalStoresStates = this.modalStores.find('#pickupstore-state');
+      this.modalStoresCities = this.modalStores.find('#pickupstore-city');
+      this.modalStoresStores = this.modalStores.find('#pickupstore-store');
+      this.modalStoresInfo = this.modalStores.find('.pickupstore-info');
+      this.modalStoresBtnSubmit = this.modalStores.find('.pickupstore-btn');
+      this.modalStoresContainerStates = this.modalStores.find('.fake-select').eq(0);
+      this.modalStoresContainerCities = this.modalStores.find('.fake-select').eq(1);
+      this.modalStoresContainerStores = this.modalStores.find('.fake-select').eq(2);
+
+      // MODAL CONFIRM
+      this.modalConfirm = $('.av-modal--confirmacao');
+      this.modalConfirmBtnOk = this.modalConfirm.find('.confirmacao-btn--ok');
+      this.modalConfirmBtnClose = this.modalConfirm.find('.av-modal-close');
+      this.modalConfirmBtnCancel = this.modalConfirm.find('.confirmacao-btn--cancel');
+
+      // Espera vtex montar vtexjs, checkout, orderForm e logisticsInfo
+      this.startInterval = setInterval(function () {
+        if (_this.checkDependencies()) _this.start();
+      }, 200);
+    },
+
+    start: function () {
+      var _this = this;
+
+      // Cancela intervalo
+      clearInterval(this.startInterval);
+
+      // Chama os métodos para iniciar a aplicação
+      this.setStores();
+      this.startFakeSelect();
+      this.bind();
+
+      // Ocultando partes do modal de lojas
+      this.modalStoresContainerCities.hide();
+      this.modalStoresContainerStores.hide();
+      this.modalStoresInfo.hide();
+      this.modalStoresBtnSubmit.hide();
+
+      // Intervalo que controla tudo, já que os eventos não esperam o DOM ser manipulado
+      this.mountPickupStore();
+    },
+
+    mountPickupStore: function () {
+      var _this = this;
+      
+      // var interval = setInterval(function(){
+      //   if (_this.checkDependencies()) {
+      //     _this.hashCheck();
+      //   }
+      // }, 1000);
+
+      if (_this.checkDependencies()) {
+        _this.hashCheck();
+      }
+    },
+
+    checkDependencies: function () {
+      return (
+        vtexjs &&
+        typeof vtexjs != "undefined" &&
+        vtexjs.checkout &&
+        typeof vtexjs.checkout != "undefined" &&
+        vtexjs.checkout.orderForm &&
+        typeof vtexjs.checkout.orderForm != "undefined" &&
+        vtexjs.checkout.orderForm.shippingData &&
+        typeof vtexjs.checkout.orderForm.shippingData != "undefined" &&
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0] &&
+        typeof vtexjs.checkout.orderForm.shippingData.logisticsInfo[0] != "undefined"
+      ) ? true : false;
+    },
+
+    setStores: function () {
+      // JSON com informações das lojas
+      this.stores = pickupStoreJson;
+    },
+
+    startFakeSelect: function () {
+      // Inicia o componente CustomSelect para os selects do modal
+      this.modalStores.find('.fake-select').each(function () {
+        var self = $(this),
+          select = self.find('select'),
+          text = select.find('option:eq(0)').val();
+
+        new APP.component.CustomSelect({
+          scope: self,
+          select: select,
+          populateSpan: true,
+          createSpan: true,
+          spanValue: text
+        });
+      })
+    },
+
+    resetUserActions: function () {
+      this.userClickSla = false;
+      this.userConfirmSla = false;
+    },
+
+    selectedSlaIsLoja: function () {
+      return (
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla &&
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla.indexOf('Loja') > -1 &&
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla != 'Retirar em Loja'
+      ) ? true : false;
+    },
+
+    selectedSlaIsFake: function () {
+      return (
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla &&
+        vtexjs.checkout.orderForm.shippingData.logisticsInfo[0].selectedSla == 'Retirar em Loja'
+      ) ? true : false;
+    },
+
+    selectFakeSla: function () {
+      // Clique na opção da transportadora fake na etapa cart
+      $('.shipping-sla-options li.seller-1-sla-RetiraremLoja:eq(0) a').trigger('click');
+
+      var btnFake = $('.delivery-shipping-options .shipping-option-item[for=“seller-1-sla-RetiraremLoja”]:eq(0)');
+      btnFake.removeClass('active');
+
+      // Clique na opção da transportadora fake na etapa shipping
+      btnFake.trigger('click');
+    },
+
+    cartCheck: function () {
+      $('.step-element').removeClass('active');
+      $('.step-2, .step-3').removeClass('current');
+      $('.step-1').addClass('current');
+
+      // Se usuário não esta com a transportadora fake selecionada e ainda não fez nenhuma seleção, seleciona a fake
+      if (!this.selectedSlaIsFake() && !this.userClickSla) this.selectFakeSla();
+
+      // Insere aviso sobre escolha da forma de pagamento
+      $('.cart-shipping__resume').remove();
+
+      var markup = '<tbody class="cart-shipping__resume">';
+      markup += '<tr>';
+      markup += '<td colspan="4">';
+      markup += '<span class="cart-shipping__alert">';
+      markup += 'Selecione a forma de entrega na finalização da compra.';
+      markup += '</span>';
+      markup += '</td>';
+      markup += '</tr>';
+      markup += '</tbody>';
+
+      $('.full-cart .shipping-calculate').after(markup);
+    },
+
+    emailCheck: function () {
+      // Se usuário não esta com a transportadora fake selecionada e ainda não fez nenhuma seleção, seleciona a fake
+      if (!this.selectedSlaIsFake() && !this.userClickSla) this.selectFakeSla();
+    },
+
+    profileCheck: function () {
+      // Se usuário não esta com a transportadora fake selecionada e ainda não fez nenhuma seleção, seleciona a fake
+      if (!this.selectedSlaIsFake() && !this.userClickSla) this.selectFakeSla();
+
+      // Exibe ou não pagamento
+      this.changeBtnPaymentDisplay();
+
+      // Insere informações do ponto de retirada
+      this.changeShippingResume();
+    },
+
+    shippingCheck: function () {
+      $('.step-1').addClass('active');
+
+      if ($('.step-1').hasClass('current')) {
+        $(this).removeClass('current')
+      };
+
+      $('.step-2').addClass('current');
+
+      // Se usuário não esta com a transportadora fake selecionada e ainda não fez nenhuma seleção, seleciona a fake
+      if (!this.selectedSlaIsFake() && !this.userClickSla) this.selectFakeSla();
+
+      // Se usuário estive com transportadora loja mas não fez a escolha, seleciona a fake
+      if (this.selectedSlaIsLoja() && !this.userClickSla) this.selectFakeSla();
+
+      if (vtexjs && vtexjs.checkout.orderForm.giftRegistryData == null) {
+        // Exclue e cria divisor das transportadoras comuns e transportadoras loja
+        $('.receba-em-casa, .retire-em-loja').remove();
+
+        $('[for*="RetiraremLoja"]')
+          .parents('.sla-items-list')
+          .prepend($('<div class="receba-em-casa">QUER RECEBER EM CASA?</div>'));
+
+        var markup = '<div class="retire-em-loja">';
+        markup += 'QUER RETIRAR NA LOJA?<br />';
+        markup += '<div class="retire-em-loja--text">';
+        markup += 'O tempo estimado em dias úteis é o prazo para que o seu pedido ';
+        markup += '<strong>chegue até a loja escolhida</strong> após a confirmação do pagamento.';
+        markup += '</div>';
+        markup += '</div>';
+
+        $('[for*="RetiraremLoja"]')
+          .parents('.sla-items-list')
+          .append($(markup));
+
+        // Exclue e cria botão fake, se transportadora loja não esta selecionada
+        $('.cloneBtnFake-fake').remove();
+
+        if (!this.selectedSlaIsLoja()) {
+          $('.retire-em-loja')
+            .after(
+              $('[for*="RetiraremLoja"] .shipping-option-item-text-wrapper')
+              .clone()
+              .addClass('cloneBtnFake cloneBtnFake-fake')
+              .append('<i class="icon-circle-blank"></i>')
+            );
+        }
+
+        // Exclue e cria botão fake (cópia da transportadora loja selecionada), se transportadora loja esta selecionada
+        $('.cloneBtnFake-loja').remove();
+
+        if (this.selectedSlaIsLoja()) {
+          $('.retire-em-loja')
+            .after(
+              $('[for*="Loja"]')
+              .filter('.active')
+              .find('.shipping-option-item-text-wrapper')
+              .clone()
+              .addClass('copyBtnFake cloneBtnFake-loja')
+              .find('.shipping-option-item-name')
+              .text('Retirar em loja')
+              .parents('.cloneBtnFake-loja')
+              .append('<i class="icon-ok-circle"></i>')
+            );
+        }
+
+        // Criar botão para trocar de transportadora loja
+        $('.change-selected-store-container-shipping').remove();
+
+        var markup = '<div class="change-selected-store-container-shipping">';
+        markup += '<a href="javascript:;" class="change-selected-store-shipping">';
+        markup += 'Selecionar outra loja para retirada.';
+        markup += '</a>';
+        markup += '</div>';
+
+        if (this.selectedSlaIsLoja()) $(markup).appendTo('.sla-items-list');
+      };
+
+      // esconde ou mostra o frete no resumo, caso o retire em loja fake esteja selecionado
+      this.selectedSlaIsFake() ?
+        $('.totalizers-list .Shipping').hide() :
+        $('.totalizers-list .Shipping').show();
+
+      // Exibe ou não pagamento
+      this.changeBtnPaymentDisplay();
+
+      if (!this.selectedSlaIsFake() && !this.userClickSla) this.changeShippingResume();
+      if (this.selectedSlaIsLoja() && this.userClickSla) this.changeShippingResume();
+    },
+
+    paymentCheck: function () {
+      $('.step-1, .step-2').addClass('active');
+
+      if ($('.step-2').hasClass('current')) {
+        $(this).removeClass('current')
+      };
+
+      $('.step-3').addClass('current');
+
+      // Salva email para a ferramenta Inspectlet, caso ainda não tenha sido salvo
+      if (!this.saveEmail) this.pushInspectletEmail();
+
+      // Se o usuário não fez a escolha, volta para o shipping
+      if (!this.userClickSla) {
+        this.goToShipping();
+        return false;
+      }
+
+      // Se o usuário estiver com a transportadora fake, volta para o shipping
+      if (this.selectedSlaIsFake()) {
+        this.goToShipping();
+        return false;
+      }
+
+      // Se o usuário estiver com transportadora loja e ainda não estiver confirmado, apresenta modal
+      if (this.selectedSlaIsLoja() && !this.userConfirmSla) this.showModalConfirm();
+
+      // Insere informações do ponto de retirada
+      this.changeShippingResume();
+
+      $('body').addClass('teste-paymentCheck');
+    },
+
+    pushInspectletEmail: function () {
+      try {
+        if (vtexjs.checkout.orderForm.clientProfileData.email) {
+          __insp.push(['tagSession', {
+            email: vtexjs.checkout.orderForm.clientProfileData.email
+          }]);
+        }
+      } catch (e) {
+        console.log('[Erro ao salvar tag para o Inspectlet] ' + e);
+      }
+
+      this.saveEmail = true;
+    },
+
+    changeBtnPaymentDisplay: function () {
+      // não mostrar btn de ir pagamento antes de preencher o cep
+      if ($('#ship-postal-code').hasClass('success')) {
+
+        // Se o usuário estiver com a transportadora fake, esconde o pagamento
+        if (this.selectedSlaIsFake()) $('.btn-go-to-payment-wrapper, #payment-data').hide();
+
+        // Se o usuário não estiver com a transportadora fake, exibe o pagamento
+        if (!this.selectedSlaIsFake()) $('.btn-go-to-payment-wrapper, #payment-data').show();
+
+      }
+    },
+
+    isEmptyObject: function (obj) {
+      for (var prop in obj) {
+        if (!obj.hasOwnProperty(prop)) {
+          return false;
+        }
+      }
+
+      return true;
+    },
+
+    changeShippingResume: function () {
+      $('.retire-info').remove();
+
+      var markup = '<div class="retire-info">';
+      markup += '<p class="retire-info__title">';
+      markup += '<strong>Endereço para retirada na loja:</strong>';
+      markup += '</p>';
+      markup += '<p>Cidade: ' + this.currentStore.city + '</p>';
+      markup += '<p>' + this.currentStore.name + '</p>';
+      markup += '<p>' + this.currentStore.address + '</p>';
+      markup += '<p>' + this.currentStore.phone + '</p>';
+      markup += '<p>' + this.currentStore.hour + '</p>';
+      markup += '<p class="retire-info__title">';
+      markup += '<strong>Seu endereço:</strong>';
+      markup += '</p>';
+      markup += '</div';
+
+      if (this.selectedSlaIsLoja()) $(markup).prependTo('#shipping-data .accordion-inner');
+    },
+
+    resetStateOptions: function () {
+      // Limpa os opções do select de estatos
+      if (this.avaiableStates.length) this.avaiableStates.remove();
+    },
+
+    resetCitiesOptions: function () {
+      // Limpa os opções do select de cidades
+      if (this.avaiableCities.length) this.avaiableCities.remove();
+    },
+
+    resetStoresOptions: function () {
+      // Limpa os opções do select de lojas
+      if (this.avaiableStores.length) this.avaiableStores.remove();
+    },
+
+    populateOptions: function () {
+      var states = [],
+          cities = [],
+          _this = this;
+
+      this.optionsStates = [];
+      this.optionsCities = [];
+      this.optionsStores = [];
+
+      // Percorre pelos registros do JSON de lojas
+      _this.stores.map(function (store) {
+        var city = store.cidade,
+          state = store.estado,
+          name = store.nome,
+          transp = store.transportadora;
+
+        if (_this.checkAvaiable(transp)) {
+
+          // Adiciona estados no select
+          if (states.indexOf(state) < 0) {
+            states.push(state);
+            _this.optionsStates.push(store)
+          }
+
+          // Adiciona cidades no select
+          if (cities.indexOf(city) < 0) {
+            cities.push(city)
+            _this.optionsCities.push(store)
+          }
+
+          _this.optionsStores.push(store)
+        }
+      });
+    },
+
+    checkAvaiable: function (name) {
+      // Verifica se as lojas estão disponíveis no html
+      return ($('[for="seller-1-sla-' + this.slugToSelect(name) + '"]').length) ? true : false;
+    },
+
+    slugToSelect: function (str) {
+      return (this.slug(str)).replace(/\s+/g, '');
+    },
+
+    slug: function (str) {
+
+      str = str.replace(/^\s+|\s+$/g, '');
+
+      var from = "ÃÀÁÄÂẼÈÉËÊÌÍÏÎÕÒÓÖÔÙÚÜÛÑÇãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
+      var to = "aaaaaeeeeeiiiiooooouuuuncaaaaaeeeeeiiiiooooouuuunc------";
+
+      for (var i = 0, l = from.length; i < l; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+      }
+
+      str = str.replace(/[^A-Za-z0-9 .-]/g, '');
+
+      return str;
+    },
+
+    buildOption: function (data, type) {
+
+      var types = {
+        'state': data.estado,
+        'city': data.cidade,
+        'store': data.nome.replace('Loja - ', '')
+      };
+
+      var markup = '<option ';
+      markup += 'data-city="' + data.cidade + '" ';
+      markup += 'data-address="' + data.endereco + '" ';
+      markup += 'data-state="' + data.estado + '" ';
+      markup += 'data-hour="' + data.horario + '" ';
+      markup += 'data-name="' + data.nome + '" ';
+      markup += 'data-phone="' + data.telefone + '" ';
+      markup += 'data-carrier="' + data.transportadora + '">';
+      markup += types[type] + '</option>';
+
+      return markup;
+    },
+
+    showAvailableStates: function () {
+      // Popula os estados disponíveis
+      var _this = this;
+
+      _this.optionsStates.map(function (state) {
+        $(_this.buildOption(state, 'state')).appendTo(_this.modalStoresStates)
+      });
+
+      _this.avaiableStates = _this.modalStoresStates.find('option').not(':eq(0)');
+    },
+
+    showAvailableCities: function () {
+      // Popula as cidades disponíveis de acordo com a seleção de estado
+      var _this = this;
+
+      _this.optionsCities.map(function (city) {
+        if (city.estado == _this.selectedState.state)
+          $(_this.buildOption(city, 'city')).appendTo(_this.modalStoresCities);
+      });
+
+      _this.avaiableCities = _this.modalStoresCities.find('option').not(':eq(0)');
+    },
+
+    showAvailableStores: function () {
+      // Popula as lojas disponíveis de acordo com a seleção de cidade
+      var _this = this;
+
+      _this.optionsStores.map(function (store) {
+        if (store.cidade == _this.selectedCity.city)
+          $(_this.buildOption(store, 'store')).appendTo(_this.modalStoresStores);
+      });
+
+      _this.avaiableStores = _this.modalStoresStores.find('option').not(':eq(0)');
+    },
+
+    populateModalStoresInfo: function () {
+      var markup = '<span class="pickupstore-info__name">' + this.selectedStore.name + '</span>';
+      markup += '<span class="pickupstore-info__text">' + this.selectedStore.address + '</span>';
+      markup += '<span class="pickupstore-info__text">Telefone: ' + this.selectedStore.phone + '</span>';
+      markup += '<span class="pickupstore-info__text">Horário: ' + this.selectedStore.hour + '</span>';
+
+      this.modalStoresInfo.html(markup);
+    },
+
+    getDataAttr: function (elm) {
+      return ({
+        city: elm.attr('data-city'),
+        address: elm.attr('data-address'),
+        state: elm.attr('data-state'),
+        hour: elm.attr('data-hour'),
+        name: elm.attr('data-name'),
+        phone: elm.attr('data-phone'),
+        carrier: elm.attr('data-carrier')
+      });
+    },
+
+    selectStore: function () {
+      $('[for="seller-1-sla-' + this.slugToSelect(this.selectedStore.carrier) + '"]').trigger('click', {
+        pickupstore: true
+      });
+      this.currentStore = this.getDataAttr(this.avaiableStores.filter(':selected'));
+      this.hideModalStores();
+    },
+
+    startModalStores: function () {
+      this.modalStoresStates.find('option').eq(0).prop('selected', true);
+      this.modalStoresStates.trigger('change');
+      this.modalStoresContainerCities.hide();
+      this.modalStoresContainerStores.hide();
+      this.modalStoresInfo.hide();
+      this.modalStoresBtnSubmit.hide();
+      this.resetStateOptions();
+      this.populateOptions();
+      this.showAvailableStates();
+      this.showModalStores();
+    },
+
+    showModalConfirm: function () {
+      this.modalConfirm.show();
+    },
+
+    hideModalConfirm: function () {
+      this.modalConfirm.hide();
+    },
+
+    showModalStores: function () {
+      this.modalStores.show();
+    },
+
+    hideModalStores: function () {
+      this.modalStores.hide();
+    },
+
+    goToShipping: function () {
+      location.hash = '#/shipping';
+    },
+
+    hashCheck: function () {
+      var hash = location.hash;
+
+      switch (hash) {
+        case '#/cart':
+          this.cartCheck();
+          break;
+        case '#/email':
+          this.emailCheck();
+          break;
+        case '#/profile':
+          this.profileCheck();
+          break;
+        case '#/shipping':
+          this.shippingCheck();
+          break;
+        case '#/payment':
+          this.paymentCheck();
+          break;
+        default:
+      }
+    },
+
+    bind: function () {
+      var _this = this;
+
+      // Clique do usuário na forma de entrega
+      $('body').on('click', 'label.shipping-option-item', function (event, param) {
+        var param = param || {},
+          event = event || {};
+
+        if ((typeof (event.originalEvent) !== "undefined" || param.pickupstore == true) &&
+          $(this).attr('for') != 'seller-1-sla-RetiraremLoja') {
+          _this.userClickSla = true;
+        }
+      });
+
+      // Clique no botão fake para abrir modal
+      $('body').on('click', '.cloneBtnFake', function () {
+        _this.startModalStores();
+      });
+
+      // Clique no botão trocar de loja para abrir modal
+      $('body').on('click', '.change-selected-store-shipping', function () {
+        _this.startModalStores();
+      });
+
+      // Clique no endereço na etapa shipping
+      $('body').on('click', '#shipping-data .address-list .address-item ', function () {
+        _this.resetUserActions();
+      });
+
+      // Clique no botão fechar do modal stores
+      _this.modalStoresBtnClose.on('click', function () {
+        _this.hideModalStores();
+      });
+
+      // Clique no botão fechar do modal confirm
+      _this.modalConfirmBtnClose.on('click', function () {
+        _this.goToShipping();
+        _this.hideModalConfirm();
+      });
+
+      // Clique no botão cancelar do modal confirm
+      _this.modalConfirmBtnCancel.on('click', function () {
+        _this.goToShipping();
+        _this.hideModalConfirm();
+      });
+
+      // Clique no botão confirmar do modal confirm
+      _this.modalConfirmBtnOk.on('click', function () {
+        _this.userConfirmSla = true;
+        _this.hideModalConfirm();
+      });
+
+      // Change dos select de estados do modal de lojas
+      _this.modalStoresStates.on('change', function () {
+        if ($(this).val() != null) {
+          _this.selectedState = _this.getDataAttr(_this.avaiableStates.filter(':selected'));
+          _this.selectedCity = {};
+          _this.selectedStore = {};
+          _this.modalStoresCities.find('option').eq(0).prop('selected', true);
+          _this.modalStoresCities.trigger('change');
+          _this.resetCitiesOptions();
+          _this.showAvailableCities();
+          _this.modalStoresContainerCities.show();
+          _this.modalStoresContainerStores.hide();
+          _this.modalStoresInfo.hide();
+          _this.modalStoresBtnSubmit.hide();
+        }
+      });
+
+      // Change dos select de cidades do modal de lojas
+      _this.modalStoresCities.on('change', function () {
+        if ($(this).val() != null) {
+          _this.selectedCity = _this.getDataAttr(_this.avaiableCities.filter(':selected'));
+          _this.selectedStore = {};
+          _this.modalStoresStores.find('option').eq(0).prop('selected', true);
+          _this.modalStoresStores.trigger('change');
+          _this.resetStoresOptions();
+          _this.showAvailableStores();
+          _this.modalStoresContainerStores.show();
+          _this.modalStoresInfo.hide();
+          _this.modalStoresBtnSubmit.hide();
+        }
+      });
+
+      // Change dos select de lojas do modal de lojas
+      _this.modalStoresStores.on('change', function () {
+        if ($(this).val() != null) {
+          _this.selectedStore = _this.getDataAttr(_this.avaiableStores.filter(':selected'));
+          _this.populateModalStoresInfo();
+          _this.modalStoresInfo.show();
+          _this.modalStoresBtnSubmit.show();
+        }
+      });
+
+      // Clique no botão escolher lojas no modal de lojas
+      _this.modalStoresBtnSubmit.on('click', function () {
+        if (_this.selectedStore != '') _this.selectStore();
+
+        setTimeout(function() {
+          _this.mountPickupStore();
+        }, 1000);
+      });
+
+      // Eventos vtex
+      $(window).on('addressKeysUpdated.vtex', function () {
+        _this.resetUserActions();
+      });
+
+      $(window).on('addressSearchResult.vtex', function () {
+        _this.resetUserActions();
+      });
+
+      $(window).on("orderFormUpdated.vtex", function () {
+        _this.mountPickupStore();
+      });
+    }
+  };
+
+  $(function() {
+    PickupStore.init();
+  });
+
+  $(window).on('load', function () {
+
+    var itens = ($('.cart-items .product-item:last').index() + 1);
+
+    $('.js-number').text(itens);
+
+  });
+
+  var pickupStoreJson = {{pickupStoreJson}};
+</script>

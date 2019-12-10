@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+  lang="pt-br">
+
+<head>
+  <vtex:metaTags/>
+  <meta name="controller" content="Account" />
+
+  <!-- INICIO - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- FIM - Subtemplate Metatags -->
+
+  <!-- INICIO - Style e Subtemplate Styles -->
+  <vtex:template id="0-dcs-web-styles" />
+  <!-- FIM - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- INICIO - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header" />
+  <!-- FIM - Subtemplate Header -->
+
+  <!-- INICIO - Miolo da página -->
+  <main class="main" id="main">
+    <div class="account-content">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="header-welcome hidden" style="display: none;">
+              <vtex.cmc:welcomeMessage />
+          </div>          
+          <div class="register-form-wrapper">
+            <h1>Editar Conta</h1>
+            <h2>Edite abaixo suas informações.</h2>
+            <form class="register-form" name="new-register">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="contact[email]" class="input-text input-text-email" aria-label="Email" required="required" disabled="disabled"/>
+
+              <div class="input-group personal-info">
+                <h3 class="register-form-subtitle">1. Informações Pessoais</h3>
+                <div class="input-group-gender">
+                  <div class="input-group-text">Gênero</div>
+                  <input class="input-radio" type="radio" value="1" id="masculino" name="identity_individual[sexe]" required="required"/>
+                  <label for="masculino">Masculino</label>
+                  <input class="input-radio" type="radio" value="2" id="feminino" name="identity_individual[sexe]" required="required"/>
+                  <label for="feminino">Feminino</label>
+                </div>
+                <div class="input-group-half-block">
+                  <input type="hidden" name="identity_individual[country_code]" value=""/>
+                  <input type="hidden" name="identity_individual[langue]" value=""/>
+                  <div class="input-name input-text-large">
+                    <label for="name">Nome *</label>
+                    <input type="text" name="identity_individual[name]" id="name" class="input-text" aria-label="Nome" required="required"/>
+                  </div>
+                  <div class="input-surname input-text-large">
+                    <label for="surname">Sobrenome *</label>
+                    <input type="text" name="identity_individual[surname]" id="surname" class="input-text" aria-label="Sobrenome" required="required"/>
+                  </div>
+                  <div class="input-name2 input-text-large">
+                    <label for="name2">Como gostaria de ser chamado?</label>
+                    <input type="text" name="identity_individual[name2]" id="name2" class="input-text" aria-label="Como gostaria de ser chamado?" />
+                  </div>
+                </div>
+                <div class="input-group-half-block">
+                  <div class="input-cpf input-text-half">
+                    <input type="hidden" name="identity_individual[national_id_type]" value="CPF"/>
+                    <label for="national_id">CPF *</label>
+                    <input type="text" name="identity_individual[national_id]" id="national_id" class="input-text input-text-cpf" aria-label="CPF" required="required" disabled="disabled"/>
+                  </div>
+                  <div class="input-birthdate input-text-half">
+                    <label for="birthdate">Data de Nascimento *</label>
+                    <input type="text" name="identity_individual[birthdate]" id="birthdate" class="input-text input-text-birthdate" aria-label="Data de Nascimento" required="required"/>
+                  </div>
+                  <div class="input-mobile input-text-half">         
+                    <label for="mobile">Celular *</label>
+                    <input type="text" name="contact[mobile]" id="mobile" class="input-text input-text-phone" aria-label="Celular" placeholder="DDD + número" required="required"/>
+                    <input type="hidden" name="contact[mobile_country_code]" value=""/>
+                  </div>
+                  <div class="input-telephone input-text-half">
+                    <label for="landline">Telefone Fixo</label>
+                    <input type="text" name="contact[landline]" id="landline" class="input-text input-text-phone" aria-label="Telefone Fixo" placeholder="DDD + número" />
+                    <input type="hidden" name="contact[landline_country_code]" value=""/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group address-info">
+                <h3 class="register-form-subtitle">2. Endereço de Entrega</h3>
+<!--                 <div class="billing-address-block">
+                  <input type="hidden" name="billing_address[id_address]" value=""/>
+                  <input type="hidden" name="billing_address[country_code]" value=""/>
+                  <input type="hidden" name="billing_address[street_name]" value=""/>
+                  <input type="hidden" name="billing_address[line2]" value=""/>
+                  <input type="hidden" name="billing_address[street_number]" value=""/>
+                  <input type="hidden" name="billing_address[district]" value=""/>
+                  <input type="hidden" name="billing_address[postal_code]" value=""/>
+                  <input type="hidden" name="billing_address[city]" value=""/>
+                  <input type="hidden" name="billing_address[province]" value=""/>
+                  <input type="hidden" name="billing_address[additionnal_data]" value=""/>                   
+                </div>
+                <hr/> -->
+
+                <div class="shipping-addresses"></div>
+                <div class="add-address">
+                  <a href="javascript:;" class="btn-add-address">Adicionar Novo Endereço</a>
+                </div>                
+                <hr/>                
+              </div>
+
+              <div class="input-group additional-info">
+                <div class="register-sports-list">
+                  <p>Queremos saber um pouco mais sobre você, por favor escolha os esportes que você gosta.</p>
+                  <div class="register-sports-choice" data-name="sport">
+                    <li class="register-item">
+                      <a class="register-sports-add" href="javascript:;" data-target="av-modal-register--sports"><i></i><span>Adicionar um<br/>Esporte</span></a>
+                    </li>
+                  </div>
+                  <div class="register-sports-none">
+                    <input type="checkbox" id="sports-none" name="sports[do_not_practiced_sports]" value="true" />
+                    <label for="sports-none">Eu não pratico esporte</label>
+                  </div>
+                </div>
+
+                <div class="register-stores-list">
+                  <p>Agora selecione a loja de sua preferência.</p>
+                  <div class="register-stores-choice" data-name="store">
+                    <li class="register-item">
+                      <a class="register-stores-add" href="javascript:;" data-target="av-modal-register--stores"><i></i><span>Adicionar uma<br/>Loja</span></a>
+                    </li>
+                  </div>
+                  <div class="register-stores-none">
+                    <input type="radio" id="stores-none" name="stores[num_third_usual]" value="811" />
+                    <label for="stores-none">Não quero selecionar uma loja</label>
+                  </div>
+                </div>                
+              </div>
+
+              <div class="input-group final-info">
+                <div class="input-group-half-block"> 
+                  <div class="register-password">
+
+                    <label for="old_password">Digite sua senha atual</label>
+                    <div class="input-password">
+                      <input type="password" id="old_password" name="old_password" class="input-text input-text-password"/>
+                    </div>
+
+                    <label for="password">Digite sua nova senha</label>
+                    <div class="input-password">
+                      <input type="password" id="new_password" name="new_password" class="input-text input-text-password"/>
+                      <span class="input-password-icon"></span>
+                    </div>                    
+                    <div class="password-meter">
+                      <b>Sua nova senha deve possuir:</b>
+                      <ul class="password-meter-list">
+                        <li class="password-meter-condition password-condition1"><i></i>Pelo menos 8 caracteres</li>
+                        <li class="password-meter-condition password-condition2"><i></i>Pelo menos 1 caractere maiúsculo e 1 minúsculo</li>
+                        <li class="password-meter-condition password-condition3"><i></i>Pelo menos 1 letra</li>
+                        <li class="password-meter-condition password-condition4"><i></i>Pelo menos 1 número</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group-half-block"> 
+                  <div class="register-newsletter"> 
+                    <p>Aceita receber nossas dicas, ofertas esportivas, informações sobre os eventos de sua loja para acompanhá-lo em sua prática? <br/>
+                      Nossa equipe de especialistas trazem os melhores conselhos sobre seus esportes favoritos durante o ano todo.
+                    </p>
+                    <div class="newsletter-group">
+                      <input type="hidden" name="optin[type]" value="" />
+                      <input type="hidden" name="optin[id]" value="" />
+                      <input type="radio" name="optin[value]" id="agree-news" value="true" />
+                      <label for="agree-news">Sim</label>
+                      <input type="radio" name="optin[value]" id="degree-news" value="false" />
+                      <label for="degree-news">Não</label> 
+                    </div>                
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group form-buttons">
+                <p>Criando sua conta você aceita a nossa <a href="javascript:;" class="register-privacy-btn" data-target="av-modal-register--privacy">Política de Privacidade</a>.</p>
+                <div class="input-group-half-block"> 
+                  <a href="javascript:;" class="register-back-btn">Voltar</a>
+                </div>
+                <div class="input-group-half-block"> 
+                  <button type="submit" class="register-create-btn">Atualizar Conta</button>
+                </div>                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="register-modals">
+      <!-- SPORTS/STORES MODAL -->
+      <div class="register-modals">
+        <div class="av-modal av-modal-register--sports">
+          <div class="av-modal__modal">
+            <div class="av-modal__header">
+              <a href="javascript:;" class="av-modal-close"></a>
+              <div class="av-modal-register--title">
+                <b>ADICIONAR UM OU MAIS ESPORTES</b>
+                <p>Selecionando seus esportes favoritos poderemos ter um contato personalizado e te ajudar em todos os seus esportes.</p>
+              </div>  
+            </div>
+
+            <div class="av-modal__content">
+              <form>
+                <ul class="selection-register-sports-list"></ul>
+              </form>
+              <div class="selection-register-btn">
+                <a href="javascript:;" class="selection-register-save-btn" data-target="register-sports-choice">Salvar</a>
+              </div>                      
+            </div>
+          </div>
+        </div>
+
+        <div class="av-modal av-modal-register--stores">
+          <div class="av-modal__modal">
+            <div class="av-modal__header">
+              <a href="javascript:;" class="av-modal-close"></a>
+              <div class="av-modal-register--title">
+                <b>ADICIONAR UMA LOJA</b>
+                <p>Selecionando sua loja favorita poderemos ter um contato personalizado e te ajudar em todos os eventos que acontecerão em sua loja.</p>
+              </div>            
+            </div>
+
+            <div class="av-modal__content">
+              <form>
+                <ul class="selection-register-stores-list"></ul>
+              </form>
+              <div class="selection-register-btn">
+                <a href="javascript:;" class="selection-register-save-btn" data-target="register-stores-choice">Salvar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div class="av-modal av-modal-register--privacy">
+        <div class="av-modal__modal">
+          <div class="av-modal__header">
+            <a href="javascript:;" class="av-modal-close"></a>
+            <div class="av-modal-register--title">
+              <b>POLÍTICA DE PRIVACIDADE</b>
+            </div>  
+          </div>
+
+          <div class="av-modal__content">
+            <div class="register-privacy-text">
+              <vtex:contentPlaceHolder id="Política de Privacidade" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </main>
+  <!-- FIM - Miolo da página -->
+
+  <!-- START - Subtemplate Generico -->
+  <vtex:template id="0-dcs-web-generico" />
+  <!-- END - Subtemplate Generico -->
+
+  <!-- INICIO - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- FIM - Subtemplate Footer -->
+
+  <!-- INICIO - Scripts e Subtemplate Scripts -->
+  <vtex:template id="0-dcs-web-scripts" />
+  <!-- FIM - Subtemplate Scripts -->
+</body>
+
+</html>

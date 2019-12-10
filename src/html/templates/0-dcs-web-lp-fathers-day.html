@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+<head>
+    <vtex:metaTags />
+    <meta name="controller" content="LpBuyTogetherList" />
+    
+    <!-- START - Subtemplate Metatags -->
+    <vtex:template id="0-dcs-web-metatags" />
+    <!-- END - Subtemplate Metatags -->
+    
+    <!-- START - Style e Subtemplate Styles -->
+    <!-- <vtex:template id="0-dcs-web-styles" /> -->
+    <!-- END - Subtemplate Styles -->
+    <script>        
+        window.productsBuyTogether = [];
+        window.productsBuyTogether.push(<vtex.cmc:productsBuyTogether />);
+    </script>
+    
+    <link rel="stylesheet" href="/arquivos/0-dcs-web-lp-panoplies.css" />
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <vtex:contentPlaceHolder id="Title" />
+</head>
+
+<body>
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-desktop" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  
+  <main class="main">
+    <div class="main_container">
+
+      <section class="banner">
+        <div class="banner_bg">
+            <vtex:contentPlaceHolder id="Banner Principal"/>
+        </div>
+
+        <div class="banner_ctas">
+          <div class="banner_ctas_box">
+            <h2 class="banner_ctas_box-title">presentes <br />
+              <span>por preço</span>
+            </h2>
+            <vtex:contentPlaceHolder id="CTAs Preços" />
+          </div>
+        </div>
+        
+      </section>
+
+     <section class="showcase">
+        <h2 class="showcase_title">Sugestões de Kits</h2>
+        
+        <section class="section__content">
+            <ul class="section__products-list"></ul>
+        </section>
+      </section>
+
+      <section class="box-categories">
+        <div class="banner_title">
+          <h1>Para o seu pai <span>que gosta de:</span>
+          </h1>
+        </div>
+        <vtex.cmc:boxSportsImages />
+      </section>
+
+      <section class="link_wrapper">
+        <a href="/presente-para-o-dia-dos-pais#1" class="button button--large button--blue gaClick" data-event-category="Esporte" data-event-action="Click CTA" data-event-label="Ver mais Esportes">
+          <span>Ver mais esportes</span>
+        </a>
+      </section>
+
+      <section class="gift_card">
+        <h2>Ainda na dúvida?</h2>
+        <div class="gift_card_box">
+          <div class="gift_card_box__img">
+            <img src="/arquivos/gift-card-decathlon.png" alt="Cartão de presente Decathlon" />
+          </div>
+          <div class="gift_card_box__text">
+            <h3>Cartão de presente Decathlon</h3>
+            <p>Pra você que está na dúvida, o cartão presente Decathlon é ideal! Com ele seu pai poderá escolher entre os milhares de produtos das nossas lojas.
+            </p>
+            <p><b>*</b>A venda do cartão presente e sua utilização estão disponíveis exclusivamente nas lojas físicas da Decathlon.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <!--vtex:template id="0-dcs-web-scripts" /-->
+  <!-- END - Subtemplate Scripts -->
+  
+  <script src="/arquivos/0-dcs-web-lp_buy_together_list-script.js"></script>
+
+</body>
+
+</html>

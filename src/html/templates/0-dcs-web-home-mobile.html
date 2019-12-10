@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <vtex:metaTags/>
+  <meta name="controller" content="Home" />
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+
+  <!-- START - Style e Subtemplate Styles -->
+  <vtex:template id="0-dcs-web-styles-lid" />
+  <!-- END - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-mobile" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  <main class="main" id="main">
+    <!-- START: Banner full -->
+    <section class="banner-full home-banner-full">
+      <div class="slick-frame">
+        <vtex:contentPlaceHolder id="Banners Principal" />
+      </div>
+
+      <!-- START: Banner Mask -->
+      <!--vtex.cmc:bannerMask /-->
+      <!-- END: Banner Mask -->
+    </section>
+    <!-- END: Banner full -->
+
+    <!-- START: Custom Experience -->
+    <section class="section-custom-experience">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="custom-experience__img">
+              <img src="/arquivos/icon-custom-experience.png" alt="Experiência personalizada" width="100" />
+            </div>
+
+            <h2 class="custom-experience__title">Viva uma experiência personalizada com a Decathlon</h2>
+            <p class="custom-experience__subtitle"><strong>Uma conta.</strong> Diversos benefícios para seu esporte ficar ainda mais completo!</p>
+
+            <div class="custom-experience__button">
+                <vtex:contentPlaceHolder id="Link Beneficios" />
+              <br /><br /><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Custom Experience -->
+
+    <!-- START: Products for sports -->
+    <section class="section-products-for-sports av-hidden-xs av-hidden-md av-hidden-lg hidden">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Produtos para 65 esportes</h2>
+            </div>
+
+            <p class="products-for-sports__text">Na Decathlon você encontra produtos exclusivos para 65 esportes. Vestuários, acessórios, equipamentos, calçados, e muito mais…</p>
+
+            <div class="products-for-sports__button">
+              <a href="#" class="button button--large button--yellow">Ver todos os produtos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Products for sports -->
+
+    <!-- START: Featured Sports -->
+    <section class="section-featured-sports">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h1 class="section-title__text">Esportes em destaque</h1>
+            </div>
+
+            <div class="featured-sports">
+              <vtex:contentPlaceHolder id="Esportes em Destaque" />
+            </div>
+
+            <div class="featured-sports__button hidden">
+              <a href="#" class="button button--small button--mobile-clean">Ver todos os esportes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Featured Sports -->
+
+    <!-- START: Shelf 1 -->
+    <div class="shelf-carousel home-shelf">
+        <div class="av-container">
+            <div class="av-row">
+            <div class="av-col-xs-24">
+                <div class="shelf__content home-shelf__content">
+                    <vtex:contentPlaceHolder id="Vitrine Produtos - Destaque" />
+                </div>
+    
+                <div class="home-shelf__button hidden">
+                    <a href="#" class="button button--small button--mobile-clean">Ver todos os produtos</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Shelf 1 -->
+
+    <!-- START: Banner Middle -->
+    <section class="home-banner-middle av-hidden-xs av-hidden-sm">
+      <vtex:contentPlaceHolder id="Banner Middle" />
+    </section>
+    <!-- END: Banner Middle -->
+
+    <!-- START: Sportive Tips -->
+    <section class="section-sportive-tips">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text av-hidden-xs av-hidden-sm">Dicas Esportivas</h2>
+              <h2 class="section-title__text av-hidden-md av-hidden-lg">Dicas e Eventos Esportivos</h2>
+              <h3 class="section-title__description">Na Decathlon nós te ajudamos a encontrar tudo para seu esporte no seu nível de prática, como: acessórios, mochilas, vestuário e barracas. Na Decathlon nós te ajudamos a encontrar tudo para seu esporte.</h3>
+            </div>
+
+            <div class="blog-entries slick-frame">
+              <!-- Blog Entries -->
+            </div>
+
+            <div class="sportive-tips__button">
+              <a href="https://souesportista.decathlon.com.br/dicas" class="button button--small button--mobile-clean">Ver todos as dicas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Sportive Tips -->
+
+    <!-- START: Sportive Events -->
+    <section class="section-sportive-events">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Eventos Esportivos</h2>
+              <h3 class="section-title__description">Na Decathlon nós te ajudamos a encontrar tudo para seu esporte no seu nível de prática, como: acessórios, mochilas, vestuário e barracas. Na Decathlon nós te ajudamos a encontrar tudo para seu esporte.</h3>
+            </div>
+
+            <div class="blog-entries slick-frame">
+              <!-- Blog Entries -->
+            </div>
+
+            <div class="sportive-events__button">
+              <a href="https://souesportista.decathlon.com.br/eventos" class="button button--small button--mobile-clean">Ver todos os eventos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Sportive Events -->
+
+    <!-- START: Shelf 1 -->
+    <div class="shelf-carousel home-shelf">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="shelf__content home-shelf__content">
+              <vtex:contentPlaceHolder id="Vitrine Produtos - Os Mais Vendidos" />
+            </div>
+
+            <div class="home-shelf__button hidden">
+              <a href="#" class="button button--small button--mobile-clean">Ver todos os produtos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Shelf 1 -->
+
+    <!-- START: Banner Find Store -->
+    <section class="home-banner-find-store av-hidden-xs av-hidden-sm">
+      <vtex:contentPlaceHolder id="Banner Loja Mais Próxima" />
+
+      <!-- START: Banner Mask -->
+      <vtex.cmc:bannerMask />
+      <!-- END: Banner Mask -->
+    </section>
+    <!-- END: Banner Find Store -->
+
+    <!-- START: Informative -->
+    <!--section class="section-informative">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="section-title">
+              <h2 class="section-title__text">Decathlon Informa</h2>
+            </div>
+
+            <div class="slick-frame">
+              <vtex:contentPlaceHolder id="Informativo Decathlon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section-->
+    <!-- END: Informative -->
+
+  </main>
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Generico -->
+  <vtex:template id="0-dcs-web-generico" />
+  <!-- END - Subtemplate Generico -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <vtex:template id="0-dcs-web-scripts-lid" />
+  <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

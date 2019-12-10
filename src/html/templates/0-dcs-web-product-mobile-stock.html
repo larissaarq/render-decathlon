@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <vtex:metaTags />
+
+  <vtex.cmc:productRichSnippets showFacebook="1" />
+
+  <meta name="controller" content="Produto" />
+
+  <!-- INICIO - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- FIM - Subtemplate Metatags -->
+
+  <!-- INICIO - Style e Subtemplate Styles -->
+  <link rel="stylesheet" type="text/css" href="/arquivos/0-dcs-web-product-style.css" />
+  <!-- <vtex:template id="0-dcs-web-styles" />  -->
+  
+  <!-- FIM - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+  <!-- INICIO - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-mobile" />
+  <!-- FIM - Subtemplate Header -->
+
+  <!-- INICIO - Miolo da página -->
+
+  <!-- Inicio do Loading -->
+  <div id="loading"></div>
+  <!-- Fim do Loading -->
+
+  <main class="main" id="main">
+    <div class="back-button av-hidden-md av-hidden-lg">
+      <a href="" class="back-button--link">VOLTAR</a>
+    </div>
+
+    <div class="product-info">
+      <div class="av-container product-container">
+        <div class="av-row">
+          <div class="product-reference av-hidden-md av-hidden-lg">
+            REF:
+            <div class="productReference"></div>
+          </div>
+          <div class="product-name av-hidden-md av-hidden-lg">
+            <h1>
+              <vtex.cmc:productName />
+            </h1>
+          </div>
+          
+          <div style="display:none;">
+            <vtex.cmc:skuReference />
+          </div>
+
+          <div class="product-images" data-load="reviews">
+            <vtex.cmc:ProductImage zoom="on" />
+
+            <!-- START SLICK IMG PRODUTO -->
+            <div class="slick-product-img">
+              <ul class="slick-product-img-list"></ul>
+            </div>
+            <!-- END SLICK IMG PRODUTO -->
+          </div>
+
+          <div class="product-buy-info">
+            <div class="product-sku">
+                <vtex.cmc:skuSelection />
+            </div>
+
+            <div class="product-buy-box">
+                <div id="boxPriceStock" class="stock-content">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#product-price" data-toggle="tab" class="gaClick" data-event-category="PDP Box Preço - MOB" data-event-action="Click Tab" data-event-label="Tab Comprar Online">COMPRAR ONLINE</a>
+                        </li>
+                        <li>
+                            <a href="#product-stock" data-toggle="tab" class="gaClick" data-event-category="PDP Box Preço - MOB" data-event-action="Click Tab" data-event-label="Tab Estoque - Loja">VER ESTOQUE NA LOJA FÍSICA</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane active" id="product-price">
+                            <div class="product-content-price">
+                                <div class="product-price">
+                                    <vtex.cmc:skuPrice />
+                                </div>
+                                <div class="product-buy">
+                                    <vtex.cmc:BuyButton />
+                                </div>
+
+                                <div class="product-payment">
+                                    <a href="javascript:;" class="product-payment--link hide gaClick" data-target="av-modal--payment" data-event-category="PDP Box Preço - MOB" data-event-action="Click Link" data-event-label="Modal - Formas de pagamento">Formas de pagamento</a>
+                                </div>
+
+                                <div class="product-rj-rules">
+                                    <a href="javascript:;" class="product-rj-rules--link gaClick" data-target="av-modal--condicoesrj" data-event-category="PDP Box Preço - MOB" data-event-action="Click Link" data-event-label="Modal - Condições RJ">Condições para RJ</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="product-stock">
+                            <div class="product-content-stock">
+                                <p>Verifique a disponibilidade deste produto em nossas lojas físicas. O estoque pode variar diariamente.</p>
+
+                                <a href="javascript:;" type="button" id="btn-stock-modal" class="button button--small button--gray gaClick" data-event-category="PDP Box Preço - MOB" data-event-action="Click Button" data-event-label="Estoque - Selecionar Loja">SELECIONAR LOJA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-shipping" style="display: none !important;">
+                    <vtex.cmc:shippingValue />
+                    <script type="text/javascript">
+                        $(document).ready( function(){
+                            ShippingValue();
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <div class="product-description">
+              <h2>
+                <vtex.cmc:productDescriptionShort />
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- START: Product Description -->
+    <div class="product-details">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="produto-beneficios accordion-item" id="benefits">
+            <div class="section-title">
+              <h2 class="section-title__text">Benefícios do Produto</h2>
+            </div>
+
+            <div class="product-details-content beneficios" data-name="beneficiosDoProduto"></div>
+          </div>
+
+          <div class="produto-informacoes accordion-item">
+            <div class="section-title">
+              <h2 class="section-title__text">Informações Técnicas</h2>
+            </div>
+
+            <div class="product-details-content informacoes" data-name="informacoesTecnicas conceitoTecnologia"></div>
+
+            <div class="specifications">
+              <vtex.cmc:productSpecification />
+            </div>
+          </div>
+          
+          <!-- START: User Reviews -->
+          <div id="section-reviews" class="product-rating accordion-item">
+            <div class="av-container">
+              <div class="av-row">
+                <div class="section-title">
+                  <h2 class="section-title__text">Avaliações do Produto</h2>
+                </div>
+                <div class="product-details-content rating">
+                  <div class="product-rating--comments">
+                    <div class="product-rating--order">
+                      <select class="order-reviews">
+                        <option value=""></option>
+                        <option value="createdAt,desc">Mais Novo</option>
+                        <option value="createdAt,asc">Mais Antigo</option>
+                        <option value="utility,desc">Mais Útil</option>
+                      </select>
+                    </div>
+                    <div class="product-rating--comments_wrapper"></div>
+                  </div>
+                  <div class="product-rating--general-rate"></div>
+                  <div class="product-rating--pagination-wrap">
+                    <div class="product-rating--pagination">
+                      <a href="javascript:;" class="pagination-controls pagination-prev"></a>
+                      <ul class="pagination-list"></ul>
+                      <a href="javascript:;" class="pagination-controls pagination-next"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END: User Reviews -->
+        </div>
+      </div>
+    </div>
+    <!-- END: Product Description -->
+
+    <!-- START: Vitrine 1 -->
+    <div class="product-shelf" id="shelf-first">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="section-title">
+            <h2 class="section-title__text">
+              <vtex:contentPlaceHolder id="Titulo - Vitrine Produtos 1" />
+            </h2>
+          </div>
+          <div class="shelf-default">
+            <div class="slick-default slick-default--overflowY">
+              <vtex:contentPlaceHolder id="Vitrine Produtos 1" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Vitrine 1 -->
+    
+
+    <!-- START: Vitrine 2 -->
+    <div class="product-shelf" id="shelf-second" data-load="blog">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="section-title">
+            <h2 class="section-title__text">
+              <vtex:contentPlaceHolder id="Titulo - Vitrine Produtos 2" />
+            </h2>
+          </div>
+          <div class="shelf-default">
+            <div class="slick-default slick-default--overflowY">
+              <vtex:contentPlaceHolder id="Vitrine Produtos 2" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Vitrine 2 -->
+
+    <!-- START: Vitrine 3 -->
+    <div class="product-shelf" id="shelf-third">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="section-title">
+            <h2 class="section-title__text">
+              <vtex:contentPlaceHolder id="Titulo - Vitrine Produtos 3" />
+            </h2>
+          </div>
+          <div class="shelf-default">
+            <div class="slick-default slick-default--overflowY">
+              <vtex:contentPlaceHolder id="Vitrine Produtos 3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Vitrine 3 -->
+
+    <!-- START: Buy Together -->
+    <div class="product-buy-together accordion-item" style="display: none;">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="section-title">
+            <h2 class="section-title__text">Compre Junto</h2>
+          </div>
+
+          <div class="compre-junto">
+            <vtex.cmc:BuyTogether />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Buy Together -->
+
+    <!-- START: Sportive Tips -->
+    <section class="dicas-blog-produto section-sportive-tips">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <!--div class="section-title"></div-->
+            <vtex:contentPlaceHolder id="Dicas Esportivas - Texto" />
+
+            <!-- Blog Entries -->
+            <div class="blog-entries slick-frame"></div>
+
+            <div class="sportive-tips__button">
+              <a href="https://souesportista.decathlon.com.br/dicas" class="button button--small">Ver todas as dicas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Sportive Tips -->
+
+    <div class="product-shelf hide">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="shelf-default">
+            <div class="slick-default slick-default--overflowY">
+              <vtex:contentPlaceHolder id="Vitrine FAKE" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-modals">
+      <div class="av-modal av-modal--payment">
+        <div class="av-modal__modal">
+          <div class="av-modal__header">
+            <a href="javascript:;" class="av-modal-close"></a>
+          </div>
+
+          <div class="av-modal__content"></div>
+        </div>
+      </div>
+
+      <div class="av-modal av-modal--condicoesrj">
+        <div class="av-modal__modal">
+          <div class="av-modal__header">
+            <a href="javascript:;" class="av-modal-close"></a>
+          </div>
+
+          <div class="av-modal__content">
+            <span>Condições para RJ</span>
+            <p>O preço praticado no site pode ser diferente da loja <strong> Decathlon Barra da Tijuca</strong> por
+              questões fiscais do estado do RJ.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="av-modal av-modal--reviews">
+        <div class="av-modal__modal">
+          <div class="av-modal__header">
+            <a href="javascript:;" class="av-modal-close"></a>
+          </div>
+
+          <div class="av-modal__content"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-fixed-bar">
+      <div class="product-fixed-bar--inner">
+        <div class="product-fixed--img"></div>
+        <div class="product-fixed--info">
+          <div class="product-fixed--name"></div>
+          <div class="product-fixed--rating"></div>
+          <div class="product-fixed--price"></div>
+        </div>
+        <div class="product-fixed--btn">
+          <div class="buy-button-mobile--container"></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <vtex.cmc:navigationHistory />
+  <!-- FIM - Miolo da página -->
+
+  <!-- INICIO - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- FIM - Subtemplate Footer -->
+
+  <!-- INICIO - Suport content -->
+  <div class="suport-content"></div>
+  <!-- FIM - Suport content -->
+
+  <!-- INICIO - Scripts e Subtemplate Scripts -->
+  <script language="javascript" src="https://decathlonpro.vteximg.com.br/Scripts/vtex.cookie.js?v=1.4.1146.1910" type="text/javascript"></script>
+  <script language="javascript" src="https://decathlonpro.vteximg.com.br/Scripts/jquery.pager.js?v=1.4.1026.1723" type="text/javascript"></script>
+    
+  <script type="text/javascript" src="/arquivos/0-dcs-web-product-script.js"></script>
+  
+  <!-- <vtex:template id="0-dcs-web-scripts" />  -->
+  <!-- FIM - Subtemplate Scripts -->
+
+</body>
+
+</html>

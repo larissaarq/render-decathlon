@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+    lang="pt-br">
+
+<head>
+    <meta name="controller" content="LpDepartament" />
+
+    <!-- START - Subtemplate Metatags -->
+    <vtex:template id="0-dcs-web-metatags" />
+    <!-- END - Subtemplate Metatags -->
+
+    <vtex:contentPlaceHolder id="meta description" />
+    <vtex:metaTags />
+    <vtex:contentPlaceHolder id="title" />
+
+    <!-- START - Style e Subtemplate Styles -->
+    <vtex:template id="0-dcs-web-styles" />
+    <!-- END - Subtemplate Styles -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <div id="sport-name" class="hidden">
+        <vtex:contentPlaceHolder id="Slug Esporte" />
+    </div>
+    <!-- START - Subtemplate Header -->
+    <vtex:template id="0-dcs-web-header-mobile" />
+    <!-- END - Subtemplate Header -->
+
+    <!-- START - Miolo da página -->
+    <main class="main" id="main">
+
+        <!-- START: Banner full -->
+        <section class="banner-full banner-full--lp-departament">
+            <!-- START: Back -->
+            <div class="back-button__wrap av-hidden-md av-hidden-lg">
+                <a href="/" class="back-button">Início</a>
+            </div>
+            <!-- END: Back -->
+
+            <div class="slick-frame">
+                <vtex:contentPlaceHolder id="Banners Principais" />
+            </div>
+
+            <!-- START: Banner Mask -->
+            <vtex.cmc:bannerMask />
+            <!-- END: Banner Mask -->
+        </section>
+        <!-- END: Banner full -->
+
+        <!-- START: LP Departament Description -->
+        <section class="section-lp-departament-description">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <vtex:contentPlaceHolder id="Descricao Conteudo" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: LP Departament Description -->
+
+        <!-- START: Breadcrumb -->
+        <div class="av-container-fluid av-hidden-xs av-hidden-sm">
+            <div class="av-row">
+                <div class="av-col-xs-24">
+                    <div class="bread-crumb">
+                        <vtex.cmc:breadCrumb />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Breadcrumb -->
+
+        <!-- START: Product Categories -->
+        <section class="section-product-categories">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="section-title">
+                            <h2 class="section-title__text">Categorias de Produto</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="av-row">
+                    <div class="lp-departament-categories"></div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Product Categories -->
+
+        <!-- START: Experience Level -->
+        <section class="section-experience-level">
+            <div class="av-container">
+                <div class="av-row">
+                    <vtex:contentPlaceHolder id="Nivel de Experiencia" />
+                </div>
+            </div>
+        </section>
+        <!-- END: Experience Level -->
+
+        <!-- START: Shelf 1 -->
+        <div class="shelf-carousel lp-departement-shelf">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="shelf__content lp-departement-shelf__content">
+                            <div class="section-title">
+                                <h2 class="section-title__text">Os mais vendidos</h2>
+                            </div>
+                            <vtex:contentPlaceHolder id="Vitrine Produtos - Os Mais Vendidos" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Shelf 1 -->
+
+        <!-- START: Shelf 2 -->
+        <div class="shelf-carousel lp-departement-shelf shelf--banner-pub">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="shelf__content lp-departement-shelf__content">
+                            <div class="section-title">
+                                <h2 class="section-title__text">Conjunto Ideal</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="av-col-xs-5">
+                        <div class="shelf__content shelf__content-pub lp-departement-shelf__content">
+                            <vtex:contentPlaceHolder id="Vitrine Produtos - Imagem Publicidade" />
+                        </div>
+                    </div>
+                    <div class="av-col-xs-19">
+                        <div class="shelf__content lp-departement-shelf__content">
+                            <vtex:contentPlaceHolder id="Vitrine Produtos - Conjunto Ideal" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Shelf 2 -->
+
+                <!-- START: Shelf 1 -->
+        <div class="shelf-carousel lp-departement-shelf">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="shelf__content lp-departement-shelf__content">
+                            <div class="section-title">
+                                <h2 class="section-title__text">Os mais vendidos</h2>
+                            </div>
+                            <vtex:contentPlaceHolder id="Vitrine Produtos - Os Mais Vendidos" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Shelf 1 -->
+
+        <!-- START: Sportive Tips -->
+        <section class="section-sportive-tips">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <!--div class="section-title"></div-->
+                        <vtex:contentPlaceHolder id="Dicas Esportivas - Texto" />
+
+                        <div class="blog-entries slick-frame">
+                            <!-- Blog Entries -->
+                        </div>
+
+                        <div class="sportive-tips__button">
+                            <a href="https://souesportista.decathlon.com.br/dicas" class="button button--small">Ver todas as dicas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Sportive Tips -->
+
+        <!-- START: Sportive Events -->
+        <section class="section-sportive-events">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <!--div class="section-title"></div-->
+                        <vtex:contentPlaceHolder id="Eventos Esportivos - Texto" />
+
+                        <div class="blog-entries slick-frame">
+                            <!-- Blog Entries -->
+                        </div>
+
+                        <div class="sportive-events__button">
+                            <a href="https://souesportista.decathlon.com.br/eventos" class="button button--small">Ver todos os eventos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Sportive Events -->
+
+        <!-- START: Featured Sports -->
+        <section class="section-associated-sports">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="section-title">
+                            <h2 class="section-title__text">Esportes Associados</h2>
+                        </div>
+
+                        <div class="slick-frame">
+                            <vtex:contentPlaceHolder id="Esportes Associados" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Featured Sports -->
+
+        <!-- START: Product Categories -->
+        <!--section class="section-product-categories">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="section-title">
+                            <h2 class="section-title__text">Categorias de Produto</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="av-row">
+                    <div class="lp-departament-categories"></div>
+                </div>
+            </div>
+        </section-->
+        <!-- END: Product Categories -->
+
+        <!-- START: Experience Places -->
+        <section class="section-experience-places">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="section-title">
+                            <h2 class="section-title__text">
+                                <vtex:contentPlaceHolder id="Titulo Conheca" />
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- START: Banner full -->
+            <div class="banner-full">
+                <vtex:contentPlaceHolder id="Conheca Banner" />
+
+                <!-- START: Banner Mask -->
+                <vtex.cmc:bannerMask />
+                <!-- END: Banner Mask -->
+            </div>
+            <!-- END: Banner full -->
+
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <vtex:contentPlaceHolder id="Conheca Conteudo" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Experience Places -->
+
+        <!-- START: Experience Places -->
+        <section class="section-experience-places section-experience-places--second">
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <div class="section-title">
+                            <h2 class="section-title__text">
+                                <vtex:contentPlaceHolder id="Titulo Conheca 2" />
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- START: Banner full -->
+            <div class="banner-full">
+                <vtex:contentPlaceHolder id="Conheca Banner 2" />
+
+                <!-- START: Banner Mask -->
+                <vtex.cmc:bannerMask />
+                <!-- END: Banner Mask -->
+            </div>
+            <!-- END: Banner full -->
+
+            <div class="av-container">
+                <div class="av-row">
+                    <div class="av-col-xs-24">
+                        <vtex:contentPlaceHolder id="Conheca Conteudo 2" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Experience Places -->
+
+    </main>
+    <!-- END - Miolo da página -->
+
+    <!-- START - Subtemplate Generico -->
+    <vtex:template id="0-dcs-web-generico" />
+    <!-- END - Subtemplate Generico -->
+
+    <!-- START - Subtemplate Footer -->
+    <vtex:template id="0-dcs-web-footer" />
+    <!-- END - Subtemplate Footer -->
+
+    <!-- START - Scripts e Subtemplate Scripts -->
+    <vtex:template id="0-dcs-web-scripts" />
+    <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

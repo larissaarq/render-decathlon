@@ -1,0 +1,76 @@
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
+
+<a href="$uri"  class="shelf-item align-center" data-product-id="$id" data-product-department="$product.DepartmentName"
+    data-product-category="$product.CategoryName">
+
+    <div class="wrapper">
+        <!-- START: Info -->
+        <div class="shelf-item__info">
+
+
+            <!-- START: Brand -->
+            <span class="shelf-item__brand">$product.BrandName</span>
+            <!-- END: Brand -->
+
+            <!-- START: Name -->
+            <h3 class="shelf-item__title">
+                $product.Name
+            </h3>
+            <!-- END: Name -->
+            
+        </div>
+        <!-- END: Info -->
+
+        <!-- START: Image -->
+        <div class="shelf-item__img shelf-item__img-link" title="$escapedName">
+            <div class="shelf-item__image">
+                $product.GetImageTag(120, 120)
+            </div>
+        </div>
+        <!-- END: Image -->
+
+        <!-- START: Price -->
+        <div class="shelf-item__buy-info">
+            #if ($product.IsInStock)
+            <div class="shelf-item__price">
+                <div class="shelf-item__list-price">
+                    #if ($product.HasBestPrice)
+                    antes <span class="shelf-item__featured">$product.ListPrice</span>
+                    #end
+                </div>
+
+                #if ($product.HasBestPrice)
+                <div class="shelf-item__best-price">$product.BestPrice</div>
+                #else
+                <div class="shelf-item__best-price shelf-item__best-price--featured">$product.BestPrice</div>
+                #end
+
+                <div class="shelf-item__installments">
+                    #if ($product.NumbersOfInstallment > 1)
+                    até ${product.NumbersOfInstallment}x de $product.InstallmentValue
+                    #end
+                </div>
+            </div>
+            #else
+            <div class="product-item__no-stock">
+                <div class="product-item__no-stock-title">Produto indisponível</div>
+
+                <div class="product-item__no-stock-link">Avise-me quando chegar</div>
+            </div>
+            #end
+        </div>
+        <!-- END: Price -->
+
+    </div>
+    
+    <!-- START: ICON Cart -->
+    <div class="shelf-item__icon">
+        <i class="dkti-cart"></i>
+    </div>
+    <!-- END: Icon Cart -->
+
+</a>
+
+<!-- //segunda opção -->

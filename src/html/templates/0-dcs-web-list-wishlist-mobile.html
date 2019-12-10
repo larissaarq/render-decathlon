@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <vtex:metaTags/>
+  <!-- Start Open Graph  -->
+  <meta name="controller" content="List" />
+  <meta property="og:type" content="product"/>
+
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+
+  <!-- START - Style e Subtemplate Styles -->
+  <!-- <vtex:template id="0-dcs-web-styles" /> -->
+  <link rel="stylesheet" type="text/css" href="/arquivos/0-dcs-web-list-wishlist-style.css" />
+  <!-- END - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<!-- Start Open Graph  -->
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-mobile" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Main -->
+  <main class="main" id="main">
+    <!-- START: Banner full -->
+    <section class="banner-full">
+      <!-- START: Back -->
+      <div class="back-button__wrap av-hidden-md av-hidden-lg">
+        <a href="#" class="back-button">Voltar</a>
+      </div>
+      <!-- END: Back -->
+
+      <!-- START: Angle elements -->
+      <div class="angle-elements">
+        <div class="angle-elements__left hide"></div>
+
+        <div class="angle-elements__right"></div>
+      </div>
+      <!-- END: Angle elements -->
+
+      <div class="banner-full__wrap">
+        <div class="banner-full__img">
+          <vtex:contentPlaceHolder id="Banner principal" />
+        </div>
+
+        <div class="banner-full__content">
+          <vtex:contentPlaceHolder id="Banner texto" />
+        </div>
+      </div>
+
+      <!-- START: Banner Mask -->
+      <vtex.cmc:bannerMask />
+      <!-- END: Banner Mask -->
+    </section>
+    <!-- END: Banner full -->
+
+    <!-- START: Breadcrumb -->
+    <div class="av-container-fluid av-hidden-xs av-hidden-sm">
+      <div class="av-row">
+        <div class="av-col-xs-24 av-col-static">
+          <div class="bread-crumb">
+            <vtex.cmc:breadCrumb />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Breadcrumb -->
+    
+    <!-- START: Shelf Panoplie -->
+    <div class="shelf-carousel shelf--banner-pub shelf-carousel--panoplie">
+        <div class="shelf__content">
+            <vtex:contentPlaceHolder id="Vitrine Produtos - Conjunto Ideal" />
+        </div>
+    </div>
+    <!-- END: Shelf Panoplie -->
+
+    <!-- START: Shelf 1 -->
+    <div class="shelf-carousel list-shelf">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="shelf__content list-shelf__content">
+              <vtex:contentPlaceHolder id="Vitrine Produtos - Top" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Shelf 1 -->
+
+    <!-- START: Search bar -->
+    <div class="av-container-fluid">
+      <div class="av-row">
+        <div class="av-col-xs-24">
+          <!-- START: Order -->
+          <div class="search-bar">
+            <div class="search-bar__order">
+              <select class="search-order custom-select custom-select--medium" id="search-order">
+                <option value="">Ordenar por</option>
+                <option value="OrderByPriceASC">Menor Preço</option>
+                <option value="OrderByPriceDESC">Maior Preço</option>
+                <!--option value="OrderByTopSaleDESC">Mais vendidos</option-->
+                <!--option value="OrderByReviewRateDESC">Melhores avaliações</option-->
+                <option value="OrderByNameASC">A - Z</option>
+                <option value="OrderByNameDESC">Z - A</option>
+                <option value="OrderByReleaseDateDESC">Data de lançamento</option>
+                <option value="OrderByBestDiscountDESC">Melhor Desconto</option>
+              </select>
+            </div>
+          </div>
+          <!-- END: Order -->
+
+          <!-- START: CTA Open filter -->
+          <div class="responsive-filter">
+            <a href="#" class="filter-button">
+              <div class="filter-button__count">0</div>
+
+              <span class="filter-button__text-icon filter-button__text-icon--open"></span>
+              <span class="filter-button__text-icon filter-button__text-icon--close"></span>
+            </a>
+          </div>
+          <!-- END: CTA Open filter -->
+
+          <!-- START: Title: nível de prática -->
+          <div class="title__level-practice">
+            <vtex:contentPlaceHolder id="Título nível de prática" />
+          </div>
+          <!-- END: Title: nível de prática -->
+        </div>
+      </div>
+    </div>
+    <!-- END: Search bar -->
+
+    <!-- START: Content -->
+    <div class="av-container-fluid">
+      <div class="av-row">
+        <div class="av-col-md-6 av-col-lg-5">
+          <!-- START: Filter -->
+          <div class="search-filter">
+            <vtex.cmc:searchNavigator />
+          </div>
+          <!-- START: End -->
+        </div>
+
+        <div class="av-col-md-18 av-col-lg-19">
+          <!-- START: Result -->
+          <div class="search-default">
+            <vtex.cmc:searchResult layout="9640810d-3920-47f3-ba1f-3b1949bd6c59" itemCount="10" columnCount="10" />
+
+            <div class="search-default__loading"></div>
+            <div class="search-default__no-result">Nenhum resultado encontrado</div>
+          </div>
+          <!-- END: Result -->
+        </div>
+      </div>
+    </div>
+    <!-- END: Content -->
+
+    <!-- START: Blog tips -->
+    <div class="av-container">
+      <div class="av-row">
+        <div class="av-col-xs-24"></div>
+      </div>
+    </div>
+    <!-- END: Blog tips -->
+
+    <!-- START: Blog events -->
+    <div class="av-container">
+      <div class="av-row">
+        <div class="av-col-xs-24"></div>
+      </div>
+    </div>
+    <!-- END: Blog events -->
+
+    <!-- START: SEO -->
+    <div class="av-container">
+      <div class="av-row">
+        <div class="av-col-xs-24 wrap-seo">
+            <vtex:contentPlaceHolder id="Texto SEO" />
+        </div>
+      </div>
+    </div>
+    <!-- END: SEO -->
+  </main>
+  <!-- END - Main -->
+
+  <script>
+    var scriptContent = $('.resultItemsWrapper').children('script').html();
+    eval('window.' + /(PageClick_)([0-9]+)/g.exec(scriptContent)[0] + ' = function () {}');
+
+    /**
+     * Avoid VTEX animation
+     */
+    function goToTopPage() { }
+  </script>
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <!-- <vtex:template id="0-dcs-web-scripts" /> -->
+  
+  <script type="text/javascript" src="/arquivos/0-dcs-web-common-wishlist-script.js"></script>
+  <script type="text/javascript" src="/arquivos/0-dcs-web-list-script.js"></script>
+  <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

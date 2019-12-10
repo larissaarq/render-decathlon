@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+  <head>
+    <vtex:metaTags />
+    <meta name="controller" content="MyAccount" />
+
+    <!-- START - Subtemplate Metatags -->
+    <vtex:template id="0-dcs-web-metatags" />
+    <!-- END - Subtemplate Metatags -->
+
+    <!-- START - Style e Subtemplate Styles -->
+    <vtex:template id="0-dcs-web-styles" />
+    <!-- END - Subtemplate Styles -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- START - Subtemplate Header -->
+    <vtex:template id="0-dcs-web-header" />
+    <!-- END - Subtemplate Header -->
+
+    <!-- START - Main -->
+    <main class="main" id="main">
+      <div class="av-container">
+        <div class="av-row">
+          <!-- START: Menu -->
+          <div class="av-col-xs-24 av-col-md-8 av-col-lg-5">
+            <vtex.cmc:myAccountMenu />
+          </div>
+          <!-- END: Menu -->
+
+          <!-- START: Content -->
+          <div class="av-col-xs-24 av-col-md-offset-1 av-col-md-15 av-col-lg-offset-1 av-col-lg-18 attached-content">
+            <div class="my-account-content">
+              <!-- START: Pages -->
+
+              <!-- START: Page: Home -->
+              <div class="my-account-page my-account-page--home">
+                <div class="av-row">
+                  <div class="av-col-xs-24 av-col-md-12 av-col-lg-8">
+                    <div class="my-account__home-block">
+                      <h3 class="my-account__home-title"><strong>Meu</strong> perfil</h3>
+                      <div class="my-account__home-graph">
+                        <div id="bluecircle" class="big"></div>
+                      </div>
+
+                      <a href="/minha-conta/#perfil" class="my-account__home-link my-account__home-link--profile" data-target=".my-account-page--profile">Atualizar meu perfil</a>
+                    </div>
+                  </div>
+
+                  <div class="av-col-xs-24 av-col-md-12 av-col-lg-8">
+                    <div class="my-account__home-block">
+                      <h3 class="my-account__home-title"><strong>Minhas</strong> compras</h3>
+                      <div class="my-account__home-graph">
+                        <img src="/arquivos/my-account__home-orders.png" alt="Minhas compras" />
+                      </div>
+
+                      <a href="/account/orders" class="my-account__home-link">Todas as minhas compras</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END: Page: Home -->
+
+              <!-- START: Page: Profile -->
+              <div class="my-account-page my-account-page--profile hidden">
+                <!-- START: Title/back -->
+                <div class="my-account-title">
+                  <a href="#" class="my-account-back"></a>
+                  Meu perfil
+                </div>
+                <!-- END: Title/back -->
+
+                <!-- START: Connection -->
+                <div class="my-account-page__content connection-container">
+                  <form class="my-account-page--profile__connection readonly" action="">
+                    <h2 class="my-account-page-title">Conexão</h2>
+
+                    <div class="av-row">
+                      <div class="av-col-xs-24">
+                        <ul class=" my-account-page-list">
+                          <li class="personal-information--item">
+                            <label>Número de telefone:</label>
+
+                            <input type="text" readonly="readonly" name="contact[mobile]" value="" placeholder="+55 99 9999-9999" class="hide-input-style" />
+                            <small class="field-validation invalid">Número de telefone ainda não verificado</small>
+                          </li>
+                          <li class="personal-information--item">
+                            <label>Endereço de e-mail:</label>
+
+                            <input type="text" disabled="disabled" name="contact[email]" value="" placeholder="seu@email.com"  class="hide-input-style" />
+                            <small class="field-validation invalid">Endereço de e-mail verificado</small>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <hr class="my-account__separtor" />
+
+                    <p class="my-account__buttons">
+                      <button type="button" class="my-account-button-edit button button--blue">Alterar minhas informações</button>
+                      <button type="button" class="my-account-button-cancel button button--gray">Cancelar</button>
+                      <button type="submit" class="my-account-button-save button button--yellow">Salvar alterações</button>
+                    </p>
+                  </form>
+                </div>
+                <!-- END: Connection -->
+
+                <!-- START: Password -->
+                <div class="my-account-page__content password-container">
+                  <form class="my-account-page--profile__access-password readonly">
+                    <h2 class="my-account-page-title">Senha de acesso</h2>
+
+                    <div class="av-row">
+                      <div class="av-col-xs-24">
+                        <ul class="my-account-page-list">
+                          <li class="personal-information--item old-password-item">
+                            <label>Sua senha:</label>
+
+                            <input type="password" readonly="readonly" name="identity_individual[old_password]" placeholder="******" class="hide-input-style" />
+                            <span class="input-password-icon"></span>
+                          </li>
+                          <li class="personal-information--item new-password-item">
+                            <label>Nova senha:</label>
+
+                            <input type="password" readonly="readonly" name="identity_individual[new_password]" value="" class="hide-input-style" />
+                            <span class="input-password-icon"></span>
+                          </li>
+                          <li>
+                            <div class="password-meter">
+                              <b>Sua nova senha deve possuir:</b>
+
+                              <ul class="password-meter-list">
+                                <li class="password-meter-condition password-condition1"><i></i>Pelo menos 8 caracteres</li>
+                                <li class="password-meter-condition password-condition2"><i></i>Pelo menos 1 caractere maiúsculo e 1 minúsculo</li>
+                                <li class="password-meter-condition password-condition3"><i></i>Pelo menos 1 letra</li>
+                                <li class="password-meter-condition password-condition4"><i></i>Pelo menos 1 número</li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <hr class="my-account__separtor" />
+
+                    <p class="my-account__buttons">
+                      <button type="button" class="my-account-button-cancel button button--gray">Cancelar</button>
+                      <button type="submit" class="my-account-button-save my-account-button-save--password button button--yellow">Alterar minha senha</button>
+                      <button type="button" class="my-account-button-edit button button--blue">Alterar minha senha</button>
+                    </p>
+                  </form>
+                </div>
+                <!-- END: Password -->
+
+                <!-- START: Addresses -->
+                <div class="my-account-page__content address-container">
+                    <h2 class="my-account-page-title">Endereço</h2>
+
+                    <div class="av-row">
+                      <div class="av-col-xs-24">
+                        <ul class="my-account-page-list inline-list address-list"></ul>
+                      </div>
+                    </div>
+
+                    <div class="av-row">
+                      <div class="av-col-xs-24">
+                        <div class="my-account-profile__address--form-container">
+                          <!-- RENDER BLOCK BY COMPONENT -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr class="my-account__separtor" />
+
+                    <button type="button" class="my-account-button-edit my-account-button-add-address button button--blue">Adicionar endereço <i class="my-account-button-add--icon"></i></button>
+                </div>
+                <!-- END: Addresses -->
+
+                <!-- START: Personal Information -->
+                <div class="my-account-page__content identity-individual-container">
+                  <form class="my-account-page--profile__personal-informations readonly">
+                    <input type="hidden" name="identity_individual[national_id]" value="" />
+
+                    <h2 class="my-account-page-title">Informações pessoais</h2>
+
+                    <div class="av-row">
+                      <div class="av-col-xs-24">
+                        <ul class="my-account-page-list inline-list">
+                          <li class="personal-information--item">
+                            <div class="input-group-gender">
+                              <div class="input-group-text">Gênero:</div>
+
+                              <input class="input-radio" type="radio" value="1" id="masculino" name="identity_individual[sexe]" required="required"/>
+                              <label for="masculino">Masculino</label>
+                              
+                              <input class="input-radio" type="radio" value="2" id="feminino" name="identity_individual[sexe]" required="required"/>
+                              <label for="feminino">Feminino</label>
+                            </div>
+                          </li>
+                          <li class="personal-information--item">
+                            <label>Nome:</label>
+
+                            <input type="text" readonly="readonly" name="identity_individual[name]" value="" class="hide-input-style" required="required" />
+                          </li>
+                          <li class="personal-information--item">
+                            <label>Sobrenome:</label>
+
+                            <input type="text" readonly="readonly" name="identity_individual[surname]" value="" class="hide-input-style" required="required" />
+                          </li>
+                          <li class="personal-information--item">
+                            <label>Data de nascimento:</label>
+
+                            <input type="text" readonly="readonly" name="identity_individual[birthdate]" value="" class="hide-input-style input-text-birthdate" required="required" />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <hr class="my-account__separtor" />
+
+                    <p class="my-account__buttons">
+                      <button type="button" class="my-account-button-edit button button--blue">Alterar informações pessoais</button>
+                      <button type="button" class="my-account-button-cancel button button--gray">Cancelar</button>
+                      <button type="submit" class="my-account-button-save button button--yellow">Salvar alterações</button>
+                    </p>
+                  </form>
+                </div>
+                <!-- END: Personal Information -->
+
+              </div>
+              <!-- END: Page: Profile -->
+
+              <!-- START: Page: Preferences Store -->
+              <div class="my-account-page my-account-page--preferences-store hidden">
+                <!-- START: Title/back -->
+                <div class="my-account-title">
+                  <a href="#" class="my-account-back"></a>
+                  Minha loja
+                </div>
+                <!-- END: Title/back -->
+
+                <!-- START: Minha loja -->
+                <div class="my-account-page__content my-account-page__content--store">
+                  <div class="my-store__store"></div>
+                </div>
+              </div>
+              <!-- END: Page: Preferences Sports -->
+
+              <!-- START: Page: List store -->
+              <div class="my-account-page my-account-page--preferences-store-list hidden">
+                <!-- START: Title/back -->
+                <div class="my-account-title">
+                  <a href="#" class="my-account-back dont-close-parent" data-parent-target=".my-account-page--preferences-store"></a>
+                  <span>Minha loja</span>
+                </div>
+                <!-- END: Title/back -->
+
+                <!-- START: Lista de lojas -->
+                <div class="my-account-page__content my-account-page__content--store">
+                  <h2 class="my-account-page-title">Selecione uma loja:</h2>
+
+                  <ul class="my-store__stores"></ul>
+                </div>
+              </div>
+              <!-- END: Page: List store -->
+
+              <!-- START: Page: Preferences Optin -->
+              <div class="my-account-page my-account-page--preferences-optin hidden">
+                <!-- START: Title/back -->
+                <div class="my-account-title">
+                  <a href="#" class="my-account-back"></a>
+                  Minhas comunicações
+                </div>
+                <!-- END: Title/back -->
+
+                <!-- START: Conteúdo de minhas preferências -->
+                <div class="av-row">
+                  <div class="av-col-xs-24 av-col-lg-12">
+                    <div class="my-account-page__content my-account-page__content--optin">
+                      <h2 class="my-account-page-title">Comunicações esportivas</h2>
+
+                      <div class="my-account-page__checkbox">
+                        <form action="#">
+                          <input type="hidden" name="optin[type]" value="SPORT" />
+                          <input type="hidden" name="optin[id]" value="10" />
+                          <input type="checkbox" name="optin[value]" value="true" checked="checked" id="optinValue" class="my-account-page__input-optin" />
+                          <label for="optinValue">Toggle</label>
+                        </form>
+                      </div>
+
+                      <p class="my-account-page__text">Aceita receber nossas dicas, ofertas esportivas, informações sobre os eventos de sua loja para acompanhá-lo em sua prática?</p>
+                      <p class="my-account-page__text">Nossa equipe de especialistas trazem os melhores conselhos sobre seus esportes favoritos durante o ano todo.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- END: Conteúdo de minhas preferências -->
+              </div>
+              <!-- END: Page: Preferences Optin -->
+
+              <!-- START: Page: Preferences Sports -->
+              <div class="my-account-page my-account-page--preferences-sports hidden">
+                 <!-- START: Title/back -->
+                <div class="my-account-title">
+                  <a href="#" class="my-account-back"></a>
+                  Meus esportes
+                </div>
+                <!-- END: Title/back -->
+
+                <!-- START: Meus esportes preferidos -->
+                <div class="my-account-page__content">
+                  <div class="my-account-page--preferences-sports__my-sports">
+                    <h2 class="my-account-page-title">Meus esportes preferidos</h2>
+
+                    <ul class="my-sports-list"></ul>
+                  </div>
+
+                  <div class="my-account-page--preferences-sports__sports-list">
+                    <h2 class="my-account-page-title">Todos os esportes</h2>
+
+                    <div class="my-account-page--preferences-sports__filter">
+                      <input type="search" name="sports_search" placeholder="Buscar seus esportes" />
+                      <span></span>
+                    </div>
+
+                    <div class="av-row">
+                      <div class="av-col-xs-24">
+                        <ul class="my-account-page-list"></ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END: Page: Preferences Sports -->
+
+              <!-- START: Page: Sports by Category -->
+              <div class="my-account-page my-account-page--sports-list-container hidden">
+                <!-- START: Title/back -->
+                <div class="my-account-title">
+                  <a href="#" class="my-account-back dont-close-parent" data-parent-target=".my-account-page--preferences-sports"></a>
+                  <span>Carregando...</span>
+                </div>
+                <!-- END: Title/back -->
+
+                <ul class="my-sports-list"></ul>
+              </div>
+              <!-- END: Page: Sports by Category -->
+
+              <!-- END: Pages -->
+            </div>
+          </div>
+          <!-- END: Content -->
+        </div>
+      </div>
+    </main>
+    <!-- END - Main -->
+
+    <!-- START: Modals -->
+
+    <!-- START: Modal: Account member_type: 2 -->
+    <div class="av-modal av-modal--recovery-password">
+      <div class="av-modal__modal">
+        <div class="av-modal__content">
+          <p>Sua conta ainda não possui uma senha cadastrada</p>
+
+          <div class="selection-register-btn">
+            <a href="/esqueci-minha-senha" class="button button--medium button--blue">Esqueci minha senha</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Modal: Account member_type: 2 -->
+
+    <!-- START: Modal: Account created by vtex token -->
+    <div class="av-modal av-modal--uncomplete-account">
+      <div class="av-modal__modal">
+        <div class="av-modal__content">
+          <p>Vimos que você ainda não se cadastrou, deseja realizar agora e aproveitar os benefícios da conta Decathlon?</p>
+
+          <div class="selection-register-btn">
+            <a href="/" class="button button--medium button--gray">Agora não</a> <a href="/cadastro" class="button button--medium button--blue">Eu quero</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Modal: Account created by vtex token -->
+
+    <!-- START: Modal: Password request -->
+    <div class="av-modal av-modal--password-request">
+      <div class="av-modal__modal">
+        <div class="av-modal__header">
+          <a href="#" class="av-modal-close"></a>
+        </div>
+
+        <div class="av-modal__content">
+          <p>Por favor, digite novamente a sua senha para confirmar a alteração.</p>
+
+          <div class="my-account__modal-password">
+            <form action="#" class="my-account__modal-password__form">
+              <div class="my-account__modal-password__field">
+                <label>Sua senha:</label>
+                <input type="password" name="password" placeholder="******" class="hide-input-style" />
+                <span class="input-password-icon"></span>
+              </div>
+
+              <div class="my-account__modal-password__field">
+                <button type="submit">Continuar</button>
+              </div>
+
+              <div class="my-account__modal-password__errors"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END: Modal: Password request -->
+
+    <!-- END: Modals -->
+
+    <!-- START - Subtemplate Generico -->
+    <vtex:template id="0-dcs-web-generico" />
+    <!-- END - Subtemplate Generico -->
+
+    <!-- START - Subtemplate Footer -->
+    <vtex:template id="0-dcs-web-footer" />
+    <!-- END - Subtemplate Footer -->
+
+    <!-- START - Scripts e Subtemplate Scripts -->
+    <vtex:template id="0-dcs-web-scripts" />
+    <!-- END - Subtemplate Scripts -->
+  </body>
+</html>

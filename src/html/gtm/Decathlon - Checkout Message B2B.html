@@ -1,0 +1,150 @@
+<style>
+    .message-b2b-content {
+        font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        float: left;
+        width: 100%;
+        border: 1px solid #0082c3;
+        padding: 5px 15px;
+        position: relative;
+        box-sizing: border-box;
+        margin-top: 15px;
+        margin-bottom: 3px;
+    }
+
+    .message-b2b-content::before {
+        content: '';
+        -moz-transform: translate(-50%, -50%) rotate(135deg);
+        -ms-transform: translate(-50%, -50%) rotate(135deg);
+        -webkit-transform: translate(-50%, -50%) rotate(135deg);
+        transform: translate(-50%, -50%) rotate(135deg);
+        border-right: 1px solid #0082c3;
+        border-top: 1px solid #0082c3;
+        height: 10px;
+        width: 10px;
+        position: absolute;
+        bottom: -12px;
+        left: 30px;
+        background: #ffffff;
+    }
+
+    .message-b2b-content title {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #0082c3;
+        font-size: 18px;
+        font-style: italic;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .message-b2b-content text {
+        margin: 0;
+        color: #333;
+    }
+
+    .message-b2b-content .link-external {
+        display: block;
+        font-style: italic;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    (function () {
+        var B2BCheckout = {
+            init: function () {
+                var self = this
+
+                self.setup()
+                self.start()
+                self.bind()
+            },
+
+            setup: function () {
+                var self = this;
+                self.options = {
+                    urlCartB2B: 'https://www.decathlonpro.com.br/'
+                }
+            },
+
+            start: function () {
+                var self = this
+
+                self.getURLProducts();
+            },
+
+            bind: function () {
+                var self = this
+
+                $('body').on('click', '#cart-to-orderform', function () {
+                    self.getURLProducts();
+
+                    if($('#is-corporate-client').is(':visible')) {
+                        $('#message-b2b').slideUp();
+                    } else {
+                        $('#message-b2b').slideDown();
+                    }
+                });
+
+                $('body').on('click', '#is-corporate-client', function () {
+                    var url = self.getURLProducts();
+
+                    if ($('#message-b2b').length < 1) {
+                        var textB2B = '';
+                        textB2B =   '<div id="message-b2b" class="message-b2b-content" style="display:none;">\n' +
+                                        '<p class="text">Conheça a <a href="' + url +'" target="_blank" class="link-b2b gaClick" data-event-category="Checkout PJ" data-event-action="Click Link" data-event-label="Decathlon PRO">Decathlon PRO:</a> benefícios e descontos exclusivos para compras com CNPJ.</p>\n' +
+                                        '<a href="' + url + '" target="_blank" class="link-b2b link-external gaClick" data-event-category="Checkout PJ" data-event-action="Click Link" data-event-label="Decathlon PRO - Finalizar compra">Finalizar compra na Decathlon PRO</a>\n' +
+                                    '</div>';
+                                    $('.box-client-info-pj').before(textB2B);
+                        } else {
+                        $('.link-b2b').attr('href', url);
+                    }
+
+                    ga('send', 'event', 'Checkout - PJ', 'Click Link', 'Incluir dados PJ - Abrir');
+                    $('#message-b2b').slideDown();
+                });
+
+                $('body').on('click', '#not-corporate-client', function () {
+                    $('#message-b2b').slideUp();
+                    ga('send', 'event', 'Checkout - PJ', 'Click Link', 'Incluir dados PJ - Descartar');
+                });
+            },
+
+            getURLProducts: function () {
+                var arr = {{orderFormProducts}};
+
+                var url = 'https://www.decathlonpro.com.br/';
+                var products = '';
+
+                for (var i = 0; i < arr.length; i++) {
+                    var el = arr[i];
+                    products += '&sku=' + el.sku + '&qty=' + el.quantity + '&seller=' + el.sellerId;
+                }
+                
+                url = 'https://www.decathlonpro.com.br/checkout/cart/add?sc=3' + products;
+                
+                return url;
+            },
+
+            createMessage: function () {
+                var self = this;
+                var url = self.options.urlCartB2B;
+
+                if ($('#message-b2b').length < 1) {
+                    var textB2B = '';
+                    textB2B =   '<div id="message-b2b" class="message-b2b-content" style="display:none;">\n' +
+                                    '<p class="text">Conheça a <a href="' + url +'" target="_blank" class="link-b2b gaClick" data-event-category="Checkout PJ" data-event-action="Click Link" data-event-label="Decathlon PRO">Decathlon PRO:</a> benefícios e descontos exclusivos para compras com CNPJ.</p>\n' +
+                                    '<a href="' + url + '" target="_blank" class="link-b2b link-external gaClick" data-event-category="Checkout PJ" data-event-action="Click Link" data-event-label="Decathlon PRO - Finalizar compra">Finalizar compra na Decathlon PRO</a>\n' +
+                                '</div>';
+                    $('.box-client-info-pj').before(textB2B);
+                } else {
+                    $('.link-b2b').attr('href', url);
+                }
+            }           
+        }
+
+        $(window).on('load', function () {
+            B2BCheckout.init()
+        })
+    })()
+</script>

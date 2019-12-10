@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+    <vtex:metaTags />
+    <vtex:contentPlaceHolder id="title" />
+    <!-- START - Open Graph -->
+    <vtex.cmc:productRichSnippets showFacebook="1" />
+    <!-- END - Open Graph -->
+    <meta name="controller" content="LpBuyTogether" />
+    
+    <!-- START - Subtemplate Metatags -->
+    <vtex:template id="0-dcs-web-metatags" />
+    <!-- END - Subtemplate Metatags -->
+    
+    <!-- START - Style e Subtemplate Styles -->
+    <!-- <vtex:template id="0-dcs-web-styles" /> -->
+    <!-- END - Subtemplate Styles -->
+    <script>      
+        window.productsBuyTogether = [];
+        window.productsBuyTogether.push(<vtex.cmc:productsBuyTogether />);
+    </script>
+    
+    <link rel="stylesheet" href="/arquivos/0-dcs-web-lp-buy-together.css" />
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+<!-- START - Open Graph -->
+ <vtex.cmc:productRichSnippets showGoogle="1" />
+ <!-- END - Open Graph -->
+ 
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-mobile" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  <main class="main" id="main">
+    <section class="section__intro"></section>
+    <section class="section__content">
+      <div class="section__products">
+        <h3>OS PRODUTOS DO CONJUNTO:</h3>
+        <div class="section__products-inner"></div>
+        <div class="totals">
+          <h3 class="totals__title">Valor total dos 2 produtos:</h3>
+          <div class="totals__add-to-cart">
+            <a href="#" class="button button--medium button--yellow">Adicionar ao carrinho</a>
+          </div>
+        </div>
+        <div class="section__products-cta">
+            <a href="/conjunto-ideal" class="button button--medium button--blue gaClick" data-event-category="PDP Conjunto Ideal" data-event-action="Botão" data-event-label="Ver todos os conjuntos">Ver todos os conjuntos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+    
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <!-- <vtex:template id="0-dcs-web-scripts" /> -->
+  <!-- END - Subtemplate Scripts -->
+
+  <script type="text/javascript" src="/arquivos/0-dcs-web-common-script.js"></script>
+  <script  type="text/javascript" src="/arquivos/0-dcs-web-lp_buy_together-script.js"></script>
+</body>
+
+</html>

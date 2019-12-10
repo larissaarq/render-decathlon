@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        @font-face {
+            font-family: DecathlonIconfont;
+            src: url(fonts/DecathlonIconfont.eot);
+            src: url(fonts/DecathlonIconfont.eot?#iefix) format("eot"), url(fonts/DecathlonIconfont.woff2) format("woff2"), url(fonts/DecathlonIconfont.woff) format("woff"), url(fonts/DecathlonIconfont.ttf) format("truetype"), url(fonts/DecathlonIconfont.svg#DecathlonIconfont) format("svg");
+            font-weight: 400;
+            font-style: normal
+        }
+
+        [class*=dkti-] {
+            font-family: DecathlonIconfont;
+            speak: none;
+            font-style: normal;
+            font-weight: 400;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            letter-spacing: 0;
+            display: inline-block;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: subpixel-antialiased;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            text-size-adjust: none;
+            zoom: 1;
+            font-size: 50px;
+            color: #0082C3;
+        }
+
+        .dkti-arrow1-down:before {
+            content: "\E001"
+        }
+
+        .dkti-arrow1-left:before {
+            content: "\E002"
+        }
+
+        .dkti-arrow1-rigth:before {
+            content: "\E003"
+        }
+
+        .dkti-arrow1-up:before {
+            content: "\E004"
+        }
+
+        .dkti-arrow2-down:before {
+            content: "\E005"
+        }
+
+        .dkti-arrow2-left:before {
+            content: "\E006"
+        }
+
+        .dkti-arrow2-right:before {
+            content: "\E007"
+        }
+
+        .dkti-arrow2-up:before {
+            content: "\E008"
+        }
+
+        .dkti-arrow3-down:before {
+            content: "\E009"
+        }
+
+        .dkti-arrow3-left:before {
+            content: "\E00A"
+        }
+
+        .dkti-arrow3-right:before {
+            content: "\E00B"
+        }
+
+        .dkti-arrow3-up:before {
+            content: "\E00C"
+        }
+
+        .dkti-download:before {
+            content: "\E00D"
+        }
+
+        .dkti-scroll-down:before {
+            content: "\E00E"
+        }
+
+        .dkti-home-delivery:before {
+            content: "\E00F"
+        }
+
+        .dkti-pickup-1h:before {
+            content: "\E010"
+        }
+
+        .dkti-pickup-relay:before {
+            content: "\E011"
+        }
+
+        .dkti-pickup-store:before {
+            content: "\E012"
+        }
+
+        .dkti-purchase:before {
+            content: "\E013"
+        }
+
+        .dkti-checkbox-off:before {
+            content: "\E014"
+        }
+
+        .dkti-checkbox-on:before {
+            content: "\E015"
+        }
+
+        .dkti-close:before {
+            content: "\E016"
+        }
+
+        .dkti-cross-rounded:before {
+            content: "\E017"
+        }
+
+        .dkti-cross:before {
+            content: "\E018"
+        }
+
+        .dkti-delete:before {
+            content: "\E019"
+        }
+
+        .dkti-document:before {
+            content: "\E01A"
+        }
+
+        .dkti-edit-equal:before {
+            content: "\E01B"
+        }
+
+        .dkti-edit-minus:before {
+            content: "\E01C"
+        }
+
+        .dkti-edit-plus:before {
+            content: "\E01D"
+        }
+
+        .dkti-edit:before {
+            content: "\E01E"
+        }
+
+        .dkti-eye-off:before {
+            content: "\E01F"
+        }
+
+        .dkti-eye-on:before {
+            content: "\E020"
+        }
+
+        .dkti-login:before {
+            content: "\E021"
+        }
+
+        .dkti-printer:before {
+            content: "\E022"
+        }
+
+        .dkti-radio-off:before {
+            content: "\E023"
+        }
+
+        .dkti-radio-on:before {
+            content: "\E024"
+        }
+
+        .dkti-valid-rounded:before {
+            content: "\E025"
+        }
+
+        .dkti-valid:before {
+            content: "\E026"
+        }
+
+        .dkti-bill:before {
+            content: "\E027"
+        }
+
+        .dkti-credit-card:before {
+            content: "\E028"
+        }
+
+        .dkti-euro-card:before {
+            content: "\E029"
+        }
+
+        .dkti-express-checkout:before {
+            content: "\E02A"
+        }
+
+        .dkti-giftcard:before {
+            content: "\E02B"
+        }
+
+        .dkti-payment:before {
+            content: "\E02C"
+        }
+
+        .dkti-promo:before {
+            content: "\E02D"
+        }
+
+        .dkti-secured-payment:before {
+            content: "\E02E"
+        }
+
+        .dkti-wechat-pay:before {
+            content: "\E02F"
+        }
+
+        .dkti-approval:before {
+            content: "\E030"
+        }
+
+        .dkti-data-time:before {
+            content: "\E031"
+        }
+
+        .dkti-decision:before {
+            content: "\E032"
+        }
+
+        .dkti-legal-base:before {
+            content: "\E033"
+        }
+
+        .dkti-out-europe:before {
+            content: "\E034"
+        }
+
+        .dkti-purpose:before {
+            content: "\E035"
+        }
+
+        .dkti-resp:before {
+            content: "\E036"
+        }
+
+        .dkti-security:before {
+            content: "\E037"
+        }
+
+        .dkti-desktop:before {
+            content: "\E038"
+        }
+
+        .dkti-image:before {
+            content: "\E039"
+        }
+
+        .dkti-mobile:before {
+            content: "\E03A"
+        }
+
+        .dkti-music:before {
+            content: "\E03B"
+        }
+
+        .dkti-picture:before {
+            content: "\E03C"
+        }
+
+        .dkti-player-fullscreen:before {
+            content: "\E03D"
+        }
+
+        .dkti-player-pause:before {
+            content: "\E03E"
+        }
+
+        .dkti-player-play:before {
+            content: "\E03F"
+        }
+
+        .dkti-player-replay:before {
+            content: "\E040"
+        }
+
+        .dkti-slider-dot-blue:before {
+            content: "\E041"
+        }
+
+        .dkti-sound-0:before {
+            content: "\E042"
+        }
+
+        .dkti-sound-1:before {
+            content: "\E043"
+        }
+
+        .dkti-sound-2:before {
+            content: "\E044"
+        }
+
+        .dkti-sound-3:before {
+            content: "\E045"
+        }
+
+        .dkti-video:before {
+            content: "\E046"
+        }
+
+        .dkti-360:before {
+            content: "\E047"
+        }
+
+        .dkti-clothes:before {
+            content: "\E048"
+        }
+
+        .dkti-size-guide:before {
+            content: "\E049"
+        }
+
+        .dkti-sizes:before {
+            content: "\E04A"
+        }
+
+        .dkti-technicity:before {
+            content: "\E04B"
+        }
+
+        .dkti-badge:before {
+            content: "\E04C"
+        }
+
+        .dkti-clock:before {
+            content: "\E04D"
+        }
+
+        .dkti-decathlon-card:before {
+            content: "\E04E"
+        }
+
+        .dkti-documents:before {
+            content: "\E04F"
+        }
+
+        .dkti-exchange-return:before {
+            content: "\E050"
+        }
+
+        .dkti-funding:before {
+            content: "\E051"
+        }
+
+        .dkti-gift:before {
+            content: "\E052"
+        }
+
+        .dkti-info:before {
+            content: "\E053"
+        }
+
+        .dkti-insurance:before {
+            content: "\E054"
+        }
+
+        .dkti-maintain:before {
+            content: "\E055"
+        }
+
+        .dkti-perso:before {
+            content: "\E056"
+        }
+
+        .dkti-repair:before {
+            content: "\E057"
+        }
+
+        .dkti-stamp:before {
+            content: "\E058"
+        }
+
+        .dkti-test-buy:before {
+            content: "\E059"
+        }
+
+        .dkti-warranty:before {
+            content: "\E05A"
+        }
+
+        .dkti-heart-full:before {
+            content: "\E05B"
+        }
+
+        .dkti-heart:before {
+            content: "\E05C"
+        }
+
+        .dkti-opinion:before {
+            content: "\E05D"
+        }
+
+        .dkti-star-empty:before {
+            content: "\E05E"
+        }
+
+        .dkti-star-full:before {
+            content: "\E05F"
+        }
+
+        .dkti-thumb-down:before {
+            content: "\E060"
+        }
+
+        .dkti-thumb-up:before {
+            content: "\E061"
+        }
+
+        .dkti-account:before {
+            content: "\E062"
+        }
+
+        .dkti-agenda:before {
+            content: "\E063"
+        }
+
+        .dkti-cart:before {
+            content: "\E064"
+        }
+
+        .dkti-catalog:before {
+            content: "\E065"
+        }
+
+        .dkti-chat:before {
+            content: "\E066"
+        }
+
+        .dkti-compare:before {
+            content: "\E067"
+        }
+
+        .dkti-compass:before {
+            content: "\E068"
+        }
+
+        .dkti-external-link:before {
+            content: "\E069"
+        }
+
+        .dkti-filter:before {
+            content: "\E06A"
+        }
+
+        .dkti-filter2:before {
+            content: "\E06B"
+        }
+
+        .dkti-geolocalization:before {
+            content: "\E06C"
+        }
+
+        .dkti-home:before {
+            content: "\E06D"
+        }
+
+        .dkti-hourglass:before {
+            content: "\E06E"
+        }
+
+        .dkti-lock:before {
+            content: "\E06F"
+        }
+
+        .dkti-mail:before {
+            content: "\E070"
+        }
+
+        .dkti-menu:before {
+            content: "\E071"
+        }
+
+        .dkti-notif-advice:before {
+            content: "\E072"
+        }
+
+        .dkti-notif-alert:before {
+            content: "\E073"
+        }
+
+        .dkti-notif-bell:before {
+            content: "\E074"
+        }
+
+        .dkti-notif-help:before {
+            content: "\E075"
+        }
+
+        .dkti-notif-information:before {
+            content: "\E076"
+        }
+
+        .dkti-pin:before {
+            content: "\E077"
+        }
+
+        .dkti-search:before {
+            content: "\E078"
+        }
+
+        .dkti-sort:before {
+            content: "\E079"
+        }
+
+        .dkti-store:before {
+            content: "\E07A"
+        }
+
+        .dkti-submenu:before {
+            content: "\E07B"
+        }
+
+        .dkti-facebook:before {
+            content: "\E07C"
+        }
+
+        .dkti-googleplus:before {
+            content: "\E07D"
+        }
+
+        .dkti-instagram:before {
+            content: "\E07E"
+        }
+
+        .dkti-pinterest:before {
+            content: "\E07F"
+        }
+
+        .dkti-share:before {
+            content: "\E080"
+        }
+
+        .dkti-twitter:before {
+            content: "\E081"
+        }
+
+        .dkti-youtube:before {
+            content: "\E082"
+        }
+    </style>
+</head>
+
+<body>
+        <i class="dkti-arrow1-down"></i>
+        <i class="dkti-arrow1-left"></i>
+        <i class="dkti-arrow1-rigth"></i>
+        <i class="dkti-arrow1-up"></i>
+        <i class="dkti-arrow2-down"></i>
+        <i class="dkti-arrow2-left"></i>
+        <i class="dkti-arrow2-right"></i>
+        <i class="dkti-arrow2-up"></i>
+        <i class="dkti-arrow3-down"></i>
+        <i class="dkti-arrow3-left"></i>
+        <i class="dkti-arrow3-right"></i>
+        <i class="dkti-arrow3-up"></i>
+        <i class="dkti-download"></i>
+        <i class="dkti-scroll-down"></i>
+        <i class="dkti-home-delivery"></i>
+        <i class="dkti-pickup-1h"></i>
+        <i class="dkti-pickup-relay"></i>
+        <i class="dkti-pickup-store"></i>
+        <i class="dkti-purchase"></i>
+        <i class="dkti-checkbox-off"></i>
+        <i class="dkti-checkbox-on"></i>
+        <i class="dkti-close"></i>
+        <i class="dkti-cross-rounded"></i>
+        <i class="dkti-cross"></i>
+        <i class="dkti-delete"></i>
+        <i class="dkti-document"></i>
+        <i class="dkti-edit-equal"></i>
+        <i class="dkti-edit-minus"></i>
+        <i class="dkti-edit-plus"></i>
+        <i class="dkti-edit"></i>
+        <i class="dkti-eye-off"></i>
+        <i class="dkti-eye-on"></i>
+        <i class="dkti-login"></i>
+        <i class="dkti-printer"></i>
+        <i class="dkti-radio-off"></i>
+        <i class="dkti-radio-on"></i>
+        <i class="dkti-valid-rounded"></i>
+        <i class="dkti-valid"></i>
+        <i class="dkti-bill"></i>
+        <i class="dkti-credit-card"></i>
+        <i class="dkti-euro-card"></i>
+        <i class="dkti-express-checkout"></i>
+        <i class="dkti-giftcard"></i>
+        <i class="dkti-payment"></i>
+        <i class="dkti-promo"></i>
+        <i class="dkti-secured-payment"></i>
+        <i class="dkti-wechat-pay"></i>
+        <i class="dkti-approval"></i>
+        <i class="dkti-data-time"></i>
+        <i class="dkti-decision"></i>
+        <i class="dkti-legal-base"></i>
+        <i class="dkti-out-europe"></i>
+        <i class="dkti-purpose"></i>
+        <i class="dkti-resp"></i>
+        <i class="dkti-security"></i>
+        <i class="dkti-desktop"></i>
+        <i class="dkti-image"></i>
+        <i class="dkti-mobile"></i>
+        <i class="dkti-music"></i>
+        <i class="dkti-picture"></i>
+        <i class="dkti-player-fullscreen"></i>
+        <i class="dkti-player-pause"></i>
+        <i class="dkti-player-play"></i>
+        <i class="dkti-player-replay"></i>
+        <i class="slider-dot-blue"></i>
+        <i class="dkti-sound-0"></i>
+        <i class="dkti-sound-1"></i>
+        <i class="dkti-sound-2"></i>
+        <i class="dkti-sound-3"></i>
+        <i class="dkti-video"></i>
+        <i class="dkti-360"></i>
+        <i class="dkti-clothes"></i>
+        <i class="dkti-size-guide"></i>
+        <i class="dkti-sizes"></i>
+        <i class="dkti-technicity"></i>
+        <i class="dkti-badge"></i>
+        <i class="dkti-clock"></i>
+        <i class="dkti-decathlon-card"></i>
+        <i class="dkti-documents"></i>
+        <i class="dkti-exchange-return"></i>
+        <i class="dkti-funding"></i>
+        <i class="dkti-gift"></i>
+        <i class="dkti-info"></i>
+        <i class="dkti-insurance"></i>
+        <i class="dkti-maintain"></i>
+        <i class="dkti-perso"></i>
+        <i class="dkti-repair"></i>
+        <i class="dkti-stamp"></i>
+        <i class="dkti-test-buy"></i>
+        <i class="dkti-warranty"></i>
+        <i class="dkti-heart-full"></i>
+        <i class="dkti-heart"></i>
+        <i class="dkti-opinion"></i>
+        <i class="dkti-star-empty"></i>
+        <i class="dkti-star-full"></i>
+        <i class="dkti-thumb-down"></i>
+        <i class="dkti-thumb-up"></i>
+        <i class="dkti-account"></i>
+        <i class="dkti-agenda"></i>
+        <i class="dkti-cart"></i>
+        <i class="dkti-catalog"></i>
+        <i class="dkti-chat"></i>
+        <i class="dkti-compare"></i>
+        <i class="dkti-compass"></i>
+        <i class="dkti-external-link"></i>
+        <i class="dkti-filter"></i>
+        <i class="dkti-filter2"></i>
+        <i class="dkti-geolocalization"></i>
+        <i class="dkti-home"></i>
+        <i class="dkti-hourglass"></i>
+        <i class="dkti-lock"></i>
+        <i class="dkti-mail"></i>
+        <i class="dkti-menu"></i>
+        <i class="dkti-notif-advice"></i>
+        <i class="dkti-notif-alert"></i>
+        <i class="dkti-notif-bell"></i>
+        <i class="dkti-notif-help"></i>
+        <i class="dkti-notif-information"></i>
+        <i class="dkti-pin"></i>
+        <i class="dkti-search"></i>
+        <i class="dkti-sort"></i>
+        <i class="dkti-store"></i>
+        <i class="dkti-submenu"></i>
+        <i class="dkti-facebook"></i>
+        <i class="dkti-googleplus"></i>
+        <i class="dkti-instagram"></i>
+        <i class="dkti-pinterest"></i>
+        <i class="dkti-share"></i>
+        <i class="dkti-twitter"></i>
+        <i class="dkti-youtube"></i>
+</body>
+
+</html>

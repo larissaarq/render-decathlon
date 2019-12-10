@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+  lang="pt-br">
+
+<head>
+  <vtex:metaTags/>
+  <meta name="controller" content="ListEmpty" />
+
+  <!-- INICIO - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- FIM - Subtemplate Metatags -->
+
+  <!-- INICIO - Style e Subtemplate Styles -->
+  <vtex:template id="0-dcs-web-styles" />
+  <!-- FIM - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- INICIO - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-desktop" />
+  <!-- FIM - Subtemplate Header -->
+
+  <!-- INICIO - Miolo da página -->
+  <main class="main" id="main">
+
+    <div class="empty-search__header">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24 empty-search__top-container">
+            <div class="empty-search__text">Desculpe, não encontramos nenhum resultado para: </div>
+            <span class="empty-search__terms"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-search__content">
+      <div class="av-container">
+
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="empty-search__tips">
+              <b>Dicas para <span> sua busca</span> </b>
+              <ul class="empty-search__tips-list">
+                <li class="empty-search__tips-item"> Tente um outro termo de busca </li>
+                <li class="empty-search__tips-item"> Verifique a ortografia da sua busca </li>
+                <li class="empty-search__tips-item"> Tente um termo similar ao buscado </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="empty-search__populars">
+              <div class="empty-search__populars-title"> Nossas buscas <span> mais populares</span> </div>
+              <div class="empty-search__populars-list">
+                <vtex:contentPlaceHolder id="Buscas Populares 1" />
+                <vtex:contentPlaceHolder id="Buscas Populares 2" />
+                <vtex:contentPlaceHolder id="Buscas Populares 3" />
+                <vtex:contentPlaceHolder id="Buscas Populares 4" />
+                <vtex:contentPlaceHolder id="Buscas Populares 5" />
+                <vtex:contentPlaceHolder id="Buscas Populares 6" />
+              </div>
+            </div>
+          </div>
+        </div> <!-- .av-row -->
+                
+        
+        <!-- START: Shelf 1 -->
+        <div class="shelf-carousel list-shelf">
+          <div class="av-container">
+            <div class="av-row">
+              <div class="av-col-xs-24">
+                <div class="shelf__content list-shelf__content">
+                  <vtex:contentPlaceHolder id="Coleção de Produtos" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END: Shelf 1 -->
+
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="empty-search__populars">
+              <div class="empty-search__populars-list">
+                
+              </div>
+            </div>
+          </div>
+        </div> <!-- .av-row -->
+
+      </div>
+    </div>
+
+  </main>
+  <!-- FIM - Miolo da página -->
+
+  <!-- INICIO - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- FIM - Subtemplate Footer -->
+
+  <!-- INICIO - Scripts e Subtemplate Scripts -->
+  <vtex:template id="0-dcs-web-scripts" />
+  <!-- FIM - Subtemplate Scripts -->
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common"
+  xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce" lang="pt-br">
+
+<head>
+  <meta name="controller" content="LuckyNumber" />
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+
+  <!-- START - Style -->
+  <link rel="stylesheet" type="text/css" href="/arquivos/0-dcs-web-lucky-number-style.css" />
+  <!-- END - Styles -->
+
+  <vtex:metaTags />
+  <vtex:contentPlaceHolder id="title" />
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="">
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-desktop" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Main -->
+  <main class="main" id="main">
+    <div class="av-container">
+      <div class="av-row">
+        <!-- START: Menu -->
+        <div class="av-col-xs-24 av-col-md-8 av-col-lg-5">
+          <vtex.cmc:myAccountMenuLID />
+        </div>
+        <!-- END: Menu -->
+
+        <!-- START: Content -->
+        <div class="av-col-xs-24 av-col-md-offset-1 av-col-md-15 av-col-lg-offset-1 av-col-lg-18 attached-content">
+          <div class="my-account-title">
+            <a href="/minha-conta" class="my-account-back"></a>
+            Sorteio de Natal Decathlon
+          </div>
+          <div class="av-row lucky-number-decathlon">
+            <div class="shell">
+              <div class="section__inner">
+                <div class="banner-principal">
+                  <img src="/arquivos/capa-sorteio-desktop.jpg" />
+                </div>
+                <div class="sorteio-natal"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END: Content -->
+      </div>
+    </div>
+  </main>
+  <!-- END - Main -->
+
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <vtex:template id="0-dcs-web-scripts" />
+  <script src="/arquivos/0-dcs-web-lucky_number-script.js"></script>
+  <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+#set($id = $product.Id)
+#set($uri = $product.Uri)
+#set($escapedName = $product.HtmlEscapedName)
+
+<div class="shelf-item product-big" rel="$id" item="$product.productVariantId" data-product-id="$id" data-product-department="$product.DepartmentName" data-product-category="$product.CategoryName" data-product-brand="$product.BrandName" data-loader="loadShelf">
+  <!-- START: Favorite -->
+  <div class="shelf-item__hover" style="position: absolute; right: 23px; top: 21px;">
+    <!--<button class="shelf-item__favorite-button">Favoritar</button>-->
+    <a rel="$product.productVariantId" href="javascript:void(0);" class="bl-product-trigger shelf-item__favorite-button">
+    Favoritar
+    </a>
+  </div>
+  <!-- END: Favorite -->
+  
+      <!-- START: Flags -->
+  <div class="shelf-item__flags">
+    <!--<div class="flag-discount">
+        <span>LIQUIDAÇÃO</span>
+      $product.DiscountHightLight
+    </div>
+
+    <div class="flag-promotion">
+      $product.HightLight
+    </div>
+
+    <div class="flag-bestprice">
+      #if ($product.HasBestPrice)
+        <p class="flag flag-/-bestprice"></p>
+      #end
+    </div>-->
+    
+    #if ($product.HasBestPrice)
+        <div class="flag-offer">
+            <span>LIQUIDAÇÃO</span>
+        </div>
+    #end
+  </div>  
+  <!-- END: Flags -->
+
+  <!-- START: Image -->
+  <div class="shelf-item__img">
+    <a href="$uri" class="shelf-item__img-link" title="$escapedName">
+      <div class="shelf-item__image">
+        $product.GetImageTag(150, 150)
+      </div>
+    </a>
+  </div>
+  <!-- END: Image -->
+
+  <!-- START: Info -->
+  <div class="shelf-item__info">
+    <!-- START: Colors -->
+    <div class="shelf-item__colors"></div>
+    <!-- END: Colors -->
+
+    <!-- START: Price -->
+    <a href="$uri" class="shelf-item__buy-info">
+      #if ($product.IsInStock)
+        <div class="shelf-item__price">
+          <div class="shelf-item__list-price">
+            #if ($product.HasBestPrice)
+              antes <span class="shelf-item__featured">$product.ListPrice</span>
+            #end
+          </div>
+
+          #if ($product.HasBestPrice)
+            <div class="shelf-item__best-price">$product.BestPrice</div>
+          #else
+            <div class="shelf-item__best-price shelf-item__best-price--featured">$product.BestPrice</div>
+          #end
+
+          <div class="shelf-item__installments">
+            #if ($product.NumbersOfInstallment > 1)
+              até ${product.NumbersOfInstallment}x de $product.InstallmentValue
+            #end
+          </div>
+          <div style="display:none;">
+            $product.MaxNumbersOfInstallment x de $product.MaxInstallmentValue
+          </div>
+        </div>
+      #else
+        <div class="product-item__no-stock">
+          <div class="product-item__no-stock-title">Produto indisponível</div>
+
+          <div class="product-item__no-stock-link">Avise-me quando chegar</div>
+          <div class="shelf-item__best-price hide">R$ 0,00</div>
+        </div>
+      #end
+      </a>
+    <!-- END: Price -->
+
+    <!-- START: Brand -->
+    <a href="$uri" class="shelf-item__brand">$product.BrandName</a>
+    <!-- END: Brand -->
+
+    <!-- START: Name -->
+    <h3 class="shelf-item__title">
+      <a title="$escapedName" href="$uri" class="shelf-item__title-link">$product.Name</a>
+    </h3>
+    <!-- END: Name -->
+
+    <!-- START: Rate -->
+    <div class="shelf-item__rate">
+      $product.ProductField(28)
+    </div>
+    <!-- END: Rate -->
+
+    <hr class="shelf-item__separator" />
+
+    <div class="shelf-item__bottom">
+      <!-- START: Compare button -->
+      <div class="shelf-item__compare hide">
+        <label class="shelf-item__compare-label">
+          Comparar
+          <input type="checkbox" class="shelf-item__compare-checkbox" data-product-id="$id">
+        </label>
+      </div>
+      <!-- END: Compare button -->
+
+      <!-- START: Buy button -->
+      <div class="shelf-item__buy shelf-item__hover pull-right">
+        <a title="$escapedName" href="$uri" class="shelf-item__buy-link">Comprar</a>
+      </div>
+      <!-- END: Buy button -->
+    </div>
+  </div>
+  <!-- END: Info -->
+  <input type="hidden" name="hidden-link" class="shelf-item__hidden-link" value="$uri">
+</div>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:vtex="http://www.vtex.com.br/2009/vtex-common" xmlns:vtex.cmc="http://www.vtex.com.br/2009/vtex-commerce"
+  lang="pt-br">
+
+<head>
+  <meta name="controller" content="StoreLocator" />
+
+  <!-- START - Subtemplate Metatags -->
+  <vtex:template id="0-dcs-web-metatags" />
+  <!-- END - Subtemplate Metatags -->
+
+  <vtex:metaTags/>
+  <vtex:contentPlaceHolder id="metatags" />
+
+  <!-- START - Style e Subtemplate Styles -->
+  <!-- <vtex:template id="0-dcs-web-styles" /> -->
+  <link rel="stylesheet" type="text/css" href="/arquivos/0-dcs-web-store-locator-style.css" />
+  <!-- END - Subtemplate Styles -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- START - Subtemplate Header -->
+  <vtex:template id="0-dcs-web-header-desktop" />
+  <!-- END - Subtemplate Header -->
+
+  <!-- START - Miolo da página -->
+  <main class="main" id="main">
+    <!-- START: Banner full -->
+    <section class="banner-full">
+      <vtex:contentPlaceHolder id="Banner Principal" />
+
+      <!-- START: Banner Mask -->
+      <vtex.cmc:bannerMask />
+      <!-- END: Banner Mask -->
+    </section>
+    <!-- END: Banner full -->
+
+    <!-- START: Select State -->
+    <section class="section-select-state">
+      <div class="av-container">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="store-locator__select">
+              <label for="states-navigation">Escolha seu estado</label>
+              <select class="custom-select custom-select--small states-navigation" id="states-navigation" data-size="6">
+                <option value="all">Todos</option>
+                <!-- <option value="c6ccbe2c-757d-11e8-81f2-80dafa1d3a04">Acre</option> -->
+                <!-- <option value="5d4135dc-7582-11e8-81f2-8679c9df9bf9">Alagoas</option> -->
+                <!-- <option value="68e3a28a-7582-11e8-81f2-edfe8b510c72">Amapá</option> -->
+                <!-- <option value="62db0b86-7582-11e8-81f2-edfe8b510c72">Amazonas</option> -->
+                <!-- <option value="6eda463a-7582-11e8-81f2-cddf7f1cf12b">Bahia</option> -->
+                <!-- <option value="779070e8-7582-11e8-81f2-8679c9df9bf9">Ceará</option> -->
+                <!-- <option value="7ed3ba25-7582-11e8-81f2-ffffd1f30602">Distrito Federal</option> -->
+                <option value="851f6959-7582-11e8-81f2-8679c9df9bf9">Espírito Santo</option>
+                <option value="8a35e344-7582-11e8-81f2-80dafa1d3a04">Goiás</option>
+                <!-- <option value="9d7d1a39-7582-11e8-81f2-f904dccc31c8">Maranhão</option> -->
+                <!-- <option value="48899d50-7584-11e8-81f2-f904dccc31c8">Mato Grosso</option> -->
+                <!-- <option value="b0428b89-7582-11e8-81f2-80dafa1d3a04">Mato Grosso do Sul</option> -->
+                <option value="a312d4a8-7582-11e8-81f2-80dafa1d3a04">Minas Gerais</option>
+                <!-- <option value="4edbdb37-7584-11e8-81f2-cddf7f1cf12b">Pará</option> -->
+                <!-- <option value="54d9de02-7584-11e8-81f2-cddf7f1cf12b">Paraíba</option> -->
+                <option value="5d18b597-7590-11e8-81f2-cddf7f1cf12b">Paraná</option>
+                <!-- <option value="592d7dd7-7584-11e8-81f2-ffffd1f30602">Pernambuco</option> -->
+                <!-- <option value="5b480793-7584-11e8-81f2-f904dccc31c8">Piauí</option> -->
+                <option value="662ea390-7590-11e8-81f2-ffffd1f30602">Rio de Janeiro</option>
+                <!-- <option value="6a2f8df8-7590-11e8-81f2-cddf7f1cf12b">Rio Grande do Norte</option> -->
+                <option value="7dddf9fa-7590-11e8-81f2-edfe8b510c72">Rio Grande do Sul</option>
+                <!-- <option value="7220b3b1-7590-11e8-81f2-80dafa1d3a04">Rondônia</option> -->
+                <!-- <option value="7a1847cf-7590-11e8-81f2-8679c9df9bf9">Roraima</option> -->
+                <option value="807b021d-7590-11e8-81f2-ffffd1f30602">Santa Catarina</option>
+                <option value="8d21fc6c-7590-11e8-81f2-8679c9df9bf9">São Paulo</option>
+                <!-- <option value="8a5fa9ca-7590-11e8-81f2-cddf7f1cf12b">Sergipe</option> -->
+                <!-- <option value="9564e458-7590-11e8-81f2-8679c9df9bf9">Tocantins</option> -->
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Select State -->
+
+    <!-- START: Stores -->
+    <section class="section-stores">
+      <div class="av-container-fluid">
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="store-locator__search"></div>
+          </div>
+        </div>
+
+        <div class="av-row">
+          <div class="av-col-xs-24">
+            <div class="store-locator__list">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: Stores -->
+  </main>
+  <!-- END - Miolo da página -->
+
+  <!-- START - Subtemplate Footer -->
+  <vtex:template id="0-dcs-web-footer" />
+  <!-- END - Subtemplate Footer -->
+
+  <!-- START - Scripts e Subtemplate Scripts -->
+  <!-- <vtex:template id="0-dcs-web-scripts" /> -->
+  <script type="text/javascript" src="/arquivos/0-dcs-web-store_locator-script.js"></script>
+  <!-- END - Subtemplate Scripts -->
+</body>
+
+</html>
