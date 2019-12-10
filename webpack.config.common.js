@@ -13,33 +13,23 @@ const directoryPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
 
 fs.readdirSync(directoryPath).map(folder => {
-  const controllerPath = path.join(__dirname, 'src/js/controllers', folder);
+  const controllerPath = path.join(__dirname, 'src/js/controllers', folder)
 
-  fs.readdir(controllerPath, (err, files) => {
-    if (err) return console.log(`Unable to scan directory: ${err}`);
+  fs.readdirSync(controllerPath).map(file => {
+    const fileName = file.substring(0, file.length - 3)
+    const filePath = path.join(controllerPath, fileName)
 
-    files.map(file => {
-      const fileName = file.substring(0, file.length - 3);
-      const filePath = path.join(controllerPath, fileName);
-
-      console.log('filePath:', filePath)
-
-      Object.assign(controllers, {
-        [fileName]: filePath
-      });
+    Object.assign(controllers, {
+      [fileName.replace('0-dcs-web-', '')]: filePath
     });
-  });
-});
-
-console.log('Controllers:', controllers)
+  })
+})
 
 const entry = Object.assign(controllers, {
   polyfill: '@babel/polyfill',
   main: path.join(__dirname, 'src/js', 'main'),
   components: path.join(__dirname, 'src/react', 'index'),
 })
-
-console.log('Entry:', entry);
 
 module.exports = {
   watchOptions: {
@@ -95,7 +85,7 @@ module.exports = {
     new WebpackCleanupPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'arquivos/_0-dcs-web-[name].css',
+      filename: 'arquivos/0-dcs-web-[name].css',
       ignoreOrder: true
     }),
     new CopyPlugin([{
@@ -115,7 +105,7 @@ module.exports = {
     ]),
     new MergeIntoSingleFilePlugin({
       files: {
-        'arquivos/_0-web-vendors.js': [
+        'arquivos/0-dcs-web-vendors.js': [
           `${vendorPath}/jquery/dist/jquery.min.js`,
           `${vendorPath}/bootstrap/dist/js/bootstrap.min.js`,
           `${vendorPath}/avanti-class/src/avanti-class.js`,
@@ -130,10 +120,10 @@ module.exports = {
           `${vendorPath}/pointer_events_polyfill/pointer_events_polyfill.js`,
           `${vendorPath}/percircle/dist/percircle.js`,
         ],
-        // "arquivos/_0-web-vendors.css": ['']
+        // "arquivos/0-dcs-web-vendors.css": ['']
       },
       transform: {
-        'arquivos/_0-web-vendors.js': code => require("uglify-js").minify(code).code
+        'arquivos/0-dcs-web-vendors.js': code => require("uglify-js").minify(code).code
       }
     })
   ]

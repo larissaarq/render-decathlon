@@ -6,8 +6,8 @@ module.exports = merge(common, {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `arquivos/_0-dcs-web-[name].js`,
-    chunkFilename: `arquivos/_0-dcs-web-[name].js`,
+    filename: `arquivos/0-dcs-web-[name].js`,
+    chunkFilename: `arquivos/0-dcs-web-[name].js`,
     publicPath: '/'
   },
   devServer: {

@@ -7,8 +7,8 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: `arquivos/_0-dcs-web-[name].js`,
-    chunkFilename: `arquivos/_0-dcs-web-[name].js`,
+    filename: `arquivos/0-dcs-web-[name].js`,
+    chunkFilename: `arquivos/0-dcs-web-[name].js`,
     publicPath: '/'
   },
   plugins: [
