@@ -1,21 +1,52 @@
 const path = require('path')
+const fs = require('fs')
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
-const vendorPath = path.resolve(__dirname, 'src/vendor');
+
+const vendorPath = path.resolve(__dirname, 'src/vendor')
+
+const directoryPath = path.join(__dirname, 'src/js/controllers')
+
+const controllers = {}
+
+fs.readdirSync(directoryPath).map(folder => {
+  const controllerPath = path.join(__dirname, 'src/js/controllers', folder);
+
+  fs.readdir(controllerPath, (err, files) => {
+    if (err) return console.log(`Unable to scan directory: ${err}`);
+
+    files.map(file => {
+      const fileName = file.substring(0, file.length - 3);
+      const filePath = path.join(controllerPath, fileName);
+
+      console.log('filePath:', filePath)
+
+      Object.assign(controllers, {
+        [fileName]: filePath
+      });
+    });
+  });
+});
+
+console.log('Controllers:', controllers)
+
+const entry = Object.assign(controllers, {
+  polyfill: '@babel/polyfill',
+  main: path.join(__dirname, 'src/js', 'main'),
+  components: path.join(__dirname, 'src/react', 'index'),
+})
+
+console.log('Entry:', entry);
 
 module.exports = {
   watchOptions: {
     aggregateTimeout: 300,
     poll: 1000
   },
-  entry: {
-    polyfill: '@babel/polyfill',
-    main: path.join(__dirname, 'src/js', 'main'),
-    components: path.join(__dirname, 'src/react', 'index')
-  },
+  entry,
   module: {
     rules: [{
         test: /\.js$/,
