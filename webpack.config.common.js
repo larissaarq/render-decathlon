@@ -21,7 +21,7 @@ fs.readdirSync(directoryPath).map(folder => {
 
     Object.assign(controllers, {
       [fileName.replace('0-dcs-web-', '')]: filePath
-    });
+    })
   })
 })
 
