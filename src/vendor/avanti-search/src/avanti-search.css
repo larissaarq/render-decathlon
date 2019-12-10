@@ -1,0 +1,8 @@
+.resultItemsWrapper li {
+  display: inline-block;
+}
+
+.resultItemsWrapper li.shelf-item--preload,
+.load-btn--hide {
+  display: none;
+}

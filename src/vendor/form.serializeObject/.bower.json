@@ -1,0 +1,14 @@
+{
+  "name": "form.serializeObject",
+  "homepage": "https://github.com/ambox/form.serializeObject",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "5190cef84c76a32c9a1934b44425bc0cc65c8e78"
+  },
+  "_source": "https://github.com/ambox/form.serializeObject.git",
+  "_target": "^0.0.1",
+  "_originalSource": "ambox/form.serializeObject"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "avanti-search",
+  "description": "VTEX Avanti Search",
+  "main": "src/avanti-search.js",
+  "authors": [
+    "Carlo Schneider <carlo.schneider@penseavanti.com.br>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/avanti/avanti-search",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

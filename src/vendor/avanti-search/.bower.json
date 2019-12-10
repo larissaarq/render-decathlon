@@ -1,0 +1,27 @@
+{
+  "name": "avanti-search",
+  "description": "VTEX Avanti Search",
+  "main": "src/avanti-search.js",
+  "authors": [
+    "Carlo Schneider <carlo.schneider@penseavanti.com.br>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/avanti/avanti-search",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "3.1.0",
+  "_release": "3.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.1.0",
+    "commit": "4c467137645c01eea832cb6c78163c557089ab01"
+  },
+  "_source": "https://github.com/avanti/avanti-search.git",
+  "_target": "^3.0.1",
+  "_originalSource": "avanti-search"
+}

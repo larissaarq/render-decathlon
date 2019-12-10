@@ -1,0 +1,9 @@
+{
+  "name": "avanti-class",
+  "version": "1.0.0",
+  "description": "Avanti Class",
+  "main": "src/avanti-class.js",
+  "repository": "https://github.com/avanti/avanti-class",
+  "author": "Carlo Schneider <carlo.schneider@penseavanti.com.br>",
+  "license": "MIT"
+}

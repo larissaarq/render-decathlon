@@ -1,0 +1,17 @@
+{
+  "name": "avanti-class",
+  "description": "Avanti Class",
+  "main": "src/avanti-class.js",
+  "authors": [
+    "Carlo Schneider <carlo.schneider@penseavanti.com.br>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/avanti/avanti-class",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "percircle",
+  "description": "CSS percentage circle built with jQuery selectors.",
+  "main": "dist/js/percircle.js",
+  "authors": [
+    "Thodoris Bais"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "percentage",
+    "circle",
+    "ui"
+  ],
+  "homepage": "https://github.com/toubou91/percircle",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "ignore": [
+    ".gitignore",
+    "node_modules",
+    "bower_components",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0"
+  },
+  "version": "1.0.17",
+  "_release": "1.0.17",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.17",
+    "commit": "fbf5bcdf32cdcaff12d8a257f5e29f6f1e114972"
+  },
+  "_source": "https://github.com/toubou91/percircle.git",
+  "_target": "^1.0.17",
+  "_originalSource": "percircle"
+}
