@@ -15,16 +15,19 @@ let filesToConcat = []
 
 /**
  * 
- * @param {string} rootPath path of files
- * @returns {array} array os path files
+ * @param {String} rootPath Path of files
+ * @param {Function} cb Return callback with file
+ * @returns {Array} Array of files path
  */
 
-const getPaths = (rootPath) => {
+const getPaths = (rootPath, cb) => {
   const paths = []
 
   fs.readdirSync(rootPath).map(file => {
     const filePath = path.join(rootPath, file)
     paths.push(filePath)
+
+    if (cb) cb(file)
   })
 
   return paths
@@ -35,6 +38,17 @@ filesToConcat = [
   ...getPaths(controllersRootPath)
 ]
 
+const controllers = {}
+
+getPaths(controllersRootPath, file => {
+  const fileName = file.substring(0, file.length - 3)
+  const filePath = path.join(controllersRootPath, fileName)
+
+  Object.assign(controllers, {
+    [fileName.replace('_0-dcs-web-', '')]: filePath
+  })
+})
+
 module.exports = {
   watchOptions: {
     aggregateTimeout: 300,
@@ -43,6 +57,7 @@ module.exports = {
   entry: {
     polyfill: '@babel/polyfill',
     application: filesToConcat,
+    ...controllers,
     components: path.join(__dirname, 'src/react', 'index')
   },
   module: {

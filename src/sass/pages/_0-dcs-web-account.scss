@@ -1,0 +1,1619 @@
+@mixin MyAccountSubTitle {
+  font-size: 18px !important;
+  font-weight: $primaryFontRegular !important;
+  font-style: normal !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+a.my-account-submenu__link.orders-link {
+  text-transform: capitalize !important;
+}
+
+body.my-account {
+  .av-modal--password-request,
+  .av-modal--uncomplete-account,
+  .av-modal--uncomplete-account-update {
+    .av-modal__modal {
+      top: 50%;
+    }
+
+    .av-modal__buttons {
+      display: flex;
+      justify-content: center;
+
+      .button {
+        margin: 0 15px;
+      }
+    }
+  }
+
+  form {
+    .error {
+      display: block;
+      padding-top: 10px;
+      margin: 0 !important;
+      opacity: 1 !important;
+      text-transform: uppercase;
+
+      .input-group-gender & {
+        position: absolute;
+      }
+    }
+  }
+
+  main.main {
+    &:before {
+      z-index: -1;
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      @media (max-width: $screen-sm-max) {
+        background: $alabaster;
+      }
+    }
+
+    @media (min-width: $screen-sm-max) {
+      padding-top: 45px;
+    }
+  }
+
+  .my-account-button-edit,
+  .my-account-button-cancel,
+  .my-account-button-save {
+    font-size: 12px;
+    font-weight: 700;
+    width: 225px;
+    position: relative;
+
+    &:not(.my-account-button-cancel):after {
+      float: none;
+      margin-top: 0;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    i.my-account-button-add--icon {
+      @include decathlonIcon('\E01D', #ffffff, 14px);
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .my-account-button-cancel {
+    background: #eaeced;
+
+    &:hover {
+      background: #dddfe0;
+    }
+
+    &:before {
+      left: -1px;
+      background: #dddfe0;
+      @include transform(rotate(10deg));
+    }
+
+    &:after {
+      float: none;
+      margin-top: 0;
+      margin-left: 0;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      border-top: 1px solid #393939;
+      border-left: 1px solid #393939;
+      border-bottom: none;
+      border-right: none;
+    }
+  }
+
+  .my-account-button-add-address {
+    &:after {
+      border: none;
+    }
+  }
+
+  .my-account-title,
+  .my-account-page-title {
+    font-family: $primaryFont;
+  }
+
+  .attached-content {
+    @media (max-width: $screen-sm-max) {
+      @include transition(margin 0.5s ease-in-out);
+
+      background: $alabaster;
+      padding: 0;
+      // margin-right: -100vh;
+      // display: none;
+
+      &.open {
+        margin-right: 0;
+        display: block;
+      }
+    }
+  }
+
+  .my-account-content {
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+.orders,
+body.my-account {
+  @media (min-width: $screen-md-min) {
+    background: white url('/arquivos/dcs-account-bg.jpg') top center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+  }
+
+  @media (min-width: $screen-md-min) {
+    .account-content {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &.profile {
+    main {
+      > .av-container {
+        background: white;
+      }
+    }
+  }
+
+  main.main {
+    hr {
+      margin-top: 0;
+      margin-left: -2rem;
+      margin-right: -2rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &.my-account-page-list {
+        @media (min-width: $screen-md-min) {
+          margin: 0 auto;
+          max-width: 500px;
+        }
+      }
+    }
+
+    label {
+      // opacity: .5;
+    }
+
+    .field-validation {
+      opacity: 0.5;
+      width: 100%;
+      display: none;
+      color: $lochmara;
+      font-size: 1.3rem;
+      text-align: right;
+    }
+
+    input {
+      border: 0;
+      padding: 0;
+      width: 100%;
+      color: $lochmara;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      text-overflow: ellipsis;
+
+      &:-webkit-autofill {
+        -webkit-text-fill-color: $lochmara;
+        -webkit-box-shadow: inset 0 0 0px 9999px white;
+      }
+
+      .hide-input-style {
+        border: 0;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      position: relative;
+      overflow-x: hidden;
+      background: $alabaster;
+    }
+  }
+
+  /* MENU */
+  .my-account-menu {
+    background: $white;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 50px;
+
+    .my-account-menu__profile {
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      color: $mineShaftDarker;
+
+      &:before {
+        content: '';
+        @extend .sprite-icon-account-blue;
+      }
+
+      .my-account-menu__profile-welcome {
+        margin: 10px 0;
+      }
+
+      .my-account-menu__profile-name {
+        overflow: hidden;
+        height: 78px;
+        max-height: 78px;
+        font-size: 2em;
+        margin: 10px 0 20px;
+        text-transform: uppercase;
+      }
+
+      .my-account-menu__profile-account {
+        color: $lochmara;
+      }
+
+      .my-account-menu__profile-id {
+        display: block;
+        font-size: 20px;
+        overflow: hidden;
+        height: 24px;
+        max-height: 24px;
+      }
+    }
+
+    .my-account-menu__list,
+    .my-account-submenu__list {
+      li {
+        border-bottom: 1px solid $gray;
+
+        .my-account-menu__link,
+        .my-account-submenu__link {
+          width: 100%;
+          padding: 20px;
+          font-size: 14px;
+          position: relative;
+          display: inline-block;
+          color: $mineShaftDarker;
+          text-transform: uppercase;
+
+          &:before {
+            @include arrow('right', 15px, $lochmara);
+            right: 10px;
+            left: initial;
+          }
+        }
+      }
+    }
+
+    .my-account-menu__item {
+      &.has-submenu-list.open {
+        border: 0;
+        background: $gallery;
+
+        .my-account-menu__link {
+          &:before {
+            @include arrow('bottom', 15px, $lochmara);
+            right: 10px;
+            left: initial;
+          }
+        }
+      }
+    }
+
+    .my-account-submenu__list {
+      display: none;
+
+      .my-account-submenu__item {
+        &:first-child {
+          box-shadow: inset 0px 11px 30px -16px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  /* /MENU */
+  .my-account-title {
+    color: $white;
+    line-height: 60px;
+    text-transform: uppercase;
+    background: $mineShaftDarker;
+    font-style: italic;
+
+    .my-account-back {
+      z-index: 10;
+      width: 60px;
+      height: 62px;
+      padding: 0 1rem;
+      position: relative;
+      margin-right: 2rem;
+      display: inline-block;
+      background: $lochmara;
+      vertical-align: middle;
+
+      &:before {
+        display: block;
+        @include arrow('left', 15px, $white);
+        left: 60%;
+      }
+
+      &:after {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: $lochmara;
+        border-right: 1px solid $white;
+        @include skew(10deg, 0);
+        right: -10px;
+        top: 0;
+        z-index: -1;
+      }
+    }
+
+    @media (min-width: $screen-sm-max) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .my-account-page__content {
+    background: $white;
+    margin: 0 0 10px;
+    padding: 1rem 2rem 2rem;
+
+    // @media (min-width: $screen-md-min) {
+    //   text-align: center;
+    // }
+
+    form {
+      p.my-account__buttons {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      &.readonly {
+        .my-account-button-save,
+        .my-account-button-cancel {
+          display: none;
+        }
+
+        ul.inline-list {
+          li {
+            label {
+              display: inline-block;
+            }
+
+            input {
+              float: right;
+              max-width: 120px;
+              text-align: right;
+              transition: padding, box-shadow 0.5s ease-in-out;
+              -o-transition: padding, box-shadow 0.5s ease-in-out;
+              -moz-transition: padding, box-shadow 0.5s ease-in-out;
+              -webkit-transition: padding, box-shadow 0.5s ease-in-out;
+            }
+          }
+        }
+
+        .my-account-page-list {
+          li {
+            text-align: center;
+
+            input {
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      &.edit {
+        input {
+          border: 1px solid $gallery;
+          padding: 8px !important;
+          transition: box-shadow 0.2s linear;
+
+          &[disabled='disabled'] {
+            border: 0;
+
+            &:hover {
+              cursor: not-allowed;
+            }
+          }
+
+          &:not([disabled='disabled']) {
+            &:hover {
+              border: 1px solid #d4d7d9;
+              box-shadow: 1px 1px 1px rgba(50, 50, 51, 0.2);
+              @include transition(border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out);
+            }
+          }
+        }
+
+        .field-validation {
+          display: none;
+        }
+
+        .my-account-button-edit {
+          display: none;
+        }
+
+        .my-account-button-cancel,
+        .my-account-button-save {
+          display: inline-block;
+          margin: 0 30px;
+
+          @media (max-width: $screen-sm-max) {
+            display: block;
+            margin: 10px auto;
+          }
+        }
+      }
+
+      .my-account-button-edit,
+      .my-account-button-cancel,
+      .my-account-button-save {
+        margin: 0 auto;
+        display: block;
+        padding: 0.5rem;
+        text-align: center;
+      }
+    }
+
+    .my-account-page-title {
+      font-weight: $primaryFontBold;
+      font-size: 20px;
+      text-align: left;
+      text-transform: uppercase;
+      font-style: italic;
+
+      @media (min-width: $screen-md-max) {
+        margin: 14px auto;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+
+    .my-account-page-list {
+      li {
+        margin: 0 0 2rem;
+      }
+    }
+
+    .field-validation {
+      &:before {
+        margin-right: 1rem;
+      }
+
+      &.invalid {
+        &:before {
+          content: '';
+          @extend .sprite-icon-alert-blue;
+        }
+      }
+
+      &.valid {
+        &:before {
+          content: '';
+          @extend .sprite-icon-check-available-blue;
+        }
+      }
+    }
+  }
+
+  .my-account-page--preferences-sports {
+    overflow-x: hidden;
+    margin-bottom: 24px;
+
+    .my-account-page__content {
+      margin: 0;
+      padding: 0;
+      background: none;
+
+      @media (min-width: $screen-md-min) {
+        background: $white;
+      }
+    }
+
+    .my-account-page--preferences-sports__my-sports {
+      padding: 1rem 2rem;
+
+      .my-account-page-title {
+        @include MyAccountSubTitle();
+      }
+
+      .my-sports-list {
+        li {
+          position: relative;
+          margin-bottom: 1rem;
+          background: $white;
+          padding: 0 1rem;
+        }
+      }
+    }
+
+    .my-account-page--preferences-sports__sports-list {
+      h2 {
+        @include MyAccountSubTitle();
+
+        margin: 0;
+        padding: 1rem 2rem;
+
+        @media (min-width: $screen-md-min) {
+          float: left;
+        }
+      }
+
+      .my-sports-list {
+        @media (min-width: $screen-md-min) {
+          border: 0;
+        }
+
+        .sports-list--item {
+          position: relative;
+          padding: 0 1rem;
+          margin: 0;
+          background: $white;
+          text-align: left;
+
+          &.empty-item {
+            background: none !important;
+            font-weight: bold;
+            line-height: 10px;
+            font-size: 12px;
+          }
+
+          .my-account-sports-list__link {
+            width: 100%;
+            position: relative;
+            display: inline-block;
+            padding-left: 30px;
+            text-align: left;
+            color: $mineShaftDarker;
+          }
+        }
+      }
+
+      .my-account-page-list {
+        margin: 2rem 0 0 0;
+        background: $white;
+
+        @media (min-width: $screen-md-min) {
+          border: 0;
+        }
+
+        @media (max-width: $screen-md-max) {
+          &:after {
+            content: '';
+            width: 100%;
+            height: 5px;
+            background: $alabaster;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+
+        li.sports-list--item {
+          margin: -5px 0 0 0 !important;
+          padding: 0;
+          text-transform: uppercase;
+          border-bottom: 1px solid $gray;
+          line-height: initial;
+          min-height: 65px;
+          max-height: 65px;
+          position: relative;
+
+          @media (min-width: $screen-md-min) {
+            border-top: none;
+            border-right: 1px solid $gray;
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+              border-top: 1px solid $gray;
+            }
+          }
+
+          .my-account-sports-list__link {
+            text-align: left;
+            color: $mineShaftDarker;
+            text-decoration: none;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 13px;
+            padding: 0 0 0 30px;
+            margin: 0;
+            display: block;
+            vertical-align: middle;
+            position: absolute;
+            top: 35%;
+            left: 40px;
+            width: 75%;
+
+            span.my-account-sports-list__icon {
+              display: inline-block;
+              position: absolute;
+              top: -10px;
+              left: -25px;
+              width: 45px;
+              text-align: center;
+            }
+
+            i.universal-icon {
+              display: inline-block;
+              vertical-align: middle;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+
+    .my-sports-list {
+      text-transform: uppercase;
+      line-height: 60px;
+      border: 1px solid $alabaster;
+      margin-left: 0;
+
+      @media (min-width: $screen-md-min) {
+        text-align: left;
+        border: 0;
+        margin-left: -15px;
+      }
+
+      span {
+        @include decathlonIcon('\E018', #333333, 28px);
+
+        position: absolute;
+        right: 12px;
+        top: 28%;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .sports-list--item {
+        text-align: left;
+        display: inline-block;
+        margin: 0;
+        width: 100%;
+        border: 1px solid $gray;
+
+        @media (min-width: $screen-md-min) {
+          max-width: 255px;
+          margin: 0 15px;
+        }
+
+        &.empty-item {
+          max-width: 100% !important;
+          width: 99%;
+        }
+      }
+    }
+
+    .my-account-page--preferences-sports__filter {
+      margin: 0 2rem;
+      padding: 0 1rem;
+      background: #fff;
+      position: relative;
+
+      @media (min-width: $screen-md-min) {
+        float: right;
+        min-width: 350px;
+      }
+
+      @media (max-width: $screen-md-max) {
+        background: $alabaster;
+        margin: 0 0 0 20px;
+        padding: 0;
+        max-width: 81%;
+      }
+
+      input {
+        padding: 8px;
+        border: 1px solid $gray;
+        font-size: 13px;
+        font-weight: normal;
+        color: #333333;
+
+        @include placeholder('#d4d7d9');
+
+        &:hover {
+          border: 1px solid #d4d7d9;
+          box-shadow: 1px 1px 1px rgba(50, 50, 51, 0.2);
+          @include transition(border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out);
+        }
+
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+      .my-account-page--preferences-sports__filter-icon {
+        @include decathlonIcon('\E078', $lochmara, 17px);
+
+        position: absolute;
+        right: 0;
+        top: 10px;
+      }
+    }
+  }
+
+  .connection-container {
+    position: relative;
+  }
+
+  .password-container {
+    .my-account-page-list {
+      max-width: 330px !important;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 !important;
+
+      li {
+        width: 100% !important;
+      }
+    }
+
+    .new-password-item {
+      display: none;
+    }
+
+    .password-meter {
+      margin-top: 15px;
+      text-align: left;
+      margin: 1rem 0;
+    }
+
+    .password-meter-list {
+      @include resetList();
+    }
+
+    .password-meter-condition {
+      height: 20px;
+      line-height: 20px;
+      color: $checkboxBorderInactive;
+      margin-bottom: 0 !important;
+
+      i {
+        @include decathlonIcon('\E026', $checkboxBorderInactive, 30px);
+        vertical-align: middle;
+        font-weight: 800;
+      }
+
+      &.valid {
+        color: $mineShaft;
+
+        i {
+          &:before {
+            color: #42a148;
+          }
+
+          margin-left: -5px;
+        }
+      }
+
+      @media (max-width: 342px) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .my-account-page--sports-list-container {
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // width: 100%;
+    // bottom: 0;
+    // margin-right: 0;
+    // transition: margin .2s ease-in-out;
+
+    &.hidden {
+      // display: block !important;
+      // margin-right: -100vh;
+    }
+
+    .my-account-page__content {
+      margin: 0;
+      padding: 0;
+    }
+
+    .my-account-page--sports-by-universe {
+      padding: 0;
+      margin-left: 0;
+      margin-right: 0;
+
+      .my-account-page-title {
+        @include MyAccountSubTitle();
+
+        max-width: 100% !important;
+        padding: 2rem 2rem 0 2rem;
+        margin-bottom: 0;
+
+        @media (max-width: $screen-sm-max) {
+          background: $alabaster;
+          border-bottom: 1px solid $gray;
+          padding: 5px 15px 15px 15px;
+          font-size: 16px !important;
+        }
+      }
+
+      .my-sports-list {
+        max-width: 100%;
+        border: 0;
+        margin: 0;
+        padding: 0;
+
+        .sports-list--item {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          text-transform: uppercase;
+          border-bottom: 1px solid $gray;
+          line-height: initial;
+          min-height: 65px;
+          max-height: 65px;
+          position: relative;
+
+          @media (min-width: $screen-md-min) {
+            border-top: none;
+            border-right: 1px solid $gray;
+            width: 33.33%;
+
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+              border-top: 1px solid $gray;
+            }
+          }
+
+          .sport-choice-input {
+            label {
+              font-weight: normal;
+              font-style: italic;
+            }
+
+            .is-favorite {
+              color: $lochmara;
+              font-style: italic;
+              text-transform: initial;
+              font-size: 11px;
+              position: absolute;
+              left: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      position: initial;
+    }
+
+    .my-sports-list {
+      background: $white;
+    }
+  }
+
+  .my-account-page--sports-list-container,
+  .my-account-page--preferences-sports__sports-list {
+    .my-sports-list,
+    .my-account-page-list {
+      @media (min-width: $screen-md-min) {
+        padding: 0 !important;
+      }
+
+      .sports-list--item {
+        line-height: 30px;
+        width: 100%;
+        display: inline-block;
+        border-bottom: 1px solid $gray;
+
+        // &:last-child {
+        //   border-bottom: 0;
+        // }
+
+        .sport-choice-input {
+          text-align: left;
+          overflow: hidden;
+          padding: 22px 15px;
+
+          // span {
+          //   float: left;
+          // }
+
+          input[type='checkbox'] {
+            display: none;
+          }
+
+          label {
+            font-weight: $primaryFontBold;
+            width: 100%;
+            display: block;
+            margin: 0;
+            cursor: pointer;
+            position: relative;
+
+            &:before {
+              content: '';
+              display: block;
+              width: 24px;
+              height: 24px;
+              border: 2px solid $lochmara;
+              background-color: $white;
+              position: absolute;
+              cursor: pointer;
+              top: 50%;
+              @include transform(translateY(-50%));
+              right: 5px;
+            }
+          }
+
+          .is-favorite {
+            color: $lochmara;
+            font-style: italic;
+            text-transform: initial;
+            font-size: 11px;
+            position: absolute;
+            left: 15px;
+          }
+
+          input:checked + label {
+            &:before {
+              background-color: $gray;
+            }
+
+            &:after {
+              content: '';
+              @extend .icon-check;
+              background-size: 75%;
+              display: block;
+              position: absolute;
+              width: 24px;
+              height: 24px;
+              cursor: pointer;
+              top: 50%;
+              @include transform(translateY(-50%));
+              z-index: 0;
+              right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .my-account-page--profile {
+    // padding: 0 1rem;
+  }
+
+  .btn-send {
+    @extend .button;
+    @extend .button--medium;
+    @extend .button--blue;
+
+    &:disabled {
+      @include opacity(0.7);
+      cursor: no-drop;
+    }
+  }
+
+  .loading {
+    position: fixed;
+    background-color: hsla(0, 0%, 100%, 0.75);
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+
+    &:before {
+      height: 50px;
+      width: 50px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 8px #999;
+      transform: rotate(45deg);
+      margin-top: -25px;
+      margin-left: -25px;
+    }
+
+    &:after {
+      background-color: #fff;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 47px;
+      background-image: url(https://souesportista.decathlon.com.br/wp-content/uploads/2018/07/loading.gif);
+      background-size: 36px 36px;
+      width: 36px;
+      height: 36px;
+      margin-top: -18px;
+      margin-left: -18px;
+    }
+  }
+
+  .loading-absolute {
+    position: absolute;
+    background-color: hsla(0, 0%, 100%, 0.75);
+    z-index: 19;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+
+    &:before {
+      height: 50px;
+      width: 50px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 8px #999;
+      transform: rotate(45deg);
+      margin-top: -25px;
+      margin-left: -25px;
+    }
+
+    &:after {
+      background-color: #fff;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: 47px;
+      background-image: url(https://souesportista.decathlon.com.br/wp-content/uploads/2018/07/loading.gif);
+      background-size: 36px 36px;
+      width: 36px;
+      height: 36px;
+      margin-top: -18px;
+      margin-left: -18px;
+    }
+  }
+}
+
+.my-account-page__content--optin {
+}
+
+.my-account-page__checkbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 50px;
+  height: 30px;
+}
+
+body.account {
+  @media (min-width: $screen-md-min) {
+    background: white url('/arquivos/dcs-account-bg.jpg') top center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  @media (min-width: $screen-md-min) {
+    .account-content {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &.profile {
+    main {
+      > .av-container {
+        background: white;
+      }
+    }
+  }
+
+  main.main {
+    @media (max-width: $screen-sm-max) {
+      padding-top: 25px;
+      position: relative;
+      overflow-x: hidden;
+
+      &:before {
+        display: block;
+        content: '';
+        background-color: $wildSand;
+        @include transform(rotate(-10deg));
+        position: absolute;
+        width: 125%;
+        height: 9.5%;
+        top: -8.5%;
+        left: -20px;
+        z-index: 0;
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        background-color: rgba(25, 142, 201, 1);
+        @include filter-gradient(#198ec9, #02be89, vertical);
+        @include background-image(linear-gradient(bottom, rgba(25, 142, 201, 1) 0%, rgba(2, 190, 137, 1) 100%));
+        @include transform(rotate(10deg));
+        position: absolute;
+        width: 50%;
+        height: 9.5%;
+        top: -8.5%;
+        right: -22px;
+      }
+
+      .back-button {
+        position: relative;
+
+        &:before {
+          display: block;
+          @include arrow('left', 15px, $lochmara);
+          left: 24px;
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        padding-top: 0;
+      }
+    }
+  }
+
+  .account-form-wrapper {
+    width: 100%;
+    max-width: 450px;
+    margin: 100px auto;
+    background-color: $white;
+    padding: 30px;
+    height: 500px;
+
+    label {
+      display: inline-block;
+      width: 100%;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      padding: 0 20px;
+      margin-top: 50px;
+      height: 100%;
+    }
+  }
+
+  .account-title {
+    color: $lochmara;
+    font-size: 20px;
+    font-weight: $primaryFontBold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .account-subtitle {
+    font-size: 14px;
+    color: $mineShaft;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .btn-send {
+    @extend .button;
+    @extend .button--medium;
+    @extend .button--blue;
+
+    &:disabled {
+      @include opacity(0.7);
+      cursor: no-drop;
+    }
+  }
+
+  .input-password {
+    width: 100%;
+    max-width: 335px;
+    margin: 0 auto;
+    position: relative;
+
+    .input-password-icon {
+      @include decathlonIcon('\E020', $checkboxBorderInactive, 34px);
+      vertical-align: middle;
+      font-weight: normal;
+      position: absolute;
+      top: 20px;
+      @include transform(translateY(-50%));
+      right: 5px;
+      cursor: pointer;
+
+      &.visible {
+        color: $lochmara;
+      }
+    }
+  }
+}
+
+.av-modal--uncomplete-account {
+  .selection-register-btn {
+    text-align: center;
+
+    .button {
+      display: inline-block;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 5px;
+      padding-right: 5px;
+
+      &.button--gray {
+        max-width: 120px;
+        margin-right: 10px;
+      }
+
+      &.button--blue {
+        max-width: 110px;
+      }
+    }
+  }
+}
+
+.my-account-page__content--optin {
+  .my-account-page-title {
+    @include MyAccountSubTitle();
+  }
+}
+
+// .my-store__stores {
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   position: relative;
+//   margin-top: 20px;
+//   margin-bottom: 30px;
+//   input {
+//     cursor: pointer;
+//     width: 25px;
+//     height: 25px;
+//     border: 1px solid $lochmara;
+//     margin-right: 15px;
+//     position: relative;
+//     vertical-align: middle;
+//     &:before {
+//       display: block;
+//       content: '';
+//       width: 25px;
+//       height: 25px;
+//       border: 2px solid $lochmara;
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       border-radius: 100%;
+//       @include transform(translate(-50%, -50%));
+//       background-color: $white;
+//     }
+
+//     &:focus {
+//       &:before {
+//         border: 2px solid darken($lochmara, 20);
+//       }
+//     }
+
+//     &:checked {
+//       &:after {
+//         display: block;
+//         content: '';
+//         width: 18px;
+//         height: 18px;
+//         background-color: $lochmara;
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         border-radius: 100%;
+//         @include transform(translate(-50%, -50%));
+//       }
+//     }
+//   }
+
+//   label {
+//     display: inline-block;
+//     vertical-align: middle;
+//     margin-right: 25px;
+//     line-height: 25px;
+//     cursor: pointer;
+//     margin-bottom: 0;
+//     &.error {
+
+//     }
+//   }
+// }
+
+.my-store__stores {
+  input {
+    @include translateY(-50%);
+
+    -webkit-appearance: none;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    width: auto !important;
+
+    &:before {
+      @include translate(-50%, -50%);
+
+      background-color: $white;
+      border-radius: 100%;
+      border: 2px solid $lochmara;
+      content: '';
+      display: block;
+      height: 25px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+    }
+
+    &:checked {
+      &:after {
+        @include translate(-50%, -50%);
+
+        display: block;
+        content: '';
+        width: 18px;
+        height: 18px;
+        background-color: $lochmara;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 100%;
+      }
+    }
+  }
+}
+
+.my-account-page__content--store {
+  padding: 30px !important;
+
+  .my-account-page-title {
+    @include MyAccountSubTitle();
+  }
+
+  .my-store__stores {
+    @extend .av-row;
+
+    border-top: 1px solid #e9e9e9;
+    border-left: 1px solid #e9e9e9;
+    margin-left: -20px !important;
+    margin-right: -20px !important;
+  }
+
+  .my-store__stores-item {
+    @extend .av-col-xs-24;
+    @extend .av-col-md-8;
+
+    border-right: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+
+    label {
+      cursor: pointer;
+      display: table;
+      padding-left: 15px;
+      padding-right: 50px;
+      height: 70px;
+      overflow: hidden;
+      width: 100%;
+
+      > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.my-store__store {
+  position: relative;
+
+  .button {
+    width: 100%;
+  }
+}
+
+.my-store__title {
+  font-size: 20px;
+  font-weight: $primaryFontBold;
+  font-style: italic;
+  margin-bottom: 10px;
+
+  @media (max-width: $screen-sm-max) {
+    text-align: center;
+  }
+}
+
+.my-store__address {
+  font-size: 14px;
+
+  @media (max-width: $screen-sm-max) {
+    text-align: center;
+  }
+}
+
+.my-store__phone {
+  margin-right: 4px;
+
+  @media (max-width: $screen-sm-max) {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  @media (min-width: $screen-md-min) {
+    @include translate(-50%, -50%);
+
+    margin-top: -6px;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+  }
+}
+
+.my-store__phone-icon {
+  @include decathlonIcon('\E03A', $lochmara, 30px);
+
+  vertical-align: -10px;
+}
+
+.my-store__button {
+  margin-bottom: 10px;
+}
+
+.my-account__home-block {
+  background-color: $white;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.my-account__home-title {
+  font-weight: $primaryFontRegular;
+  font-size: 18px;
+  font-style: italic;
+  margin: 0;
+  padding: 20px 10px;
+  text-transform: uppercase;
+  height: 92px;
+}
+
+.my-account__home-graph {
+  height: 165px;
+  margin-bottom: 26px;
+  .percircle{
+    &.big {
+      font-size: 165px;
+    }
+  }
+   & > i {
+     font-size: 130px;
+     margin: 25px 0;
+   }
+}
+
+.my-account__home-link {
+  border-top: 1px solid #e9e9e9;
+  color: $lochmara;
+  display: block;
+  font-size: 14px;
+  font-weight: $primaryFontBold;
+  padding: 18px 10px;
+  text-transform: uppercase;
+}
+
+body.login {
+  .alert-new-site {
+    p:last-child {
+      display: none;
+    }
+  }
+}
+
+.av-modal--password-request {
+  .av-modal__modal {
+    width: 320px;
+  }
+  
+  .av-modal-close {
+    @include closeX($lochmara, 20px, 2px);
+    
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    
+    @media (max-width: $screen-sm-max) {
+      top: 0;
+      right: 0;
+    }
+  }
+  
+  .my-account__modal-password__field {
+    position: relative;
+  }
+    
+  .label--error {
+    position: relative;
+    top: 0;
+  }
+
+  label {
+    display: none;
+  }
+
+  input {
+    border: 1px solid $gallery;
+    padding: 8px !important;
+    transition: box-shadow 0.2s linear;
+    width: 100%;
+
+    &[disabled='disabled'] {
+      border: 0;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    &:not([disabled='disabled']) {
+      &:hover {
+        border: 1px solid #d4d7d9;
+        box-shadow: 1px 1px 1px rgba(50, 50, 51, 0.2);
+        @include transition(border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out);
+      }
+    }
+  }
+
+  .input-password-icon {
+    top: 50% !important;
+  }
+
+  button {
+    @extend .button;
+    @extend .button--medium;
+    @extend .button--blue;
+
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+.my-account-menu__link {
+  &--highlight {
+    background-color: #E52421;
+    color: #fff!important;
+    &::before{
+      border-left: 1px solid #fff!important;
+      border-bottom: 1px solid #fff!important;
+    }
+  }
+}

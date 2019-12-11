@@ -1,0 +1,114 @@
+.my-account {
+  .my-account-page__content.identity-individual-container {
+    position: relative;
+
+    .input-group-text {
+      text-align: left;
+      display: inline-block;
+      height: 25px;
+      line-height: 30px;
+      @include opacity(0.5);
+    }
+
+    .filter-option-inner-inner {
+      color: $lochmara;
+      font-size: 18px;
+      font-weight: bold;
+      text-overflow: ellipsis;
+    }
+
+    .my-account-page-list {
+      @media (min-width: $screen-md-min) {
+        margin: 0 auto;
+        max-width: 300px;
+      }
+
+      .personal-information--item {
+        border: 0;
+        text-align: left;
+        margin-bottom: 42px;
+
+        @media (min-width: $screen-md-min) {
+          width: 100%;
+          float: left;
+          padding: 1rem;
+          margin-bottom: 24px;
+        }
+
+        label {
+          margin-right: 1rem;
+          @include opacity(0.5);
+        }
+      }
+    }
+
+    .my-account-page--profile__personal-informations {
+      .input-group-gender {
+        .input-group-text {
+          display: block;
+        }
+
+        input.input-radio {
+          @include input_radio(25, 25, $lochmara);
+
+          float: none;
+
+          &:hover {
+            box-shadow: none;
+          }
+        }
+
+        label {
+          text-transform: uppercase;
+          @include opacity(1);
+        }
+      }
+
+      &.readonly {
+        .bs-caret {
+          display: none;
+        }
+
+        .input-group-gender {
+          .input-group-text {
+            display: inline-block;
+          }
+
+          .select-sexe {
+            float: right;
+            max-width: 120px;
+            text-align: right;
+            height: 30px;
+
+            button.dropdown-toggle {
+              border: 0;
+              padding: 0;
+            }
+          }
+
+          input.input-radio,
+          label {
+            display: none;
+          }
+
+          input.input-radio:checked + label {
+            float: right;
+            max-width: 120px;
+            text-align: right;
+            border: 0;
+            padding: 0;
+            width: 100%;
+            color: $lochmara;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            text-overflow: ellipsis;
+            margin-right: 0;
+            text-transform: initial;
+            @include opacity(1);
+          }
+        }
+      }
+    }
+  }
+}

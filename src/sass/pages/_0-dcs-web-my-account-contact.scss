@@ -1,0 +1,42 @@
+.my-account {
+  .my-account-page__content.connection-container {
+    .my-account-page-list {
+      @media (min-width: $screen-md-max) {
+        text-align: left;
+        max-width: 100%;
+        padding: 0px 42px;
+        overflow: hidden;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    .personal-information--item {
+      label {
+        font-size: 14px;
+        color: #393939;
+        text-transform: initial;
+        @include opacity(0.5);
+      }
+
+      @media (min-width: $screen-md-max) {
+        text-align: left !important;
+        display: inline-block;
+        width: 40%;
+        margin-right: 10%;
+      }
+
+      input {
+        @include placeholder($lochmara);
+
+        &:disabled {
+          background: #ffffff;
+        }
+
+        @media (min-width: $screen-md-max) {
+          text-align: left !important;
+        }
+      }
+    }
+  }
+}

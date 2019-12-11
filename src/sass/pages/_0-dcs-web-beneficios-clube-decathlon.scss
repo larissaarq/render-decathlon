@@ -1,0 +1,652 @@
+.beneficios-clube-decathlon {
+  .club-hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s;
+    display: none;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+/*
+HEADER
+*/
+.clubeDkt-bg-dica-sport {
+  background-image: url("/arquivos/clubeDkt-bg-dica-sport.png");
+}
+
+.clubeDKT-bg-eventos {
+  background-image: url("/arquivos/clubeDKT-bg-eventos.png");
+}
+
+.clubeDKT-bg-troca-devolucao {
+  background-image: url("/arquivos/clubeDKT-bg-troca-devolucao.png");
+}
+
+.clubeDKT-bg-emprestimo-produtos {
+  background-image: url("/arquivos/clubeDKT-bg-emprestimo-produtos.png");
+}
+
+.clubeDKT-bg-beneficios-parceiros {
+  background-image: url("/arquivos/clubeDKT-bg-beneficios-parceiros.png");
+}
+
+.clubeDKT-bg-decathlon-play {
+  background-image: url("/arquivos/clubedkt-bg-decathlon-play.png");
+}
+
+.clubeDKT-header-container {
+  background-image: url("/arquivos/clubeDKT-banner-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  margin-top: 100px;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 5px;
+    font-weight: 100;
+    letter-spacing: -0.03em;
+  }
+}
+
+.clubeDKT-btn-modified {
+  padding: 14px 8px 14px 29px;
+}
+
+.clubeDKT-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 37%;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.clubeDKT-header-image-mobile {
+  margin: 0 auto;
+  display: block;
+  width: 274px;
+}
+
+.clubeDKT-header-image-desktop {
+  display: none;
+}
+
+.clubeDKT-box-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 38px;
+  align-items: center;
+  height: 122px;
+}
+
+.clubeDKT-box-links a {
+  text-transform: uppercase;
+  margin-bottom: 13px;
+}
+
+.clubeDKT-box-descriptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 70px 0 45px;
+  align-self: flex-start;
+}
+
+.clubeDKT-descriptions-mobile {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 400;
+  font-style: italic;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.clubeDKT-descriptions-desktop {
+  display: none;
+}
+
+.clubeDKT-wrapper-content-desktop {
+  display: none;
+}
+
+.clubeDKT-sport-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 17px;
+  }
+}
+
+.clubeDKT-content-mobile-box-emprestimo-produtos-text {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  // ATIVA/DESATIVA NO CLICK
+  display: block;
+
+  .clubeDKT-produtos-icon {
+    // color: #707070 !important;
+    color: #fff !important;
+    float: right;
+  }
+
+  .text-primary {
+    padding: 21px 16px 19px;
+
+    & h2 {
+      width: 100%;
+      font-size: 19px;
+      font-weight: bold;
+      font-style: italic;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    & p {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+
+  .text-secundary {
+    padding: 0 16px;
+
+    & > br {
+      display: none;
+    }
+
+    & span {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    & p {
+      padding: 3px 0;
+      font-weight: lighter;
+      font-size: 14px;
+      line-height: 1.3;
+      margin: 0;
+
+      & a {
+        color: #0082c3;
+        font-weight: bold;
+        text-decoration: underline !important;
+      }
+    }
+  }
+}
+
+.clubeDKT-btn {
+  //margin-bottom: 164px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.clubeDKT-sport {
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 500px;
+}
+
+.clubeDKT-sport-content-title {
+  padding: 166px 0 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    color: #fff;
+    padding-left: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &-link {
+    // text-decoration: none;
+    color: #fff;
+    display: flex;
+  }
+}
+
+.clubeDKT-icon-write {
+  color: #fff !important;
+}
+
+.clubeDKT-footer {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  padding: 40px 0 63px;
+
+  h2 {
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-bottom: 25px;
+    letter-spacing: -0.03em;
+    font-style: italic;
+  }
+
+  p{
+    color: #fff;
+    letter-spacing: -0.03em;
+  }
+
+  &-container {
+    text-align: center;
+  }
+}
+
+.clube-DKT-link-footer {
+  text-transform: uppercase;
+}
+
+/****************
+FADE DAS IMAGENS
+****************/
+.clubeDKT-img-fade {
+  width: 100%;
+  //height: 100%;
+  //height: 500px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 164px;
+}
+
+.clubeDKT-img-fade-emprestimo {
+  width: 100%;
+  //   height: 100%;
+  //height: 500px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 164px;
+
+  // &:hover {
+  //   background-color: transparent;
+  // }
+}
+
+/******************************
+      MEDIA QUEIRES
+********************************/
+.beneficios-clube-decathlon {
+  /********
+  MEDIA 770 PX
+  ***********/
+
+  @media (min-width: 770px) {
+    background-color: #000;
+
+    .is-active {
+      background-color: #0082c3;
+    }
+
+    .clubeDKT-header-container {
+      background-image: url("/arquivos/clubeDKT-banner-desktop.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 1045px;
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+
+    .clubeDKT-header {
+      padding-top: 12%;
+    }
+
+    .clubeDKT-header-image-mobile {
+      display: none;
+    }
+
+    .clubeDKT-header-image-desktop {
+      display: block;
+    }
+
+    .clubeDKT-box-links {
+      width: 460px;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    .clubeDKT-content-desktop-box {
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .clubeDKT-box-descriptions {
+      margin: 147px 0 45px;
+      //transform: translate(-141%);
+    }
+
+    .clubeDKT-descriptions-mobile {
+      display: none;
+    }
+
+    .clubeDKT-icon-write {
+      color: #fff !important;
+      width: 80px;
+    }
+
+    .clubeDKT-descriptions-desktop {
+      display: block;
+      font-size: 28px;
+      color: #fff;
+      font-weight: 600;
+      font-style: italic;
+      text-transform: uppercase;
+      //z-index: 9999;
+      letter-spacing: -0.03em;
+      //transform: translate(-41%);
+      padding-left: 17px;
+    }
+
+    .clubeDKT-wrapper-sport-mobile {
+      display: none;
+    }
+
+    .clubeDKT-wrapper-content-desktop {
+      display: block;
+      display: flex;
+      justify-content: center;
+      margin-top: -113px;
+    }
+
+    .clubeDKT-content-desktop {
+      width: 1120px;
+      padding-bottom: 30px;
+      display: flex;
+    }
+
+    .clubeDKT-content-desktop-links {
+      width: 49%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .clubeDKT-content-desktop-list {
+      width: 479px;
+      height: 370px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .clubeDKT-content-desktop-item {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        background-color: #0082c3;
+
+        &:after {
+          content: "";
+          width: 8px;
+          height: 8px;
+          margin-left: 26px;
+          border-bottom: 1px solid #fff;
+          border-right: 1px solid #fff;
+          display: inline-block;
+          transform: rotate(-45deg) translate(-1px, -2px);
+        }
+      }
+
+      & > span {
+        width: 70%;
+        color: #fff;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    .clubeDKT-icon {
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+    }
+
+    /***CONTEUDO CLICK SPORT****/
+    .clubeDKT-content-desktop-box-dica-sport {
+      width: 735px;
+      height: 500px;
+      background-image: url("/arquivos/clubeDkt-bg-dica-sport.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      // ATIVA NO CLICK
+      // display: none;
+    }
+
+    .clubeDKT-content-desktop-box-emprestimo-produtos {
+      width: 735px;
+      height: 500px;
+      background-image: url("/arquivos/clubeDKT-bg-emprestimo-produtos-desktop.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      //    ATIVA NO CLICK
+    }
+
+    .clubeDKT-content-desktop-box-emprestimo-produtos-text {
+      position: absolute;
+      height: 500px;
+      background-color: rgba(0, 0, 0, 0.6);
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #fff;
+      width: 642px;
+      transform: translate(479px);
+      // ATIVA NO CLICK
+      display: block;
+
+      .clubeDKT-produtos-icon {
+        color: #707070 !important;
+        position: absolute;
+        transform: translate(1030%, -25%);
+        cursor: pointer;
+      }
+
+      .text-primary {
+        padding: 32px 30px 22px;
+
+        & h2 {
+          width: 100%;
+          font-size: 20px;
+          font-weight: bold;
+          font-style: italic;
+          letter-spacing: -0.03em;
+        }
+
+        & p {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+
+      .text-secundary {
+        padding: 0 17px 26px;
+
+        & > br {
+          display: block;
+        }
+
+        & span {
+          font-size: 16px;
+          font-weight: bold;
+        }
+
+        & p {
+          padding: 3px 0;
+          font-weight: lighter;
+          font-size: 16px;
+          margin: 0;
+
+          & a {
+            color: #0082c3;
+            font-weight: bold;
+            text-decoration: underline !important;
+          }
+        }
+      }
+    }
+
+    .clubeDKT-content-desktop-box-description {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      color: #fff;
+      font-weight: lighter;
+      width: 100%;
+      height: 100px;
+      background-color: rgba(0, 0, 0, 0.6);
+      transform: translateY(400%);
+      letter-spacing: -0.03em;
+      // no click
+      // display: none;
+    }
+  }
+
+  /**********
+  MEDIA DE 430
+  ************/
+
+  @media (min-width: 430px) {
+    .clubeDKT-header {
+      padding-top: 16%;
+    }
+
+    .clubeDKT-box-descriptions {
+      margin: 70px 0 70px;
+    }
+
+    .clubeDKT-bg-troca-devolucao {
+      background-position-y: -509px;
+    }
+
+    .clubeDKT-bg-eventos {
+      background-position-y: -238px;
+    }
+  }
+  .clubeDKT-box-descriptions {
+    @media (max-width: 768px) {
+      align-self: center;
+    }
+  }
+  /**********
+    MEDIA A PARTIR DE 1023 PX
+  ************/
+  @media (min-width: 1023px) {
+    .clubeDKT-header-container {
+      width: 100%;
+    }
+
+    .dica-esporte {
+      width: 545px;
+    }
+
+    .textEmprestimo {
+      width: 546px;
+      transform: translate(450px);
+    }
+
+    .clubeDKT-box-descriptions {
+      //transform: translate(-90%);
+    }
+
+    .clubeDKT-content-desktop-links {
+      width: 44%;
+      padding-left: 17px;
+    }
+
+    .clubeDKT-content-desktop-box-emprestimo-produtos-text .clubeDKT-produtos-icon {
+      // transform: translate(866%, -30%);
+      transform: translate(939%, -44%);
+    }
+
+    .clubeDKT-content-desktop-box-emprestimo-produtos-text .text-primary {
+      padding: 13px 16px 13px;
+    }
+  }
+
+  /**********
+  MEDIA A PARTIR DE DE 1200 PX
+  ************/
+  @media (min-width: 1200px) {
+    .dica-esporte {
+      width: 735px;
+    }
+
+    .textEmprestimo {
+      width: 630px;
+      transform: translate(492px);
+    }
+
+    .clubeDKT-content-desktop-box-emprestimo-produtos-text .clubeDKT-produtos-icon {
+      transform: translate(1097%, -19%);
+    }
+  }
+
+  .box-eventos-esportivos,
+  .box-troca-de-produtos,
+  .box-beneficios-de-parceiros,
+  .box-decathlon-play {
+    width: 735px;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media (min-width: 1023px) {
+      width: 545px;
+    }
+    @media (min-width: 1200px) {
+      width: 735px;
+    }
+  }
+
+  .box-eventos-esportivos {
+    background-image: url("/arquivos/clubeDKT-bg-eventos.png");
+  }
+  .box-troca-de-produtos {
+    background-image: url("/arquivos/clubeDKT-bg-troca-devolucao.png");
+    background-position: left bottom;
+  }
+  .box-beneficios-de-parceiros {
+    background-image: url("/arquivos/clubeDKT-bg-beneficios-parceiros.png");
+  }
+  .box-decathlon-play {
+    background-image: url("/arquivos/clubedkt-bg-decathlon-play.jpg");
+  }
+
+  .link-decathlon-play {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s;
+  }
+}

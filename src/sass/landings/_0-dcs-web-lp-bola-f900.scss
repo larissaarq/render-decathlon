@@ -1,0 +1,371 @@
+/**
+* * Controller: LpBolaF900
+*/
+
+// @charset "UTF-8";
+@import 'compass';
+
+/**
+ * Variables
+ */
+@import '0-dcs-web-variables';
+@import '0-dcs-web-mixins';
+
+/**
+ * Vendor
+ */
+@import '0-dcs-web-vendor-bootstrap';
+@import '0-dcs-web-vendor-bootstrap-select';
+@import '0-dcs-web-vendor-burger';
+@import '0-dcs-web-vendor-slick';
+
+/**
+ * Helpers
+ */
+@import '0-dcs-web-helpers';
+@import '0-dcs-web-sprite';
+@import '0-dcs-web-fonts';
+@import '0-dcs-web-buttons';
+
+/**
+ * Components
+ */
+@import '0-dcs-web-menu-header';
+@import '0-dcs-web-menu-mobile';
+@import '0-dcs-web-menu-mobile-2';
+@import '0-dcs-web-benefits-bar';
+
+@import '0-dcs-web-shelf';
+@import '0-dcs-web-minicart';
+@import '0-dcs-web-breadcrumb';
+
+/**
+ * Styles
+ */
+@import '0-dcs-web-main';
+@import '0-dcs-web-header';
+@import '0-dcs-web-footer';
+
+
+.bola-futebol-f900 {
+
+  .main {
+    background-color: #191b2b;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+  .header {
+    width: 100%;
+
+    & img {
+      width: 100%;
+    }
+  }
+  
+  .header__image-desktop {
+    display: none;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 28px;
+
+    &__wrapper {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__item {
+      width: 266px;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      margin: 14px 0;
+
+      &-text {
+
+        span {
+          font-size: 22px;
+          font-weight: lighter;
+          letter-spacing: -0.03em;
+        }
+
+        &--1 {
+          padding-left: 26px;
+        }
+
+        &--2 {
+          padding-left: 25px;
+        }
+
+        &--3 {
+          padding-left: 15px;
+        }
+      }
+
+      &-image--3 {
+        margin-left: -10px;
+      }
+    }
+  }
+
+  .image__full {
+    width: 100%;
+
+    &-desktop {
+      display: none;
+    }
+  }
+
+  .image__full-mobile{
+    width: 100%;
+  }
+
+  .content__media {
+    // width: 100%;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .details__wrapper {
+    padding: 0 17px;
+    text-align: center;
+    margin-bottom: 46px;
+
+    &-title {
+      font-size: 26px;
+      letter-spacing: -0.03em;
+      margin: 22px 17px 0px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    &-sub-title {
+      font-size: 20px;
+      letter-spacing: -0.03em;
+      margin: 0 17px;
+      Font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    &-description {
+      line-height: 2;
+      letter-spacing: -0.03em;
+      font-size: 14px;
+      font-weight: lighter;
+    }
+  }
+
+  .content__wrapper_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 0 40px;
+
+    &-title {
+      font-size: 16px;
+      margin-bottom: -3px;
+      font-weight: 400;
+    }
+
+    &-description {
+      font-size: 14px;
+      font-weight: lighter;
+      line-height: 2;
+    }
+  }
+
+  .to__cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .my-shelf-item__installments {
+    color: #fff;
+    margin-bottom: 30px;
+  }
+
+  .my-shelf-item__best-price--featured {
+    font-size: 18px;
+    color: #020202;
+    background-color: #FFEA28;
+  }
+
+  .product-buy {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 80px;
+
+    a {
+      margin-bottom: 10px;
+    }
+
+    .link__secundary {
+      text-decoration: underline;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+  }
+
+  .bootstrap-select {
+    .btn {
+      height: 40px;
+      background: #FAFAFA;
+      border: 1px solid #D7D7D7;
+      padding: 0 43px 0 13px;
+      margin-bottom: 25px;
+
+      .bs-caret {
+        width: 43px;
+
+        &::after {
+          width: 8px;
+          height: 8px;
+        }
+
+        &::before {
+          right: 43px;
+        }
+      }
+    }
+
+    &+.bootstrap-select {
+      margin-top: 15px;
+    }
+
+    .dropdown-menu {
+
+      a{
+        margin: 0;
+        &.active {
+          background-color: #efefef;
+          border-bottom: 1px solid #d8d8d8;
+          border-top: 1px solid #d8d8d8;
+          text-decoration: none;
+          color: #8a8a8a;
+        }
+      }
+    }
+  }
+
+
+
+
+  /************************************************************ MEDIA QUEIRES ********************************************/
+
+  @media(min-width: 768px) {
+    .header {
+      &__image-mobile {
+        display: none;
+      }
+
+      &__image-desktop {
+        display: block;
+      }
+
+    }
+
+    .image__full {
+      &-mobile {
+        display: none;
+      }
+
+      &-desktop {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .icons {
+      margin: 17px;
+
+      &__wrapper {
+        width: 100%;
+        flex-direction: row;
+      }
+
+      &__item {
+
+        &.item-1 {
+          width: 222px;
+        }
+
+        &.item-2 {
+          margin-right: 7px;
+        }
+
+        &-text {
+
+          &--1 {
+            padding-left: 10px;
+          }
+
+          &--2 {
+            padding-left: 10px;
+          }
+
+          &--3 {
+            padding-left: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  @media(min-width:1024px) {
+
+    .icons {
+      &__wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: -60px; //teste
+        max-width: 1377px; //teste
+      }
+    }
+
+    .header__image-desktop {
+      margin-top: -70px //teste
+    }
+
+    .image__full {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .image__full-desktop{
+      width: 90%;
+      max-width: 1440px;
+    }
+
+    .content__wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      max-width: 1440px;
+      width: 96%;
+      margin: 0 auto;
+    }
+
+    .content__media {
+      display: flex;
+      justify-content: center;
+      width: 45%;
+    }
+
+    .content__wrapper_info {
+      flex-direction: column;
+      width: 49%;
+    }
+  }
+
+}

@@ -1,0 +1,377 @@
+@import './0-dcs-web-angled-edges';
+
+@mixin resetList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin resetButton {
+  background-color: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin imgResponsive() {
+  @extend .img-responsive;
+  width: 100%;
+  margin: 0;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin triangle($direction, $size, $color) {
+  content: '';
+
+  width: 0;
+  height: 0;
+
+  $directions: ('down', 'left', 'up', 'right');
+  $positions: ('top', 'right', 'bottom', 'left');
+
+  @each $position in $positions {
+    $index: index($positions, $position);
+
+    @if nth($directions, $index) == $direction {
+      border-#{$position}: $size solid $color;
+    } @else {
+      border-#{$position}: $size solid transparent;
+    }
+  }
+}
+
+/* Decathlon Icon Font*/
+
+@mixin decathlonIcon($iconCode, $color, $size) {
+  font-family: DecathlonIconfont;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  letter-spacing: 0;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: subpixel-antialiased;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+  zoom: 1;
+  font-size: $size;
+  color: $color;
+  &:before {
+    content: $iconCode;
+  }
+}
+
+/**
+ * @direction: 'top', 'right', 'bottom', 'left'
+ * @size: 10px
+ * @color: #fff, $black
+ * @borderSize: 1px
+ */
+@mixin arrow($direction, $size, $color, $borderSize: 1px) {
+  $angle: null;
+
+  @if $direction == 'bottom' {
+    $angle: -45deg;
+  } @else if $direction == 'right' {
+    $angle: -135deg;
+  } @else if $direction == 'left' {
+    $angle: 45deg;
+  } @else if $direction == 'top' {
+    $angle: 135deg;
+  }
+
+  @include transform(translate(-50%, -50%) rotate($angle));
+
+  border-left: $borderSize solid $color;
+  border-bottom: $borderSize solid $color;
+  content: '';
+  height: $size;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: $size;
+}
+
+/* Close X Button*/
+
+@mixin closeX($color, $width, $height) {
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    left: 50%;
+    top: 50%;
+  }
+  &:before {
+    @include transform(translate(-50%, -50%) rotate(45deg));
+  }
+
+  &:after {
+    @include transform(translate(-50%, -50%)rotate(-45deg));
+  }
+}
+
+@mixin spriteImage($sprite, $image) {
+  background-image: sprite-url($sprite);
+  background-position: nth(sprite-position($sprite, $image), 1) (nth(sprite-position($sprite, $image), 2));
+  height: sprite-sprite-height($image);
+  width: sprite-sprite-width($image);
+}
+
+@mixin bgImageResponsive($imageWidth, $imageHeight, $containerWidth) {
+  $result: ($imageWidth / $imageHeight) * $containerWidth;
+  padding-top: $result + '%';
+}
+
+/*
+ * Section Title
+ */
+
+@mixin sectionTitle() {
+  @include angled-edge('outside bottom', 'lower right', $lochmara, 6, 34);
+
+  .list--iniciante & {
+    @include angled-edge('outside bottom', 'lower right', $broom, 6, 34);
+  }
+
+  .list--avançado & {
+    // Não é necessário, pois é a mesma cor do default
+  }
+
+  .list--performance & {
+    @include angled-edge('outside bottom', 'lower right', $prussianBlue, 6, 34);
+  }
+
+  position: relative;
+  padding-bottom: 8px;
+  font-size: 20px;
+  font-weight: $primaryFontBold;
+  font-style: italic;
+  color: $mineShaft;
+  text-transform: uppercase;
+  display: inline-block;
+
+  &:after {
+    background-position: center left !important;
+    bottom: 0 !important;
+  }
+}
+
+/*
+ * Slick Dots
+ */
+
+@mixin slickDots($color: $lochmara) {
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
+  border: 1px solid $color;
+  display: inline-block;
+  cursor: pointer;
+  @include skew(10deg, 0);
+
+  &.slick-active { background-color: $color; }
+
+  button { display: none; }
+}
+
+/*
+ * Hexagon
+ */
+
+@mixin hexagon($width, $color) {
+  $height: round($width / 1.73);
+  $half_width: round($width / 2);
+  $half_height: round($height / 2);
+
+  width: $width + px;
+  height: $height + px;
+  position: relative;
+  background-color: $color;
+  margin-top: round($height / 2) + px;
+  margin-bottom: $height + px;
+
+  &:before,
+  &::before,
+  &:after,
+  &::after {
+    content: '';
+    position: absolute;
+    border-left: $half_width + px solid transparent;
+    border-right: $half_width + px solid transparent;
+    left: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &:before,
+  &::before {
+    border-bottom: $half_height + px solid $color;
+    bottom: 100%;
+  }
+
+  &:after,
+  &::after {
+    top: 100%;
+    border-top: $half_height + px solid $color;
+  }
+}
+
+/*
+ * Hexagon Rotated 30º
+ */
+
+@mixin hexagon_rotated($height, $color) {
+  $width: round($height / 1.73);
+  $half_width:  round($width / 2);
+  $half_height: round($height / 2);
+
+  width: $width + px;
+  height: $height + px;
+  position: relative;
+  background-color: $color;
+  margin-bottom: 5px;
+
+  &:before,
+  &::before {
+    content: '';
+    display: table;
+    border-right: $half_width + px solid $color;
+    border-top: $half_height + px solid transparent;
+    border-bottom: $half_height + px solid transparent;
+    margin-left: -$half_width + px;
+  }
+
+  &:after,
+  &::after {
+    content: '';
+    display: table;
+    border-left: $half_width + px solid $color;
+    border-top: $half_height + px solid transparent;
+    border-bottom: $half_height + px solid transparent;
+    margin-right: -$half_width + px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+  }
+}
+
+/*
+ * Input Radio
+ */
+
+@mixin input_radio($width, $height, $border) {
+  float: left;
+  width: initial;
+  cursor: pointer;
+  width: $width + px;
+  height: $height + px;
+  border: 1px solid $border;
+  margin-right: 15px;
+  position: relative;
+  vertical-align: middle;
+  &:before {
+    display: block;
+    content: '';
+    width: 25px;
+    height: 25px;
+    border: 2px solid $border;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    @include transform(translate(-50%, -50%));
+    background-color: $white;
+  }
+  &:checked {
+    &:after {
+      display: block;
+      content: '';          
+      width: ($width - 7) + px;
+      height: ($height - 7) + px;
+      background-color: $lochmara;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 100%;
+      @include transform(translate(-50%, -50%));
+    }
+  }
+}
+
+
+
+@mixin no_select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+@mixin hr() {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #D8D8D8;
+  height: 1px;
+  width: 80vw;
+
+  @media (min-width: 769px) {
+    width: 100%;
+  }
+}
+
+@mixin breadcrumb {
+  * {
+    color: #CBCED2;
+    vertical-align: middle;
+  }
+
+  i {
+    font-size: 25px;
+  }
+
+  span {
+    margin-left: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}

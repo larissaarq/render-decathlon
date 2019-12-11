@@ -1,0 +1,343 @@
+.lp-buy-together{
+    .main{
+        position: relative;
+        overflow: hidden;
+        &::after{
+            content: "";
+            width: 105vw;
+            height: 50vh;
+            background-color: #FAFAFA;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: -1;
+            transform: rotate(-5deg) translate(-50%, 0);
+            @media (max-width: 768px) {
+                content: "";
+            }
+        }
+        .section__intro{
+            margin: 50px 0;
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #191B2B;
+                font-size: 22px;
+                letter-spacing: -.03em;
+                font-weight: 400;
+                span {
+                    @media (max-width: 768px) {
+                        font-size: 16px;
+                        display: block;
+                        margin: -6px;
+                    }
+                }
+            }
+        }
+        .section__content{
+            width: 100%;
+            max-width: 905px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+            display: flex;
+            @media (max-width: 768px) {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0 20px;
+            }
+            .section__images{
+                width: calc(100% - 335px);
+                padding-right: 70px;
+                &-slider{
+                    text-align: center;
+                }
+                &-cta{
+                    margin-top: 65px;
+                    text-align: center;
+                }
+                @media (max-width: 768px) {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    padding-right: 0;
+                    img{
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                }
+            }
+            .section__products{
+                width: 100%;
+                max-width: 355px;
+                & > h3 {
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: #191B2B;
+                    margin: 0;
+                    margin-bottom: 20px;
+                    font-size: 14px;
+                    letter-spacing: -.03em;
+                    font-weight: 400;
+                }
+                .product{
+                    display: flex;
+                    flex-wrap: wrap;
+                    & + .product{
+                        margin-top: 40px;
+                    }
+                    &__image{
+                        width: 100px;
+                        height: 100px;
+                        border: 1px solid #F7F7F7;
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    &__info{
+                        width: calc(100% - 100px);
+                        padding-left: 20px;
+                        &-name{
+                            letter-spacing: -.03em;
+                            color: #191B2B;
+                            margin: 0 0 8px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            min-height: 42px;
+                            text-transform: uppercase;
+                        }
+                        &-price{
+                            &__list{
+                                background-color: #FFEA28;
+                                height: 30px;
+                                line-height: 30px;
+                                width: 110px;
+                                text-align: center;
+                                font-weight: 700;
+                                font-size: 18px;
+                                color: #020202;
+                                letter-spacing: -.03em;
+                                margin: 0;
+                            }
+                            &__installments{
+                                color: #AAA;
+                                font-size: 14px;
+                                letter-spacing: -.03em;
+                                font-weight: 400;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    &__variations{
+                        margin-top: 23px;
+                        width: 100%;
+                        & > div {
+                            label:not(.label--error) {
+                                font-size: 14px;
+                                letter-spacing: -.03em;
+                                font-weight: 400;
+                                color: #191B2B;
+                                text-transform: uppercase;
+                                display: block;
+                            }
+                        }
+                        &-color{
+                            label{
+                                margin-bottom: 8px;
+                            }
+                        }
+                        &-size {
+                            label {
+                                margin-bottom: 18px;
+                            }
+                            margin: 0 0 30px;
+                            max-width: 225px;
+                            width: 100%;
+                            
+                            .bootstrap-select {
+                                .btn {
+                                    max-width: 225px;
+                                    height: 40px;
+                                    background: #FAFAFA;
+                                    border: 1px solid #D7D7D7;
+                                    padding: 0 43px 0 13px;
+                                    .bs-caret {
+                                        width: 43px;
+                                        &::after{
+                                            width: 8px;
+                                            height: 8px;
+                                        }
+                                        &::before{
+                                            right: 43px;
+                                        }
+                                    }
+                                }
+                                & + .bootstrap-select {
+                                    margin-top: 15px;
+                                }
+                                .dropdown-menu{
+                                    a{
+                                        &.active{
+                                            background-color: #efefef;
+                                            border-bottom: 1px solid #d8d8d8;
+                                            border-top: 1px solid #d8d8d8;
+                                            text-decoration: none;
+                                            color: #8a8a8a;
+                                        }
+                                        &.item-unavailable{
+                                            text-decoration: line-through;
+                                            opacity: .5;
+                                        }
+                                    }
+                                }
+                            }
+
+                            select {
+                                width: 100%;
+                                color: #898989;
+                                font-size: 14px;
+                                padding: 0 13px;
+                                height: 40px;
+                                z-index: -50;
+                                left: 0;
+                                transform: initial;
+
+                                &.error {
+                                    border: 1px solid tomato;
+                                    background: rgb(255, 201, 191);
+                                }
+                            }
+                        }
+                    }
+                }
+                .totals{
+                    margin-top: 40px;
+                    display: none;
+                    &__title{
+                        text-align: center;
+                        font-weight: 700;
+                        letter-spacing: -.03em;
+                        color: #191B2B;
+                        font-size: 16px;
+                        margin: 0 0 9px;
+                        text-transform: uppercase;
+                    }
+                    &__price{
+                        &-list{
+                            color: #AAA;
+                            font-weight: 400;
+                            font-size: 10px;
+                            letter-spacing: -.03em;
+                            margin: 0 auto;
+                            text-align: center;
+                            b{
+                                color: #242323;
+                                font-weight: 700;
+                            }
+                        }
+                        &-best{
+                            background-color: #E20B17;
+                            height: 30px;
+                            line-height: 30px;
+                            width: 110px;
+                            text-align: center;
+                            font-weight: 700;
+                            font-size: 18px;
+                            color: #FFFFFF;
+                            letter-spacing: -.03em;
+                            margin: 0 auto;
+                        }
+                        &-installments{
+                            color: #AAA;
+                            font-size: 14px;
+                            letter-spacing: -.03em;
+                            font-weight: 400;
+                            margin: 0;
+                            text-align: center;
+                        }
+                        &-discount{
+                            margin: 10px 0 30px;
+                            color: #191B2B;
+                            font-size: 14px;
+                            letter-spacing: -.03em;
+                            font-weight: 400;
+                            text-align: center;
+                        }
+                    }
+                    &__add-to-cart{
+                        text-align: center;
+                    }
+                }
+                &-cta{
+                    margin: 30px 0 40px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+.shelf-colors__item {
+    + .shelf-colors__item{
+        margin-left: 15px;
+    }
+    img{
+        border: 1px solid #eee;
+    }
+    &.selected{
+        .shelf-colors__link{
+            position: relative;
+            &::before {
+                display: block;
+                -moz-transform: translate(-50%,-50%) rotate(-45deg);
+                -ms-transform: translate(-50%,-50%) rotate(-45deg);
+                -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+                transform: translate(-50%,-50%) rotate(-45deg);
+                border-left: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                content: '';
+                left: 50%;
+                position: absolute;
+                width: 15px;
+                height: 8px;
+                top: 45%;
+            }
+            img {
+                -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+                box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+    &.error{
+        .shelf-colors__item{
+            img {
+                border: 1px solid #e60202;
+            }
+        }
+    }
+}
+/* 
+.product__variations-color{
+    .shelf-colors__item{
+        border: 1px solid #eee;
+    }
+    &.error{
+        .shelf-colors__item{
+            border: 1px solid #e60202;
+        }
+    }
+} */
+
+.product__variations-size{
+    position: relative;
+    &.error{
+        opacity: 1;
+        .bootstrap-select{
+            .btn{
+                border: 1px solid #e60202!important;
+            }
+        }
+    }
+    .label--error{
+        top: initial;
+        bottom: -30px!important;
+        margin: 0!important;
+    }
+}

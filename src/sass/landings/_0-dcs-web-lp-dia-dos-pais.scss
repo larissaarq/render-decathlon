@@ -1,0 +1,705 @@
+.presente-dia-dos-pais {
+  .main {
+    width: 100%;
+  }
+
+  .main_container,
+  .banner {
+    width: 100%;
+    max-width: 1650px;
+    margin: 0 auto;
+  }
+
+  @media (max-width:768px) {
+    .main {
+      margin-top: 100px;
+    }
+  }
+
+
+  /*****************************************
+    START banner
+    ******************************************/
+
+  .box-banner{
+    width: 100%;
+    margin: 0 auto;
+
+    a{
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+
+
+  .banner_bg-desktop {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .banner_bg-mobile {
+    display: none;
+  }
+
+  .banner_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0 33px;
+    letter-spacing: -0.03em;
+
+
+    h1 {
+      font-size: 26px;
+      text-transform: uppercase;
+      color: #191B2B;
+      font-weight: 400;
+      margin: 0;
+      letter-spacing: -0.03em;
+
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+  }
+
+  .banner_ctas {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    -webkit-justify-content: center;
+    width: 100%;
+    margin-top: -70px;
+  }
+
+  .banner_ctas_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    background-color: #191B2B;
+    height: 7em;
+    color: #fff;
+    text-transform: uppercase;
+
+    &-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 26px;
+      margin-left: 187px;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    a {
+      position: relative;
+      letter-spacing: -0.03em;
+      width: 247px;
+      height: 70px;
+      line-height: 70px;
+      font-size: 16px;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+
+      span {
+        // left: 74px;
+        // bottom: 10px;
+        width: 103px;
+        height: 5px;
+        background-color: #FFEA27;
+        z-index: 4;
+        position: absolute;
+        opacity: 0;
+
+        left: 0; 
+        right: 0; 
+        margin: 0 auto; 
+        bottom: 0; 
+      }
+
+
+
+      &:hover {
+        transition: 0.3s ease-in;
+        font-weight: bold;
+
+        span {
+          opacity: 1;
+
+        }
+      }
+    }
+  }
+
+  a:hover {
+    transition: 0.3s ease-in;
+    font-weight: bold;
+
+    span {
+      opacity: 1;
+    }
+  }
+
+
+
+  .cta_border_right {
+    border-right: solid 1px #707070;
+  }
+
+  @media (max-width: 1024px) {
+    .banner_ctas_box-title {
+      margin-left: 87px;
+    }
+
+    .banner_ctas_box {
+
+      a {
+        span {
+          width: 80%;
+        }
+      }
+    }
+
+  }
+
+  @media (max-width: 768px) {
+    .banner_ctas_box {
+
+      a {
+        padding: 0px 6px;
+
+        // span {
+        //   left: 23px;
+        //   width: 85px;
+        // }
+      }
+
+    }
+
+    .banner_ctas_box-title {
+      margin-left: 60px;
+    }
+
+    // .banner_ctas_box-item {
+    //   padding: 1px 30px;
+    // }
+  }
+
+  @media (max-width:425px) {
+
+    .cta_border_right {
+      border: none;
+    }
+
+    .banner_bg-desktop {
+      display: none;
+    }
+
+    .box-banner a img{
+      width: 100%;
+      height: auto;
+    }
+
+    .banner_bg-mobile {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .banner_ctas {
+      margin: 0;
+    }
+
+    .banner_ctas_box {
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      justify-content: space-evenly;
+      padding-top: 15px;
+
+      a {
+        width: 309px;
+
+        &:hover {
+          transition: 0.3s ease-in;
+          background-color: #0082C3;
+          border: solid 1px #0082C3;
+          font-weight: bold;
+
+          span {
+            opacity: 0;
+          }
+        }
+
+        // &.active {
+        //   background-color: #0082C3;
+        //   border: solid 1px #0082C3;
+        // }
+      }
+
+
+      .showcase {
+        margin-bottom: 0 !important;
+      }
+
+    }
+
+    .banner_ctas_box-item {
+      margin: 15px 0;
+      padding: -4px 121px;
+      border: solid 1px #707070;
+    }
+
+    .banner_ctas_box-title {
+      font-size: 26px;
+      margin-left: 0;
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    .banner_title h1 {
+      line-height: 1;
+      font-weight: 400;
+    }
+  }
+
+  /*****************************************
+    START BOX CATEGORIES
+    ******************************************/
+  .box-categories {
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto 30px;
+    // margin-bottom: 31px;
+  }
+
+  .box-categories__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+
+  .box-categories__list-item {
+    width: 25%;
+    min-height: 300px;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    list-style: none;
+  }
+
+  .box-categories__list-item-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    transition: all .3s;
+    cursor: pointer
+  }
+
+  .box-categories__list-item-overlay:hover {
+    background-color: rgba(0, 0, 0, .2);
+    transition: all .3s
+  }
+
+  .box-categories__list-item a {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: uppercase
+  }
+  //corrrida
+  .box-categories__list-item.bg-inverno-corrida {
+    background-image: url(/arquivos/bg-lp-pais-corrida.jpg)
+  }
+  //ciclismo
+  .box-categories__list-item.bg-inverno-ciclismo {
+    background-image: url(/arquivos/bg-lp-pais-mtb.jpg)
+  }
+  //ski
+  .box-categories__list-item.bg-inverno-ski {
+    background-image: url(/arquivos/bg-inverno-ski.png?v=01)
+  }
+  //trilha e trekking
+  .box-categories__list-item.bg-inverno-trekking {
+    background-image: url(/arquivos/bg-inverno-trekking.png?v=01)
+  }
+  //camping
+  .box-categories__list-item.bg-inverno-trilha {
+    background-image: url(/arquivos/bg-inverno-trilha.png?v=01)
+  }
+  //pilates
+  .box-categories__list-item.bg-inverno-gym-pilates {
+    background-image: url(/arquivos/bg-lp-pais-pilates.jpg)
+  }
+  //treino cardio
+  .box-categories__list-item.bg-inverno-fitness {
+    background-image: url(/arquivos/bg-lp-pais-cardio.jpg)
+  }
+//yoga
+  .box-categories__list-item.bg-inverno-yoga {
+    background-image: url(/arquivos/bg-inverno-yoga.png?v=01)
+  }
+//tenis
+  .box-categories__list-item.bg-inverno-tenis {
+    background-image: url(/arquivos/bg-lp-pais-tennis.jpg)
+  }
+//pesca
+  .box-categories__list-item.bg-inverno-natacao {
+    background-image: url(/arquivos/bg-lp-pais-pesca.jpg)
+  }
+//surf
+  .box-categories__list-item.bg-inverno-surf {
+    background-image: url(/arquivos/bg-inverno-surf.png?v=01)
+  }
+//futebol
+  .box-categories__list-item.bg-inverno-futebol {
+    background-image: url(/arquivos/bg-inverno-futebol.png?v=01)
+  }
+
+  @media (max-width:768px) {
+    .box-categories {
+      padding: 0
+    }
+
+    .box-categories__title {
+      font-size: 25px;
+      padding: 0 17px
+    }
+
+    .box-categories__list-item {
+      min-height: 188px;
+      background-size: cover;
+    }
+  }
+
+  @media (max-width:425px) {
+    .box-categories__list-item {
+      width: 50%
+    }
+  }
+
+
+  /*****************************************
+    START LINK WRAPPER
+    ******************************************/
+  .link_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+
+    a {
+      text-decoration: none;
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+
+  /*****************************************
+    START TO CART
+    ******************************************/
+  .my-shelf-item__installments {
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+
+  .my-shelf-item__best-price--featured {
+    font-size: 18px;
+    color: #020202;
+    background-color: #FFEA28;
+  }
+
+  .my-shelf-item__price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-buy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 20px 0 80px;
+
+    a {
+      margin-bottom: 10px;
+    }
+
+    .link__secundary {
+      text-decoration: underline;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+  }
+
+  .bootstrap-select {
+    .btn {
+      height: 40px;
+      background: #FAFAFA;
+      border: 1px solid #D7D7D7;
+      padding: 0 43px 0 13px;
+      margin-bottom: 25px;
+
+      .bs-caret {
+        width: 43px;
+
+        &::after {
+          width: 8px;
+          height: 8px;
+        }
+
+        &::before {
+          right: 43px;
+        }
+      }
+    }
+
+    &+.bootstrap-select {
+      margin-top: 15px;
+    }
+
+    .dropdown-menu {
+
+      a {
+        margin: 0;
+
+        &.active {
+          background-color: #efefef;
+          border-bottom: 1px solid #d8d8d8;
+          border-top: 1px solid #d8d8d8;
+          text-decoration: none;
+          color: #8a8a8a;
+        }
+      }
+    }
+  }
+
+  /*****************************************
+    START SHOWCASE
+    ******************************************/
+  //INITIAL SHOWCASE
+  .main {
+    .showcase {
+      .section__content {
+        .section__products-list{
+          margin: 0 -25px 00px;
+        }
+      }
+    }
+  }
+  .showcase {
+    max-width: 1180px;
+    width: 100%;
+    margin: 50px auto 50px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 60px;
+      text-transform: uppercase;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+    }
+
+    &_box {
+      display: flex;
+      -webkit-box-flex: flex;
+      flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      justify-content: space-evenly;
+      -webkit-justify-content: space-evenly;
+
+      width: 100%;
+      margin-bottom: 70px;
+
+      &_item {
+        width: 280px;
+        height: 458px;
+
+        &-img {
+          width: 280px;
+          height: 280px;
+          margin-bottom: 30px;
+          position: relative;
+
+          p {
+            font-size: 14px;
+            font-weight: lighter;
+            position: absolute;
+            bottom: -14px;
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 20px 95px;
+            background-color: rgba(0, 0, 0, 0.70);
+            letter-spacing: -0.03em;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+
+  @media (max-width:1024px) {
+    .showcase {
+      &_box {
+
+        &_item {
+          margin-bottom: 60px;
+        }
+
+      }
+
+      h2 {
+        font-size: 22px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  @media (max-width:425px) {
+    .showcase {
+      &_box {
+        margin-bottom: 0;
+
+        &_item {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  /*****************************************
+    START GIFT CARD
+    ******************************************/
+  .gift_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-bottom: 185px;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 26px;
+      color: #191B2B;
+      margin-bottom: 19px;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+
+    }
+
+    &_box {
+      display: flex;
+      width: 100%;
+      max-width: 666px;
+
+      &__img {
+        width: 50%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-left: 20px;
+        padding-top: 10px;
+
+        h3 {
+          font-size: 20px;
+          color: #191B2B;
+          margin: 0;
+          letter-spacing: -0.03em;
+          font-size: 20px;
+          text-transform: uppercase;
+          font-weight: 400;
+        }
+
+        p {
+          margin-top: 10px;
+          font-size: 16px;
+          font-weight: lighter;
+          letter-spacing: -0.03em;
+        }
+      }
+    }
+  }
+
+  @media (max-width:695px) {
+    .gift_card_box {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+  @media (max-width: 425px) {
+    .gift_card {
+      h2 {
+        font-size: 22px;
+        margin-top: 20px;
+      }
+    }
+
+    .gift_card_box {
+      width: 73%;
+    }
+
+    .gift_card_box__img {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .gift_card_box__text {
+      width: 100%;
+      text-align: center;
+      margin: 0;
+
+      h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+    }
+  }
+}

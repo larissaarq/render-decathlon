@@ -1,0 +1,880 @@
+/* START CCS RESET */
+.esporte-no-frio-2019{
+  body {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #242323;
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* START INVERNO2019-HEADER */
+.inverno-2019-banner-jaquetas {
+  position: absolute;
+  top: 495px;
+}
+
+.inverno-2019-banner-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 100%;
+}
+
+.inverno-2019-banner-links-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 88%;
+  height: 70px;
+}
+
+.inverno-2019-banner-descriptions {
+  position: absolute;
+  top: 613px;
+  height: 258px;
+  width: 98%;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    margin: 35px 0 -4px;
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: condensed;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  span {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  &-text {
+    margin: 10px 10px;
+    font-stretch: condensed;
+    font-style: italic;
+  }
+}
+
+/* END INVERNO2019-HEADER */
+
+
+/* INICIO MAIN */
+.main {
+  height: auto;
+}
+
+/*INICIO PRODUCT*/
+.inverno-2019-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1185px;
+  margin: 15px auto 0;
+
+  &-container {
+    display: flex;
+    /* width: 80%;
+        height: 100%; */
+  }
+
+  &-image {
+    width: 50%;
+    /* height: 100%; */
+
+    figure {
+      max-width: 621px;
+      max-height: 701px;
+
+      // border: solid 1px #000;
+      img {
+        width: 100%;
+        /* height: 100%; */
+      }
+    }
+  }
+
+  &-trek-100-pack {
+    max-width: 294px;
+    max-height: 294px;
+    position: relative;
+    top: -317px;
+    left: 556px;
+  }
+
+  .trek-green-small {
+    top: -367px;
+    left: -233px;
+  }
+
+  &-descriptions {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    text-align: center;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      width: 85%;
+      text-align: start;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-stretch: condensed;
+      font-style: italic;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      font-size: 22px;
+      text-align: start;
+      font-weight: 400;
+      margin: 15px 0 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 3px 0 6px;
+    }
+  }
+}
+
+/*FIM PRODUCT*/
+
+
+/*INICIO VITRINE*/
+.inverno-2019-showcase {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+
+  @media (max-width: 990px) {
+    margin-top: 0px;
+  }
+
+  &-title {
+    margin-top: 35px;
+    font-size: 30px;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+}
+
+.inverno-2019-showcase-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 1330px;
+  padding: 0 10px;
+  margin-top: 45px;
+  flex: 1;
+  flex-flow: row nowrap;
+  flex-wrap: wrap;
+
+  @media (max-width: 990px) {
+    width: 100%;
+  }
+}
+
+.inverno-2019-showcase-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+
+  a {
+    text-decoration: none;
+  }
+
+  &-title {
+    margin-bottom: 20px;
+
+  }
+
+  figure {
+    padding: 15px;
+    width: 300px;
+    height: 300px;
+
+    img {
+      width: 100%;
+      /* height: 100%; */
+    }
+  }
+
+  @media (max-width: 990px) {
+    display: flex !important;
+  }
+}
+
+.inverno-2019-showcase-item-title {
+  display: flex;
+  flex-direction: column;
+
+  & h2 {
+    color: #242323;
+    margin: 1px;
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.inverno-2019-showcase-btn-view-all {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 67px;
+  margin-top: 40px;
+
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 11px 0px 11px 55px;
+    border: solid 1px #0082c3;
+    background-color: #0082c3;
+    text-decoration: none;
+    color: #fff;
+    width: 319px;
+  }
+
+}
+
+/*FIM VITRINE*/
+/* FIM MAIN */
+.inverno2019-bg-banner-full {
+  position: relative;
+
+  figure {
+    width: 100%;
+  }
+}
+
+/* BANNER VIDEO FULL*/
+.inverno2019-bg-banner-full-video {
+  .banner-video iframe{
+    transform: initial;
+    top: 0;
+  }
+  .banner-video__overlay {
+    cursor: default;
+  }
+
+  .banner-video {
+    height: 620px;
+  }
+}
+
+
+
+/*==================================
+    mobile
+=================================*/
+
+@media (min-width: 768px) {
+  .inverno2019-bg-banner-full-mobile {
+    display: none;
+  }
+  .inverno-2019-main{
+    margin-top: 140px;
+  }
+
+  .inverno2019-bg-banner-full {
+    //margin: 140px auto 45px;
+
+    &-video {
+      img {
+        width: 100%;
+      }
+    }
+
+    .inverno-2019-banner-descriptions {
+      background-image: url('/arquivos/inverno2019-bg-banner.png');
+      background-size: contain;
+      width: 100%;
+      padding: 46px 0 22px;
+      height: auto;
+      position: relative;
+      top: initial;
+      bottom: initial;
+      left: initial;
+      right: initial;
+
+      h1 {
+        margin: 0
+      }
+
+      .inverno-2019-banner-descriptions-text {
+        margin: 15px auto 13px;
+      }
+
+      .showcase-item__best-price.showcase-item__best-price--featured {
+        color: #242323;
+        margin: 0 auto 5px;
+        font-style: initial;
+        font-size: 16px;
+        font-weight: 700;
+        width: 95px;
+        position: relative;
+        z-index: 2;
+
+        &::after {
+          content: "";
+          background-color: #FFEA28;
+          position: absolute;
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: 22px;
+          z-index: -1;
+
+        }
+
+        .shelf-item__signal-price {
+          font-size: 12px;
+          font-weight: 700;
+          font-style: initial;
+        }
+      }
+
+      .shelf-item__installments .installments-write {
+        font-size: 12px;
+        font-weight: 700;
+        color: #fff !important;
+      }
+
+      .inverno-2019-banner-jaquetas-wrapper {
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: -140px;
+        left: 50%;
+        transform: translate(-50%);
+        display: flex;
+        justify-content: center;
+
+        .inverno-2019-banner-jaquetas {
+          position: static;
+          width: 1596px;
+        }
+      }
+
+
+    }
+
+    .inverno2019-banner-links {
+      max-width: 899px;
+      margin: 0 auto;
+      width: 100%;
+
+      .inverno-2019-banner-links-container {
+        width: 100%;
+        padding: 34px 15px 0 0;
+        height: 74px;
+        justify-content: space-between
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .inverno2019-bg-banner-full {
+    display: none;
+  }
+
+  .inverno2019-bg-banner-full-mobile {
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url("/arquivos/inverno2019-bg-banner-mobile.png");
+    background-size: 100% auto;
+    background-position: center;
+    padding-top: 28px;
+    margin-bottom: 30px;
+    margin-top: 100px;
+
+    .inverno-2019-bg-banner-images {
+      margin-top: -112px;
+    }
+
+    .wrap-box-images {
+      display: flex;
+      min-width: 524px;
+      max-width: 524px;
+      padding-top: 30px;
+
+      .box-image {
+        width: 50%;
+        height: auto;
+
+      }
+
+    }
+
+    .inverno-2019-banner-descriptions {
+      position: static;
+      width: 100%;
+      height: 208px;
+
+      &>h1 {
+        margin: 0;
+        padding: 0 5px;
+      }
+
+      .inverno-2019-banner-descriptions-text {
+        margin: 10px 0 38px;
+        padding: 0 10px;
+      }
+
+      .showcase-item__best-price.showcase-item__best-price--featured {
+        color: #242323;
+        margin: 0 auto 5px;
+        font-style: initial;
+        font-size: 16px;
+        font-weight: 700;
+        width: 95px;
+        position: relative;
+        z-index: 2;
+
+        &::after {
+          content: "";
+          background-color: #FFEA28;
+          position: absolute;
+          top: 0px;
+          left: 0;
+          width: 100%;
+          height: 22px;
+          z-index: -1;
+
+        }
+
+        .shelf-item__signal-price {
+          font-size: 12px;
+          font-weight: 700;
+          font-style: initial;
+        }
+
+
+      }
+
+      .shelf-item__installments {
+        font-size: 10px;
+        font-weight: 700;
+      }
+    }
+
+    .inverno-2019-banner-actions {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+      max-width: 375px;
+      margin-top: -85px;
+    }
+  }
+
+  main>.inverno-2019-wrapper {
+
+    margin-top: 0px;
+    height: auto;
+    display: block;
+
+    &.inverno-2019-wrapper-isolamento {
+      .inverno-2019-wrapper-container {
+        display: flex;
+        justify-content: initial;
+        flex-wrap: wrap;
+
+        .inverno-2019-wrapper-descriptions {
+          order: 2;
+          margin-bottom: 0;
+
+          .inverno-2019-wrapper-descriptions-container {
+            p:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .inverno-2019-wrapper-image {
+          figure {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+
+            img.inverno-2019-wrapper-trek-100-pack.trek-green-small {
+              left: 0px;
+              right: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .inverno-2019-wrapper-container {
+    flex-wrap: wrap;
+    width: 100%;
+
+    .inverno-2019-wrapper-image {
+      width: 100%;
+      margin-bottom: 22px;
+      position: relative;
+      max-width: 636px;
+      margin: 0 auto 25px;
+
+      .inverno-2019-wrapper-trek-100 {
+        width: 70%;
+      }
+
+      .inverno-2019-wrapper-trek-100-pack {
+        position: absolute;
+        width: 33%;
+        height: auto;
+        top: initial;
+        left: initial;
+        right: 0;
+        bottom: 13px
+      }
+    }
+
+    .inverno-2019-wrapper-descriptions {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+
+      .inverno-2019-wrapper-descriptions-container {
+        display: block;
+        width: 100%;
+        padding: 0 17px;
+
+        &>h2 {
+          font-size: 40px;
+          text-align: center;
+          line-height: 53px;
+          margin: 0;
+          margin-bottom: 19px;
+          text-transform: uppercase;
+        }
+
+        &>h3 {
+          text-align: left;
+          margin: 0;
+          margin-bottom: 18px;
+          font-size: 22px;
+        }
+
+        &>p {
+          text-align: left;
+          margin: 0;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1185px) and (min-width: 769px) {
+  .inverno-2019-wrapper-container {
+    align-items: flex-start;
+
+    .inverno-2019-wrapper-image {
+      position: relative;
+
+      .inverno-2019-wrapper-trek-100 {
+        width: 70%;
+        height: auto;
+      }
+
+      .inverno-2019-wrapper-trek-100-pack {
+        width: 33%;
+        height: auto;
+        position: absolute;
+        bottom: 15px;
+        right: 0px;
+        top: initial;
+        left: initial;
+        height: auto;
+      }
+    }
+  }
+
+  .inverno-2019-wrapper-isolamento {
+    margin-top: 100px;
+
+    figure {
+      display: flex;
+      align-items: center;
+      flex-direction: reverse;
+    }
+
+    .inverno-2019-wrapper-trek-100 {
+
+      margin: 0 0 0 auto;
+    }
+
+    .inverno-2019-wrapper-trek-100-pack.trek-green-small {
+      left: 0;
+      right: initial;
+    }
+  }
+}
+
+@media(max-width: 374px) {
+  .esporte-no-frio-2019 {
+    .button--small {
+      padding: 8px 7px 8px 15px;
+    }
+  }
+}
+
+/*=========================================================
+    FIM MOBILE
+==========================================================*/
+.esporte-no-frio-2019 {
+.shelf {
+  max-width: 1330px;
+  padding: 0 10px;
+  width: 100%;
+  margin: 100px auto;
+
+  &__title {
+    text-align: center;
+    font-size: 30px;
+    color: #242323;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: -0.03em;
+
+    @media (max-width: 768px) {
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media (max-width: 425px) {
+      &.slick-slider {
+        &>.slick-list {
+          max-width: 300px;
+          margin: 0 auto;
+        }
+
+        &>.slick-prev {
+          left: 0px !important;
+        }
+
+        &.slick-next {
+          right: 0px !important;
+        }
+      }
+    }
+
+    &-item {
+      max-width: 300px;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        margin: 0 auto;
+        display: block !important;
+      }
+
+      &>a {
+        &>img {
+          margin-bottom: 20px;
+        }
+      }
+
+      &_title {
+        max-width: 218px;
+        margin: 0 auto;
+        line-height: 19px;
+        text-align: center;
+        font-size: 14px;
+        color: #242323;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      &_button {
+        margin: 0 auto 10px!important;
+      }
+
+      &_link-category {
+        font-size: 14px;
+        color: #0082C3;
+        text-transform: uppercase;
+        font-style: italic;
+        font-weight: 700;
+        display: block;
+      }
+    }
+  }
+}
+}
+
+.esporte-no-frio-2019 {
+  .box-categories {
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto 100px;
+  
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+  
+    &__title {
+      text-align: center;
+      font-size: 30px;
+      color: #242323;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      font-style: italic;
+      letter-spacing: -0.03em;
+  
+      @media (max-width: 768px) {
+        font-size: 25px;
+        padding: 0 17px;
+      }
+    }
+  
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+  
+      &-item {
+        width: 25%;
+        min-height: 300px;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+  
+        @media (max-width: 768px) {
+          min-height: 188px;
+        }
+  
+        @media (max-width: 425px) {
+          width: 50%;
+        }
+  
+        &-overlay {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0.5);
+          transition: all .3s;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: all .3s;
+          }
+        }
+  
+        a {
+          color: #fff;
+          font-size: 30px;
+          font-weight: 300;
+          text-decoration: none;
+          text-transform: uppercase;
+  
+          @media (max-width: 768px) {
+            font-size: 25px;
+          }
+        }
+  
+        &.bg-inverno-corrida {
+          background-image: url("/arquivos/bg-inverno-corrida.png?v=01")
+        }
+  
+        &.bg-inverno-ciclismo {
+          background-image: url("/arquivos/bg-inverno-ciclismo.png?v=01")
+        }
+  
+        &.bg-inverno-ski {
+          background-image: url("/arquivos/bg-inverno-ski.png?v=01")
+        }
+  
+        &.bg-inverno-trekking {
+          background-image: url("/arquivos/bg-inverno-trekking.png?v=01")
+        }
+  
+        &.bg-inverno-trilha {
+          background-image: url("/arquivos/bg-inverno-trilha.png?v=01")
+        }
+  
+        &.bg-inverno-gym-pilates {
+          background-image: url("/arquivos/bg-inverno-gym-pilates.png?v=01")
+        }
+  
+        &.bg-inverno-fitness {
+          background-image: url("/arquivos/bg-inverno-fitness.png?v=01")
+        }
+  
+        &.bg-inverno-yoga {
+          background-image: url("/arquivos/bg-inverno-yoga.png?v=01")
+        }
+  
+        &.bg-inverno-tenis {
+          background-image: url("/arquivos/bg-inverno-tenis.png?v=01")
+        }
+  
+        &.bg-inverno-natacao {
+          background-image: url("/arquivos/bg-inverno-natacao.png?v=01")
+        }
+  
+        &.bg-inverno-surf {
+          background-image: url("/arquivos/bg-inverno-surf.png?v=01")
+        }
+  
+        &.bg-inverno-futebol {
+          background-image: url("/arquivos/bg-inverno-futebol.png?v=01")
+        }
+      }
+    }
+  }
+  
+  .text-seo {
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto 50px;
+  
+    @media (max-width: 768px) {
+      padding: 0 17px;
+    }
+  }
+}

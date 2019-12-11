@@ -1,0 +1,470 @@
+.lp-artengo-racket900 {
+    .main {
+        background: url("/arquivos/background-black-artengo.png") no-repeat;
+        z-index: 100;
+        background-size: 100% 98%;
+        min-height: 1299px;
+
+        @media (max-width: 398px) {
+            background-size: 170% 98%;
+        }
+
+        &-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            max-width: 960px;
+            margin: 0 auto;
+
+            @media (max-width: 739px) {
+                max-width: 300px;
+            }
+        }
+    }
+
+    .banner-wrap {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    section {
+        &#main {
+            margin-top: 140px;
+
+            @media (max-width: 768px) {
+                margin-top: 100px;
+                position: relative;
+            }
+        }
+    }
+
+    main {
+        &.main {
+            margin-top: 0 !important;
+            padding-bottom: 120px;
+        }
+    }
+
+    /*
+    CSS ARTENGO PRODUCTS
+    */
+    .border {
+        border: 0.5px solid rgba(216, 216, 216, 0.2);
+        border-left: 0;
+        border-top: 0;
+        padding: 10px;
+
+        &:first-of-type {
+            border-top: 0;
+            border-left: 0;
+        }
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+
+    .border-last {
+        border: 0.5px solid rgba(216, 216, 216, 0.2);
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        padding: 10px;
+
+        &:first-of-type {
+            border-top: 0;
+            border-left: 0;
+        }
+
+        &:last-of-type {
+            border-bottom: 0;
+        }
+    }
+
+    .artengo-products {
+        display: flex;
+        flex-wrap: wrap;
+        outline: none !important;
+
+        @media (max-width: 739px) {
+            max-width: 300px;
+            align-content: center;
+            margin: 0 auto;
+        }
+
+        &-text-float {
+            z-index: 5;
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translate(45%, 150%);
+            text-align: initial;
+
+            @media (max-width: 769px) {
+                display: none;
+            }
+
+            &-span {
+                font-weight: bold;
+            }
+        }
+
+        &-item {
+            flex: 1;
+            margin: 0 auto;
+            color: #fff;
+            font-style: italic;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-align: center;
+        }
+
+        &-figure {
+            max-width: 100%;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        &-title {
+            min-height: 110px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+    }
+
+    .artengo-title-h1 {
+        font-size: 22px;
+    }
+
+    .artengo-title-h2 {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .artengo-title-span {
+        border-bottom: solid 1px #D90000;
+    }
+
+    .artengo-btn-saibaMais {
+        padding: 2px 30px;
+        border: solid 1px #fff;
+        margin-bottom: 20px;
+    }
+
+    .artengo-btn-saibaMais-span {
+        color: #fff !important;
+    }
+
+    .artengo-btn-comprar {
+        padding: 2px 30px;
+        border: solid 1px #FFEA28;
+        background-color: #FFEA28;
+    }
+
+    .artengo-btn-comprar-span {
+        color: #393939 !important;
+    }
+
+    .artengo-title-p {
+        padding: 60px;
+        text-align: center;
+        color: #fff;
+        font-style: italic;
+
+        @media (max-width: 739px) {
+            padding: 60px 10px;
+        }
+    }
+
+    .artengo-btn-icon {
+        position: relative !important;
+        left: 20px !important;
+        color: #fff !important;
+        font-size: 0.75em !important;
+    }
+
+    .artengo-btn-icon-comprar {
+        position: relative !important;
+        left: 20px !important;
+        color: #393939 !important;
+        font-size: 0.75em !important;
+    }
+
+    .next {
+        position: absolute;
+        right: 10px;
+        top: 600px;
+        z-index: 2;
+
+        @media (max-width: 768px) {
+            top: 820px;
+        }
+    }
+
+    .prev {
+        position: absolute;
+        left: 10px;
+        top: 600px;
+        z-index: 2;
+
+        @media (max-width: 768px) {
+            top: 820px;
+        }
+    }
+
+    .next,
+    .prev {
+        &::before {
+            border-left: 1px solid rgba(255, 255, 255, .6);
+            border-bottom: 1px solid rgba(255, 255, 255, .6);
+            height: 28px;
+            width: 28px;
+        }
+    }
+
+    @media (min-width: 769px) {
+        .slick-list {
+            overflow: initial !important;
+        }
+
+        .artengo-shelf {
+            .arrows {
+                display: none;
+            }
+        }
+    }
+
+    .artengo-btn-ver-todas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 52px;
+    }
+
+    /*
+    CSS ARTENGO SHELF
+    */
+    .artengo-shelf {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: -75px;
+        position: relative;
+
+        @media (max-width: 990px) {
+            margin-top: 0px;
+        }
+
+        &-title {
+            margin-top: 35px;
+            font-size: 30px;
+            font-weight: bolder;
+            font-style: italic;
+        }
+    }
+
+    .artengo-shelf-container {
+        display: flex;
+        justify-content: space-evenly;
+        // flex-wrap: wrap;
+        width: 90%;
+        height: auto;
+        margin-top: 45px;
+        flex: 1;
+        flex-flow: row nowrap;
+
+        @media (max-width: 990px) {
+            width: 100%;
+        }
+    }
+
+    .artengo-shelf-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 240px;
+
+        &-title {
+            margin-bottom: 20px;
+
+        }
+
+        figure {
+            padding: 15px;
+            width: 230px;
+            height: 230px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 990px) {
+            display: flex !important;
+        }
+    }
+
+    .arrows {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        z-index: 999;
+
+        .proximo,
+        .anterior {
+            &::before {
+                height: 28px;
+                width: 28px;
+            }
+        }
+    }
+
+    .artengo-shelf-item-title {
+        display: flex;
+        flex-direction: column;
+
+        & h2 {
+            color: #393939;
+            margin: 1px;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+
+    .artengo-shelf-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 55px;
+
+        &-shop {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: solid 1px #FFEA28;
+            background-color: #FFEA28;
+            text-decoration: none;
+            padding: 6px 20px;
+            font-weight: bolder;
+            width: 232px;
+
+            &-span {
+                color: #393939 !important;
+            }
+
+            & i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: solid 1px #FFEA28;
+                background-color: #FFEA28;
+            }
+        }
+
+        &-view-more {
+            &-span {
+                color: #0082c3;
+                font-size: 14px;
+                font-weight: bolder;
+                font-style: italic;
+            }
+        }
+
+        &-view-all {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 67px;
+            margin-top: 90px;
+
+            &-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                padding: 11px 0px 11px 55px;
+                border: solid 1px #0082c3;
+                background-color: #0082c3;
+                text-decoration: none;
+                color: #fff;
+                width: 319px;
+
+                & i {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    border: solid 1px #0082c3;
+                    background-color: #0082c3;
+                }
+            }
+        }
+    }
+
+    /*
+    CSS ARTENGO KNOW MORE
+    */
+    .artengo-know-more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: #393939;
+        font-weight: lighter;
+        font-size: 14px;
+        height: 100vh;
+
+        &-container {
+            width: 80%;
+        }
+
+        & h2 {
+            margin-bottom: 30px;
+        }
+
+        & p {
+            color: #393939;
+        }
+
+        & a {
+            text-decoration: none;
+            color: #393939;
+            margin-bottom: 5px;
+
+            &:hover {
+                color: #0082c3;
+                // border-bottom: solid 1px #393939;
+            }
+        }
+
+        &-btn-souEsportista {
+            width: 100%;
+
+            & a {
+                color: #0082c3;
+                margin-left: 5px;
+                border-bottom: none !important;
+            }
+
+        }
+
+        @media (max-width: 990px) {
+            margin-top: 0;
+            height: auto;
+            padding: 0 0 45px 0;
+        }
+    }
+}
