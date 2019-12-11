@@ -8,27 +8,53 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 const vendorPath = path.resolve(__dirname, 'src/vendor')
 
-const directoryPath = path.join(__dirname, 'src/js/controllers')
+/**
+ * @description Generate common components and controllers
+ * @var commonComponentsPath string path to components
+ * @var commonControllerPath string path to controllers
+ * @var commonFilesToConcat array of files to concat
+ */
 
-const controllers = {}
+const commonComponentsPath = path.join(__dirname, 'src/js/common/components')
+const commonControllerPath = path.join(__dirname, 'src/js/common/controllers')
+const commonFilesToConcat = []
 
-fs.readdirSync(directoryPath).map(folder => {
+fs.readdirSync(commonComponentsPath).map(file => {
+  const filePath = path.join(commonComponentsPath, file)
+  commonFilesToConcat.push(filePath)
+})
+
+fs.readdirSync(commonControllerPath).map(file => {
+  const filePath = path.join(commonControllerPath, file)
+  commonFilesToConcat.push(filePath)
+})
+
+/**
+ * @description Generate components and controllers
+ * @var componentsRootPath string path to components
+ * @var controllerRootPath string path to controllers
+ * @var filesToConcat array of files to concat
+ */
+
+const componentsRootPath = path.join(__dirname, 'src/js/components')
+const controllerRootPath = path.join(__dirname, 'src/js/controllers')
+const filesToConcat = []
+
+fs.readdirSync(componentsRootPath).map(file => {
+  const filePath = path.join(componentsRootPath, file)
+  
+  filesToConcat.push(filePath)
+})
+
+fs.readdirSync(controllerRootPath).map(folder => {
   const controllerPath = path.join(__dirname, 'src/js/controllers', folder)
 
   fs.readdirSync(controllerPath).map(file => {
     const fileName = file.substring(0, file.length - 3)
     const filePath = path.join(controllerPath, fileName)
 
-    Object.assign(controllers, {
-      [fileName.replace('0-dcs-web-', '')]: filePath
-    })
+    filesToConcat.push(filePath)
   })
-})
-
-const entry = Object.assign(controllers, {
-  polyfill: '@babel/polyfill',
-  main: path.join(__dirname, 'src/js', 'main'),
-  components: path.join(__dirname, 'src/react', 'index'),
 })
 
 module.exports = {
@@ -36,7 +62,12 @@ module.exports = {
     aggregateTimeout: 300,
     poll: 1000
   },
-  entry,
+  entry: {
+    polyfill: '@babel/polyfill',
+    common: commonFilesToConcat,
+    application: filesToConcat,
+    components: path.join(__dirname, 'src/react', 'index')
+  },
   module: {
     rules: [{
         test: /\.js$/,
@@ -119,11 +150,10 @@ module.exports = {
           `${vendorPath}/slick-carousel/slick/slick.min.js`,
           `${vendorPath}/pointer_events_polyfill/pointer_events_polyfill.js`,
           `${vendorPath}/percircle/dist/percircle.js`,
-        ],
-        // "arquivos/0-dcs-web-vendors.css": ['']
+        ]
       },
       transform: {
-        'arquivos/0-dcs-web-vendors.js': code => require("uglify-js").minify(code).code
+        'arquivos/0-dcs-web-vendors.js': code => require("uglify-js").minify(code).code,
       }
     })
   ]
