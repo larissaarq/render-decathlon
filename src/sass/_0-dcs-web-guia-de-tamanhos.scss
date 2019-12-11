@@ -1,0 +1,385 @@
+body.tamanhos {
+	#main {
+		margin-top: 120px;
+	}
+
+  .sprite {
+    display: inline-block;
+  }
+}
+
+.guia-de-tamanho {
+	@extend .av-container;
+
+	.wrapper {
+		@extend .av-row;
+	}
+}
+
+.guia-title {
+	@extend .av-col-xs-24;
+	margin-bottom: 40px;
+	h2 {
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 700;
+    color: #393939;
+    text-transform: uppercase;
+    span {
+          color: #0082c3;
+    }
+	}
+}
+
+.guia-contents {
+	@extend .av-col-xs-24;
+
+	.tamanho-geral,
+	section {
+		margin-bottom: 40px;
+	}
+
+	.tamanho-geral {
+		height: 300px;
+		> div {
+			display: inline-block;
+			vertical-align: top;
+			border: 1px solid $borderColor;
+			height: 100%;
+		}
+
+		ul {
+			padding: 30px 20px 0;
+		}
+
+		li {
+			display: inline-block;
+			margin-bottom: 20px;
+
+			a {
+				&:before {
+					content: '';
+					display: inline-block;
+					vertical-align: middle;
+					margin: 0 10px 0 0;
+				}
+			}
+		}
+
+		.tamanho-geral-title {
+			background-color: $lochmara;
+			color: #fff;
+			font-family: $secondaryFont;
+			font-size: 13px;
+			font-weight: 400;
+			text-transform: uppercase;
+			display: block;
+			padding: 5px 10px;
+		}
+
+		.tamanho-vestuario {
+			width: 25%;
+			li {
+				width: calc( 100% / 3 );
+				vertical-align: bottom;
+				margin-bottom: 0;
+				text-align: center;
+				a {
+					&:before {
+						display: block;
+						margin: 0 auto 10px;
+					}
+				}
+			}
+		}
+
+		.tamanho-calcado {
+			width: calc( 35% - 60px );
+			margin: 0 30px;
+			li {
+				width: 100%;
+				vertical-align: middle;
+				margin-bottom: 30px;
+			}
+		}
+
+		.tamanho-esporte {
+			width: 40%;
+			li {
+				width: calc( 100% / 2 );
+				vertical-align: middle;
+			}
+		}
+
+		@media (max-width: $screen-md-max) {
+			.tamanho-vestuario {width: 30%}
+			.tamanho-calcado {width: calc( 25% - 60px )}
+			.tamanho-esporte {width: 45%;}
+		}
+
+		@media (max-width: $screen-sm-max) {
+			height: auto;
+			.tamanho-vestuario {
+				width: 50%;
+				height: 290px;
+				margin-bottom: 20px;
+			}
+			.tamanho-calcado {
+				width: calc( 50% - 30px );
+				margin: 0 0 20px 30px;
+				height: 290px;
+			}
+			.tamanho-esporte {
+				width: 100%;
+				height: auto;
+			}
+
+		}
+
+		@media (max-width: $screen-xs) {
+			.tamanho-vestuario,
+			.tamanho-calcado,
+			.tamanho-esporte {
+				width: 100%;
+				height: auto;
+				margin: 0 0 20px 0;
+			}
+
+			.tamanho-esporte {
+				li { width: 100%;}
+			}
+		}
+
+
+
+		.tamanho-vestuario__homem a:before {@extend .sprite-tamanhos-tamanho-vestuario-homem;}
+		.tamanho-vestuario__mulher a:before {@extend .sprite-tamanhos-tamanho-vestuario-mulher;}
+		.tamanho-vestuario__crianca a:before {@extend .sprite-tamanhos-tamanho-vestuario-crianca;}
+		.tamanho-calcado__homem a {
+			&:before {@extend .sprite-tamanhos-tamanho-calcado-homem;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-calcado-homem-over;}
+			}
+		}
+		.tamanho-calcado__mulher a {
+			&:before {@extend .sprite-tamanhos-tamanho-calcado-mulher;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-calcado-mulher-over;}
+			}
+		}
+		.tamanho-calcado__crianca a {
+			&:before {@extend .sprite-tamanhos-tamanho-calcado-crianca;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-calcado-crianca-over;}
+			}
+		}
+		.tamanho-calcado__bebe a {
+			&:before {@extend .sprite-tamanhos-tamanho-calcado-bebe;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-calcado-bebe-over;}
+			}
+		}
+		.tamanho-esporte__bicicleta a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-bicicleta;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-bicicleta-over;}
+			}
+		}
+		.tamanho-esporte__patins a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-patins;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-patins-over;}
+			}
+		}
+		.tamanho-esporte__mergulho a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-mergulho;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-mergulho-over;}
+			}
+		}
+		.tamanho-esporte__precisao a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-precisao;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-precisao-over;}
+			}
+		}
+		.tamanho-esporte__equipe a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-equipe;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-equipe-over;}
+			}
+		}
+		.tamanho-esporte__ginastica a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-ginastica;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-ginastica-over;}
+			}
+		}
+		.tamanho-esporte__equitacao a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-equitacao;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-equitacao-over;}
+			}
+		}
+		.tamanho-esporte__aquatico a {
+			&:before {@extend .sprite-tamanhos-tamanho-esporte-aquatico;}
+			&:hover {
+				&:before {@extend .sprite-tamanhos-tamanho-esporte-aquatico-over;}
+			}
+		}
+	}
+}
+
+
+.guia-section-block {
+	border: 1px solid $borderColor;
+
+	h3 {
+		background-color: #f3f3f3;
+		margin: 0 0 20px 0;
+		font-family: $primaryFont;
+	    text-transform: uppercase;
+	    font-weight: 500;
+	    font-size: 20px;
+		color: $mineShaftDarker;
+		padding: 4px 10px;
+	}
+
+	.guia-section-description {
+		padding: 0 20px 20px;
+		margin-bottom: 20px;
+
+		.image-container {
+			display: inline-block;
+			vertical-align: top;
+			width: 30%;
+			img {
+
+			}
+		}
+
+
+		.description-container {
+			display: inline-block;
+			vertical-align: top;
+			width: 70%;
+			span {}
+
+			ul {
+				padding-left: 30px;
+				li {
+					list-style: disc;
+					margin-bottom: 20px;
+				}
+			}
+
+		}
+
+		@media (max-width: 600px) {
+			.image-container { width: 100%; }
+			.description-container {width: 100%;}
+		}
+	}
+
+	h4,
+	table {
+		width: calc( 100% - 40px );
+		margin: 0 auto 20px;
+	}
+
+	h4 {
+		font-weight: 700;
+	}
+
+	table {
+		border: 1px solid $borderColor;
+	}
+
+	thead {
+		background-color: #989898;
+		th, td {
+			color: #fff;
+		}
+	}
+
+	tbody {
+		th, td {
+			color: $mineShaftDarker;
+		}
+	}
+
+	th,
+	td {
+		font-size: 11px;
+		font-family: $primaryFont;
+		padding: 5px 10px;
+	}
+
+	th {
+		text-align: left;
+		max-width: 100px;
+	}
+
+	td {
+		text-align: center;
+	}
+
+	p {
+		width: calc( 100% - 40px );
+    	margin: 0 auto 20px;
+	}
+
+	a,
+	.link-topo {
+		display: block;
+		text-align: right;
+		padding: 10px 20px;
+
+		&:before {
+			float: left;
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid $lochmara;
+		}
+	}
+}
+
+.tabela-colorida {
+	tbody {
+		th {
+			background-color: #989898;
+			color: #fff;
+		}
+	}
+
+	.td-amarelo {background-color: #FCF9BA !important}
+	.td-rosa {background-color: #FFCCFF !important}
+	.td-verde {background-color: #DCF4D5 !important}
+}
+
+
+@media (max-width: $screen-sm-max) {
+	.guia-tabela {
+		width: calc(100% - 40px);
+		overflow-x: auto;
+		margin-left: 20px;
+		table {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: $screen-xs-max) {
+	.guia-tabela {
+		width: calc(100% - 40px);
+		overflow-x: auto;
+		margin-left: 20px;
+		table {
+			width: 680px;
+		}
+	}
+}

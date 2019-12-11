@@ -5,13 +5,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
-
 const vendorPath = path.resolve(__dirname, 'src/vendor')
-
-const componentsRootPath = path.join(__dirname, 'src/js/components')
-const controllersRootPath = path.join(__dirname, 'src/js/controllers')
-
-let filesToConcat = []
 
 /**
  * 
@@ -33,12 +27,10 @@ const getPaths = (rootPath, cb) => {
   return paths
 }
 
-filesToConcat = [
-  ...getPaths(componentsRootPath),
-  ...getPaths(controllersRootPath)
-]
-
+const componentsRootPath = path.join(__dirname, 'src/js/components')
+const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
+let filesToConcat = []
 
 getPaths(controllersRootPath, file => {
   const fileName = file.substring(0, file.length - 3)
@@ -49,6 +41,11 @@ getPaths(controllersRootPath, file => {
   })
 })
 
+filesToConcat = [
+  ...getPaths(componentsRootPath),
+  ...getPaths(controllersRootPath)
+]
+
 module.exports = {
   watchOptions: {
     aggregateTimeout: 300,
@@ -56,9 +53,11 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    application: filesToConcat,
+    all: filesToConcat,
+    components: getPaths(componentsRootPath),
     ...controllers,
-    components: path.join(__dirname, 'src/react', 'index')
+    app: path.join(__dirname, 'src/react', 'index'),
+    theme: path.join(__dirname, 'src/js', 'theme')
   },
   module: {
     rules: [{
@@ -99,7 +98,14 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: ['node_modules/compass-mixins/lib']
+              }
+            }
+          }
         ]
       }
     ]

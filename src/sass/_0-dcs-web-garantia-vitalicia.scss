@@ -1,0 +1,118 @@
+body {
+  &.garantia {
+    .banner-full__title {
+      color: $white;
+      font-weight: 700;
+
+      @media (max-width: $screen-sm-max) {
+        font-size: 30px;
+      }
+    }
+
+    .form-content {
+      overflow: hidden;
+      margin: 0 auto 30px;
+
+      @media (min-width: $screen-md-min) {
+        max-width: 70%;
+      }
+
+      input[aria-invalid=true],
+      input[type=text],
+      input[type=email],
+      input[type=password],
+      select {
+        border: 1px solid #eee;
+        padding: 10px;
+        font-size: 13px;
+        width: 100%;
+        display: block;
+
+        &:hover {
+          border: 1px solid #d4d7d9;
+          box-shadow: 1px 1px 1px rgba(50, 50, 51, .2);
+          -webkit-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+          -o-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+          transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        &:focus {
+          border-color: $lochmara;
+        }
+
+        &.error {
+          border-color: #e20c18;
+        }
+      }
+
+      label {
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-bottom: 7px;
+
+        @media (min-width: $screen-md-min) {
+            font-size: 13px;
+        }
+
+        &.error {
+          background-color: #e60202;
+          color: #fff;
+          padding: 4px 7px;
+          text-transform: initial;
+          margin-top: 8px;
+          position: relative;
+          bottom: auto !important;
+          font-size: 12px;
+          line-height: 1.4 !important;
+          font-weight: 600;
+          display: none;
+          width: 100%;
+        }
+      }
+
+      .dropdown-toggle {
+        border: 1px solid #eee;
+        padding: 10px 0 10px 15px;
+      }
+
+      .bootstrap-select {
+        &.open {
+          .dropdown-menu {
+            height: 200px;
+            overflow-y: auto;
+          }
+        }
+      }
+
+      .input-text-large {
+        width: 100%;
+        margin-bottom: 30px;
+
+        @media (min-width: $screen-md-min) {
+            min-height: 130px;
+            margin-bottom: 10px;
+        }
+      }
+
+      .dropdown-menu {
+        &.open {
+          .inner {
+            // overflow: hidden !important;
+          }
+        }
+      }
+
+      .line-error {
+        label.error {
+          display: block;
+          // visibility: visible;
+        }
+
+        .dropdown-toggle {
+          border-color: $red;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1020 @@
+body.register,
+body.edit-register {
+  color: $mineShaft;
+
+  .validate-group {
+    @media (min-width: $screen-md-min) {
+      width: 50%;
+      display: block;
+    }
+  }
+
+  .account-content {
+    padding-top: 90px;
+    @media (min-width: $screen-sm-max) {
+      padding-top: 70px;
+    }
+    .av-container{
+      width: 100%;
+      max-width: 870px;
+      margin: 0 auto;
+      padding: 50px 75px;
+      background-color: white;
+      @media (max-width: $screen-sm-max) {
+        padding: 20px;
+      }
+    }
+
+    .register-form-wrapper {
+      @extend .av-col-xs-24;
+    }
+  }
+
+  h1 {
+    color: $lochmara;
+    font-size: 20px;
+    font-weight: $primaryFontBold;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: $mineShaft;
+    font-weight: 400;
+  }
+
+  .register-form {
+    margin-top: 50px;
+  }
+
+  .register-form-subtitle {
+    color: $lochmara;
+    font-size: 16px;
+    font-weight: $primaryFontBold;
+    text-transform: uppercase;
+  }
+
+  .input-group-text {
+    font-size: 13px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .input-fix-height {
+    min-height: 145px;
+  }
+
+  label {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 7px;
+    &.error {
+      background-color: $red;
+      color: $white;
+      padding: 4px 7px;
+      text-transform: initial;
+      margin-top: 8px;
+      position: relative;
+      bottom: auto !important;
+      font-size: 12px;
+      line-height: 1.4 !important;
+      font-weight: 600;
+      width: 100%;
+
+      &:before {
+        content: '';
+        -moz-transform: translate(-50%, -50%) rotate(135deg);
+        -ms-transform: translate(-50%, -50%) rotate(135deg);
+        -webkit-transform: translate(-50%, -50%) rotate(135deg);
+        transform: translate(-50%, -50%) rotate(135deg);
+        border-left: 6px solid $red;
+        border-bottom: 6px solid $red;
+        height: 10px;
+        width: 10px;
+        position: absolute;
+        top: 1px;
+        left: 18px;
+      }
+
+    }
+    @media (min-width: $screen-md-min) {
+      font-size: 13px;
+    }
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    border: 1px solid $borderColor;
+    padding: 10px;
+    font-size: 13px;
+    width: 100%;
+    display: block;
+    &:hover {
+      border: 1px solid #d4d7d9;
+      box-shadow: 1px 1px 1px rgba(50,50,51,.2);
+      @include transition(border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out);
+    }
+
+    &:focus {
+      border-color: $lochmara;
+    }
+
+    &:disabled {
+      cursor: no-drop;
+      color: #AAA;
+    }
+
+    &.error {
+      border-color: $redRibbon;
+    }
+    &.input-text-email {
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+
+
+  input[aria-invalid="true"] {
+    border-color: $redRibbon;
+  }
+
+  input.user-already-exist {
+    position: relative;
+    &:before {
+      content: 'Usuário já existe';
+      background-color: $redRibbon;
+      color: $white;
+      padding: 5px;
+      text-align: center;
+      display: block;
+      position: absolute;
+      bottom: -10px;
+    }
+  }
+
+  .error-validation-email {
+    border: 1px solid $lochmara;
+    padding: 0 15px;
+    position: relative;
+    margin-top: 20px;
+
+    @media (min-width: $screen-md-min) {
+      width: 200%;
+    }
+
+    &:before {
+      content: '';
+      -moz-transform: translate(-50%, -50%) rotate(135deg);
+      -ms-transform: translate(-50%, -50%) rotate(135deg);
+      -webkit-transform: translate(-50%, -50%) rotate(135deg);
+      transform: translate(-50%, -50%) rotate(135deg);
+      border-left: 1px solid $lochmara;
+      border-bottom: 1px solid $lochmara;
+      height: 10px;
+      width: 10px;
+      position: absolute;
+      top: -1px;
+      left: 30px;
+    }
+
+    &:after {
+      content: '';
+      height: 1px;
+      width: 12px;
+      background-color: #ffffff;
+      position: absolute;
+      top: -1px;
+      left: 24px;
+    }
+
+    p {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $lochmara;
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin: 0 0 0 -22px;
+      list-style: none;
+
+      li {
+        position: relative;
+        margin: 0 0 10px 0;
+        padding: 0;
+
+        &:before {
+          content: "•";
+          color: $lochmara;
+          display: inline-block;
+          font-size: 40px;
+          line-height: 20px;
+          position: absolute;
+          left: -20px;
+        }
+
+        span {
+          color: $lochmara;
+        }
+      }
+    }
+  }
+
+  .input-telephone {
+    display: none;
+  }
+
+  .personal-info {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .input-group-gender,
+  .register-newsletter,
+  .prefered-group {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    input {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      border: 1px solid $lochmara;
+      margin-right: 15px;
+      position: relative;
+      vertical-align: middle;
+      &:before {
+        display: block;
+        content: '';
+        width: 25px;
+        height: 25px;
+        border: 2px solid $lochmara;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 100%;
+        @include transform(translate(-50%, -50%));
+        background-color: $white;
+      }
+
+      &:focus {
+        &:before {
+          border: 2px solid darken($lochmara, 20);
+        }
+      }
+
+      &:checked {
+        &:after {
+          display: block;
+          content: '';
+          width: 18px;
+          height: 18px;
+          background-color: $lochmara;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 100%;
+          @include transform(translate(-50%, -50%));
+        }
+      }
+    }
+
+    label {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25px;
+      line-height: 25px;
+      cursor: pointer;
+      margin-bottom: 0;
+      &.error {
+
+      }
+    }
+  }
+
+  .input-group-gender {
+    @media (min-width: $screen-md-min) {
+      width: 50%;
+      display: block;
+    }
+
+    label.error {
+      position: absolute;
+      left: 0;
+      bottom: 40px !important;
+    }
+  }
+
+  .personal-info,
+  .address-info,
+  .additional-info,
+  .final-info,
+  .form-buttons {
+    display: inline-block;
+    width: 100%;
+    .input-group-half-block {
+      width: 50%;
+      float: left;
+      @media (min-width: $screen-md-min) {
+        padding-right: 25px;
+        &:nth-child(2n){
+          padding-right: 0;
+          padding-left: 25px;
+        }
+      }
+      @media (max-width: $screen-sm-max) {
+        width: 100%;
+        float: none;
+        display: block;
+        padding: 0;
+      }
+    }
+  }
+
+  .register-sports-list {
+    border-top: 1px solid $mineShaft;
+    border-bottom: 1px solid $mineShaft;
+    padding: 20px 0 40px 0;
+  }
+
+  .register-stores-list {
+    border-bottom: 1px solid $mineShaft;
+    padding: 20px 0 40px 0;
+  }
+
+  // .register-store-item {
+  //   &[data-id="1928"] {
+  //     display: none !important;
+  //   }
+  // }
+
+  .register-sports-choice,
+  .register-stores-choice {
+    width: 100%;
+    display: block;
+    margin: 30px 0;
+  }
+
+  .register-sports-add,
+  .register-stores-add {
+    background-color: $alabaster;
+    color: $mineShaft;
+    font-weight: $primaryFontBold;
+    font-size: 14px;
+    border: 2px dashed $checkboxBorderInactive;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    max-width: 335px;
+    padding: 11px 0;
+    text-align: center;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: $gray;
+    }
+
+    span {
+      display: inline-block;
+      line-height: 15px;
+      text-align: left;
+      margin-left: 10px;
+    }
+
+    i {
+      @include decathlonIcon('\E01D', $mineShaft, 30px);
+    }
+  }
+
+  .register-sports-none,
+  .register-stores-none {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    label {
+      text-transform: none;
+      cursor: pointer;
+      margin-left: 25px;
+      margin-bottom: 0;
+      position: relative;
+      top: 6px;
+    }
+  }
+
+  #sports-none,
+  #stores-none {
+    position: relative;
+    border: none;
+    &:before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid $lochmara;
+      background-color: $white;
+      position: absolute;
+      cursor: pointer;
+      left: -1px;
+    }
+
+    &:focus {
+      &:before {
+        border: 2px solid darken($lochmara, 20);
+      }
+    }
+
+    &:checked {
+      &:after {
+        content: '';
+        @extend .icon-check;
+        background-size: 75%;
+        display: block;
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .input-text {
+    &-small {
+      width: 30%;
+      float: left;
+      padding-right: 20px;
+      .error {
+        bottom: -37px;
+      }
+      &.input-province {
+        padding-right: 0;
+        padding-left: 20px;
+        position: relative;
+
+        .error {
+          position: absolute;
+          bottom: -61px !important;
+          left: 0;
+        }
+
+        .error + .dropdown-toggle {
+          border-color: $redRibbon;
+        }
+      }
+    }
+    &-half {
+      width: 50%;
+      float: left;
+      margin-bottom: 30px;
+      &:nth-child(2n) {
+        padding-left: 20px;
+      }
+    }
+    &-medium {
+      width: 70%;
+      float: left;
+      margin-bottom: 30px;
+    }
+    &-large {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .input-text-password {
+    position: relative;
+    .input-password-icon {
+      @include decathlonIcon('\E020', $checkboxBorderInactive, 34px);
+      vertical-align: middle;
+      font-weight: normal;
+      position: absolute;
+      top: 20px;
+      @include transform(translateY(-50%));
+      right: 5px;
+      cursor: pointer;
+      &.visible {
+        color: $lochmara;
+      }
+    }
+
+    label {
+
+    }
+  }
+
+  .bootstrap-select {
+    button.dropdown-toggle {
+      &:focus {
+        border-color: $lochmara;
+      }
+    }
+  }
+
+  .bootstrap-select.open .dropdown-menu {
+    height: 200px;
+    overflow-y: auto;
+  }
+
+  .password-meter {
+    margin-top: 15px;
+  }
+
+  .password-meter-list {
+    @include resetList();
+  }
+
+  .password-meter-condition {
+    height: 20px;
+    line-height: 20px;
+    color: $checkboxBorderInactive;
+    i {
+      @include decathlonIcon('\E026', $checkboxBorderInactive, 30px);
+      vertical-align: middle;
+      font-weight: 800;
+    }
+    &.valid {
+      color: $mineShaft;
+      i {
+        &:before {
+          color: #42A148;
+        }
+        margin-left: -5px;
+      }
+    }
+
+    @media (max-width: 342px) {
+      font-size: 12px;
+    }
+  }
+
+  select.select-uf {
+    display: none;
+  }
+
+  .dropdown-toggle {
+    border: 1px solid $borderColor;
+    padding: 10px 0 10px 15px;
+  }
+
+  .bs-caret {
+    right: 20px;
+    &:before {
+      right: 5px;
+      border-left: 1px solid $borderColor;
+    }
+
+    &:after {
+      width: 8px;
+      height: 8px;
+      left: 7px;
+    }
+  }
+
+  .final-info {
+    margin-top: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $mineShaft;
+    .register-password {
+      .input-password {
+        margin: 0;
+      }
+    }
+    .register-newsletter {
+      margin-top: 0;
+      p {
+        margin-top: 0;
+        margin-bottom: 40px;
+      }
+    }
+
+    .input-group-half-block {
+      &:last-child {
+        @media (max-width: $screen-sm-max) {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+
+  .form-buttons {
+    p {
+      display: inline-block;
+      width: 100%;
+      text-align: right;
+      font-size: 12px;
+      a {
+        color: $lochmara;
+        text-decoration: underline;
+        &:hover {
+          color: $lochmara;
+          text-decoration: none;
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        text-align: center;
+        margin: 20px 0;
+      }
+    }
+
+    .input-group-half-block {
+      @media (min-width: $screen-md-min) {
+        &:last-child {
+          text-align: right;
+        }
+      }
+      @media (max-width: $screen-sm-max) {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        &:last-child {
+          margin-top: 20px 0;
+        }
+      }
+    }
+
+    .register-create-btn {
+      width: 100%;
+      max-width: 300px;
+      padding: 17px 16px 17px 38px;
+      @extend .button;
+      @extend .button--medium;
+      @extend .button--blue;
+      &:disabled {
+        @include opacity(0.7);
+        cursor: no-drop;
+      }
+    }
+
+    .register-back-btn {
+      @extend .button;
+      @extend .button--large;
+      @extend .button--yellow;
+      width: 100%;
+      max-width: 300px;
+      padding: 17px 16px 17px 38px;
+      background-color: #E4E6E8;
+      border-color: #E4E6E8;
+      position: relative;
+      &:before {
+        background-color: rgba(#1D1D1D, 0.1);
+        @include transform(rotate(10deg));
+        right: inherit;
+        left: -1px;
+
+      }
+      &:after {
+        position: absolute;
+        left: 0px;
+        top: 40%;
+        @include transform(rotate(135deg) translate(-1px, -50%));
+      }
+
+      &:hover {
+        background-color: #CCC;
+        border-color: #E4E6E8;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  /* SELECTION SPORTS/STORES MODAL  */
+  .register-modals {
+    .av-modal {
+      padding: 0;
+      height: 100%;
+    }
+
+    .av-modal__modal {
+      position: relative;
+    }
+
+    // .av-modal-close {
+    //   @include decathlonIcon('\E018', $lochmara, 40px);
+    //   position: absolute;
+    //   right: 20px;
+    //   top: 10px;
+    //   width: 30px;
+    //   height: 30px;
+    //   display: inline-block;
+    //   cursor: pointer;
+    //   &:before {
+    //     position: absolute;
+    //     top: 0;
+    //   }
+    // }
+
+    .av-modal__modal {
+      width: 100%;
+      padding: 20px;
+      overflow-y: hidden;
+
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      max-height: 85vh;
+      
+      .av-modal-close {
+        position: absolute;
+        right: 0;
+      }
+
+      .av-modal__content {
+        padding: 0 20px;
+        height: 70%;
+        background-color: $white;
+        overflow-y: auto;
+        
+        @media (max-width: $screen-sm-max) {
+          padding: 0 20px;
+        }
+      }
+      
+      @media (min-width: $screen-md-min) {
+        padding: 90px 20px;
+        max-height: 70vh;
+        padding: 30px;
+        max-height: 70vh;
+        
+        .av-modal__content {
+          padding: 10px 20px;
+          height: 100%;
+          max-height: 70%;
+          overflow-y: auto;
+        }
+      }
+    }
+
+    // .av-modal__header {
+    //   padding: 0 20px;
+    //   @media (min-width: $screen-md-min) {
+    //     padding: 0;
+    //   }
+    // }
+
+    .av-modal-register--title {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      b {
+        font-size: 16px;
+        font-weight: $primaryFontBold;
+        color: $lochmara;
+
+        @media (min-width: $screen-md-min) {
+          font-size: 24px;
+        }
+      }
+
+      p {
+        color: $mineShaft;
+        font-size: 13px;
+
+        @media (max-width: $screen-sm-max) {
+          margin: 7px 0 7px 0;
+        }
+      }
+
+      @media (max-width: $screen-sm-max) {
+        text-align: left;
+      }
+    }
+
+    .selection-register-sports-list,
+    .selection-register-stores-list{
+      @include resetList();
+
+      .register-item {
+        color: $mineShaft;
+        text-transform: uppercase;
+        padding: 20px;
+        border: 1px solid $checkboxBorderInactive;
+        width: 100%;
+        display: block;
+        position: relative;
+        margin-bottom: 15px;
+        cursor: pointer;
+        background-color: $white;
+        @media (min-width: $screen-md-min) {
+          width: calc(50% - 20px);
+          float: left;
+          &:nth-child(2n) {
+            float: right;
+          }
+        }
+
+        &.register-item-selected {
+          background-color: $gray;
+        }
+      }
+
+      label {
+        font-weight: $primaryFontBold;
+        width: 100%;
+        display: block;
+        margin: 0;
+        cursor: pointer;
+        position: relative;
+        &:before {
+          content: '';
+          display: block;
+          width: 24px;
+          height: 24px;
+          border: 2px solid $lochmara;
+          background-color: $white;
+          position: absolute;
+          cursor: pointer;
+          top: 50%;
+          @include transform(translateY(-50%));
+          right: 5px;
+        }
+
+        &.checked {
+          &:before {
+            background-color: $gray;
+          }
+          &:after {
+            content: '';
+            @extend .icon-check;
+            background-size: 75%;
+            display: block;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            top: 50%;
+            @include transform(translateY(-50%));
+            z-index: 0;
+            right: 5px;
+          }
+        }
+      }
+
+      .register-checkbox {
+        position: absolute;
+        border: none;
+        top: 50%;
+        @include transform(translateY(-50%));
+        right: 25px;
+        display: none;
+      }
+    }
+
+    .selection-register-btn {
+      background-color: $white;
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      height: 50px;
+      text-align: center;
+
+      @media (max-width: $screen-sm-max) {
+        bottom: 0;
+        padding: 10px 0;
+        height: auto;
+      }
+    }
+
+    .selection-register-save-btn {
+      @extend .button;
+      @extend .button--large;
+      @extend .button--blue;
+      width: 191px;
+    }
+  }
+
+  .register-sports-choice,
+  .register-stores-choice {
+    .register-item {
+      @media (min-width: $screen-md-min) {
+        width: calc(50% - 20px);
+        float: left;
+        &:nth-child(2n) {
+          float: right;
+        }
+      }
+
+      list-style: none;
+
+      &-selected {
+        color: $mineShaft;
+        text-transform: uppercase;
+        padding: 20px;
+        border: 1px solid $checkboxBorderInactive;
+        width: 100%;
+        max-width: 335px;
+        display: block;
+        position: relative;
+        margin-bottom: 15px;
+        background-color: $gray;
+
+        label {
+          font-size: 14px;
+          font-weight: $primaryFontBold;
+          color: $mineShaft;
+          width: 100%;
+          display: inline-block;
+          margin: 0;
+        }
+
+        .register-checkbox {
+          @include decathlonIcon('\E018', $mineShaft, 36px);
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          cursor: pointer;
+          @include transform(translateY(-50%));
+          &:before {
+            display: inline-block;
+            background-color: $gray;
+            height: 100%;
+            width: 100%;
+            top: -2px;
+            position: absolute;
+            height: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  .stores-message,
+  .newsletter-message {
+    font-weight: $primaryFontBold;
+    font-size: 14px;
+  }
+
+  .shipping-addresses,
+  .shipping-address-block {
+    display: inline-block;
+    width: 100%;
+    .remove-address {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+  .shipping-address-block {
+    &.address-type-1 {
+      display: none;
+    }
+
+    &[data-type="1"] {
+      display: none;
+    }
+  }
+
+  .input-group.policity {
+    text-align: right;
+
+    input {
+      position: relative;
+      border: none;
+      top: -6px;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $lochmara;
+        background-color: $white;
+        position: absolute;
+        cursor: pointer;
+        left: -1px;
+      }
+      &:checked {
+        &:after {
+          content: '';
+          @extend .icon-check;
+          background-size: 75%;
+          display: block;
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    label {
+      margin: 20px 0 20px 15px;
+    }
+  }
+}

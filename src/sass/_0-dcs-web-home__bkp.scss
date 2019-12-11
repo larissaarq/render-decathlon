@@ -1,0 +1,576 @@
+/*
+ * Banner Full
+ */
+
+.home-banner-full {
+  opacity: 0;
+  visibility: hidden;
+  height: 10px;
+
+  .slick-slider {
+    height: auto;
+
+    @media (max-width: $screen-sm-max) {
+      height: 300px;
+      margin-bottom: 60px;
+    }
+
+    // @media (min-width: $screen-lg-min) {
+    //   height: auto;
+    // }
+  }
+
+  .slick-dots {
+    @include resetList();
+
+    position: absolute;
+    bottom: 20px;
+    // margin-bottom: 12%;
+    left: 50%;
+    @include translateX(-50%);
+
+    li {
+      @include slickDots($white);
+    }
+  }
+
+  &.slick-started {
+    opacity: 1;
+    visibility: visible;
+    height: inherit;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: block !important;
+
+    a {
+      text-decoration: none;
+
+      .home-banner-full__title,
+      .home-banner-full__text {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
+    >a {
+      float: left;
+      width: 100%;
+
+      @media (min-width: 1441px) {
+        float: none;
+        max-width: 1440px;
+        margin: 0 auto;
+        display: block;
+
+        img {
+          width: auto;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    margin-top: 12%;
+    left: 50%;
+    @include translateX(-50%);
+    color: $white;
+    text-align: center;
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: 8%;
+    }
+
+    @media (max-width: $screen-md-max) {
+      margin-top: 10%;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: $primaryFontBold;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 15px;
+  }
+
+  &__button {
+    margin-top: 17px;
+  }
+}
+
+/*
+ * Banner Video
+ */
+
+.banner-video {
+  @include transition(all 0.15s ease-in-out);
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  @media (min-width: $screen-md-min) {
+    padding-bottom: 0;
+    overflow: hidden;
+    height: 524px;
+  }
+
+  &--open {
+    height: 500px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2em;
+    color: $white;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 2;
+    cursor: pointer;
+  }  
+  
+  iframe {
+    @include transform(translateY(-50%));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 56.25vw;
+    top: 50%;
+  }
+}
+
+/*
+ * Custom Experience
+ */
+
+.section-custom-experience {
+  padding-bottom: 23px;
+  text-align: center;
+
+  @media (min-width: $screen-md-min) {
+    padding-bottom: 55px;
+    margin-top: 65px;
+  }
+}
+
+.custom-experience__title {
+  margin: 13px 0 0;
+  font-size: 18px;
+  font-weight: $primaryFontBold;
+  color: $lochmara;
+  text-transform: uppercase;
+
+  @media (max-width: $screen-sm-max) {
+    line-height: 22px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    margin: 8px 0 0;
+    font-size: 24px;
+  }
+}
+
+.custom-experience__subtitle {
+  margin-top: 4px;
+  font-size: 14px;
+
+  @media (min-width: $screen-md-min) {
+    margin: 0;
+  }
+}
+
+.custom-experience__button {
+  margin-top: 26px;
+
+  .button--small {
+    @media (max-width: $screen-sm-max) {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 38px;
+    }
+
+    &:after {
+      @media (max-width: $screen-sm-max) {
+        margin-left: 40px;
+
+        @include transform(rotate(-45deg) translate(-3px, -2px))
+      }
+    }
+  }
+}
+
+
+/*
+ * Products for sports
+ */
+
+.section-products-for-sports {
+  padding-bottom: 55px;
+}
+
+.products-for-sports__button {
+  margin-top: 21px;
+  text-align: center;
+}
+
+
+/*
+ * Featured Sports
+ */
+
+.section-featured-sports {
+  background-color: $wildSand;
+  padding-bottom: 55px;
+  @include angled-edge('outside top', 'upper right', $wildSand, 40);
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 38px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    >.av-container {
+      overflow-x: hidden;
+    }
+  }
+}
+
+.featured-sports {
+  margin: 12px $removeGutter 0;
+  text-align: center;
+
+  @media (min-width: $screen-md-min) {
+    margin: 12px -20px 0;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    margin: 12px -30px 0;
+  }
+
+  >.box-banner {
+    margin: 0 15px 20px;
+    display: inline-block;
+
+    @media (min-width: $screen-md-min) {
+      margin: 0 20px;
+    }
+  }
+}
+
+.featured-sports__button {
+  margin-top: 8px;
+  text-align: center;
+
+  @media (min-width: $screen-md-min) {
+    margin-top: 30px;
+  }
+}
+
+
+/*
+ * Banner Middle
+ */
+
+.home-banner-middle {}
+
+.home-middle-banner__wrapper {
+  position: relative;
+  display: block !important;
+}
+
+.home-middle-banner__img {
+  img {
+    @include imgResponsive();
+  }
+}
+
+.home-middle-banner__button {
+  position: absolute;
+  right: 10px;
+  bottom: -9px;
+  margin-right: 11%;
+  margin-bottom: 1%;
+}
+
+.button--banner-middle {
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-right: 20px;
+  padding-left: 64px;
+
+  &:after {
+    margin-left: 63px;
+  }
+}
+
+/*
+ * Sportive Tips
+ */
+
+.slick-arrow {
+  display: none!important;
+}
+
+.section-sportive-tips {
+  padding: 8px 0;
+
+  @media (min-width: $screen-md-min) {
+    background-color: $alabaster;
+    padding: 38px 0 0;
+
+    .blog-entries {
+      margin: 21px -30px 0;
+    }
+
+    .slick-slide {
+      margin: 0 30px;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    // @include angled-edge('outside top', 'upper right', $white, 40);
+  }
+
+  .section-title__text {
+    margin-bottom: 23px;
+  }
+
+  .slick-dots {
+    @include resetList();
+
+    margin-top: 24px;
+    text-align: center;
+
+    li {
+      @include slickDots($lochmara);
+    }
+  }
+
+  .section-title__description {
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+}
+
+.sportive-tips__button {
+  margin-top: 23px;
+  text-align: center;
+}
+
+
+/*
+ * Sportive Events
+ */
+
+.section-sportive-events {
+  padding-top: 38px;
+
+  @media (min-width: $screen-md-min) {
+    background-color: $alabaster;
+    padding-bottom: 55px;
+  }
+
+  .slick-dots {
+    @include resetList();
+
+    margin-top: 22px;
+    text-align: center;
+
+    li {
+      @include slickDots($lochmara);
+    }
+  }
+
+  .blog-entries {
+    @media (min-width: $screen-md-min) {
+      margin-top: 21px;
+    }
+  }
+
+  .section-title {
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+
+  img {
+    @include imgResponsive();
+  }
+}
+
+.sportive-events__button {
+  margin-top: 23px;
+  text-align: center;
+}
+
+
+/*
+ * Home Shelf
+ */
+
+.home-shelf {
+  padding: 38px 0 55px;
+
+  .main-shelf>ul {
+    padding: 5px 0;
+
+    @media (min-width: $screen-md-min) {
+      padding-top: 6px;
+      padding-bottom: 0;
+    }
+
+    &:after {
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
+    }
+  }
+
+  .slick-dots {
+    @media (max-width: $screen-sm-max) {
+      margin-top: 12px;
+    }
+  }
+}
+
+.home-shelf__button {
+  margin-top: 18px;
+  text-align: center;
+
+  @media (min-width: $screen-md-min) {
+    margin-top: 23px;
+  }
+}
+
+
+/*
+ * Banner Find Store
+ */
+
+.home-banner-find-store {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    @include imgResponsive();
+  }
+}
+
+.home-banner-find-store__content {
+  padding-top: 16px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  @include translateX(-50%);
+  color: $white;
+}
+
+.home-banner-find-store__title {
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: $primaryFontBold;
+  font-style: italic;
+}
+
+.home-banner-find-store__subtitle {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: $primaryFontBold;
+  font-style: italic;
+}
+
+.home-banner-find-store__text {
+  line-height: 20px;
+}
+
+.home-banner-find-store__button {
+  margin-top: 50px;
+}
+
+
+
+
+/*
+ * Informative
+ */
+
+.section-informative {
+  padding-bottom: 38px;
+
+  @media (max-width: $screen-sm-max) {
+    display: none;
+  }
+
+  .slick-dots {
+    @include resetList();
+
+    margin-top: 26px;
+    text-align: center;
+
+    li {
+      @include slickDots($lochmara);
+    }
+  }
+}
+
+.informative {
+  text-align: center;
+}
+
+.informative__img,
+.informative__content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.informative__content {
+  width: 660px;
+  margin-left: 16px;
+  text-align: left;
+}
+
+.informative__content-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: $primaryFontBold;
+  font-style: italic;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.informative__content-text {
+  font-size: 12px;
+  line-height: 16px;
+}

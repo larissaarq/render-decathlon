@@ -1,0 +1,265 @@
+.menu__mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    z-index: 7;
+    background-color: rgba(0,0,0,.8);
+    @include opacity(0);
+    @include transition(opacity 200ms);
+
+    &--opened {
+        @include opacity(1);
+        visibility: visible;
+
+        .menu__mobile-content {
+            left: 0;
+        }
+    }
+
+    &--button-back {
+        width: 100%;
+        display: block;
+        color: $mineShaft;
+        text-transform: uppercase;
+        font-weight: $primaryFontBold;
+        font-size: 16px;
+        border-bottom: 2px solid $gray;
+        padding: 10px 30px;
+        position: relative;
+        z-index: 9;
+
+        span {
+            color: $mineShaft;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        i {
+            display: inline-block;
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            border-left: 1px solid $lochmara;
+            border-bottom: 1px solid $lochmara;
+            width: 13px;
+            height: 13px;
+            position: relative;
+        }
+    }
+
+    &--button-close {
+        position: fixed;
+        right: 5%;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+        text-indent: -9999em;
+        font-size: 0;
+        @include closeX($white, 35px, 1.3px);
+    }
+
+    &-content {
+        @include transition(left 300ms);
+        background: $white;
+        width: calc(100% - 20vw);
+        height: 100%;
+        padding: 0;
+        overflow-y: auto;
+        position: absolute;
+        top: 0;
+        left: -1000%;
+    }
+
+    &-content--section {
+        display: block;
+        position: relative;
+        padding: 3px 0;
+        border-bottom: 2px solid $gray;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 40px;
+        }
+
+        .mobile-section__title {
+            display: block;
+            padding: 7px 15px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 500;
+            color: $silver;
+            margin: 0;
+        }
+    }
+    
+    .mobile-section__top {
+        padding: 15px 10px;
+        border-bottom: none;
+        background: #fafafa;
+
+        &--link {
+            display: block;
+            margin-bottom: 10px;
+            line-height: 25px;
+            width: 100%;
+            vertical-align: middle;
+        }
+        &--icon-account {
+            float: left;
+            @include decathlonIcon('\E062', $lochmara, 25px);
+        }
+        &--text {
+            color: $mineShaft;
+            font-size: 13px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            margin-left: 5px;
+            
+            span {
+                color: $lochmara;
+            }
+
+            a {
+                color: $mineShaft;
+                text-decoration: underline;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .mobile-nav,
+    .nav-departament {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            a {
+                display: block;
+                position: relative;
+                padding: 10px 15px;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: $primaryFontBold;
+                color: $mineShaftDarker;
+
+                &.selected {
+                    background: #cce6f3;
+                }
+            }
+        }
+
+        .link-arrow {
+            &:after {
+              display: block;
+              @include arrow('right', 8px, $mineShaftDarker);
+              right: 20px;
+              left: inherit;
+        
+        
+              @media(max-width: $screen-sm-max) {
+                @include arrow('right', 8px, $mineShaftDarker);
+                display: block;
+                right: 20px;
+                left: inherit;
+              }
+            }
+          }
+
+        &__top {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-column-gap: 7px;
+            
+            li {
+                > a {
+                    padding: 5px 0;
+                    border: 1px solid $lochmara;
+                    border-radius: 3px;
+                    text-align: center;
+                    font-size: 11px;
+                    color: $lochmara;
+                }
+
+            }
+        }
+    }
+
+    &-content-second-level {
+        left: -1000%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background: $white;
+        height: 100vh;
+        z-index: 9;
+        @include transition(left 200ms);
+
+        &.opened {
+            left: 0;
+
+            .menu__mobile-open-content {
+                position: fixed;
+                width: 80%;
+                bottom: 0;
+                height: 82vh;
+                height: 80%;
+                // overflow: hidden;
+                z-index: 8;
+            }
+        }
+
+        .mobile-section__title {
+            padding: 12px 25px;
+        }
+    }
+
+    .search-sport {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 9999;
+        overflow: hidden;
+    }
+
+    &-append {
+        position: absolute;
+        top: 0;
+        left: -1000%;
+        width: 100%;
+        z-index: 9999;
+        background: $white;
+        height: 100vh;
+
+        &__level {
+            // position: absolute;
+            // top: 0;
+            left: 0;
+            // width: 100%;
+            z-index: 9999;
+            background: $white;
+            
+            position: fixed;
+            bottom: 0;
+            width: 80%;
+            height: 83vh;
+        }
+
+        &--opened {
+            left: 0;
+        }
+
+        .opened {
+            >.menu-content__submenu {
+                left: 0;
+                width: 100%;
+                // height: 100%;
+            }
+        }
+    }
+}

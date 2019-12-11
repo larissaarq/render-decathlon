@@ -1,0 +1,128 @@
+.list-selection {
+  @media (max-width: $screen-sm-max) {
+    display: none;
+  }
+
+  &--items {
+    .list-selection__content {
+      display: block;
+    }
+
+    .list-selection__empty {
+      display: none;
+    }
+  }
+}
+  .list-selection__header {
+    @include clearfix();
+
+    background-color: $lochmara;
+    color: $white;
+    padding: 10px 12px;
+  }
+    .list-selection__title {
+      float: left;
+      font-size: 14px;
+      font-weight: $primaryFontBold;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+      .list-selection__total {
+        font-size: 12px;
+        font-weight: $primaryFontLight;
+      }
+
+    .list-selection__clear {
+      color: $white;
+      float: right;
+      font-size: 11px;
+      margin-top: 2px;
+
+      &:hover,
+      &:focus {
+        color: $white;
+        text-decoration: none;
+      }
+
+      &:before {
+        @extend .sprite-icon-list__empty;
+
+        content: '';
+        display: inline-block;
+        margin-right: 6px;
+        margin-top: -2px;
+        vertical-align: middle;
+      }
+    }
+
+  .list-selection__content {
+    display: none;
+    padding: 9px;
+  }
+    .list-selection__item {
+      @include transition(all 200ms linear);
+      @include border-radius(2px);
+
+      border: 1px solid $silver;
+      color: $boulder;
+      display: inline-block;
+      font-size: 12px;
+      line-height: 1;
+      margin: 9px;
+      padding: 10px 28px;
+      position: relative;
+
+      &:hover {
+        border-color: $lochmara;
+        color: $lochmara;
+        text-decoration: none;
+
+        .list-selection__item-remove {
+          opacity: 1;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+      .list-selection__item-content {
+        &--specificationFilter_28 {
+          @extend .rate-stars;
+        }
+
+        &--specificationFilter_28-1 {
+          @extend .rate-stars--1;
+        }
+
+        &--specificationFilter_28-2 {
+          @extend .rate-stars--2;
+        }
+
+        &--specificationFilter_28-3 {
+          @extend .rate-stars--3;
+        }
+
+        &--specificationFilter_28-4 {
+          @extend .rate-stars--4;
+        }
+
+        &--specificationFilter_28-5 {
+          @extend .rate-stars--5;
+        }
+      }
+
+      .list-selection__item-remove {
+        @include burger(16px, 1px, 6px, $lochmara, 0);
+        @include burger-to-cross;
+
+        position: absolute;
+        opacity: 0;
+        right: 6px;
+        top: 8px;
+      }
+
+  .list-selection__empty {
+    padding: 18px;
+    text-align: center;
+  }

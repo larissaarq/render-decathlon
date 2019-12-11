@@ -1,0 +1,608 @@
+footer {
+  background-color: #f7f7f7;
+  padding-top: 40px;
+
+  @media (min-width: $screen-md-min) {
+    padding-top: 0;
+  }
+
+  li {
+    font-size: 12px;
+    list-style: none;
+    text-align: center;
+
+    a {
+     color: #393939;
+
+      &:hover {
+        color: #393939;
+      }
+    }
+  }
+}
+
+.footer-content {
+  @include box-shadow(0px 11px 11px -11px rgba(57,57,57,0.5));
+
+  @media (min-width: $screen-md-min) {
+    @include box-shadow(none);
+  }
+}
+
+.footer-barra-beneficios {
+  height: 160px;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #0082C3;
+  padding: 25px 0;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 11px 0 rgba(57, 57, 57, .6);
+
+  @media (max-width: $screen-md-min) {
+    @include angled-edge('outside top', 'upper left', #0082C3, 60);
+  }
+  @media (min-width: $screen-sm-max) {
+    height: 80px;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    box-shadow: none;
+    padding-bottom: 35px;
+    height: 200px;
+    position: relative;
+    padding-top: 0;
+    margin-top: 70px;
+
+    .av-container {
+      background-color: #0082C3;
+    }
+    .slick-dots {
+        @include resetList();
+
+        margin-top: 10px;
+        text-align: center;
+
+        li { @include slickDots($color: #fff);
+      }
+    }
+  }
+  .av-row {
+    text-align: center;
+  }
+
+  &__item {
+    width: 235px;
+    text-align: center;
+    line-height: 16px;
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    span {
+      text-align: left;
+      display: inline-block;
+      font-weight: 300;
+
+      b {
+        font-weight: 700;
+
+        @media (max-width: $screen-md-min) {
+          font-weight: 300;
+        }
+      }
+
+      @media (max-width: $screen-md-min) {
+        text-align: center;
+
+      }
+    }
+
+    @media (max-width: $screen-sm-min) {
+      text-align: center;
+      width: 170px;
+    }
+
+    &:after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      position: absolute;
+      top: -3px;
+      right: 0px;
+      opacity: 1;
+      transform: skew(-10deg);
+      background: #D8D8D8;
+
+      @media (max-width: $screen-md-min) {
+        right: 10px;
+      }
+      @media (max-width: $screen-sm-min) {
+        right: -5px;
+      }
+    }
+  }
+}
+
+.slick-slide  {
+  .footer-barra-beneficios__lojas-brasil:after {
+    @media (max-width: $screen-md-min) {
+      opacity: 0;
+    }
+  }
+}
+.footer-barra-beneficios__formas-pagamento:after {
+  opacity: 0;
+}
+.footer-barra-beneficios__title {
+  color: #fff;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+
+  @media (min-width: $screen-sm-max) {
+    display: none;
+  }
+
+  span {
+    margin: 0 auto;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      display: block;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAGCAYAAAHRfXx0AAAABGdBTUEAALGPC/xhBQAAAOdJREFUKBWtUjsKwkAUnLe7iIVnyFViZeUlvEm8hSiITYKdgp1gPIDYZNHCgAfQ3nRZXyQhH1cM4hbZncm8eW+SJfRHBtUl5YAaZFISgsYI5161oDiXooKp7bRQOY4h1RC72aX2nsEXh1xOCAHhoyeX2Ewfv5k0qzJMdORnACH8YlSbLOfoDmECkPI5ysEmLE2IUsCsuUUA11nB8xi3W+2+STuvuiobyuDKpOboGiLVSHl3ndg2YJmmbvMJJZz2xL9Uc3INmTXoRNhObp8K3vj9G/MiFJuyCRuafHJlInTV2XYb7Bb/YZ9I2kM9ylxL5QAAAABJRU5ErkJggg==');
+      width: 34px;
+      height: 6px;
+    }
+  }
+
+}
+.footer-barra-beneficios__retire-loja {
+  .footer-barra-beneficios__icon--retire {
+    margin-right: 20px;
+
+    @include decathlonIcon('\E013', #ffffff, 32px);
+
+    @media (max-width: $screen-sm-min) {
+      display: block;
+      margin: 0 auto 10px;
+    }
+  }
+}
+.footer-barra-beneficios__lojas-brasil {
+  .footer-barra-beneficios__icon--lojas {
+    margin-right: 20px;
+
+    @include decathlonIcon('\E07A', #ffffff, 32px);
+
+    @media (max-width: $screen-sm-min) {
+      display: block;
+      margin: 0 auto 10px;
+    }
+  }
+}
+.footer-barra-beneficios__troca {
+  width: 200px;
+
+  .footer-barra-beneficios__icon--troca {
+    margin-right: 20px;
+
+    @include decathlonIcon('\E050', #ffffff, 32px);
+
+    @media (max-width: $screen-sm-min) {
+      display: block;
+      margin: 0 auto 10px;
+    }
+  }
+}
+.footer-barra-beneficios__formas-pagamento {
+  .footer-barra-beneficios__icon--pagamento {
+    margin-right: 20px;
+
+    @include decathlonIcon('\E02E', #ffffff, 32px);
+
+    @media (max-width: $screen-sm-min) {
+      display: block;
+      margin: 0 auto 10px;
+    }
+  }
+}
+/* FOOTER CONTENT */
+.wrap-newsletter {
+  @media (max-width: $screen-sm-min) {
+    background-color: #0082C3;
+    padding-bottom: 30px;
+
+    .footer-newsletter__text {
+      color: #fff;
+    }
+  }
+}
+
+.footer-content__wrap--newsletter {
+  text-align: center;
+  margin: 33px 0 40px;
+}
+.footer-newsletter__text {
+  color: #393939;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-style: italic;
+
+  span {
+    margin: 0 auto;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      display: block;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAGCAYAAAHRfXx0AAAABGdBTUEAALGPC/xhBQAAAOdJREFUKBWtUjsKwkAUnLe7iIVnyFViZeUlvEm8hSiITYKdgp1gPIDYZNHCgAfQ3nRZXyQhH1cM4hbZncm8eW+SJfRHBtUl5YAaZFISgsYI5161oDiXooKp7bRQOY4h1RC72aX2nsEXh1xOCAHhoyeX2Ewfv5k0qzJMdORnACH8YlSbLOfoDmECkPI5ysEmLE2IUsCsuUUA11nB8xi3W+2+STuvuiobyuDKpOboGiLVSHl3ndg2YJmmbvMJJZz2xL9Uc3INmTXoRNhObp8K3vj9G/MiFJuyCRuafHJlInTV2XYb7Bb/YZ9I2kM9ylxL5QAAAABJRU5ErkJggg==');
+      width: 34px;
+      height: 6px;
+    }
+  }
+}
+
+.footer-newsletter__form {
+  width: 335px;
+  position: relative;
+  margin: 0 auto;
+}
+.newsletter__input {
+  width: 335px;
+  height: 40px;
+  border: 0;
+  // color: #D6D6D6;
+  font-size: 14px;
+  padding: 0 50px 0 11px;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.newsletter__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  &:before {
+    content: '';
+    float: left;
+    @extend .sprite-icon-footer-newsletter__line;
+  }
+}
+.newsletter__submit {
+
+  font-size: 0;
+  width: 42px;
+  height: 40px;
+  background-color: transparent;
+  border: 0;
+
+  &:after {
+    content: '';
+    @extend .sprite-icon-newsletter-mail;
+    position: relative;
+    top: 3px;
+  }
+
+}
+/** footer content **/
+.av-container--footer-newsletter,
+.av-container--footer-institucional {
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+    position: relative;
+  }
+}
+.av-container--footer-selos {
+  margin-bottom: 30px;
+}
+
+.av-row.institucional {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 30px;
+  margin-bottom: 22px;
+  position: relative;
+  padding-top: 0px;
+
+  @media (max-width: $screen-sm-min) {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+}
+.footer-institucional-top-mini-mask {
+  position: absolute;
+  top: -43px;
+  z-index: 1;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+.footer-institucional-top-mask {
+  position: absolute;
+  top: -65px;
+  width: 100%;
+  height: auto;
+  left: 0;
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+}
+.footer-institucional-bottom-mask {
+  position: absolute;
+  bottom: -7px;
+  width: 100%;
+  height: auto;
+  left: 0;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+.footer-col {
+  width: 25%;
+  float: left;
+  text-align: center;
+
+  @media (max-width: $screen-sm-min) {
+    width: 75%;
+    margin: 0 auto;
+    float: none;
+    padding: 30px 0;
+  }
+}
+.av-row.institucional {
+  @media (max-width: $screen-sm-min) {
+    .footer-col {
+      padding: 0;
+      width: 85%;
+    }
+    .footer-content__title {
+      display: none;
+    }
+
+    .footer-content__link {
+      // color: #fff;
+      font-size: 14px;
+      line-height: 35px;
+    }
+    .footer-content__item {
+        border-bottom: 1px solid $mercuryDarker;
+      }
+  }
+  .footer-col-atendimento {
+    @media (max-width: $screen-sm-max) {
+      // padding-bottom: 20px;
+    }
+  }
+}
+.footer-content__list {
+  padding-left: 0;
+  margin: 0;
+
+  @media (max-width: $screen-sm-min) {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+}
+.footer-col.footer-col-premiacao {
+  margin-bottom: 30px;
+
+  @media (max-width: $screen-sm-min) {
+    margin-bottom: 0;
+    border-top: 1px solid #E4E4E4;
+    border-bottom: 1px solid #E4E4E4;
+  }
+}
+.footer-col.footer-col-seguranca,
+.footer-col.footer-col-protegido {
+  @media (max-width: $screen-sm-min) {
+    width: 49%;
+    float: left;
+    border-bottom: 0;
+  }
+}
+.footer-content__link {
+  line-height: 25px;
+
+}
+
+.footer-content__title {
+  margin: 0;
+  color: #393939;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 25px;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (max-width: $screen-sm-min) {
+  }
+
+  small {
+    display: block;
+    line-height: 25px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+}
+
+.footer-content__list--gateways {
+  .footer-content__item {
+    display: inline-block;
+    margin: 0 10px 6px 0px;
+  }
+}
+
+.selo-secure {
+  @extend .sprite-icon-footer__secure;
+}
+.clear-sale {
+  @extend .sprite-icon-footer__clearsale;
+}
+.sprite-icon-footer__secure--lets-encrypt {
+  margin-right: 15px;
+}
+.footer-content__link--secure {
+  text-indent: -9999px;
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  border-top: 2px solid #e6e6e6;
+  padding-bottom: 20px;
+
+  select {
+    left: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    position: relative;
+    border-top: 0;
+  }
+
+  @media (max-width: $screen-md-min) {
+    padding-top: 18px;
+
+    &:before {
+      // content: '';
+      height: 60px;
+      width: 98%;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      -ms-transform: skewY(-10deg); /* IE 9 */
+      -webkit-transform: skewY(-10deg); /* Safari */
+      transform: skewY(-10deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,.1);
+
+      @media(min-width: 400px) {
+        transform: rotate(-5deg);
+      }
+
+    }
+  }
+
+}
+.footer-bottom__text {
+  float: left;
+  width: 87%;
+
+  @media (max-width: $screen-sm-min) {
+    width: 100%;
+    padding: 30px 11px;
+    box-sizing: border-box;
+  }
+
+  p {
+    font-size: 12px;
+    color: #393939;
+
+    @media (max-width: $screen-sm-min) {
+      font-size: 10px;
+      opacity: .6;
+    }
+
+    small {
+      display: block;
+      font-weight: 700;
+      font-size: 10px;
+      opacity: .6;
+
+      @media (max-width: $screen-sm-min) {
+        opacity: 1;
+        text-align: right;
+        padding-bottom: 11px;
+        color: #393939;
+      }
+
+    }
+  }
+}
+.footer-countries__content {
+  float: right;
+  width: 9%;
+  margin-top: 30px;
+
+  @media (max-width: $screen-sm-min) {
+    position: absolute;
+    top: 18px;
+    right: 11px;
+    width: auto;
+    margin: 0;
+  }
+}
+
+.footer-countries__navigation {
+  display: block;
+  width: 112px;
+  height: 30px;
+
+  @media (max-width: $screen-sm-min) {
+    margin: 0;
+  }
+}
+.footer-countries__list {
+  padding: 0;
+  margin: 0;
+}
+.footer-countries__item {
+  line-height: 30px;
+  color: #8A8A8A;
+  text-align: left;
+  text-indent: 10px;
+}
+
+
+.cookie-policies {
+    background: rgb(234, 234, 234);
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+    bottom: 0px;
+    left: 0px;
+    text-align: left;
+    opacity: 0.9;
+    text-align: center;
+
+  .msg-cookie-policies {
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+    padding: 10px;
+    display: inline-block;
+  }
+  .button-acept-cookie {
+    border: none;
+    background: rgb(111, 170, 229);
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 5px 10px;
+    margin: 10px 0;
+  }
+}

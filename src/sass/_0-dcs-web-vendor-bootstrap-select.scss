@@ -1,0 +1,235 @@
+.search-order {
+  max-width: 300px;
+}
+
+.bootstrap-select {
+  position: relative;
+
+  /**
+   * Sizes
+   */
+  &.custom-select--small {
+    .btn {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      padding-right: 50px;
+    }
+
+    .filter-option-inner-inner {
+      font-size: 12px;
+      height: 17px;
+      overflow: hidden;
+    }
+
+    .bs-caret {
+      width: 32px;
+
+      &:before {
+        width: 34px;
+      }
+
+      &:after {
+        width: 6px;
+        height: 6px;
+        margin-top: -2px;
+        margin-left: -1px;
+      }
+    }
+  }
+
+  &.custom-select--medium {
+    .btn {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 60px;
+    }
+
+    .filter-option-inner-inner {
+      font-size: 14px;
+      height: 19px;
+      overflow: hidden;
+    }
+
+    .bs-caret {
+      width: 34px;
+
+      &:before {
+        width: 34px;
+      }
+
+      &:after {
+        width: 6px;
+        height: 6px;
+        margin-top: -2px;
+        margin-left: -1px;
+      }
+    }
+  }
+
+  /**
+   * Positions
+   */
+  &.custom-select--top {
+    .dropdown-menu.open {
+      margin-top: 0;
+      margin-bottom: -1px;
+      top: initial;
+      bottom: 100%;
+    }
+  }
+
+  select {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: 0.5px;
+    height: 100%;
+    padding: 0;
+    opacity: 0;
+    border: none;
+  }
+
+  .btn {
+    background-color: $white;
+    border: 1px solid $alto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:hover {
+      background-color: $alabaster;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+    .filter-option-inner-inner {
+      color: #8a8a8a;
+      text-align: left;
+    }
+
+    .bs-caret {
+      @include transition(background-color 200ms ease);
+
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      &:before {
+        @include transition(background-color 200ms ease);
+        @include skewX(8deg);
+        @include transform-origin(100% 100%);
+
+        content: '';
+        border-left: solid 1px #c8c8c8;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      &:after {
+        @include transform(translate(-50%, -50%) rotate(-45deg));
+
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-left: 1px solid $mineShaft;
+        border-bottom: 1px solid $mineShaft;
+      }
+    }
+
+  .dropdown-menu {
+    &.open {
+      @include box-shadow(0 1px 4px -1px rgba(0, 0, 0, .18));
+
+      background-color: #fff;
+      border: 1px solid $alto;
+      display: none;
+      left: 0;
+      min-width: 100%;
+      margin-top: -1px;
+      position: absolute;
+      top: 100%;
+      z-index: 10;
+
+      > .inner.open {
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    &.inner {
+      @include resetList();
+
+      li {
+        &:first-child {
+          a {
+            &:hover {
+              border-top: 1px solid transparent;
+            }
+          }
+        }
+
+        &:last-child {
+          a {
+            &:hover {
+              border-bottom: 1px solid transparent;
+            }
+          }
+        }
+      }
+        a {
+          background-color: $white;
+          border-bottom: 1px solid transparent;
+          border-top: 1px solid transparent;
+          color: #8a8a8a;
+          cursor: pointer;
+          display: block;
+          font-size: 13px;
+          text-align: left;
+          padding: 10px 21px;
+
+          &:hover {
+            background-color: $gallery;
+            border-bottom: 1px solid $alto;
+            border-top: 1px solid $alto;
+            text-decoration: none;
+          }
+
+          &:focus {
+            outline: none;
+          }
+
+          &.active {
+            background-color: $lochmara;
+            border-bottom: 1px solid $lochmara;
+            border-top: 1px solid $lochmara;
+            color: $white;
+            text-decoration: none;
+          }
+        }
+    }
+  }
+
+  &.open {
+    .bs-caret {
+      background-color: $gallery;
+
+      &:before {
+        background-color: $gallery;
+      }
+    }
+
+    .dropdown-menu {
+      display: block;
+    }
+  }
+}

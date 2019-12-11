@@ -1,0 +1,761 @@
+// body.register {
+//   #vtexIdUI-global-loader,
+//   #vtexIdContainer {
+//     display: none !important;
+//   }
+// }
+.login {
+  header {
+    z-index: 99999;
+  }
+}
+
+.login,
+.body-order-form {
+  #vtexIdUI-global-loader {
+    height: 0 !important;
+    width: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  #vtexIdContainer {
+    overflow: hidden;
+    position: fixed !important;
+    z-index: 9999 !important;
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, .5);
+    }
+  }
+}
+
+.vtexIdUI {
+  border: 0 !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+
+  .alert {
+    width: auto !important;
+    padding: 8px 15px !important;
+    margin: 10px 0 20px !important;
+    text-shadow: none !important;
+    background-color: $red !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: $white !important;
+    font-size: 12px !important;
+    line-height: 16px;
+    display: block;
+    position: relative;
+
+    i {
+      display: none;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 14px;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-left: 2px;
+      vertical-align: middle;
+      border-top: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px dashed;
+      border-bottom: 4px solid $red;
+      border-left: 4px solid transparent;
+    }
+  }
+
+  #vtexIdUI-auth-selector.vtexIdUI-page-active .vtexIdUI-heading:after,
+  #vtexIdUI-email-confirmation.vtexIdUI-page-active .vtexIdUI-heading:after {
+    content: "Você pode entrar com sua conta ou receber uma chave de acesso rápido.";
+  }
+
+  #vtexIdUI-classic-login {
+    float: left;
+    transform: inherit !important;
+    min-height: inherit !important;
+    bottom: 0;
+    display: none;
+
+    &.vtexIdUI-page-inactive {
+
+      .modal-body,
+      .modal-body .control-group.email-model,
+      .modal-body .control-label span,
+      .modal-body .controls {
+        display: none;
+      }
+    }
+  }
+
+  #vtexIdUI-confirm-access-code {
+    &.vtexIdUI-page-active {
+      .modal-header {
+        padding-bottom: 0 !important;
+      }
+
+      .vtexIdUI-heading::after {
+        display: none;
+      }
+    }
+  }
+
+  &:not(.vtexid-icon-arrow-left) {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-radius: 0 !important;
+    min-height: 50vh;
+  }
+
+  #vtexIdUI-auth-selector.vtexIdUI-page-active .vtexIdUI-heading span,
+  .vtexid-icon-lock {
+    display: none;
+  }
+
+  .modal-header {
+    padding: 50px 20px 20px !important;
+    // padding: 20px 20px 20px !important;
+    border: 0 !important;
+    background: $white !important;
+    text-align: center;
+
+    .vtexIdUI-user {
+      &.muted {
+        font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        float: inherit;
+        color: #393939;
+        font-weight: 700;
+
+        .vtexid-icon-user.muted {
+          display: none;
+        }
+      }
+    }
+
+    .vtexIdUI-close {
+      top: 15px !important;
+      right: 15px !important;
+      display: none !important;
+      height: 20px;
+      background: 0 0 !important;
+      font-size: 30px !important;
+      font-weight: 400;
+      line-height: 20px !important;
+      color: $lochmara !important;
+      cursor: pointer;
+
+      &:active,
+      &:hover {
+        color: #222;
+        text-shadow: 0 0 0 #222, 0 0 0 #222, 0 0 0 #222;
+      }
+    }
+
+    .vtexIdUI-heading,
+    h4 {
+      margin: 10px auto 20px;
+      padding: 0;
+      font-size: 0 !important;
+      display: block;
+      width: 100%;
+    }
+
+    .vtexIdUI-heading {
+
+      &:after,
+      &:before {
+        display: block;
+        text-align: center;
+        text-transform: none;
+      }
+
+      &:before {
+        content: "BEM VINDO À DECATHLON";
+        font-size: 21px !important;
+        line-height: 19px !important;
+        color: $lochmara;
+        font-weight: 700 !important;
+        margin-bottom: 15px;
+      }
+
+      &:after {
+        content: "";
+        font-size: 14px !important;
+        line-height: 18px !important;
+        font-weight: 400 !important;
+        color: #393939;
+        margin-top: 10px !important;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 0 40px 40px !important;
+    background-color: transparent !important;
+
+    // &:before {
+    //   content: 'Esportista, \A O login da Minha Conta estará fora do ar temporariamente, entre às 17h do dia 13/05/19, até às 2h de 14/05/19. Mas fique tranquilo que você consegue acessá-la com sua chave de acesso nesse período e o seu histórico de compras estará salvo. \A Agradecemos sua compreensão :)';
+    //   width: calc(100% + 30px);
+    //   margin-top: -4px;
+    //   margin-bottom: 4px;
+    //   margin-left: -15px;
+    //   color: red;
+    //   font-size: 11px;
+    //   line-height: 18px;
+    //   font-weight: 700;
+    //   text-align: center;
+    //   white-space: pre-wrap;
+    //   display: block;
+    // }
+
+    a {
+      color: #393939;
+    }
+
+    .btn {
+      height: 50px;
+      padding: 8px;
+      border-radius: 3px;
+      background: $white;
+      box-shadow: none !important;
+      border: none;
+
+      &#btnDktLoginCreateAccount {
+        background: #dcdbdb;
+        font-size: 14px;
+        line-height: 33px;
+        vertical-align: middle;
+        display: block;
+        font-family: 'Roboto Condensed';
+        text-transform: uppercase;
+        margin-top: 20px;
+        text-shadow: none;
+        border: 1px solid #dcdbdb;
+        transition: background .5s linear;
+
+        &:hover {
+          background: #c7c7c7;
+          color: #393939;
+          border: 1px solid #dedede;
+        }
+      }
+
+      &#btnDktLoginCreateAccount,
+      &#loginWithAccessKeyBtn,
+      &#loginWithUserAndPasswordBtn,
+      &#vtexIdUI-facebook:after,
+      &#vtexIdUI-google-plus:after,
+      .vtexIdUI-providers-btn:before {
+        font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      &#loginWithAccessKeyBtn,
+      &#loginWithUserAndPasswordBtn {
+        font-size: 14px;
+        font-weight: 500;
+        display: block;
+        background-color: $white;
+      }
+
+      &#loginWithAccessKeyBtn {
+        border: 1px solid #dedede;
+        margin-top: 25px;
+
+        &:hover {
+          background-color: #c7c7c7;
+
+          span {
+            color: #393939;
+          }
+        }
+      }
+
+      &#vtexIdUI-facebook,
+      &#vtexIdUI-google-plus {
+        display: none;
+      }
+
+      &#loginWithUserAndPasswordBtn {
+        color: #c7c7c7;
+        border: 1px solid #c7c7c7;
+      }
+
+      &.vtexIdUI-others-send-email {
+        display: none;
+
+        span {
+          color: #cecece;
+        }
+
+        &:hover span {
+          color: #393939;
+        }
+      }
+
+      &.vtexIdUI-send-email {
+        border: 1px solid #0a775a;
+      }
+
+      &.vtexIdUI-providers-btn {
+        background-color: $lochmara;
+        font-size: 0;
+
+        &:hover {
+          background-color: $allports;
+          color: $white;
+          border-color: $allports;
+        }
+
+        &:before {
+          content: "Entrar com minha conta";
+          color: $white;
+          text-transform: uppercase;
+          font-size: 14px;
+          line-height: 31px;
+          text-shadow: none;
+          font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        &:after {
+          content: '';
+          width: 8px;
+          height: 8px;
+          margin-left: 26px;
+          border-bottom: 1px solid $white;
+          border-right: 1px solid $white;
+          display: inline-block;
+          -moz-transform: rotate(-45deg) translate(-1px, -2px);
+          -ms-transform: rotate(-45deg) translate(-1px, -2px);
+          -webkit-transform: rotate(-45deg) translate(-1px, -2px);
+          transform: rotate(-45deg) translate(-1px, -2px);
+          position: absolute;
+          right: 20px;
+          top: 20px;
+        }
+
+        p {
+          display: none;
+        }
+      }
+
+      &:hover {
+        color: #aeadad;
+        border-color: #aeadad;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        text-transform: uppercase;
+        color: #c7c7c7;
+        text-shadow: none;
+      }
+
+      i {
+        display: none;
+      }
+    }
+
+    .vtexIdUI-providers-list {
+      padding: 0 !important;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+
+      li {
+        position: relative;
+        margin: 10px 0;
+
+        &:not(:first-child) {
+          margin-bottom: 10px !important;
+        }
+
+        &:first-child {
+          -ms-flex-order: 4;
+          order: 4;
+
+          &:before {
+            content: "";
+            position: relative;
+            background: #afafaf;
+            width: 100%;
+            display: block;
+            height: 1px;
+            margin: 10px auto 20px;
+          }
+
+          &:after {
+            content: "OU";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            right: 0;
+            font-size: 20px;
+            line-height: 25px;
+            color: #393939;
+            background: $white;
+            width: 70px;
+            margin-left: -35px;
+            text-align: center;
+          }
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+
+    .vtexIdUI-classic-login-control,
+    .vtexIdUI-email-field {
+      input {
+        height: 40px;
+        padding: 10px 20px;
+        border: 1px solid #e6e6e6 !important;
+        border-radius: 2px;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.42857;
+        color: #393939;
+        box-shadow: none !important;
+
+        &:hover {
+          border: 1px solid #d4d7d9 !important;
+          box-shadow: 1px 1px 1px rgba(50, 50, 51, .2) !important;
+        }
+
+        &:focus {
+          border-color: $lochmara !important;
+          outline: 0;
+        }
+      }
+    }
+
+    .vtexIdUI-code-field {
+      margin: 20px auto !important;
+    }
+
+    .control-group {
+      .dead-link {
+        margin-top: 4px;
+        text-decoration: underline;
+      }
+
+      &.email-model {
+        margin-bottom: 20px;
+      }
+    }
+
+    .control-label {
+      margin-bottom: 4px;
+      color: #9b9b9b;
+
+      &.dead-link {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .modal-footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 40px 40px !important;
+    border: 0 !important;
+    margin: 0 !important;
+    background: 0 0 !important;
+
+    &:after,
+    &:before {
+      content: none !important;
+    }
+
+    a {
+      color: #2d3a37;
+    }
+
+    button {
+      height: 30px !important;
+      padding: 8px 40px 8px 30px;
+      border: 0 !important;
+      border-radius: 3px;
+      box-shadow: none !important;
+      background-color: $lochmara !important;
+      background-image: none;
+      text-transform: uppercase;
+      text-shadow: none;
+      font-size: 12px !important;
+      line-height: 16px;
+
+      &:hover {
+        background-color: $allports !important;
+        color: $white;
+        border-color: $allports !important;
+      }
+    }
+
+    .btn-success:before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      margin-left: 26px;
+      border-bottom: 1px solid $white;
+      border-right: 1px solid $white;
+      display: inline-block;
+      -moz-transform: rotate(-45deg) translate(-1px, -2px);
+      -ms-transform: rotate(-45deg) translate(-1px, -2px);
+      -webkit-transform: rotate(-45deg) translate(-1px, -2px);
+      transform: rotate(-45deg) translate(-1px, -2px);
+      position: absolute;
+      right: 10px;
+      top: 13px;
+    }
+  }
+
+  input {
+
+    &[type=email],
+    &[type=password],
+    &[type=text] {
+      height: 40px !important;
+      padding: 10px 20px !important;
+      border: 1px solid #e6e6e6 !important;
+      border-radius: 2px !important;
+      margin: 0;
+      font-size: 14px !important;
+      line-height: 1.42857 !important;
+      color: #393939 !important;
+      box-shadow: none !important;
+
+      &:hover {
+        border: 1px solid #d4d7d9 !important;
+        box-shadow: 1px 1px 1px rgba(50, 50, 51, .2) !important;
+      }
+
+      &:focus {
+        border-color: $lochmara !important;
+        outline: 0;
+      }
+    }
+  }
+
+  .vtexIdUI-back-link {
+    .vtexid-icon-arrow-left {
+      font-size: 0;
+      display: inline-block;
+      margin-left: 5px;
+
+      &:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        border-bottom: 1px solid $lochmara;
+        border-right: 1px solid $lochmara;
+        display: inline-block;
+        -moz-transform: rotate(130deg) translate(-1px, -2px);
+        -ms-transform: rotate(130deg) translate(-1px, -2px);
+        -webkit-transform: rotate(130deg) translate(-1px, -2px);
+        transform: rotate(130deg) translate(0, 0);
+        position: relative;
+        right: 0;
+        top: 2px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.alert-new-site {
+  padding: 10px 40px 0;
+  color: $red;
+  font-size: 13px;
+  line-height: 16px;
+
+  a {
+    color: $red !important;
+    text-decoration: underline !important;
+  }
+}
+
+.body-order-form {
+  .modal-header {
+    .close {
+      display: block !important;
+    }
+
+    .vtexIdUI-user {
+      margin-top: 30px;
+      text-align: center;
+
+      .vtexIdUI-user-email {
+        float: none;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-sm-max) {
+  .login {
+    .mobile-floating-menubar {
+      z-index: 99999;
+    }
+
+    #vtexIdContainer {
+
+      &:after,
+      &:before {
+        content: '';
+        top: 50px;
+      }
+    }
+  }
+
+  .body-order-form {
+    #vtexIdContainer {
+
+      &:after,
+      &:before {
+        content: '';
+        top: 0;
+      }
+    }
+  }
+
+
+  .login,
+  .body-order-form {
+    #vtexIdContainer {
+      background: 0 0;
+
+      &:after,
+      &:before {
+        content: '';
+        background-repeat: no-repeat;
+        left: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+        // top: 50px;
+      }
+
+      &:before {
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='440' height='60' fill='rgb(244,244,244)' fill-opacity='1'><polygon points='0,0 440,0 0,60'></polygon></svg>");
+        background-position: top left;
+        height: 60px;
+        background-color: #fff;
+      }
+
+      &:after {
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='30' fill='rgb(18,150,178)' fill-opacity='1'><polygon points='0,0 220,30 220,0'></polygon></svg>");
+        background-position: top right;
+        height: 60px;
+      }
+    }
+  }
+
+  .vtexIdUI {
+    width: 100% !important;
+    margin: 0 !important;
+    top: 0 !important;
+    font-size: 14px;
+    left: 0 !important;
+    border-radius: 0 !important;
+    height: 100% !important;
+
+    &:not(.vtexid-icon-arrow-left) {
+      padding-top: 15vh;
+    }
+
+    .vtexIdUI-code-field {
+      width: 50% !important;
+    }
+
+    .modal-header {
+      padding: 20px 20px 0 !important;
+
+      .vtexIdUI-heading:after {
+        margin-top: 0 !important;
+      }
+
+      // padding: 40px 20px 0px !important;
+      // padding-top: 25% !important;
+    }
+
+    .modal-body {
+      padding: 0 0 20px !important;
+      // padding: 0 20px 20px !important;
+      max-width: 290px !important;
+      margin: auto !important;
+    }
+
+    .modal-footer {
+      max-width: 290px !important;
+      margin: auto !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .login {
+    #vtexIdContainer {
+      height: calc(100vh - 55px);
+      top: 55px;
+    }
+  }
+
+  .body-order-form {
+    height: 100vh;
+    top: 0;
+
+    .vtexIdUI:not(.vtexid-icon-arrow-left) {
+      height: 60vh !important;
+    }
+  }
+
+  .login,
+  .body-order-form {
+    #vtexIdContainer {
+      background: url("/arquivos/dcs-account-bg.jpg") center no-repeat;
+      background-size: cover;
+    }
+
+    .vtexIdUI {
+      .alert {
+        margin: 10px 0 0px !important;
+      }
+
+      .modal-header {
+        padding-bottom: 0 !important;
+      }
+
+      .modal-body {
+        padding: 0 40px 10px !important;
+      }
+
+      &:not(.vtexid-icon-arrow-left) {
+        height: 500px !important;
+      }
+    }
+  }
+}

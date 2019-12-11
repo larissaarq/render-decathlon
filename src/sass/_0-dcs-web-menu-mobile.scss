@@ -1,0 +1,589 @@
+.mobile-floating-menubar {
+  width: 100%;
+  background-color: $lochmara;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  
+}
+
+.body-lock-menu {
+  overflow: hidden;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+}
+
+.mobile-menubar-list {
+  @include resetList();
+  float: left;
+  display: block;
+  width: 100%;
+  @include box-shadow(0px 0px 10px 0px rgba(0,0,0,0.25));
+  background-color: $lochmara;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-menubar-item {
+  float: left;
+  width: 20%;
+  height: 50px;
+  text-align: center;
+  position: relative;
+  &.selected {
+    background-color: #006192;
+    &:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 10px;
+      height: 10px;
+      background-color: $caribbeanGreen;
+      bottom: -6px;
+      left: 50%;
+      @include transform(translateX(-50%) rotate(90deg) skew(10deg, 0));
+    }    
+  }
+}
+
+.mobile-menubar-link {
+  color: $white;
+  font-size: 11px;
+  // @include opacity(0.6);
+  position: relative;
+  top: 43%;
+  @include transform(translateY(-50%));
+  display: block;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    display: block !important;
+    margin: 0 auto;
+    // @include opacity(0.6);
+    margin-bottom: 2px;
+  }
+
+  &:focus,
+  &:active,
+  &:hover,
+  &.selected {
+    @include opacity(1);
+    color: $white;
+    text-decoration: none;
+
+    i {
+      @include opacity(1);
+    }
+  } 
+
+  i {
+    margin: 0 auto;
+    @include opacity(0.6);
+    display: block !important;
+
+    &.mobile-menubar-icon--home {
+      @include decathlonIcon('\E06D', #ffffff, 21px);
+    }
+
+    &.mobile-menubar-icon--help {
+      @include decathlonIcon('\E076', #ffffff, 21px);
+    }
+
+    &.mobile-menubar-icon--account {
+      @include decathlonIcon('\E062', #ffffff, 21px);
+    }    
+
+    &.mobile-menubar-icon--stores {
+      @include decathlonIcon('\E077', #ffffff, 21px);
+    }    
+
+    &.mobile-menubar-icon--menu {
+      @include decathlonIcon('\E071', #ffffff, 21px);
+    }
+  }
+}
+
+.mobile-menubar-first-level,
+.mobile-menubar-second-level{
+  visibility: hidden;
+  @include opacity(0);
+  @include transition(opacity 200ms);
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 50px);
+  background-color: $lochmara;
+  &.opened {
+    top: 0;
+    visibility: visible;
+    @include opacity(1);
+    @include transition(opacity 200ms);   
+     left: 0;
+  }
+}
+
+.mobile-menubar-first-level {
+  background-color: $lochmara;
+  z-index: -1;
+
+  background-color: rgba(0,123,185,1);
+  @include filter-gradient(#007bb9, $lochmara, vertical);
+  @include background-image(linear-gradient(top, rgba(0,123,185,1) 0%, rgba(0,130,195,1) 100%)); 
+  .menu-content-first-level-item {
+    border-top: 1px solid #3398cd;
+    margin: 0 23px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -2%;
+    bottom: -0.1%;
+    width: 42%;
+    height: 10%;
+    background-color: rgba(2,190,137,1);
+    @include transform(rotate(10deg));
+    background: rgb(2,190,137); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(2,190,137,1) 0%, rgba(25,142,201,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(2,190,137,1) 0%,rgba(25,142,201,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(2,190,137,1) 0%,rgba(25,142,201,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02be89', endColorstr='#198ec9',GradientType=1 ); /* IE6-9 */
+
+  }
+  &:after {
+    content: '';
+    display: block;
+    width: 108%;
+    height: 15%;
+    display: block;
+    left: -4%;
+    bottom: -6.8%;
+    background-color: $white;
+    position: absolute;
+    @include transform(rotate(-10deg));
+  }
+}
+
+.mobile-menubar-second-level {
+  background-color: $lochmara;
+
+  .menu-content-second-level-link {
+    &.opened {
+      &:after {
+        @include transform(rotate(-45deg));
+        top: 38%;
+      }
+    }
+  }
+}
+.mobile-menubar-second-level--container {
+  top: 39.22%;
+  position: absolute;
+  width: 100%;
+  height: 60.61%;
+  background-color: $white;
+  
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -2%;
+    top: -12.7%;
+    width: 42%;
+    height: 15%;
+    background-color: rgba(2,190,137,1);
+    @include transform(rotate(10deg));
+    background: rgb(2,190,137); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(2,190,137,1) 0%, rgba(25,142,201,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(2,190,137,1) 0%,rgba(25,142,201,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(2,190,137,1) 0%,rgba(25,142,201,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02be89', endColorstr='#198ec9',GradientType=1 ); /* IE6-9 */
+    z-index: -2;
+
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 108%;
+    height: 23.3%;
+    left: -4%;
+    top: -10%;
+    background-color: $white;
+    position: absolute;
+    @include transform(rotate(-10deg));
+    z-index: -1;
+  }
+
+  .search__menu-button {
+    width: 64px;
+    height: 64px;
+    background-color: rgba($caribbeanGreen, 0.47);
+    border-radius: 100%;
+    position: absolute;
+    display: block;
+    z-index: 2;
+    right: 15px;
+    top: -21%;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 55px;
+      height: 55px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: $caribbeanGreen;
+      border-radius: 100%;
+      @include transform(translate(-50%, -50%));
+    }
+
+    i {
+      @include decathlonIcon('\E078', #ffffff, 20px);
+      position: absolute;
+      left: 35%;
+      top: 36%;
+    }
+    
+    &--opened {
+      top: -21%;
+      &:after {
+        display: none !important;
+      }
+
+      i {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        display: block;
+        top: 48%;
+        left: 31%;
+        @include transform(translate(-50%, -50%));
+        &:before,
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 25px;
+          height: 2px;
+          background-color: $white;
+          left: 50%;
+          top: 50%;
+          @include transform(translate(-50%, -50%));
+        }
+        &:before {
+          @include transform(rotate(45deg));
+        }
+
+        &:after {
+          @include transform(rotate(-45deg));
+        }        
+      }
+    }
+  }
+
+  .search__menu {
+    display: none;
+
+    &--opened {
+      display: block;
+    }
+  }
+
+  .menu-content-second-level-list {
+    padding-top: 20px;
+  }
+}
+
+.mobile-menubar-first-level--title,
+.mobile-menubar-second-level--title {
+  color: $white;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: bold;
+  position: relative;
+  display: block;
+  //margin: 10px 15px;
+  padding: 13px 15px;
+  background-color: $lochmara;
+  &:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 0 6px 34px;
+    border-color: transparent transparent transparent $prussianBlue;
+    position: absolute;
+    left: 14px;
+    bottom: 7px;
+  }
+}
+
+.mobile-menubar-second-level--title {
+  &:before {
+    left: 49px;
+  }
+}
+
+.mobile-menubar-second-level--subtitle {
+  color: $lochmara;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: bold;
+  position: relative;
+  display: block;
+  padding: 5px 15px;
+  background-color: $white;
+  text-transform: uppercase;
+  &:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 0 6px 34px;
+    border-color: transparent transparent transparent $prussianBlue;
+    position: absolute;
+    left: 14px;
+    bottom: 0px;
+  }
+}
+
+.mobile-menubar-second-level--back {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  float: left;
+  margin-right: 15px;
+  top: 3px;
+  &:before {
+    display: block;
+    @include arrow('left', 10px, $white );
+    left: 50%;
+    top: 50%;
+    @include transform(traslate(-50%, -50%));
+  }
+}
+
+.mobile-menubar-first-level--close,
+.mobile-menubar-second-level--close {
+  width: 24px;
+  height: 24px;
+  float: right;
+  position: relative;
+  margin-right: 15px;
+  @include closeX($white, 25px, 2px);
+}
+
+.mobile-menubar-search--opened {
+  background-color: $prussianBlue;
+  .mobile-menubar-second-level--title {
+    background-color: $prussianBlue;
+    display: none;
+  }
+  .mobile-menubar-second-level--subtitle {
+    position: absolute;
+    top: -24%;
+    background-color: transparent;
+    color: gray;
+    width: 100%;
+    &:before {
+      border-color: transparent transparent transparent gray;
+      bottom: -3px;
+    }
+  }
+  .mobile-menubar-second-level--container {
+    top: 22%;
+    height: 82%;
+    &:before {
+      display: none;
+    }
+  }
+
+  .mobile-menubar-second-level--featured {
+    @include opacity(0);
+    @incldue visibility(hidden);
+  }
+}
+
+.mobile-menubar-second-level--featured {
+  ul {
+    @include resetList();
+  }
+  @media (min-width: $screen-md-min) {
+      display: none;
+  }
+
+  .mobile-menubar-featured--name {
+    color: $white;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .slick-slide {
+    img {
+      max-width: calc(100% - 10px);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    a, img {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  
+  .slick-dots {
+    @include resetList();
+    position: absolute;
+    left: 50%;
+    @include transform(translate(-50%));
+    margin-top: 5px;
+    text-align: center;
+
+    li { 
+      background-color: transparent;
+      @include slickDots($lochmara);
+      border: 1px solid $white; 
+
+      &.slick-active {
+        background-color: $white;
+        border: 1px solid $white;
+      }
+    }
+  }  
+}
+
+
+.mobile-menubar-box {
+  display: none;
+
+  .section-title {
+    padding: 15px 25px;
+  }
+
+  &.opened {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    background: $white;
+    height: calc(100% - 50px);
+    width: 100%;
+    left: 0;
+  }
+}
+
+.mobile-menubar-box--title {
+  background-color: $lochmara;
+  color: $white;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: $primaryFontBold;
+  padding: 13px 25px;
+  text-align: left;
+  position: relative;
+}
+
+.mobile-menubar-box--close {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  @include transform(translateY(-50%));
+  right: 15px;
+  cursor: pointer;
+  @include closeX($white, 25px, 2px);
+}
+
+.mobile-menubar-box--content {
+  @include resetList();
+  height: calc(100% - 160px);
+  overflow-y: auto;
+  position: absolute;
+  top: 145px;
+  background-color: $white;
+  width: 100%;
+  display: block;
+}
+
+.mobile-menubar-box--item {
+  display: block;
+  width: 100%;
+  border-top: 1px solid $borderColor;
+  padding: 25px;
+  text-align: left;
+}
+
+.mobile-menubar-box--link {
+  color: $mineShaft;
+  vertical-align: middle;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-left: 50px;
+
+  b,
+  span {
+    display: block;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    @include arrow('right', 10px, $lochmara);
+    right: 0;
+    left: inherit;
+  }
+
+  i {
+    display: block;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+
+  &.mobile-menubar-box-link--faq {
+    .mobile-menubar-box-icon--faq {
+      @include decathlonIcon('\E076', $lochmara, 32px);
+    }
+  }
+
+  &.mobile-menubar-box-link--chat {
+    .mobile-menubar-box-icon--chat {
+      @include decathlonIcon('\E075', $lochmara, 32px);
+    }
+  }
+
+  &.mobile-menubar-box-link--email {
+    .mobile-menubar-box-icon--email {
+      @include decathlonIcon('\E070', $lochmara, 32px);
+    }
+  }
+
+  &.mobile-menubar-box-link--contact {
+    .mobile-menubar-box-icon--contact {
+      @include decathlonIcon('\E07A', $lochmara, 32px);
+    }
+  }
+
+  &.mobile-menubar-box-link--phone {
+    .mobile-menubar-box-icon--phone {
+      @include decathlonIcon('\E062', $lochmara, 32px);
+    }
+  }
+}
