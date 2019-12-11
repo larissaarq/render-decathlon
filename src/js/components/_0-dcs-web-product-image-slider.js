@@ -97,7 +97,7 @@ APP.component.ProductImageSlider = ClassAvanti.extend({
 
       $list.hasClass("slick-initialized")
       $list.removeClass("slick-initialized slick-slider")
-      
+
       const slickOptions = {
         mobileFirst: true,
         autoplay: false,
@@ -114,14 +114,11 @@ APP.component.ProductImageSlider = ClassAvanti.extend({
         ]
       }
 
-      
+
       $list.on('init', (event, slick) => {
         this.addVideoMobile(slick.$slider)
       })
       $list.slick(slickOptions)
-    } else {
-      $list.addClass("slick-initialized")
-
     }
   },
 

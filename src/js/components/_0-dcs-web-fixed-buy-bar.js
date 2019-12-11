@@ -272,15 +272,11 @@ APP.component.FixedBuyBar = ClassAvanti.extend({
   },
 
   bind () {
-    $('.notifyme-form .button-ancor').on('click', (element) => {
-      element.preventDefault();
-      
-      $('#notifymeClientName').focus();
-      const $buttonSelect = $(".skuList.item-dimension-Tamanho button");
-      
-      if ($("ul.Tamanho:visible").length > 0 && $("ul.Tamanho li span.tamanho-unico").length === 0 && ($buttonSelect.prop("title") === "Nothing selected" || $buttonSelect.prop("title") === "Selecione o tamanho")) {
-        $(".item-dimension-Tamanho").addClass("sku-unchecked");
-      }
+    $('.notifyme-form .button-ancor').on('click', () => {
+      this._scrollToTop()
+      setTimeout(() => {
+        $('#notifymeClientName').focus()
+      }, 2000)
     })
   },
 

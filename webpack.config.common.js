@@ -8,54 +8,31 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 const vendorPath = path.resolve(__dirname, 'src/vendor')
 
-/**
- * @description Generate common components and controllers
- * @var commonComponentsPath string path to components
- * @var commonControllerPath string path to controllers
- * @var commonFilesToConcat array of files to concat
- */
-
-const commonComponentsPath = path.join(__dirname, 'src/js/common/components')
-const commonControllerPath = path.join(__dirname, 'src/js/common/controllers')
-const commonFilesToConcat = []
-
-fs.readdirSync(commonComponentsPath).map(file => {
-  const filePath = path.join(commonComponentsPath, file)
-  commonFilesToConcat.push(filePath)
-})
-
-fs.readdirSync(commonControllerPath).map(file => {
-  const filePath = path.join(commonControllerPath, file)
-  commonFilesToConcat.push(filePath)
-})
-
-/**
- * @description Generate components and controllers
- * @var componentsRootPath string path to components
- * @var controllerRootPath string path to controllers
- * @var filesToConcat array of files to concat
- */
-
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllerRootPath = path.join(__dirname, 'src/js/controllers')
-const filesToConcat = []
 
-fs.readdirSync(componentsRootPath).map(file => {
-  const filePath = path.join(componentsRootPath, file)
-  
-  filesToConcat.push(filePath)
-})
+let filesToConcat = []
 
-fs.readdirSync(controllerRootPath).map(folder => {
-  const controllerPath = path.join(__dirname, 'src/js/controllers', folder)
+/**
+ * 
+ * @param {*} rootPath path of files
+ * @returns array os path files
+ */
+const getPaths = (rootPath) => {
+  const paths = []
 
-  fs.readdirSync(controllerPath).map(file => {
-    const fileName = file.substring(0, file.length - 3)
-    const filePath = path.join(controllerPath, fileName)
-
-    filesToConcat.push(filePath)
+  fs.readdirSync(rootPath).map(file => {
+    const filePath = path.join(rootPath, file)
+    paths.push(filePath)
   })
-})
+
+  return paths
+}
+
+filesToConcat = [
+  ...getPaths(componentsRootPath),
+  ...getPaths(controllerRootPath)
+]
 
 module.exports = {
   watchOptions: {
@@ -64,7 +41,6 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    common: commonFilesToConcat,
     application: filesToConcat,
     components: path.join(__dirname, 'src/react', 'index')
   },
@@ -116,7 +92,7 @@ module.exports = {
     new WebpackCleanupPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'arquivos/0-dcs-web-[name].css',
+      filename: 'arquivos/0-dcs-web-[name]-style.css',
       ignoreOrder: true
     }),
     new CopyPlugin([{
@@ -136,7 +112,7 @@ module.exports = {
     ]),
     new MergeIntoSingleFilePlugin({
       files: {
-        'arquivos/0-dcs-web-vendors.js': [
+        'arquivos/0-dcs-web-vendors-script.js': [
           `${vendorPath}/jquery/dist/jquery.min.js`,
           `${vendorPath}/bootstrap/dist/js/bootstrap.min.js`,
           `${vendorPath}/avanti-class/src/avanti-class.js`,
@@ -153,7 +129,7 @@ module.exports = {
         ]
       },
       transform: {
-        'arquivos/0-dcs-web-vendors.js': code => require("uglify-js").minify(code).code,
+        'arquivos/0-dcs-web-vendors-script.js': code => require("uglify-js").minify(code).code,
       }
     })
   ]

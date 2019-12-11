@@ -1,11 +1,3 @@
-/**
-  * @name MyAccountMenu
-  * @description null
-  * @controllers using this component: 
-  * * MyAccount
-  * * Orders
-*/
-
 APP.component.MyAccountMenu = ClassAvanti.extend({
   init(options) {
     this.setup(options)
@@ -39,14 +31,23 @@ APP.component.MyAccountMenu = ClassAvanti.extend({
    * @param <string> surname
    */
   setUserName(name, surname) {
-    $('.my-account-menu__profile-name').html(`${name} ${surname}`)
-  },
 
+    if(name && surname){
+      $('.my-account-menu__profile-name').html(`${name} ${surname}`)
+    }else{
+      $('.my-account-menu__profile-name').html(`Esportista`)
+     
+    }
+
+   
+  },
   /*
    * @name bind
    * @description Executa os diversos registros de eventos de entrada.
    */
   bind() {
+   
+
     this._bindSubMenuFunctions()
     this._bindMenuFunctions()
   },

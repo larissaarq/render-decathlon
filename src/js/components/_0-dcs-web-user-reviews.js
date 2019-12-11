@@ -408,12 +408,11 @@ APP.component.UserReviews = ClassAvanti.extend({
   openReviewModal(productCode) {
     const target = $('.av-modal--reviews')
     const btnReviews = $('.button-add-review')
-    
+    $('.av-modal--reviews').find('.av-modal__content')
+      .html(`<iframe src="https://reviews.decathlon.com/pt_BR/review/new/dktbr/product/${productCode}">SEU NAVEGADOR NÃO SUPORTE IFRAMES</iframe>`)
+
     btnReviews.on('click', e => {
       e.preventDefault()
-      $('.av-modal--reviews').find('.av-modal__content')
-        .html(`<iframe src="https://reviews.decathlon.com/pt_BR/review/new/dktbr/product/${productCode}">SEU NAVEGADOR NÃO SUPORTE IFRAMES</iframe>`)
-      
       APP.i.Modal = new APP.component.Modal(target)
       APP.i.Modal.openModal(target)
     })

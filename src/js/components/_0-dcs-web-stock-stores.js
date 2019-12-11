@@ -12,8 +12,7 @@ APP.component.StockStores = ClassAvanti.extend({
     this.stocksData = []
     
     this.options = $.extend({
-      currentState: null,
-      $buttonStock: $('#btn-stock-modal')
+      currentState: null
     }, options)
   },
   
@@ -26,7 +25,7 @@ APP.component.StockStores = ClassAvanti.extend({
         <div class="av-modal__content">
           <h3 class="av-modal__title">Selecione um estado para conferir a disponibilidade</h3>
           <div class="modal-stock__select">
-            <select class="custom-select custom-select--small states-navigation" data-dropup-auto="true" data-mobile="true" id="states-navigation" data-size="6">
+            <select class="custom-select custom-select--small states-navigation" id="states-navigation" data-size="4">
               <option value="">Selecione um estado</option>
               <option value="851f6959-7582-11e8-81f2-8679c9df9bf9">Espírito Santo</option>
               <option value="8a35e344-7582-11e8-81f2-80dafa1d3a04">Goiás</option>
@@ -57,46 +56,43 @@ APP.component.StockStores = ClassAvanti.extend({
   bindOpenStock() {
     const _self = this
 
-    const { $buttonStock } = this.options
     let currentRefId = APP.i.currentController.RefId;
-    let retStocks;
     
     $('#boxPriceStock').on('click', `#btn-stock-modal`, event => {
-      event.preventDefault();
 
+      // console.log(currentRefId, APP.i.currentController.RefId)
+
+      const target = $('.av-modal__stock')
       const $buttonSelect = $(".skuList.item-dimension-Tamanho button")
-      
+
       if ($("ul.Tamanho:visible").length > 0 && $("ul.Tamanho li span.tamanho-unico").length === 0 && ($buttonSelect.prop("title") === "Nothing selected" || $buttonSelect.prop("title") === "Selecione o tamanho")) {
         $(".item-dimension-Tamanho").addClass("sku-unchecked")
-        
+
         return false
         
       } else {
-        $buttonStock.attr('button--disabled');
-        $buttonStock.addClass('button--disabled');
-        $('.product-content-stock').append(`<span class="load-stores">Buscando lojas...</span>`);
-                
-        if ($("ul.Tamanho li span.tamanho-unico").length > 0) {
-          currentRefId = APP.i.currentController.RefId;
 
-          retStocks = _self.getStocks(APP.i.currentController.RefId)
-          
+        if ($("ul.Tamanho li span.tamanho-unico").length > 0) {
+          currentRefId = APP.i.currentController.RefId
+          _self.getStocks(APP.i.currentController.RefId)
+
         } else {
-          
-          if (currentRefId !== APP.i.currentController.RefId || _self.stocksData.length === 0){
-            currentRefId = APP.i.currentController.RefId;
-            
-            if ($('.av-modal__stock').length > 0) {
+
+          if (currentRefId !== APP.i.currentController.RefId){
+            currentRefId = APP.i.currentController.RefId
+    
+            if (target.length > 0) {
               _self.changeCode(APP.i.currentController.RefId)
             } else {
-              retStocks = _self.getStocks(APP.i.currentController.RefId)
+              _self.getStocks(APP.i.currentController.RefId)
             }
           }
         }
       }
 
       if(_self.stocksData.length > 0){
-        _self.showModalMsg()
+        APP.i.Modal = new APP.component.Modal(target)
+        APP.i.Modal.openModal(target)
       }
     })
   },
@@ -139,23 +135,11 @@ APP.component.StockStores = ClassAvanti.extend({
     return stores
   },
 
-  showModalMsg(){
-    const { $buttonStock } = this.options
-
-    APP.i.Modal = new APP.component.Modal($('.av-modal__stock'))
-    APP.i.Modal.openModal($('.av-modal__stock'))
-
-    setTimeout(function(){
-      $('.product-content-stock .load-stores').remove()
-      $buttonStock.removeClass('button--disabled');
-      $buttonStock.removeAttr('disabled');
-    }, 300)
-  },
-
   getStocks (refId) {
-    console.log('getStocks PROD >> ', refId);
-
+    console.log('getStocks PROD >> ', refId)
+    
     const _self = this
+    
     let stockStores = []
     
     const query = JSON.stringify({
@@ -174,17 +158,19 @@ APP.component.StockStores = ClassAvanti.extend({
       type: 'post',
       data: query,
       dataType: 'json',
-      async: true,
+      async: false,
     })
     .then(res => {
+      // console.log(res.data.stockStores)
       stockStores = res.data.stockStores
       _self.stocksData = stockStores
 
       if(_self.stocksData.length > 0 ){
-        $('.stock-content a').removeClass('block')
-        _self.showModalMsg();
+        setTimeout(function(){
+          $('.stock-content a').removeClass('block')
+          $('.product-content-stock .load-stores').remove()
+        },100)
       }
-
     }, error => {
       $('.product-content-stock .load-stores').html(`Não foi possível encontrar estoque das lojas físicas`)
       console.log('error in get stock', error)
@@ -274,11 +260,10 @@ APP.component.StockStores = ClassAvanti.extend({
   },
 
   changeCode (refId){
-    this.stocksData = this.getStocks(refId)
-
-    if(this.stocksData.length > 0){
-      this.showModalMsg()
+    if($('.product-content-stock .load-stores').length < 1) {
+      $('.product-content-stock').append(`<span class="load-stores">Buscando lojas...</span>`)
     }
+    this.stocksData = this.getStocks(refId)
 
     $('#states-navigation').selectpicker('val', '');
 

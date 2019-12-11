@@ -21,7 +21,7 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
         valid: 'Número de telefone verificado',
         invalid: 'Número de telefone ainda não verificado'
       }
-    }, options)
+    }, options);
   },
 
   start () {
@@ -30,19 +30,20 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
       email_valid
     } = this.options
 
-    this._fillContactForm()
+    this._fillContactForm();
+    
     this.changeValidationContactFieldMessage(mobile_valid, email_valid)
   },
 
   _fillContactForm () {
     const {
       $mobileInput,
-      $emailInput,
+      $emailInput
     } = this.options
 
     const {
       email,
-      mobile,
+      mobile
     } = this.options.contact
 
     $emailInput.val(email)
@@ -88,28 +89,32 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
   },
 
   changeValidationContactFieldMessage (mobileIsValid, emailIsValid) {
+
     const $mobileValidationContainer = $('[name="contact[mobile]"] + small')
     const $emailValidationContainer = $('[name="contact[email]"] + small')
-
-    $mobileValidationContainer.removeClass('valid')
-    $mobileValidationContainer.removeClass('invalid')
-
-    $emailValidationContainer.removeClass('valid')
-    $emailValidationContainer.removeClass('invalid')
+    /* const $cpfValidationContainer = $('[name="contact[cpf]"] + small') */
 
     if (!mobileIsValid) {
-      $mobileValidationContainer.addClass('invalid')
+      $mobileValidationContainer.removeClass('valid').addClass('invalid')
       $mobileValidationContainer.html(this.options.mobileValidationText.invalid)
     } else {
-      $mobileValidationContainer.addClass('valid')
+      $mobileValidationContainer.removeClass('invalid').addClass('valid')
       $mobileValidationContainer.html(this.options.mobileValidationText.valid)
     }
 
+    /* if (!cpfIsValid) {
+      $cpfValidationContainer.removeClass('valid').addClass('invalid')
+      $cpfValidationContainer.html(this.options.cpfValidationText.invalid)
+    } else {
+      $cpfValidationContainer.removeClass('invalid').addClass('valid')
+      $cpfValidationContainer.html(this.options.cpfValidationText.valid)
+    } */
+
     if (!emailIsValid) {
-      $emailValidationContainer.addClass('invalid')
+      $emailValidationContainer.removeClass('valid').addClass('invalid')
       $emailValidationContainer.html(this.options.emailValidationText.invalid)
     } else {
-      $emailValidationContainer.addClass('valid')
+      $emailValidationContainer.removeClass('invalid').addClass('valid')
       $emailValidationContainer.html(this.options.emailValidationText.valid)
     }
   },
@@ -128,7 +133,7 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
       $mobileInput
     } = this.options
 
-    $mobileInput.mask('(00) 0 0000-0000')
+    $mobileInput.mask('(00) 0 0000-0000'); 
   },
 
   /**
@@ -154,7 +159,7 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
         console.log('saveContact Form Response:', response)
 
         if (response.data && response.data.updateUserContact == "success") {
-          APP.i.flash_msg = new APP.component.FlashMsg()
+          APP.i.flash_msg = new APP.component.FlashMsg()        
           APP.i.flash_msg.showMsg('Suas alterações foram salvas', 'success')
           
           APP.i.currentController.disableInputsForm($(event.currentTarget))
@@ -185,7 +190,7 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
 
     $loading.fadeIn(200)
 
-    $.post(endpoint, query).then(response => {
+    $.post("https://decathlonmyaccount--decathlonstore.myvtex.com/_v/graphql/private/v1", query).then(response => {
       $loading.fadeOut(100)
 
       if (typeof next !== 'function') {
@@ -197,5 +202,17 @@ APP.component.MyAccountProfileContact = ClassAvanti.extend({
     .fail(error => {
       throw new Error(error)
     })
+    // $.post(endpoint, query).then(response => {
+    //   $loading.fadeOut(100)
+
+    //   if (typeof next !== 'function') {
+    //     return false
+    //   }
+
+    //   next(response)
+    // })
+    // .fail(error => {
+    //   throw new Error(error)
+    // })
   }
 })

@@ -128,7 +128,6 @@ APP.component.GetMasterDataRegister = ClassAvanti.extend({
       e.preventDefault()
       const _this = $(e.currentTarget)
       const target = $(`.${_this.attr('data-target')}`)
-      console.log('>>>>>>>>>>>>>>>>>>>')
       APP.i.Modal.openModal(target)
     })
   },
