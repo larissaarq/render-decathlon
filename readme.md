@@ -5,7 +5,7 @@ Render Decathlon Store
 ## Install NodeJS, NPM and Webpack
 
 - [Node.js](https://nodejs.org/)
-- [NPM](https://www.npmjs.com/)
+- [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 - [Webpack](https://webpack.js.org/)
 
 ```sh
@@ -15,11 +15,11 @@ $ git clone https://github.com/brenosena/render-decathlon
 
 # Install node modules
 cd render-decathlon
-npm install
+npm install or yarn install
 
 # Run in development mode
-npm start
+npm start or yarn start
 
 # Generate build files
-npm run build
+npm run build or yarn build
 ```
