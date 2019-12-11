@@ -1,10 +1,39 @@
 const path = require('path')
+const fs = require('fs')
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
-const vendorPath = path.resolve(__dirname, 'src/vendor');
+
+const vendorPath = path.resolve(__dirname, 'src/vendor')
+
+const componentsRootPath = path.join(__dirname, 'src/js/components')
+const controllersRootPath = path.join(__dirname, 'src/js/controllers')
+
+let filesToConcat = []
+
+/**
+ * 
+ * @param {string} rootPath path of files
+ * @returns {array} array os path files
+ */
+
+const getPaths = (rootPath) => {
+  const paths = []
+
+  fs.readdirSync(rootPath).map(file => {
+    const filePath = path.join(rootPath, file)
+    paths.push(filePath)
+  })
+
+  return paths
+}
+
+filesToConcat = [
+  ...getPaths(componentsRootPath),
+  ...getPaths(controllersRootPath)
+]
 
 module.exports = {
   watchOptions: {
@@ -13,7 +42,7 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    main: path.join(__dirname, 'src/js', 'main'),
+    application: filesToConcat,
     components: path.join(__dirname, 'src/react', 'index')
   },
   module: {
@@ -64,7 +93,7 @@ module.exports = {
     new WebpackCleanupPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'arquivos/_0-dcs-web-[name].css',
+      filename: 'arquivos/0-dcs-web-[name]-style.css',
       ignoreOrder: true
     }),
     new CopyPlugin([{
@@ -84,7 +113,7 @@ module.exports = {
     ]),
     new MergeIntoSingleFilePlugin({
       files: {
-        'arquivos/_0-web-vendors.js': [
+        'arquivos/0-dcs-web-vendors-script.js': [
           `${vendorPath}/jquery/dist/jquery.min.js`,
           `${vendorPath}/bootstrap/dist/js/bootstrap.min.js`,
           `${vendorPath}/avanti-class/src/avanti-class.js`,
@@ -98,11 +127,10 @@ module.exports = {
           `${vendorPath}/slick-carousel/slick/slick.min.js`,
           `${vendorPath}/pointer_events_polyfill/pointer_events_polyfill.js`,
           `${vendorPath}/percircle/dist/percircle.js`,
-        ],
-        // "arquivos/_0-web-vendors.css": ['']
+        ]
       },
       transform: {
-        'arquivos/_0-web-vendors.js': code => require("uglify-js").minify(code).code
+        'arquivos/0-dcs-web-vendors-script.js': code => require("uglify-js").minify(code).code
       }
     })
   ]
