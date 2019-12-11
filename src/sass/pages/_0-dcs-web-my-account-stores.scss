@@ -1,0 +1,102 @@
+.my-account {
+  .my-account-page.my-account-page--preferences-store {
+    .my-current-store {
+      &-content {
+        text-align: center;
+
+        h2 {
+          font-style: italic;
+          text-transform: uppercase;
+        }
+
+        .store-address {
+          max-width: 170px;
+          margin: 2em auto;
+        }
+      }
+
+      a {
+        margin: 2em auto;
+        display: block;
+        max-width: 250px;
+        padding: .5em;
+        font-weight: $primaryFontRegular;
+
+        &:after {
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          margin-top: -4px;
+        }
+      }
+    }
+  }
+
+  .my-account-page--stores-list-container {
+    background: $white;
+
+    h3 {
+      padding: 1em;
+      text-transform: uppercase;
+    }
+
+    li.store-item {
+      display: inline-block;
+      width: 100%;
+      overflow: initial;
+      padding: 20px;
+      margin-bottom: 0;
+
+      label {
+          opacity: 1 !important;
+      }
+    }
+
+    input {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      border: 1px solid $lochmara;
+      margin-right: 15px;
+      position: relative;
+      vertical-align: middle;
+      float: right;
+      max-width: 25px;
+
+      &:before {
+        display: block;
+        content: '';
+        width: 25px;
+        height: 25px;
+        border: 2px solid $lochmara;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 100%;
+        @include transform(translate(-50%, -50%));
+        background-color: $white;
+      }
+
+      &:focus {
+        &:before {
+          border: 2px solid darken($lochmara, 20);
+        }
+      }
+
+      &:checked {
+        &:after {
+          display: block;
+          content: '';
+          width: 18px;
+          height: 18px;
+          background-color: $lochmara;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          border-radius: 100%;
+          @include transform(translate(-50%, -50%));
+        }
+      }
+    }
+  }
+}

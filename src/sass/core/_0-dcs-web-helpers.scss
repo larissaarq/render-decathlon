@@ -1,0 +1,294 @@
+.av-col-static {
+  position: static;
+}
+
+.loading-white,
+.loading-black {
+  $loadingGif: 'inline/loading.gif';
+
+  background-image: inline-image($loadingGif);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &--small {
+    background-size: 14%;
+  }
+
+  &--medium {
+    background-size: 30%;
+  }
+}
+
+/**
+ * SVG Check icon
+ */
+.icon-check {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzRweCIgaGVpZ2h0PSIyNXB4IiB2aWV3Qm94PSIwIDAgMzQgMjUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8cGF0aCBkPSJNMjUuMDk5NDMxOCwzNy4yODUyMDkyIEw0My4yODc0OTEsMTkuMDk3MTUwMSBDNDQuMDY4NTM5NiwxOC4zMTYxMDE1IDQ1LjMzNDg2OTUsMTguMzE2MTAxNSA0Ni4xMTU5MTgxLDE5LjA5NzE1MDEgQzQ2Ljg5Njk2NjcsMTkuODc4MTk4NyA0Ni44OTY5NjY3LDIxLjE0NDUyODYgNDYuMTE1OTE4MSwyMS45MjU1NzcyIEwyNi41MTM2NDU0LDQxLjUyNzg0OTkgQzI2LjEyMzEyMTEsNDEuOTE4Mzc0MiAyNS42MTEyNzY1LDQyLjExMzYzNjQgMjUuMDk5NDMxOCw0Mi4xMTM2MzY0IEMyNC41ODc1ODcyLDQyLjExMzYzNjQgMjQuMDc1NzQyNSw0MS45MTgzNzQyIDIzLjY4NTIxODMsNDEuNTI3ODQ5OSBMMTMuODg0MDgxOSwzMS43MjY3MTM2IEMxMy4xMDMwMzMzLDMwLjk0NTY2NSAxMy4xMDMwMzMzLDI5LjY3OTMzNSAxMy44ODQwODE5LDI4Ljg5ODI4NjQgQzE0LjY2NTEzMDUsMjguMTE3MjM3OSAxNS45MzE0NjA0LDI4LjExNzIzNzkgMTYuNzEyNTA5LDI4Ljg5ODI4NjQgTDI1LjA5OTQzMTgsMzcuMjg1MjA5MiBaIiBpZD0icGF0aC0xIj48L3BhdGg+ICAgIDwvZGVmcz4gICAgPGcgaWQ9IlN5bWJvbHMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9IklDT05TL0Zvcm1zL2NoZWNrYm94LWNoZWNrZWQtYmx1ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzLjAwMDAwMCwgLTE4LjAwMDAwMCkiPiAgICAgICAgICAgIDxnIGlkPSJUSU5UUy9ibHVlLWljb24tdGludCI+ICAgICAgICAgICAgICAgIDxtYXNrIGlkPSJtYXNrLTIiIGZpbGw9IndoaXRlIj4gICAgICAgICAgICAgICAgICAgIDx1c2UgeGxpbms6aHJlZj0iI3BhdGgtMSI+PC91c2U+ICAgICAgICAgICAgICAgIDwvbWFzaz4gICAgICAgICAgICAgICAgPHVzZSBpZD0iTWFzayIgZmlsbD0iIzAwODJDMyIgZmlsbC1ydWxlPSJub256ZXJvIiB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4gICAgICAgICAgICA8L2c+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/**
+ * SVG Heart icon
+ */
+.icon-heart {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTJweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNTIgNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICA8ZGVmcz4gICAgPHBhdGggZD0iTTQ2LjY3NzE1MjIsNC42ODQ3NTQxIEM1Mi45MzI3NjIxLDEwLjk0MDM2NDEgNTIuOTMyNzYyMSwyMS4xNjQ1ODg4IDQ2LjY3NzE1MjIsMjcuNDIwMTk4OCBMMjcuMDk4MjA0OCw0Ni45OTkxNDYxIEMyNi4yMDgwMzEsNDcuODg5MzE5OSAyNC44NzE0MTM3LDQ3LjcwNTEyNzQgMjQuMTYzNTU4MSw0Ni44OTE5MzMyIEw0LjY5MTcwNzQ5LDI3LjQyMDE5ODggQy0xLjU2MzkwMjUsMjEuMTY0NTg4OCAtMS41NjM5MDI1LDEwLjk0MDM2NDEgNC42OTE3MDc0OSw0LjY4NDc1NDEgQzEwLjM4NDI1MzIsLTEuMDA3NzkxNTggMTkuMzg1NTA3LC0xLjUyMjI4ODk3IDI1LjY4NDc4MjQsMy4xOTQ4OTAyMSBDMzEuOTgzMzY2NCwtMS41MjIzMDQwNCA0MC45ODQ2MjQ3LC0xLjAwNzc3MzM3IDQ2LjY3NzE1MjIsNC42ODQ3NTQxIFogTTQzLjg0ODcyNSwyNC41OTE3NzE2IEM0OC41NDIyMzc5LDE5Ljg5ODI1ODggNDguNTQyMjM3OSwxMi4yMDY2OTQgNDMuODQ4NzI1LDcuNTEzMTgxMjMgQzM5LjI1OTM2NzgsMi45MjM4MjM5NSAzMS43ODA3MDE1LDIuODIxNzg5NDQgMjcuMDUzOTQ5Nyw3LjI2MDQyNTg1IEMyNi4yODQzNDcxLDcuOTgzMTE3OTMgMjUuMDg1NTYzNCw3Ljk4MzE2NTY2IDI0LjMxNTkwMzIsNy4yNjA1MzQ4NSBDMTkuNTg4MjYxNywyLjgyMTc3MTE3IDEyLjEwOTUxMjIsMi45MjM4MDM2NiA3LjUyMDEzNDYyLDcuNTEzMTgxMjMgQzIuODI2NjIxNzksMTIuMjA2Njk0IDIuODI2NjIxNzksMTkuODk4MjU4OCA3LjUyMDEzNDYyLDI0LjU5MTc3MTYgTDI1LjY4NDQyMTMsNDIuNzU2MDc1MyBMNDMuODQ4NzI1LDI0LjU5MTc3MTYgWiIgaWQ9InBhdGgtMSI+PC9wYXRoPiAgPC9kZWZzPiAgPGcgaWQ9IlN5bWJvbHMiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICA8bWFzayBpZD0ibWFzay0yIiBmaWxsPSJ3aGl0ZSI+ICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4gICAgPC9tYXNrPiAgICA8dXNlIGlkPSJNYXNrIiBmaWxsPSIjMDA4MkMzIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHhsaW5rOmhyZWY9IiNwYXRoLTEiPjwvdXNlPiAgPC9nPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/**
+ * SVG Heart Active icon
+ */
+.icon-heart--active {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTJweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNTIgNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICA8ZGVmcz4gICAgPHBhdGggZD0iTTQ2LjY3NzE1MjIsNC42ODQ3NTQxIEM1Mi45MzI3NjIxLDEwLjk0MDM2NDEgNTIuOTMyNzYyMSwyMS4xNjQ1ODg4IDQ2LjY3NzE1MjIsMjcuNDIwMTk4OCBMMjcuMDk4MjA0OCw0Ni45OTkxNDYxIEMyNi4yMDgwMzEsNDcuODg5MzE5OSAyNC44NzE0MTM3LDQ3LjcwNTEyNzQgMjQuMTYzNTU4MSw0Ni44OTE5MzMyIEw0LjY5MTcwNzQ5LDI3LjQyMDE5ODggQy0xLjU2MzkwMjUsMjEuMTY0NTg4OCAtMS41NjM5MDI1LDEwLjk0MDM2NDEgNC42OTE3MDc0OSw0LjY4NDc1NDEgQzEwLjM4NDI1MzIsLTEuMDA3NzkxNTggMTkuMzg1NTA3LC0xLjUyMjI4ODk3IDI1LjY4NDc4MjQsMy4xOTQ4OTAyMSBDMzEuOTgzMzY2NCwtMS41MjIzMDQwNCA0MC45ODQ2MjQ3LC0xLjAwNzc3MzM3IDQ2LjY3NzE1MjIsNC42ODQ3NTQxIFoiIGlkPSJwYXRoLTEiPjwvcGF0aD4gIDwvZGVmcz4gIDxnIGlkPSJTeW1ib2xzIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4gICAgPG1hc2sgaWQ9Im1hc2stMiIgZmlsbD0id2hpdGUiPiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI3BhdGgtMSI+PC91c2U+ICAgIDwvbWFzaz4gICAgPHVzZSBpZD0iTWFzayIgZmlsbD0iIzAwODJDMyIgZmlsbC1ydWxlPSJub256ZXJvIiB4bGluazpocmVmPSIjcGF0aC0xIj48L3VzZT4gIDwvZz48L3N2Zz4=);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.my-account-page__checkbox {
+  $switchWidth: 50px;
+  $switchHeight: 30px;
+  $switchPadding: 4px;
+
+  input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  label {
+    @include translateY(-50%);
+
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, .1);
+    text-indent: -9999px;
+    width: $switchWidth;
+    height: $switchHeight;
+    background-color: $white;
+    display: block;
+    border-radius: 100px;
+    position: absolute;
+    opacity: 1 !important;
+    top: 50%;
+  }
+
+  label:after {
+    @include box-shadow(0 3px 1px 0 rgba(0, 0, 0, .05), 0 2px 2px 0 rgba(0, 0, 0, .1), 0 3px 3px 0 rgba(0, 0, 0, .05));
+    @include transition(all 300ms);
+    @include border-radius(100%);
+
+    border: 1px solid rgba(0, 0, 0, .1);
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 26px;
+    height: 26px;
+    background-color: $white;
+  }
+
+  input:checked+label {
+    border-color: transparent;
+    background: $emerald;
+  }
+
+  input:checked[disabled="disabled"]+label {
+    background: $emerald;
+  }
+
+  input[disabled="disabled"]+label {
+    opacity: .5 !important;
+  }
+
+  input:checked+label:after {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+
+  label:active:after {
+    width: ($switchWidth / 2) + ($switchPadding / 2);
+  }
+}
+
+
+.form-content {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    border: 1px solid $borderColor;
+    padding: 10px;
+    font-size: 13px;
+    width: 100%;
+    display: block;
+
+    &:hover {
+      border: 1px solid #d4d7d9;
+      box-shadow: 1px 1px 1px rgba(50, 50, 51, .2);
+      @include transition(border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out);
+    }
+
+    &:focus {
+      border-color: $lochmara;
+    }
+
+    &:disabled {
+      cursor: no-drop;
+      color: #AAA;
+    }
+
+    &.error {
+      border-color: $redRibbon;
+    }
+
+    &.input-text-email {
+      width: 100%;
+      display: inline-block;
+    }
+  }
+
+  input[aria-invalid="true"] {
+    border-color: $redRibbon;
+  }
+
+  label {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 7px;
+
+    &.error {
+      background-color: $redRibbon;
+      color: $white;
+      padding: 4px 7px;
+      text-transform: initial;
+      margin-top: 8px;
+      position: relative;
+      bottom: auto;
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 600;
+      // display: none;
+      width: 100%;
+      visibility: hidden;
+
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 3px;
+        display: block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-top: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px dashed;
+        border-bottom: 4px solid\9;
+        border-left: 4px solid transparent;
+        color: $redRibbon;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    &.open {
+      .inner {
+        // overflow: hidden !important;
+      }
+    }
+  }
+
+  .dropdown-toggle {
+    border: 1px solid $borderColor;
+    padding: 10px 0 10px 15px;
+  }
+
+  .bootstrap-select {
+    &.open {
+      .dropdown-menu {
+        height: 200px;
+        overflow-y: auto;
+
+
+        /* width */
+        &::-webkit-scrollbar {
+          width: 5px;
+          right: 10px;
+          height: 25px;
+          padding: 5px;
+          pointer-events: none;
+          // display: none;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+          box-shadow: none;
+          background-color: $alabaster;
+          border: 1px solid $alto;
+          width: 5px;
+          position: absolute;
+          right: 20px;
+          pointer-events: none;  
+          // display: none;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background: rgba($silver, 0.5);
+          border-radius: 5px;
+          width: 3px;
+          height: 25px;
+          pointer-events: none;  
+          // display: none;
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background: $silver;
+          // display: none;
+        }
+      }
+    }
+  }
+
+  .bs-caret {
+    right: 20px;
+
+    &:before {
+      right: 5px;
+      border-left: 1px solid $borderColor;
+    }
+
+    &:after {
+      width: 8px;
+      height: 8px;
+      left: 7px;
+    }
+  }
+
+  .input-text-large {
+    width: 100%;
+    margin-bottom: 10px
+  }
+
+  .line-error {
+    label.error {
+      visibility: visible;
+      // display: block;
+    }
+
+    .dropdown-toggle {
+      border-color: $redRibbon;
+    }
+  }
+}
+
+
+.text-alert {
+  color: $red2;  
+}

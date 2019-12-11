@@ -1,0 +1,52 @@
+.lp-quechua #TPX {
+  @media (max-width: 767px) {
+
+    .section__ventilation .section__wrapper.section__respirabilite .respirabilite .text-cartouche {
+      padding: 0;
+      float: left;
+      background-image: none;
+      padding: 0;
+
+      .respirabilite--image {
+        width: 35%;
+        float: left;
+      }
+
+      .respirabilite--text {
+        width: 65%;
+        float: left;
+        padding: 10px;
+      }
+    }
+
+    .composant-img {
+      width: 55%;
+      float: right;
+    }
+
+    .section__temoignage {
+      .temoignage-image--custom {
+        width: 35%;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .text-cartouche.text-temoignage {
+        margin: -15px 35px 0 35px;
+        padding: 10px 20px 20px 20px;
+
+        &:before {
+          left: 10px;
+          top: 20px;
+          font-size: 45px !important;
+        }
+
+        &:after {
+          font-size: 45px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+body.my-account {
+  .my-account-page.my-account-page--preferences-sports {
+    .my-account-page-list {
+      @media (min-width: $screen-md-min) {
+        max-width: 100%;
+      }
+    }
+
+    .sports-list--item {
+      @media (min-width: $screen-md-min) {
+        width: 33.333%
+      }
+    }
+  }
+}

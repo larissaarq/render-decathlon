@@ -1,0 +1,486 @@
+.orders {
+  background-color: #FAFAFA;
+  padding: 0 !important;
+
+  #orders-content {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+
+  .my-account-title,
+  #orders-content {
+    @media (max-width: $screen-sm-max) {
+      margin-left: -10px;
+      margin-right: -10px;
+      width: auto;
+    }
+  }
+
+  .main {
+    margin-bottom: 100px;
+
+    @media (min-width: $screen-md-min) {
+      padding-top: 25px;
+      padding-top: 45px;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-top: 48px;
+    }
+  }
+
+  .mid-gray {
+    color: $mineShaftDarker;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .page-header {
+    display: none;
+  }
+
+  .my-account-menu {
+    @media (max-width: $screen-sm-max) {
+      display: none;
+    }
+  }
+
+  .cf.helvetica {
+    background-color: $white;
+    padding: 20px;
+  }
+  .render-route-my-account-portal{
+    .vtex-account{
+      & > div{
+        padding: 0;
+      }
+      .vtex-account__menu{
+        display: none!important;
+      }
+      .vtex-account__page {
+        width: 100%;
+        header {
+          display: none;
+        }
+        &-body{
+          padding: 0;
+          & > div {
+            & > div.justify-center {
+              background-color: #fff;
+            }
+          }
+          .myo-order-card{
+            & > div {
+              &.myo-order-header{
+                padding: 1rem 2rem;
+                & > div:nth-of-type(2){
+                  .mt2{
+                    margin-top: 0;
+                  }
+                }
+                & > div:nth-of-type(3){
+                  & > div:nth-of-type(3){
+                    .pv2 {
+                      padding-top: .25rem;
+                      padding-bottom: .25rem;
+                    }
+                    .ph3 {
+                      padding-left: .5rem;
+                      padding-right: .5rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .vtex-account__order-details{
+        background-color: #fff;
+        &> div {
+          display: table;
+          padding: 10px 20px 0;
+          .link {
+            color: #337ab7;
+          }
+        }
+      }
+    }
+  }
+}
+
+#orders-content {
+  @media (max-width: $screen-sm-max) {
+    margin-top: 20px;
+  }
+}
+
+.myo-order-card {
+  margin: 0;
+  margin-bottom: 10px;
+  border-radius: 0;
+  border: none;
+
+  .bg-white {
+    > .fr {
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+      align-content: stretch;
+      -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+    }
+  }
+}
+
+.myo-order-header {
+  border-color: #e9e9e9;
+  background-color: $white;
+
+  .w-third-m {
+    > div:nth-child(2) {
+      font-weight: $primaryFontBold;
+    }
+
+    &.mt2 {
+      margin-top: 20px;
+    }
+  }
+}
+  .bg-light-yellow {
+    background-color: transparent;
+    color: $lochmara;
+    font-style: italic;
+    font-size: 14px;
+    padding: 0;
+  }
+
+.myo-order-product {
+  padding-right: 20px;
+}
+  .link {
+    color: $lochmara;
+    font-size: 14px;
+  }
+
+.myo-orders-listing {
+  .myo-invoice-btn {
+    &:before {
+      @extend .sprite-icon-orders__boleto;
+
+      content: '';
+    }
+
+    svg {
+      display: none;
+    }
+  }
+}
+
+.myo-invoice-btn,
+.myo-cancel-btn,
+.myo-details-btn {
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+  margin-top: 16px !important;
+}
+
+.myo-invoice-btn {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  margin-bottom: 0;
+  width: 100%;
+
+  &:hover {
+    color: $mineShaftDarker;
+  }
+
+  .no-underline {
+    color: $mineShaftDarker;
+  }
+}
+
+.myo-cancel-btn {
+  margin: 0;
+  width: 100%;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+
+  svg {
+    display: none;
+  }
+
+  > span {
+    margin: 0;
+
+    > span {
+      @extend .button;
+      @extend .button--small;
+      @extend .button--gray;
+
+      padding-right: 8px;
+      padding-left: 14px;
+
+      &:after {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.myo-details-btn {
+  background-color: transparent;
+  border: none;
+  color: $mineShaftDarker;
+  padding: 0;
+  margin-top: 0;
+  text-align: left;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  
+  &:hover, &:active, &:focus{
+    color: $mineShaftDarker;
+  }
+
+  > span {
+    padding: 0;
+
+    &:before {
+      content: "\E076";
+      font-family: DecathlonIconfont;
+      speak: none;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      letter-spacing: 0;
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: subpixel-antialiased;
+      -webkit-text-size-adjust: none;
+      -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      text-size-adjust: none;
+      zoom: 1;
+      font-size: 22px;
+      color: #0082C3;
+      vertical-align: bottom;
+    }
+
+    > span {
+      margin-left: .5rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.myo-order-card {
+  overflow: hidden;
+  padding: 20px;
+
+  @media (min-width: $screen-md-min) {
+    background-color: $white;
+  }
+
+  .pr0 {
+    > ul {
+      > li:nth-child(2) {
+        > a {
+          display: inline-block;
+
+          &:hover {
+            > span {
+              text-decoration: underline;
+            }
+          }
+
+          &:before {
+            @extend .sprite-icon-orders__cancel;
+
+            content: '';
+            vertical-align: middle;
+          }
+
+          > span {
+            display: inline-block;
+            color: $mineShaftDarker;
+            vertical-align: middle;
+            margin-left: 10px !important;
+          }
+        }
+      }
+    }
+  }
+
+  .pt1 {
+    .link {
+      display: none;
+    }
+  }
+
+  h2 {
+    font-weight: $primaryFontRegular;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  time {
+    > span {
+      font-weight: $primaryFontBold;
+    }
+
+    > div {
+      display: block;
+      margin: 10px 0;
+
+      @media (min-width: $screen-md-min) {
+        text-align: left;
+      }
+    }
+  }
+
+  .myo-reorder-btn {
+    display: block;
+    width: 100%;
+    &:hover {
+      > span {
+        text-decoration: underline;
+      }
+    }
+
+    &:before {
+      content: "\E064";
+      font-family: DecathlonIconfont;
+      speak: none;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      letter-spacing: 0;
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: subpixel-antialiased;
+      -webkit-text-size-adjust: none;
+      -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      text-size-adjust: none;
+      zoom: 1;
+      font-size: 22px;
+      color: #0082C3;
+      vertical-align: bottom;
+    }
+
+    svg {
+      display: none;
+    }
+
+    > span {
+      color: $mineShaftDarker;
+      vertical-align: middle;
+      margin-left: 5px !important;
+      font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
+
+  .overflow-y-scroll {
+    @include border-radius(0);
+
+    border: none;
+    margin-bottom: 40px;
+    overflow-y: hidden;
+    height: auto;
+  }
+
+  .myo-progress-bar {
+    @include border-radius(0);
+
+    background-color: $white;
+    border: none;
+  }
+
+  .myo-product-name {
+    font-weight: $primaryFontRegular;
+  }
+}
+@media (max-width: 991px){
+  .orders .main {
+    margin-top: 100px;
+  }
+}
+.orders{
+  .myo-order-card{
+    .button-rate{
+      margin-top: 30px;
+    }
+  }
+}
+
+.mid-gray {
+  position: relative;
+
+
+  .button-rate {
+    border: 1px solid #337ab7;
+    padding: 8px 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    display: none;
+
+    &:nth-child(4) {
+      display: block;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      position: unset;
+      margin-top: 22px;
+      width: 160px;
+    }
+  }
+}
+
+.vtex-account__cancel-order {
+  & > div {
+    & > section {
+      background: $white;
+      margin-top: 16px;
+      padding: 0 30px;
+    }
+  }
+}
+
+.myo-exchange-btn {
+  i {
+    vertical-align: bottom;
+    font-size: 23px;
+    margin: 0 3px 0 0;
+  }
+  color: $mineShaftDarker;
+  margin: 15px 0 0 0;
+  display: block;
+  &:hover, &:active, &:focus{
+    color: $mineShaftDarker;
+  }
+}
