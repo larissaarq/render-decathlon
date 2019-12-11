@@ -1,0 +1,55 @@
+.bread-crumb {
+  > ul {
+    @include resetList();
+
+    margin: 10px;
+
+    li {
+      position: relative;
+      margin-left: 17px;
+      display: inline-block;
+      vertical-align: middle;
+
+      a {
+        font-size: 14px;
+        color: $lochmara;
+        text-transform: uppercase;
+      }
+
+      &:not(:last-child) {
+        padding-right: 31px;
+
+        &:after {
+          @include arrow('right', 10px, $lochmara);
+          left: calc(100% - 8px);
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+
+        a {
+          font-size: 0;
+
+          &:after {
+            content: 'Inicio';
+            font-size: 14px;
+            color: $lochmara;
+            text-transform: uppercase;
+          }
+        }
+
+        i.bread-crumb-icon--home {
+          @include decathlonIcon('\E06D', $lochmara, 42px);
+
+          margin-right: 15px;
+          vertical-align: middle;
+        }
+      }
+
+      &.last {
+        a { font-size: 20px; }
+      }
+    }
+  }
+}

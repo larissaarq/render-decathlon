@@ -1,0 +1,124 @@
+.dkplay {
+
+  .content-center {
+    // float: left;
+    position: relative;
+    width: 100%;
+    min-height: 120vh;
+    background: url(/arquivos/bg-dkt-play.png) center no-repeat;
+    background-size: cover;
+
+    @media (min-width: $screen-md-min) {
+        min-height: 100vh;
+    
+    }
+
+    .logo-dkplay {
+      text-align: center;
+      margin: 50px 0 30px;
+
+      @media (min-width: $screen-md-min) {
+        margin: 80px auto 60px;
+      }
+
+      img {
+        max-width: 200px;
+       
+        @media (min-width: $screen-md-min) {
+          max-width: 300px;
+        }
+      }
+    }
+
+    .col {
+      &--image {
+        position: relative;
+
+        img {
+          @media (max-width: $screen-sm-max) {
+            position: relative;
+            max-height: 60vh;
+            transform: translateX(-50%);
+            left: 45%;
+            margin: -60px auto 0;
+          }
+
+          @media (min-width: $screen-md-min) {
+            max-height: 90vh;
+            position: absolute;
+            top: 50%;
+            margin-top: -120px;
+            right: 0;
+          }
+        }
+      }
+
+      &--text {
+        @media (max-width: $screen-sm-max) {
+          margin-top: -70px;
+        }
+      }
+    }
+
+    .content-infos {
+      @media (max-width: $screen-sm-max) {
+        text-align: center;
+      }
+
+      &--title {
+        text-transform: uppercase;
+        font-style: italic;
+        color: $white;
+        font-size: 18px;
+        line-height: 22px;
+
+        @media (min-width: $screen-md-min) {
+          font-size: 33px;
+          line-height: 32px;
+        }
+      }
+
+      &--subtitle {
+        color: $white;
+        font-weight: 100;
+        font-size: 14px;
+
+        @media (min-width: $screen-md-min) {
+          font-size: 18px;
+        }
+      }
+
+      &--list {
+        list-style: none;
+        text-transform: uppercase;
+        font-style: italic;
+        padding: 0 15px;
+        color: $white;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: -0.04em;
+
+        @media (min-width: $screen-md-min) {
+          font-size: 18px;
+        }
+      }
+
+      &--buttons {
+        margin-top: 50px;
+
+        .btn-image {
+          display: inline-block;
+          margin: 0 10px;
+
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-barra-beneficios {
+    margin: 0;
+  }
+}

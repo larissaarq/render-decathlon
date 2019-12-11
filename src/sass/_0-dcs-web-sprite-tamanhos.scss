@@ -1,0 +1,10 @@
+@import "compass/utilities/sprites";
+
+$sprite-tamanhos-spacing: 10px;
+$sprite-tamanhos-sprite-base-class: ".sprite-tamanhos";
+$sprite-tamanhos-sprite-dimensions: true;
+$sprite-tamanhos-layout: smart;
+
+@import "../images/sprite-tamanhos/*.png";
+
+@include all-sprite-tamanhos-sprites;

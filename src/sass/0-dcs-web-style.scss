@@ -1,0 +1,100 @@
+// @charset "UTF-8";
+@import 'compass';
+
+/**
+ * Variables
+ */
+@import '0-dcs-web-variables';
+@import '0-dcs-web-mixins';
+
+/**
+ * Vendor
+ */
+@import '0-dcs-web-vendor-bootstrap';
+@import '0-dcs-web-vendor-bootstrap-select';
+@import '0-dcs-web-vendor-burger';
+@import '0-dcs-web-vendor-slick';
+@import '0-dcs-web-vendor-owl';
+@import '0-dcs-web-vendor-nouislider';
+@import '0-dcs-web-vendor-percircle';
+
+/**
+ * Helpers
+ */
+@import '0-dcs-web-helpers';
+@import '0-dcs-web-sprite';
+@import '0-dcs-web-fonts';
+@import '0-dcs-web-buttons';
+
+/**
+ * Components
+ */
+@import '0-dcs-web-menu-header';
+@import '0-dcs-web-menu-mobile';
+@import '0-dcs-web-menu-mobile-2';
+@import '0-dcs-web-shelf';
+@import '0-dcs-web-product-reviews';
+@import '0-dcs-web-benefits-bar';
+@import '0-dcs-web-compare';
+@import '0-dcs-web-flags';
+@import '0-dcs-web-minicart';
+@import '0-dcs-web-blog';
+@import '0-dcs-web-list-filters';
+@import '0-dcs-web-breadcrumb';
+@import '0-dcs-web-modal';
+@import '0-dcs-web-flash-msg';
+@import '0-dcs-web-colorbox';
+
+/**
+ * Styles
+ */
+@import '0-dcs-web-main';
+@import '0-dcs-web-header';
+@import '0-dcs-web-address';
+// @import '0-dcs-web-home';
+// @import '0-dcs-web-product';
+// @import '0-dcs-web-list';
+@import '0-dcs-web-list-sidebar';
+@import '0-dcs-web-list-empty';
+@import '0-dcs-web-list-empty-v2';
+@import '0-dcs-web-institucional';
+@import '0-dcs-web-guia-de-tamanhos';
+@import '0-dcs-web-sprite-tamanhos';
+@import '0-dcs-web-retire-na-loja';
+@import '0-dcs-web-sprite-retire-na-loja';
+@import '0-dcs-web-lp-departament';
+@import '0-dcs-web-lp-quechua';
+// @import '0-dcs-web-favorites';
+// @import '0-dcs-web-store-locator';
+// @import '0-dcs-web-store-detail';
+@import '0-dcs-web-sprite-store-detail';
+@import '0-dcs-web-services';
+@import '0-dcs-web-404';
+@import '0-dcs-web-account';
+@import '0-dcs-web-my-account-stores';
+@import '0-dcs-web-my-account-sports';
+@import '0-dcs-web-my-account-identity-individual';
+@import '0-dcs-web-my-account-contact';
+@import '0-dcs-web-my-account-password';
+@import '0-dcs-web-register';
+@import '0-dcs-web-create-password';
+@import '0-dcs-web-forgot-password';
+@import '0-dcs-web-beneficios-conta-decathlon';
+@import '0-dcs-web-orders';
+@import '0-dcs-web-collections';
+// @import '0-dcs-web-garantia-vitalicia';
+@import '0-dcs-web-login';
+@import '0-dcs-web-dkplay';
+@import '0-dcs-web-quem-somos';
+// @import '0-dcs-web-lp-kiprun';
+@import '0-dcs-web-landing-page-Atorka';
+@import '0-dcs-web-lp-nabaji-tecnologia-na-natacao';
+@import '0-dcs-web-lp-inverno-2019';
+@import '0-dcs-web-parceiros-clube-decathlon';
+// @import '0-dcs-web-beneficios-clube-decathlon';
+
+// @import '0-dcs-web-departament';
+// @import '0-dcs-web-category';
+@import '0-dcs-web-lp-artengo-racket900';
+
+@import '0-dcs-web-footer';

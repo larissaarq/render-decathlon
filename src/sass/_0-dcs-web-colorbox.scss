@@ -1,0 +1,221 @@
+/*
+    Colorbox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+
+#colorbox,
+#cboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+#cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  max-width: none;
+}
+
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  background: $black;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+#cboxMiddleLeft,
+#cboxBottomLeft {
+  clear: left;
+}
+
+#cboxContent {
+  position: relative;
+  // margin-top: 32px;
+  overflow: visible;
+  background: transparent;
+}
+
+#cboxLoadedContent {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+}
+
+#cboxTitle {
+  margin: 0;
+
+  position: absolute;
+  top: -22px;
+  left: 0;
+  color: $mineShaftDarker;
+}
+
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
+#cboxSlideshow {
+  cursor: pointer;
+}
+
+.cboxPhoto {
+  float: left;
+  margin: auto;
+  border: 0;
+  display: block;
+  max-width: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+.cboxIframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  background: transparent;
+}
+
+#colorbox,
+#cboxContent,
+#cboxLoadedContent {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+}
+
+/* 
+      User Style:
+      Change the following styles to modify the appearance of Colorbox.  They are
+      ordered & tabbed in a way that represents the nesting of the generated HTML.
+  */
+
+#colorbox {
+  outline: 0;
+}
+
+#cboxError {
+  padding: 50px;
+  border: 1px solid #ccc;
+}
+
+#cboxLoadingGraphic {
+  background: transparent;
+  // background: url(/arquivos/loading-decathlon.gif) no-repeat center center;
+  
+  &:before {
+    content: "";
+    height: 50px;
+    width: 50px;
+    background: $white;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #999;
+    transform: rotate(45deg);
+    margin-top: -25px;
+    margin-left: -25px;
+    display: none;
+  }
+}
+
+#cboxCurrent {
+  position: absolute;
+  top: -22px;
+  right: 205px;
+  text-indent: -9999px;
+}
+
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+
+#cboxPrevious,
+#cboxNext,
+#cboxSlideshow,
+#cboxClose {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  text-indent: -9999px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -30px;
+  background-color: transparent;
+  background-size: contain;
+
+  &:active {
+    outline: 0;
+  }
+}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+
+#cboxPrevious {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNS44NiA0Ny43MiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiMwNDgyYzM7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wcmV2X2JsdWU8L3RpdGxlPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjIzLjg2IiB5MT0iMiIgeDI9IjIiIHkyPSIyMy44NiIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjIzLjg2IiB5MT0iNDUuNzIiIHgyPSIyIiB5Mj0iMjMuODYiLz48L3N2Zz4=");
+  right: 44px;
+  
+  &:hover {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNS44NiA0Ny43MiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wcmV2X3doaXRlPC90aXRsZT48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyMy44NiIgeTE9IjIiIHgyPSIyIiB5Mj0iMjMuODYiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyMy44NiIgeTE9IjQ1LjcyIiB4Mj0iMiIgeTI9IjIzLjg2Ii8+PC9zdmc+");
+  }
+}
+
+#cboxNext {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MCA1MCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiMwNTgzYzI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5uZXh0X2JsdWU8L3RpdGxlPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjE0LjU2IiB5MT0iNDYuODYiIHgyPSIzNi40MiIgeTI9IjI1Ii8+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iMTQuNTYiIHkxPSIzLjE0IiB4Mj0iMzYuNDIiIHkyPSIyNSIvPjwvc3ZnPg==");
+  right: 22px;
+  
+  &:hover {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNS44NiA0Ny43MiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5uZXh0X3doaXRlPC90aXRsZT48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyIiB5MT0iNDUuNzIiIHgyPSIyMy44NiIgeTI9IjIzLjg2Ii8+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iMiIgeTE9IjIiIHgyPSIyMy44NiIgeTI9IjIzLjg2Ii8+PC9zdmc+");
+  }
+}
+
+#cboxClose {
+  display: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MCA1MCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiMwNTgzYzI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5BcnRib2FyZCAxPC90aXRsZT48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIzLjU2IiB5MT0iMy4yNCIgeDI9IjQ3LjA3IiB5Mj0iNDYuNzYiLz48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSI0Ny4wNyIgeTE9IjMuMjQiIHgyPSIzLjU2IiB5Mj0iNDYuNzYiLz48L3N2Zz4=");
+  right: 0;
+
+  &:hover {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MCA1MCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5jbG9zZV93aGl0ZTwvdGl0bGU+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iMy41NiIgeTE9IjMuMjQiIHgyPSI0Ny4wNyIgeTI9IjQ2Ljc2Ii8+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iNDcuMDciIHkxPSIzLjI0IiB4Mj0iMy41NiIgeTI9IjQ2Ljc2Ii8+PC9zdmc+");
+  }
+}
+
+.cboxSlideshow_on #cboxPrevious,
+.cboxSlideshow_off #cboxPrevious {
+  right: 66px;
+}
+
+.cboxSlideshow_on #cboxSlideshow {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOS43NiA0My41OCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiMwNTgzYzI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wbGF5X2JsdWU8L3RpdGxlPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIyIDQxLjU4IDM3Ljc2IDIxLjc5IDIgMiAyIDQxLjU4Ii8+PC9zdmc+");
+  right: 44px;
+  
+  &:hover {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOS43NiA0My41OCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wbGF5X3doaXRlPC90aXRsZT48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iMiA0MS41OCAzNy43NiAyMS43OSAyIDIgMiA0MS41OCIvPjwvc3ZnPg==");
+  }
+}
+
+.cboxSlideshow_off #cboxSlideshow {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOC43MyA0Ny4yOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiMwNTgzYzI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wYXVzZV9ibHVlPC90aXRsZT48bGluZSBjbGFzcz0iY2xzLTEiIHgxPSIyNi43MyIgeTE9IjQwLjk3IiB4Mj0iMjYuNzMiIHkyPSIyIi8+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iMTguNDkiIHkxPSIzLjUxIiB4Mj0iMTguNDkiIHkyPSI0Mi40NCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIyIDYuNDMgMiA0NS4yOCAyLjMxIDQ1LjI4IDEwLjI0IDQzLjg4IDEwLjI0IDQuOTYgMiA2LjQzIi8+PHBvbHlsaW5lIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIyNi43MyA0MC45NyAxOC40OSA0Mi40NCAxOC40OSAzLjUyIDI2LjczIDIiLz48L3N2Zz4=");
+  right: 44px;
+  
+  &:hover {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOC43MyA0Ny4yOCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOm5vbmU7c3Ryb2tlOiNmZmY7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS13aWR0aDo0cHg7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5wYXVzZV93aGl0ZTwvdGl0bGU+PGxpbmUgY2xhc3M9ImNscy0xIiB4MT0iMjYuNzMiIHkxPSI0MC45NyIgeDI9IjI2LjczIiB5Mj0iMiIvPjxsaW5lIGNsYXNzPSJjbHMtMSIgeDE9IjE4LjQ5IiB5MT0iMy41MSIgeDI9IjE4LjQ5IiB5Mj0iNDIuNDQiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iMiA2LjQzIDIgNDUuMjggMi4zMSA0NS4yOCAxMC4yNCA0My44OCAxMC4yNCA0Ljk2IDIgNi40MyIvPjxwb2x5bGluZSBjbGFzcz0iY2xzLTEiIHBvaW50cz0iMjYuNzMgNDAuOTcgMTguNDkgNDIuNDQgMTguNDkgMy41MiAyNi43MyAyIi8+PC9zdmc+");
+  }
+}

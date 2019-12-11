@@ -1,0 +1,114 @@
+.resutado-busca main {
+  margin-top: 52px;
+}
+.empty-search__header {
+  background-color: $lochmara;
+}
+.empty-search__top-container {
+  padding: 43px 0 53px 0;
+  text-align: center;
+
+  @media (min-width: $screen-sm-min) {
+    padding: 90px 0 100px;
+    text-align: left;
+  }
+}
+.empty-search__text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: uppercase;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 20px;
+  }
+}
+.empty-search__terms {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: uppercase;
+}
+.empty-search__tips {
+  font-size: 24px;
+  color: #393939;
+  margin-bottom: 40px;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 36px;
+  }
+  b {
+    display: block;
+    padding: 0 20px;
+    font-style: italic;
+    margin: 20px 0 21px;
+    text-transform: uppercase;
+  }
+  span {
+    color: $lochmara;
+  }
+
+}
+.empty-search__tips-list {
+  color: #393939;
+  font-size: 12px;
+  line-height: 18px;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 16px;
+  }
+}
+
+.empty-search__populars-title {
+  color: #393939;
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  font-style: italic;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 36px;
+    margin-bottom: 36px;
+  }
+  span {
+    display: block;
+    color: $lochmara;
+
+    @media (min-width: $screen-sm-min) {
+      display: inline-block;
+    }
+  }
+}
+
+.empty-search__populars-list {
+  text-align: center;
+
+  &-item {
+    width: 125px;
+    height: 30px;
+    line-height: 28px;
+    display: inline-block;
+    color: $lochmara;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid $lochmara;
+    margin: 0 20px 40px 20px;
+    border-radius: 2px;
+    text-transform: uppercase;
+
+    @media (min-width: $screen-sm-min) {
+      margin: 0 25px 40px 25px;
+    }
+
+    &:hover {
+      color: #fff;
+      background-color: $lochmara;
+      text-decoration: none;
+    }
+  }
+}

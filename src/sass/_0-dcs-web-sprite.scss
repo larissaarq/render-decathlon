@@ -1,0 +1,14 @@
+@import "compass/utilities/sprites";
+
+$sprite-spacing: 10px;
+$sprite-sprite-base-class: ".sprite";
+$sprite-sprite-dimensions: true;
+$sprite-layout: smart;
+
+@import "../images/sprite/*.png";
+
+@include all-sprite-sprites;
+
+.sprite {
+  display: inline-block;
+}

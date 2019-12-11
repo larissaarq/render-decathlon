@@ -1,0 +1,556 @@
+@font-face {
+  font-family: 'DecathlonIconfont';
+  src: url('/arquivos/DecathlonIconfont.woff2.css') format('woff2');
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'DecathlonIconfont';
+//   src: url('/arquivos/DecathlonIconfont.eot.css');
+//   src: url('/arquivos/DecathlonIconfont.eot.css?#iefix') format("eot"), url('/arquivos/DecathlonIconfont.woff2.css') format("woff2"), url('/arquivos/DecathlonIconfont.woff.css') format("woff"), url('/arquivos/DecathlonIconfont.ttf.css') format("truetype"), url('/arquivos/DecathlonIconfont.svg.css#DecathlonIconfont') format("svg");
+//   font-style: normal
+// }
+
+
+[class*=dkti-] {
+  font-family: DecathlonIconfont;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  letter-spacing: 0;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: subpixel-antialiased;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+  zoom: 1;
+  font-size: 50px;
+  color: #0082C3;
+}
+
+.dkti {
+  &-arrow1-down:before {
+    content: "\E001"
+  }
+  
+  &-arrow1-left:before {
+    content: "\E002"
+  }
+  
+  &-arrow1-rigth:before {
+    content: "\E003"
+  }
+  
+  &-arrow1-up:before {
+    content: "\E004"
+  }
+  
+  &-arrow2-down:before {
+    content: "\E005"
+  }
+  
+  &-arrow2-left:before {
+    content: "\E006"
+  }
+  
+  &-arrow2-right:before {
+    content: "\E007"
+  }
+  
+  &-arrow2-up:before {
+    content: "\E008"
+  }
+  
+  &-arrow3-down:before {
+    content: "\E009"
+  }
+  
+  &-arrow3-left:before {
+    content: "\E00A"
+  }
+  
+  &-arrow3-right:before {
+    content: "\E00B"
+  }
+  
+  &-arrow3-up:before {
+    content: "\E00C"
+  }
+  
+  &-download:before {
+    content: "\E00D"
+  }
+  
+  &-scroll-down:before {
+    content: "\E00E"
+  }
+  
+  &-home-delivery:before {
+    content: "\E00F"
+  }
+  
+  &-pickup-1h:before {
+    content: "\E010"
+  }
+  
+  &-pickup-relay:before {
+    content: "\E011"
+  }
+  
+  &-pickup-store:before {
+    content: "\E012"
+  }
+  
+  &-purchase:before {
+    content: "\E013"
+  }
+  
+  &-checkbox-off:before {
+    content: "\E014"
+  }
+  
+  &-checkbox-on:before {
+    content: "\E015"
+  }
+  
+  &-close:before {
+    content: "\E016"
+  }
+  
+  &-cross-rounded:before {
+    content: "\E017"
+  }
+  
+  &-cross:before {
+    content: "\E018"
+  }
+  
+  &-delete:before {
+    content: "\E019"
+  }
+  
+  &-document:before {
+    content: "\E01A"
+  }
+  
+  &-edit-equal:before {
+    content: "\E01B"
+  }
+  
+  &-edit-minus:before {
+    content: "\E01C"
+  }
+  
+  &-edit-plus:before {
+    content: "\E01D"
+  }
+  
+  &-edit:before {
+    content: "\E01E"
+  }
+  
+  &-eye-off:before {
+    content: "\E01F"
+  }
+  
+  &-eye-on:before {
+    content: "\E020"
+  }
+  
+  &-login:before {
+    content: "\E021"
+  }
+  
+  &-printer:before {
+    content: "\E022"
+  }
+  
+  &-radio-off:before {
+    content: "\E023"
+  }
+  
+  &-radio-on:before {
+    content: "\E024"
+  }
+  
+  &-valid-rounded:before {
+    content: "\E025"
+  }
+  
+  &-valid:before {
+    content: "\E026"
+  }
+  
+  &-bill:before {
+    content: "\E027"
+  }
+  
+  &-credit-card:before {
+    content: "\E028"
+  }
+  
+  &-euro-card:before {
+    content: "\E029"
+  }
+  
+  &-express-checkout:before {
+    content: "\E02A"
+  }
+  
+  &-giftcard:before {
+    content: "\E02B"
+  }
+  
+  &-payment:before {
+    content: "\E02C"
+  }
+  
+  &-promo:before {
+    content: "\E02D"
+  }
+  
+  &-secured-payment:before {
+    content: "\E02E"
+  }
+  
+  &-wechat-pay:before {
+    content: "\E02F"
+  }
+  
+  &-approval:before {
+    content: "\E030"
+  }
+  
+  &-data-time:before {
+    content: "\E031"
+  }
+  
+  &-decision:before {
+    content: "\E032"
+  }
+  
+  &-legal-base:before {
+    content: "\E033"
+  }
+  
+  &-out-europe:before {
+    content: "\E034"
+  }
+  
+  &-purpose:before {
+    content: "\E035"
+  }
+  
+  &-resp:before {
+    content: "\E036"
+  }
+  
+  &-security:before {
+    content: "\E037"
+  }
+  
+  &-desktop:before {
+    content: "\E038"
+  }
+  
+  &-image:before {
+    content: "\E039"
+  }
+  
+  &-mobile:before {
+    content: "\E03A"
+  }
+  
+  &-music:before {
+    content: "\E03B"
+  }
+  
+  &-picture:before {
+    content: "\E03C"
+  }
+  
+  &-player-fullscreen:before {
+    content: "\E03D"
+  }
+  
+  &-player-pause:before {
+    content: "\E03E"
+  }
+  
+  &-player-play:before {
+    content: "\E03F"
+  }
+  
+  &-player-replay:before {
+    content: "\E040"
+  }
+  
+  &-slider-dot-blue:before {
+    content: "\E041"
+  }
+  
+  &-sound-0:before {
+    content: "\E042"
+  }
+  
+  &-sound-1:before {
+    content: "\E043"
+  }
+  
+  &-sound-2:before {
+    content: "\E044"
+  }
+  
+  &-sound-3:before {
+    content: "\E045"
+  }
+  
+  &-video:before {
+    content: "\E046"
+  }
+  
+  &-360:before {
+    content: "\E047"
+  }
+  
+  &-clothes:before {
+    content: "\E048"
+  }
+  
+  &-size-guide:before {
+    content: "\E049"
+  }
+  
+  &-sizes:before {
+    content: "\E04A"
+  }
+  
+  &-technicity:before {
+    content: "\E04B"
+  }
+  
+  &-badge:before {
+    content: "\E04C"
+  }
+  
+  &-clock:before {
+    content: "\E04D"
+  }
+  
+  &-decathlon-card:before {
+    content: "\E04E"
+  }
+  
+  &-documents:before {
+    content: "\E04F"
+  }
+  
+  &-exchange-return:before {
+    content: "\E050"
+  }
+  
+  &-funding:before {
+    content: "\E051"
+  }
+  
+  &-gift:before {
+    content: "\E052"
+  }
+  
+  &-info:before {
+    content: "\E053"
+  }
+  
+  &-insurance:before {
+    content: "\E054"
+  }
+  
+  &-maintain:before {
+    content: "\E055"
+  }
+  
+  &-perso:before {
+    content: "\E056"
+  }
+  
+  &-repair:before {
+    content: "\E057"
+  }
+  
+  &-stamp:before {
+    content: "\E058"
+  }
+  
+  &-test-buy:before {
+    content: "\E059"
+  }
+  
+  &-warranty:before {
+    content: "\E05A"
+  }
+  
+  &-heart-full:before {
+    content: "\E05B"
+  }
+  
+  &-heart:before {
+    content: "\E05C"
+  }
+  
+  &-opinion:before {
+    content: "\E05D"
+  }
+  
+  &-star-empty:before {
+    content: "\E05E"
+  }
+  
+  &-star-full:before {
+    content: "\E05F"
+  }
+  
+  &-thumb-down:before {
+    content: "\E060"
+  }
+  
+  &-thumb-up:before {
+    content: "\E061"
+  }
+  
+  &-account:before {
+    content: "\E062"
+  }
+  
+  &-agenda:before {
+    content: "\E063"
+  }
+  
+  &-cart:before {
+    content: "\E064"
+  }
+  
+  &-catalog:before {
+    content: "\E065"
+  }
+  
+  &-chat:before {
+    content: "\E066"
+  }
+  
+  &-compare:before {
+    content: "\E067"
+  }
+  
+  &-compass:before {
+    content: "\E068"
+  }
+  
+  &-external-link:before {
+    content: "\E069"
+  }
+  
+  &-filter:before {
+    content: "\E06A"
+  }
+  
+  &-filter2:before {
+    content: "\E06B"
+  }
+  
+  &-geolocalization:before {
+    content: "\E06C"
+  }
+  
+  &-home:before {
+    content: "\E06D"
+  }
+  
+  &-hourglass:before {
+    content: "\E06E"
+  }
+  
+  &-lock:before {
+    content: "\E06F"
+  }
+  
+  &-mail:before {
+    content: "\E070"
+  }
+  
+  &-menu:before {
+    content: "\E071"
+  }
+  
+  &-notif-advice:before {
+    content: "\E072"
+  }
+  
+  &-notif-alert:before {
+    content: "\E073"
+  }
+  
+  &-notif-bell:before {
+    content: "\E074"
+  }
+  
+  &-notif-help:before {
+    content: "\E075"
+  }
+  
+  &-notif-information:before {
+    content: "\E076"
+  }
+  
+  &-pin:before {
+    content: "\E077"
+  }
+  
+  &-search:before {
+    content: "\E078"
+  }
+  
+  &-sort:before {
+    content: "\E079"
+  }
+  
+  &-store:before {
+    content: "\E07A"
+  }
+  
+  &-submenu:before {
+    content: "\E07B"
+  }
+  
+  &-facebook:before {
+    content: "\E07C"
+  }
+  
+  &-googleplus:before {
+    content: "\E07D"
+  }
+  
+  &-instagram:before {
+    content: "\E07E"
+  }
+  
+  &-pinterest:before {
+    content: "\E07F"
+  }
+  
+  &-share:before {
+    content: "\E080"
+  }
+  
+  &-twitter:before {
+    content: "\E081"
+  }
+  
+  &-youtube:before {
+    content: "\E082"
+  }
+}
