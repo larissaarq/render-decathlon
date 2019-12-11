@@ -9,15 +9,16 @@ const CopyPlugin = require('copy-webpack-plugin')
 const vendorPath = path.resolve(__dirname, 'src/vendor')
 
 const componentsRootPath = path.join(__dirname, 'src/js/components')
-const controllerRootPath = path.join(__dirname, 'src/js/controllers')
+const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 
 let filesToConcat = []
 
 /**
  * 
- * @param {*} rootPath path of files
- * @returns array os path files
+ * @param {string} rootPath path of files
+ * @returns {array} array os path files
  */
+
 const getPaths = (rootPath) => {
   const paths = []
 
@@ -31,7 +32,7 @@ const getPaths = (rootPath) => {
 
 filesToConcat = [
   ...getPaths(componentsRootPath),
-  ...getPaths(controllerRootPath)
+  ...getPaths(controllersRootPath)
 ]
 
 module.exports = {
@@ -129,7 +130,7 @@ module.exports = {
         ]
       },
       transform: {
-        'arquivos/0-dcs-web-vendors-script.js': code => require("uglify-js").minify(code).code,
+        'arquivos/0-dcs-web-vendors-script.js': code => require("uglify-js").minify(code).code
       }
     })
   ]

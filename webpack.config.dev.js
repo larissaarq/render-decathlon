@@ -9,12 +9,5 @@ module.exports = merge(common, {
     filename: `arquivos/0-dcs-web-[name]-script.js`,
     chunkFilename: `arquivos/0-dcs-web-[name]-script.js`,
     publicPath: '/'
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    hot: true,
-    compress: true,
-    port: 3000,
-    open: true
   }
 })
