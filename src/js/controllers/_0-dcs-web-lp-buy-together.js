@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-buy-together.scss'
+
 APP.controller.LpBuyTogether = ClassAvanti.extend({
 	init(options) {
 		this.setup(options)

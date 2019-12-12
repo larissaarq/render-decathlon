@@ -733,10 +733,14 @@
     max-height: 416px;
     position: relative;
     overflow: hidden;
+    
+    /*
+    * todo: resolver include de mixin
+    */
 
-    img {
-        @include imgResponsive();
-    }
+    // img {
+    //     @include imgResponsive();
+    // }
 }
 
 .home-banner-find-store__content {

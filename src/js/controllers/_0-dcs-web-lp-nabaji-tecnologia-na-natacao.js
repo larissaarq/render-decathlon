@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-nabaji-tecnologia-na-natacao.scss'
+
 APP.controller.LpNabaiji = ClassAvanti.extend({
 	init() {
 		this.start()

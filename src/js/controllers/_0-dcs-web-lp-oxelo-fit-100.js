@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-oxelo-fit-100-lid.scss'
+
 APP.controller.LpOxeloFit100 = ClassAvanti.extend({
   init() {
     this.start();

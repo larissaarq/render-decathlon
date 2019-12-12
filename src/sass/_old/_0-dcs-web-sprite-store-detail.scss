@@ -5,7 +5,6 @@ $sprite-store-detail-sprite-base-class: ".sprite-store-detail";
 $sprite-store-detail-sprite-dimensions: true;
 $sprite-store-detail-layout: smart;
 
-@import "../images/sprite-store-detail/*.png";
-
+@import "sprite-store-detail/*.png";
 
 @include all-sprite-store-detail-sprites;

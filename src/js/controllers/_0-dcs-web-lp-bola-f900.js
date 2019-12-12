@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-bola-f900.scss'
+
 APP.controller.LpBolaF900 = ClassAvanti.extend({
 	init() {
 		this.start()

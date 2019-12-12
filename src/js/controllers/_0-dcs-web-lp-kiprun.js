@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-kiprun.scss'
+
 APP.controller.Kiprun = ClassAvanti.extend({
   init() {
     this.setup()

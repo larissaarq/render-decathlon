@@ -3,50 +3,6 @@
 */
 
 // @charset "UTF-8";
-@import 'compass';
-
-/**
- * Variables
- */
-@import '0-dcs-web-variables';
-@import '0-dcs-web-mixins';
-
-/**
- * Vendor
- */
-@import '0-dcs-web-vendor-bootstrap';
-@import '0-dcs-web-vendor-bootstrap-select';
-@import '0-dcs-web-vendor-burger';
-@import '0-dcs-web-vendor-slick';
-
-/**
- * Helpers
- */
-@import '0-dcs-web-helpers';
-@import '0-dcs-web-sprite';
-@import '0-dcs-web-fonts';
-@import '0-dcs-web-buttons';
-
-/**
- * Components
- */
-@import '0-dcs-web-menu-header';
-@import '0-dcs-web-menu-mobile';
-@import '0-dcs-web-menu-mobile-2';
-@import '0-dcs-web-benefits-bar';
-
-@import '0-dcs-web-shelf';
-@import '0-dcs-web-minicart';
-@import '0-dcs-web-breadcrumb';
-
-/**
- * Styles
- */
-@import '0-dcs-web-main';
-@import '0-dcs-web-header';
-@import '0-dcs-web-footer';
-
-
 .bola-futebol-f900 {
 
   .main {

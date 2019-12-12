@@ -10,7 +10,6 @@ Render Decathlon Store
 
 ```sh
 # Clone repository
-
 $ git clone https://github.com/brenosena/render-decathlon
 
 # Install node modules

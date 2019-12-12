@@ -5,7 +5,7 @@ $sprite-retire-na-loja-sprite-base-class: ".sprite-retire-na-loja";
 $sprite-retire-na-loja-sprite-dimensions: true;
 $sprite-retire-na-loja-layout: smart;
 
-@import "../images/sprite-retire-na-loja/*.png";
+@import "sprite-retire-na-loja/*.png";
 
 @include all-sprite-retire-na-loja-sprites;
 
