@@ -5,15 +5,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
-const RemovePlugin = require('remove-files-webpack-plugin')
 
-const env = process.env.NODE_ENV
-
-const config = {
-  mode: env || 'development'
-}
-
-const ROOT_PATH = `./${config.mode === 'production' ? 'build' : 'dist'}`
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 
 /**
@@ -175,15 +167,6 @@ module.exports = {
         'arquivos/0-dcs-web-vendors-script.js': code =>
           require("uglify-js").minify(code).code
       }
-    }),
-    new RemovePlugin({
-      after: {
-        include: [
-          `${ROOT_PATH}/arquivos/0-dcs-web-theme-script.js`,
-          `${ROOT_PATH}/arquivos/0-dcs-web-all-style.css`
-        ],
-        log: false
-      },
     })
   ]
 }

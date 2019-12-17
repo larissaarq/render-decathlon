@@ -1,3 +1,5 @@
+import '../../sass/pages/_0-dcs-web-services.scss'
+
 APP.controller.Services = ClassAvanti.extend({
   init () {
     this.setup()

@@ -1,3 +1,5 @@
+import '../../sass/pages/_0-dcs-web-login.scss'
+
 APP.controller.Login = ClassAvanti.extend({
   init() {
     this.setup()

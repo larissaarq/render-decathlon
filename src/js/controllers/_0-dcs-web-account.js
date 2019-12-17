@@ -1,3 +1,5 @@
+// import '../../sass/pages/_0-dcs-web-account.scss'
+
 jQuery.validator.addMethod('cep', function (value, element) {
   return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
 }, 'Por favor, forneça um CEP válido.')
@@ -11,13 +13,13 @@ jQuery.validator.addMethod('cellphone', function (value, element) {
 }, 'Por favor, forneça um celular válido.')
 
 APP.controller.Account = ClassAvanti.extend({
-  init () {
+  init() {
     this.setup()
     this.start()
     this.bind()
   },
 
-  setup () {
+  setup() {
     this.options = {
       $profileModal: $('.av-modal--profile .av-modal__content'),
       $profileContent: $('#editar-perfil-conteudo, #editar-perfil #response-message'),
@@ -39,19 +41,19 @@ APP.controller.Account = ClassAvanti.extend({
     APP.i.AccountData = new APP.component.AccountData()
   },
 
-  start () {
+  start() {
     this.cloneForms()
     this.changeAttributes()
     this.setTabIndex()
   },
 
-  cloneForms () {
+  cloneForms() {
     this._cloneForm('$profileModal', '$profileContent')
     this._cloneForm('$addressEditModal', '$addressEditContent')
     this._cloneForm('$addressRemoveModal', '$addressRemoveContent')
   },
 
-  _cloneForm (modal, content) {
+  _cloneForm(modal, content) {
     const {
       [modal]: $modal,
       [content]: $content
@@ -60,26 +62,30 @@ APP.controller.Account = ClassAvanti.extend({
     $modal.html($content)
   },
 
-  changeAttributes () {
+  changeAttributes() {
     this.setEditAttributes()
     this.setRemoveAttributes()
   },
 
-  setEditAttributes () {
-    const { $addressEditAttributes } = this.options
+  setEditAttributes() {
+    const {
+      $addressEditAttributes
+    } = this.options
 
     $addressEditAttributes.each((index, element) =>
       this._attributeFn(element, 'av-modal--edit-address'))
   },
 
-  setRemoveAttributes () {
-    const { $addressRemoveAttributes } = this.options
+  setRemoveAttributes() {
+    const {
+      $addressRemoveAttributes
+    } = this.options
 
     $addressRemoveAttributes.each((index, element) =>
       this._attributeFn(element, 'av-modal--remove-address'))
   },
 
-  _attributeFn (element, target) {
+  _attributeFn(element, target) {
     const _this = $(element)
 
     _this
@@ -87,46 +93,46 @@ APP.controller.Account = ClassAvanti.extend({
       .attr('data-target', target)
   },
 
-  _isMobile () {
+  _isMobile() {
     return $(window).width() < 992
   },
 
-  setTabIndex () {
-      $('a').attr('tabindex','-1')
-      $('.footer-barra-beneficios .slick-slide a').attr('tabindex','-1')
-      $('.footer-countries__content .bootstrap-select .dropdown-toggle').attr('tabindex','-1')
+  setTabIndex() {
+    $('a').attr('tabindex', '-1')
+    $('.footer-barra-beneficios .slick-slide a').attr('tabindex', '-1')
+    $('.footer-countries__content .bootstrap-select .dropdown-toggle').attr('tabindex', '-1')
 
-      let arrInputs = null
+    let arrInputs = null
 
-      if (!this._isMobile()) {
-        arrInputs = [
-          '#email','#masculino','#feminino','#name', '#national_id', '#birthdate', '#surname', '#mobile', '#name2', '#title',
-          '#postal_code', '#street_name', '#street_number', '#line2', '#district', '#city', '.input-province button', '#additionnal_data',
-          '.register-sports-add', '#sports-none', '.register-stores-add', '#stores-none', '#password', '#agree-news', '#degree-news',
-          '.register-back-btn', '.register-create-btn'
-        ]
-      } else {
-        arrInputs = [
-          '#email','#masculino','#feminino','#name', '#surname', '#name2', '#national_id', '#birthdate', '#mobile', '#title',
-          '#postal_code', '#street_name', '#street_number', '#line2', '#district', '#city', '.input-province button', '#additionnal_data',
-          '.register-sports-add', '#sports-none', '.register-stores-add', '#stores-none', '#password', '#agree-news', '#degree-news',
-          '.register-back-btn', '.register-create-btn'
-        ]
-      }
+    if (!this._isMobile()) {
+      arrInputs = [
+        '#email', '#masculino', '#feminino', '#name', '#national_id', '#birthdate', '#surname', '#mobile', '#name2', '#title',
+        '#postal_code', '#street_name', '#street_number', '#line2', '#district', '#city', '.input-province button', '#additionnal_data',
+        '.register-sports-add', '#sports-none', '.register-stores-add', '#stores-none', '#password', '#agree-news', '#degree-news',
+        '.register-back-btn', '.register-create-btn'
+      ]
+    } else {
+      arrInputs = [
+        '#email', '#masculino', '#feminino', '#name', '#surname', '#name2', '#national_id', '#birthdate', '#mobile', '#title',
+        '#postal_code', '#street_name', '#street_number', '#line2', '#district', '#city', '.input-province button', '#additionnal_data',
+        '.register-sports-add', '#sports-none', '.register-stores-add', '#stores-none', '#password', '#agree-news', '#degree-news',
+        '.register-back-btn', '.register-create-btn'
+      ]
+    }
 
-      for (let i = 0; i < arrInputs.length; i++) {
-        $(arrInputs[i]).attr('tabindex',i + 1)
-      }
+    for (let i = 0; i < arrInputs.length; i++) {
+      $(arrInputs[i]).attr('tabindex', i + 1)
+    }
 
-      $('#email').focus()
+    $('#email').focus()
   },
 
-  bind () {
+  bind() {
     this.bindClose()
     this.bindSelectPicker()
   },
 
-  bindClose () {
+  bindClose() {
     $('.av-modal .modal-footer button').on('click', event => {
       event.preventDefault()
 
@@ -137,8 +143,10 @@ APP.controller.Account = ClassAvanti.extend({
     })
   },
 
-  bindSelectPicker () {
-    $('body.register, body.edit-register').find('.select-uf').selectpicker({ noneSelectedText: 'UF' })
-    $('.input-province button').attr('tabindex',17)
+  bindSelectPicker() {
+    $('body.register, body.edit-register').find('.select-uf').selectpicker({
+      noneSelectedText: 'UF'
+    })
+    $('.input-province button').attr('tabindex', 17)
   }
 })
