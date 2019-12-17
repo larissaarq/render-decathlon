@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-artengo-racket900.scss'
+
 APP.controller.LpArtengoRacket900 = ClassAvanti.extend({
     init () {
       this.setup()

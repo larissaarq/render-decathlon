@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-lp-departament.scss'
+
 APP.controller.LpDepartament = ClassAvanti.extend({
   init () {
     this.setup()

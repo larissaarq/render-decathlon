@@ -1,3 +1,5 @@
+import '../../sass/pages/_0-dcs-web-home.scss'
+
 APP.controller.Home = ClassAvanti.extend({
   init() {
     this.setup()

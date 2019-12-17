@@ -8,10 +8,10 @@ const CopyPlugin = require('copy-webpack-plugin')
 const vendorPath = path.resolve(__dirname, 'src/vendor')
 
 /**
- * 
- * @param {String} rootPath Path of files
- * @param {Function} cb Return callback with file
- * @returns {Array} Array of files path
+ * @description Return list of files path from root path
+ * @param {string} rootPath Path of files
+ * @param {function} cb Return callback with file
+ * @returns {array} Array of files path
  */
 
 const getPaths = (rootPath, cb) => {
@@ -19,6 +19,7 @@ const getPaths = (rootPath, cb) => {
 
   fs.readdirSync(rootPath).map(file => {
     const filePath = path.join(rootPath, file)
+
     paths.push(filePath)
 
     if (cb) cb(file)
@@ -51,13 +52,15 @@ module.exports = {
     aggregateTimeout: 300,
     poll: 1000
   },
+  stats: {
+    warnings: false
+  },
   entry: {
     polyfill: '@babel/polyfill',
-    all: filesToConcat,
-    components: getPaths(componentsRootPath),
-    ...controllers,
+    theme: path.join(__dirname, 'src/js', 'theme'),
     app: path.join(__dirname, 'src/react', 'index'),
-    theme: path.join(__dirname, 'src/js', 'theme')
+    all: filesToConcat,
+    ...controllers,
   },
   module: {
     rules: [{
@@ -105,13 +108,21 @@ module.exports = {
                 includePaths: ['node_modules/compass-mixins/lib']
               }
             }
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './src/sass/0-dcs-web-resources.scss'
+            }
           }
         ]
       }
     ]
   },
   plugins: [
-    new WebpackCleanupPlugin(),
+    new WebpackCleanupPlugin({
+      cleanOnceBeforeBuildPatterns: ['dist', 'build'],
+    }),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'arquivos/0-dcs-web-[name]-style.css',

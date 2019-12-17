@@ -1,3 +1,5 @@
+import '../../sass/landings/_0-dcs-web-landing-page-Atorka.scss'
+
 APP.controller.LpAtorka = ClassAvanti.extend({
     init () {
       this.setup()
