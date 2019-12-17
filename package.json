@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.config.dev.js --mode development --watch",
-    "build": "webpack --config webpack.config.prod.js --mode production"
+    "start": "cross-env NODE_ENV=development webpack --config webpack.config.dev.js --mode development --watch",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --mode production"
   },
   "author": "Breno Sena",
   "license": "ISC",
@@ -22,8 +22,8 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "compass-mixins": "^0.12.10",
     "copy-webpack-plugin": "^5.1.0",
+    "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
-    "dotenv": "^8.2.0",
     "file-loader": "^5.0.2",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs": "0.0.1-security",

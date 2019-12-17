@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const RemovePlugin = require('remove-files-webpack-plugin')
-const dotenv = require('dotenv').config()
 
 const env = process.env.NODE_ENV
 
@@ -16,7 +15,6 @@ const config = {
 
 const ROOT_PATH = `./${config.mode === 'production' ? 'build' : 'dist'}`
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
-
 
 /**
  * @description Return list of files path from root path
@@ -42,7 +40,6 @@ const getPaths = (rootPath, cb) => {
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
-const filesToRemove = []
 let filesToConcat = []
 
 getPaths(controllersRootPath, file => {
@@ -53,8 +50,6 @@ getPaths(controllersRootPath, file => {
   Object.assign(controllers, {
     [fileName]: filePath
   })
-
-  filesToRemove.push(`${ROOT_PATH}/arquivos/0-dcs-web-${fileName}-script.js`)
 })
 
 filesToConcat = [
@@ -141,6 +136,7 @@ module.exports = {
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'arquivos/0-dcs-web-[name]-style.css',
+      chunkFilename: 'arquivos/0-dcs-web-[name]-style.css',
       ignoreOrder: true
     }),
     new CopyPlugin([{
@@ -169,7 +165,6 @@ module.exports = {
           `${VENDOR_PATH}/jquery-mask-plugin/dist/jquery.mask.min.js`,
           `${VENDOR_PATH}/bootstrap-select/dist/bootstrap-select.min.js`,
           `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
-          `${VENDOR_PATH}/owl.carousel/dist/owl.carousel.min.js`,
           `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
           `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
           `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
@@ -184,11 +179,11 @@ module.exports = {
     new RemovePlugin({
       after: {
         include: [
-          ...filesToRemove,
           `${ROOT_PATH}/arquivos/0-dcs-web-theme-script.js`,
           `${ROOT_PATH}/arquivos/0-dcs-web-all-style.css`
-        ]
-      }
+        ],
+        log: false
+      },
     })
   ]
 }
