@@ -5,7 +5,18 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
-const vendorPath = path.resolve(__dirname, 'src/vendor')
+const RemovePlugin = require('remove-files-webpack-plugin')
+const dotenv = require('dotenv').config()
+
+const env = process.env.NODE_ENV
+
+const config = {
+  mode: env || 'development'
+}
+
+const ROOT_PATH = `./${config.mode === 'production' ? 'build' : 'dist'}`
+const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
+
 
 /**
  * @description Return list of files path from root path
@@ -31,15 +42,19 @@ const getPaths = (rootPath, cb) => {
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
+const filesToRemove = []
 let filesToConcat = []
 
 getPaths(controllersRootPath, file => {
-  const fileName = file.substring(0, file.length - 3)
+  let fileName = file.substring(0, file.length - 3)
   const filePath = path.join(controllersRootPath, fileName)
+  fileName = fileName.replace('_0-dcs-web-', '')
 
   Object.assign(controllers, {
-    [fileName.replace('_0-dcs-web-', '')]: filePath
+    [fileName]: filePath
   })
+
+  filesToRemove.push(`${ROOT_PATH}/arquivos/0-dcs-web-${fileName}-script.js`)
 })
 
 filesToConcat = [
@@ -146,23 +161,33 @@ module.exports = {
     new MergeIntoSingleFilePlugin({
       files: {
         'arquivos/0-dcs-web-vendors-script.js': [
-          `${vendorPath}/jquery/dist/jquery.min.js`,
-          `${vendorPath}/bootstrap/dist/js/bootstrap.min.js`,
-          `${vendorPath}/avanti-class/src/avanti-class.js`,
-          `${vendorPath}/avanti-search/src/avanti-search.js`,
-          `${vendorPath}/jquery-lazy/jquery-lazy.min.js`,
-          `${vendorPath}/jquery-mask-plugin/dist/jquery.mask.min.js`,
-          `${vendorPath}/bootstrap-select/dist/bootstrap-select.min.js`,
-          `${vendorPath}/js-cookie/src/js.cookie.js`,
-          `${vendorPath}/owl.carousel/dist/owl.carousel.min.js`,
-          `${vendorPath}/nouislider/distribute/nouislider.min.js`,
-          `${vendorPath}/slick-carousel/slick/slick.min.js`,
-          `${vendorPath}/pointer_events_polyfill/pointer_events_polyfill.js`,
-          `${vendorPath}/percircle/dist/percircle.js`,
+          `${VENDOR_PATH}/jquery/dist/jquery.min.js`,
+          `${VENDOR_PATH}/bootstrap/dist/js/bootstrap.min.js`,
+          `${VENDOR_PATH}/avanti-class/src/avanti-class.js`,
+          `${VENDOR_PATH}/avanti-search/src/avanti-search.js`,
+          `${VENDOR_PATH}/jquery-lazy/jquery-lazy.min.js`,
+          `${VENDOR_PATH}/jquery-mask-plugin/dist/jquery.mask.min.js`,
+          `${VENDOR_PATH}/bootstrap-select/dist/bootstrap-select.min.js`,
+          `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
+          `${VENDOR_PATH}/owl.carousel/dist/owl.carousel.min.js`,
+          `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
+          `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
+          `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
+          `${VENDOR_PATH}/percircle/dist/percircle.js`,
         ]
       },
       transform: {
-        'arquivos/0-dcs-web-vendors-script.js': code => require("uglify-js").minify(code).code
+        'arquivos/0-dcs-web-vendors-script.js': code =>
+          require("uglify-js").minify(code).code
+      }
+    }),
+    new RemovePlugin({
+      after: {
+        include: [
+          ...filesToRemove,
+          `${ROOT_PATH}/arquivos/0-dcs-web-theme-script.js`,
+          `${ROOT_PATH}/arquivos/0-dcs-web-all-style.css`
+        ]
       }
     })
   ]
