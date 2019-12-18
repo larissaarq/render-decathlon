@@ -1,0 +1,167 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$aguarde-email-name: 'aguarde-email';
+$aguarde-email-x: 240px;
+$aguarde-email-y: 0px;
+$aguarde-email-offset-x: -240px;
+$aguarde-email-offset-y: 0px;
+$aguarde-email-width: 43px;
+$aguarde-email-height: 89px;
+$aguarde-email-total-width: 283px;
+$aguarde-email-total-height: 223px;
+$aguarde-email-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$aguarde-email: (240px, 0px, -240px, 0px, 43px, 89px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'aguarde-email', );
+$escolha-loja-name: 'escolha-loja';
+$escolha-loja-x: 0px;
+$escolha-loja-y: 0px;
+$escolha-loja-offset-x: 0px;
+$escolha-loja-offset-y: 0px;
+$escolha-loja-width: 148px;
+$escolha-loja-height: 49px;
+$escolha-loja-total-width: 283px;
+$escolha-loja-total-height: 223px;
+$escolha-loja-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$escolha-loja: (0px, 0px, 0px, 0px, 148px, 49px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'escolha-loja', );
+$escolha-produtos-name: 'escolha-produtos';
+$escolha-produtos-x: 0px;
+$escolha-produtos-y: 49px;
+$escolha-produtos-offset-x: 0px;
+$escolha-produtos-offset-y: -49px;
+$escolha-produtos-width: 133px;
+$escolha-produtos-height: 54px;
+$escolha-produtos-total-width: 283px;
+$escolha-produtos-total-height: 223px;
+$escolha-produtos-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$escolha-produtos: (0px, 49px, 0px, -49px, 133px, 54px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'escolha-produtos', );
+$experimente-name: 'experimente';
+$experimente-x: 0px;
+$experimente-y: 103px;
+$experimente-offset-x: 0px;
+$experimente-offset-y: -103px;
+$experimente-width: 64px;
+$experimente-height: 64px;
+$experimente-total-width: 283px;
+$experimente-total-height: 223px;
+$experimente-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$experimente: (0px, 103px, 0px, -103px, 64px, 64px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'experimente', );
+$gama-disponivel-name: 'gama-disponivel';
+$gama-disponivel-x: 128px;
+$gama-disponivel-y: 103px;
+$gama-disponivel-offset-x: -128px;
+$gama-disponivel-offset-y: -103px;
+$gama-disponivel-width: 64px;
+$gama-disponivel-height: 58px;
+$gama-disponivel-total-width: 283px;
+$gama-disponivel-total-height: 223px;
+$gama-disponivel-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$gama-disponivel: (128px, 103px, -128px, -103px, 64px, 58px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'gama-disponivel', );
+$horario-flexivel-name: 'horario-flexivel';
+$horario-flexivel-x: 0px;
+$horario-flexivel-y: 167px;
+$horario-flexivel-offset-x: 0px;
+$horario-flexivel-offset-y: -167px;
+$horario-flexivel-width: 55px;
+$horario-flexivel-height: 56px;
+$horario-flexivel-total-width: 283px;
+$horario-flexivel-total-height: 223px;
+$horario-flexivel-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$horario-flexivel: (0px, 167px, 0px, -167px, 55px, 56px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'horario-flexivel', );
+$retire-loja-name: 'retire-loja';
+$retire-loja-x: 64px;
+$retire-loja-y: 103px;
+$retire-loja-offset-x: -64px;
+$retire-loja-offset-y: -103px;
+$retire-loja-width: 64px;
+$retire-loja-height: 61px;
+$retire-loja-total-width: 283px;
+$retire-loja-total-height: 223px;
+$retire-loja-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$retire-loja: (64px, 103px, -64px, -103px, 64px, 61px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'retire-loja', );
+$retire-pedido-name: 'retire-pedido';
+$retire-pedido-x: 148px;
+$retire-pedido-y: 0px;
+$retire-pedido-offset-x: -148px;
+$retire-pedido-offset-y: 0px;
+$retire-pedido-width: 92px;
+$retire-pedido-height: 60px;
+$retire-pedido-total-width: 283px;
+$retire-pedido-total-height: 223px;
+$retire-pedido-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$retire-pedido: (148px, 0px, -148px, 0px, 92px, 60px, 283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', 'retire-pedido', );
+$spritesheet-width: 283px;
+$spritesheet-height: 223px;
+$spritesheet-image: 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png';
+$spritesheet-sprites: ($aguarde-email, $escolha-loja, $escolha-produtos, $experimente, $gama-disponivel, $horario-flexivel, $retire-loja, $retire-pedido, );
+$spritesheet: (283px, 223px, 'C:\Users\bferre06\Documents\workspace\render-decathlon\src\sass\sprites\sprite-retire-na-loja.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

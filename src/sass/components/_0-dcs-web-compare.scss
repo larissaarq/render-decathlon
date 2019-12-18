@@ -14,7 +14,7 @@
       }
 
       &:before {
-        @extend .sprite-icon-compare__check;
+        @extend .icon-compare__check;
 
         content: '';
         vertical-align: middle;
@@ -250,7 +250,7 @@
         }
 
         &:before {
-          @extend .sprite-icon-close--medium;
+          @extend .icon-close--medium;
 
           content: '';
           margin-right: 10px;

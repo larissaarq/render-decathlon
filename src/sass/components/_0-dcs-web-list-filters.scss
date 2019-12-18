@@ -45,7 +45,7 @@
       }
 
       &:before {
-        @extend .sprite-icon-list__empty;
+        @extend .icon-list__empty;
 
         content: '';
         display: inline-block;

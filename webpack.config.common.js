@@ -5,6 +5,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
+const SpritesmithPlugin = require('webpack-spritesmith')
 
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 
@@ -28,6 +29,37 @@ const getPaths = (rootPath, cb) => {
 
   return paths
 }
+
+const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
+  return new SpritesmithPlugin({
+    src: {
+      cwd: spriteDir,
+      glob: '*.png'
+    },
+    target: {
+      image: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.png`),
+      css: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.scss`)
+    },
+    apiOptions: {
+      cssImageRef: path.join(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.png`)
+    }
+  })
+}
+
+const sprites = []
+
+const spritesDir = {
+  'retire-na-loja': 'src/images/sprite-retire-na-loja',
+  'store-detail': 'src/images/sprite-store-detail',
+  'tamanhos': 'src/images/sprite-tamanhos',
+  'sprite': 'src/images/sprite',
+  'output': 'src/sass/sprites'
+}
+
+sprites.push(makeSprite(spritesDir['retire-na-loja'], spritesDir.output, 'retire-na-loja'))
+sprites.push(makeSprite(spritesDir['store-detail'], spritesDir.output, 'store-detail'))
+sprites.push(makeSprite(spritesDir['tamanhos'], spritesDir.output, 'tamanhos'))
+sprites.push(makeSprite(spritesDir['sprite'], spritesDir.output, 'sprite'))
 
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
@@ -168,6 +200,7 @@ module.exports = {
         'arquivos/0-dcs-web-vendors-script.js': code =>
           require("uglify-js").minify(code).code
       }
-    })
+    }),
+    ...sprites
   ]
 }

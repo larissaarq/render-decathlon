@@ -24,6 +24,7 @@
     "copy-webpack-plugin": "^5.1.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
+    "cssnano-webpack-plugin": "^1.0.1",
     "file-loader": "^5.0.2",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs": "0.0.1-security",
@@ -44,6 +45,7 @@
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1",
-    "webpack-merge-and-include-globally": "^2.1.20"
+    "webpack-merge-and-include-globally": "^2.1.20",
+    "webpack-spritesmith": "^1.0.2"
   }
 }

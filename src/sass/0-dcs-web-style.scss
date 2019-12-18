@@ -25,10 +25,11 @@
 /**
  * Sprites
  */
-// @import './sprites/0-dcs-web-sprite-retire-na-loja';
-// @import './sprites/0-dcs-web-sprite-store-detail';
-// @import './sprites/0-dcs-web-sprite-tamanhos';
-// @import './sprites/0-dcs-web-sprite';
+@import './sprites/sprite-retire-na-loja';
+@import './sprites/sprite-store-detail';
+@import './sprites/sprite-tamanhos';
+@import './sprites/sprite-sprite';
+@import './sprites/sprite';
 
 /**
  * Styles
@@ -45,7 +46,7 @@
 // @import './components/0-dcs-web-shelf';
 @import './components/0-dcs-web-product-reviews';
 @import './components/0-dcs-web-benefits-bar';
-// @import './components/0-dcs-web-compare';
+@import './components/0-dcs-web-compare';
 @import './components/0-dcs-web-flags';
 @import './components/0-dcs-web-minicart';
 @import './components/0-dcs-web-blog';
@@ -55,4 +56,4 @@
 @import './components/0-dcs-web-flash-msg';
 @import './components/0-dcs-web-colorbox';
 @import './components/0-dcs-web-header';
-// @import './components/0-dcs-web-footer';
+@import './components/0-dcs-web-footer';

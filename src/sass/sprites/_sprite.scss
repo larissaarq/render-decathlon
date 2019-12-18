@@ -1,0 +1,27 @@
+.icon-footer-newsletter__line {
+  @include sprite($icon-footer-newsletter-line);
+}
+
+.icon-newsletter-mail {
+  @include sprite($icon-newsletter-mail);
+}
+
+.icon-footer__secure {
+  @include sprite($icon-footer-secure);
+}
+
+.icon-footer__clearsale {
+  @include sprite($icon-footer-clearsale);
+}
+
+.icon-list__empty {
+  @include sprite($icon-list-empty);
+}
+
+.icon-compare__check {
+  @include sprite($icon-compare-check);
+}
+
+.icon-close--medium {
+  @include sprite($icon-close-medium);
+}

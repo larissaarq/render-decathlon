@@ -1,7 +1,8 @@
+const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.config.common')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const path = require('path')
+const CssnanoPlugin = require('cssnano-webpack-plugin')
 const RemovePlugin = require('remove-files-webpack-plugin')
 
 const ROOT_PATH = path.resolve(__dirname, 'build')
@@ -25,5 +26,11 @@ module.exports = merge(common, {
         log: false
       },
     })
-  ]
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new CssnanoPlugin()
+    ]
+  }
 })
