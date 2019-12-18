@@ -30,6 +30,14 @@ const getPaths = (rootPath, cb) => {
   return paths
 }
 
+/**
+ * @description Make sprites from images
+ * @param {string} spriteDir Images directory
+ * @param {string} spriteOutputDir Output directory of sprites
+ * @param {string} spriteOutputName Name of sprite output
+ * @returns {SpritesmithPlugin} SpritesmithPlugin object
+ */
+
 const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
   return new SpritesmithPlugin({
     src: {
@@ -45,21 +53,6 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
     }
   })
 }
-
-const sprites = []
-
-const spritesDir = {
-  'retire-na-loja': 'src/images/sprite-retire-na-loja',
-  'store-detail': 'src/images/sprite-store-detail',
-  'tamanhos': 'src/images/sprite-tamanhos',
-  'sprite': 'src/images/sprite',
-  'output': 'src/sass/sprites'
-}
-
-sprites.push(makeSprite(spritesDir['retire-na-loja'], spritesDir.output, 'retire-na-loja'))
-sprites.push(makeSprite(spritesDir['store-detail'], spritesDir.output, 'store-detail'))
-sprites.push(makeSprite(spritesDir['tamanhos'], spritesDir.output, 'tamanhos'))
-sprites.push(makeSprite(spritesDir['sprite'], spritesDir.output, 'sprite'))
 
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
@@ -81,6 +74,21 @@ filesToConcat = [
   ...getPaths(controllersRootPath)
 ]
 
+
+const sprites = []
+const spritesDir = {
+  'retire-na-loja': 'src/images/sprite-retire-na-loja',
+  'store-detail': 'src/images/sprite-store-detail',
+  'tamanhos': 'src/images/sprite-tamanhos',
+  'sprite': 'src/images/sprite',
+  'output': 'src/sass/sprites'
+}
+
+sprites.push(makeSprite(spritesDir['retire-na-loja'], spritesDir.output, 'retire-na-loja'))
+sprites.push(makeSprite(spritesDir['store-detail'], spritesDir.output, 'store-detail'))
+sprites.push(makeSprite(spritesDir['tamanhos'], spritesDir.output, 'tamanhos'))
+sprites.push(makeSprite(spritesDir['sprite'], spritesDir.output, 'sprite'))
+
 module.exports = {
   watchOptions: {
     aggregateTimeout: 300,
@@ -91,7 +99,7 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    theme: path.join(__dirname, 'src/js', 'theme'),
+    theme: path.join(__dirname, 'src/js', 'index'),
     app: path.join(__dirname, 'src/react', 'index'),
     all: filesToConcat,
     ...controllers,
