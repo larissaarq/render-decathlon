@@ -4,12 +4,18 @@
 /**
  * Core
  */
+
 @import './core/0-dcs-web-variables';
 @import './core/0-dcs-web-mixins';
 
 /**
  * Vendor
  */
-@import './vendor/0-dcs-web-vendor-bootstrap';
-@import './vendor/0-dcs-web-vendor-bootstrap-core';
+
+// Bootstrap
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/scaffolding';
+
+// Others
 @import './vendor/0-dcs-web-vendor-burger';

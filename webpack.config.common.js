@@ -102,6 +102,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'resolve-url-loader',
           'postcss-loader',
           {
             loader: 'sass-loader',

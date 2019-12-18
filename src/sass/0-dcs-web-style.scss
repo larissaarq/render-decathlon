@@ -7,11 +7,28 @@
 /**
  * Vendor
  */
-// @import './vendor/0-dcs-web-vendor-bootstrap-core';
+
+// Bootstrap
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/normalize';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/grid';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/tables';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/utilities';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
+@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/navs';
+
+// Others
 @import './vendor/0-dcs-web-vendor-bootstrap-select';
 @import './vendor/0-dcs-web-vendor-slick';
 @import './vendor/0-dcs-web-vendor-nouislider';
 @import './vendor/0-dcs-web-vendor-percircle';
+
+/**
+ * Sprites
+ */
+// @import '0-dcs-web-sprite-retire-na-loja';
+// @import '0-dcs-web-sprite-store-detail';
+// @import '0-dcs-web-sprite-tamanhos';
+// @import '0-dcs-web-sprite';
 
 /**
  * Styles
