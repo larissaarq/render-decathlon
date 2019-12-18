@@ -49,7 +49,7 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
       css: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.scss`)
     },
     apiOptions: {
-      cssImageRef: path.join(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.png`)
+      cssImageRef: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.png`)
     }
   })
 }
@@ -103,6 +103,7 @@ module.exports = {
     app: path.join(__dirname, 'src/react', 'index'),
     all: filesToConcat,
     ...controllers,
+    checkout: path.join(__dirname, 'src/js', 'checkout5-custom')
   },
   module: {
     rules: [{

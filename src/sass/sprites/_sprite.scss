@@ -25,3 +25,15 @@
 .icon-close--medium {
   @include sprite($icon-close-medium);
 }
+
+.icon-account-blue {
+  @include sprite($icon-account-blue);
+}
+
+.icon-alert-blue {
+  @include sprite($icon-alert-blue);
+}
+
+.icon-check-available-blue {
+  @include sprite($icon-check-available-blue);
+}

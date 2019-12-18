@@ -246,7 +246,7 @@ body.my-account {
 
       &:before {
         content: '';
-        @extend .sprite-icon-account-blue;
+        @extend .icon-account-blue;
       }
 
       .my-account-menu__profile-welcome {
@@ -502,14 +502,14 @@ body.my-account {
       &.invalid {
         &:before {
           content: '';
-          @extend .sprite-icon-alert-blue;
+          @extend .icon-alert-blue;
         }
       }
 
       &.valid {
         &:before {
           content: '';
-          @extend .sprite-icon-check-available-blue;
+          @extend .icon-check-available-blue;
         }
       }
     }

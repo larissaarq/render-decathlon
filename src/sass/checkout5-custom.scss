@@ -1,26 +1,18 @@
-/*
- * IMPORTS
+/**
+ * Core
  */
-
-@import '../../node_modules/compass-mixins/lib/compass';
-
-// Variables
-@import "0-dcs-web-variables";
-@import "0-dcs-web-mixins";
-
-// Vendor
-@import "../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import './core/0-dcs-web-fonts';
+@import './core/0-dcs-web-helpers';
 
 // Helpers
-@import "0-dcs-web-fonts";
-@import "0-dcs-web-sprite";
-@import "0-dcs-web-buttons";
-@import "0-dcs-web-footer";
+@import "./components/0-dcs-web-buttons";
+@import "./components/0-dcs-web-footer";
 
-@import "0-dcs-web-vendor-slick";
+// Vendor
+@import "./vendor/0-dcs-web-vendor-slick";
 
-
-@import "0-dcs-web-login";
+// Login
+@import "./pages/0-dcs-web-login";
 
 /*
   * GENERAL
@@ -197,17 +189,20 @@ footer li {
 
 
   .box-client-info-pj {
+
     #is-corporate-client,
     .corporate-title {
       font-size: 0;
-      
+
       &:before {
         content: 'Comprar como pessoa jurídica';
         font-size: 12px;
       }
     }
+
     #not-corporate-client {
       font-size: 0;
+
       &:before {
         content: 'Fechar';
         font-size: 12px;
@@ -751,37 +746,37 @@ table {
 
 .sprite-icon-footer__gateways {
   &--visa {
-    background-image: url('../arquivos/icon-footer__gateways--visa.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--visa.png') !important;
   }
 
   &--mastercard {
-    background-image: url('../arquivos/icon-footer__gateways--mastercard.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--mastercard.png') !important;
   }
 
   &--elo {
-    background-image: url('../arquivos/icon-footer__gateways--elo.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--elo.png') !important;
   }
 
   &--amex {
-    background-image: url('../arquivos/icon-footer__gateways--amex.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--amex.png') !important;
   }
 
   &--diners {
-    background-image: url('../arquivos/icon-footer__gateways--diners.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--diners.png') !important;
   }
 
   &--paypal {
-    background-image: url('../arquivos/icon-footer__gateways--paypal.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--paypal.png') !important;
   }
 
   &--boleto {
-    background-image: url('../arquivos/icon-footer__gateways--boleto.png') !important;
+    background-image: url('/arquivos/icon-footer__gateways--boleto.png') !important;
   }
 }
 
 .footer-col-seguranca {
   .selo-secure {
-    background-image: url('../arquivos/icon-footer__secure.png') !important;
+    background-image: url('/arquivos/icon-footer__secure.png') !important;
     // background-position: center !important;
   }
 }
@@ -790,14 +785,14 @@ table {
 
   .clear-sale,
   .sprite-icon-footer__clearsale {
-    background-image: url(../arquivos/icon-footer__clearsale.png) !important;
+    background-image: url(/arquivos/icon-footer__clearsale.png) !important;
     background-position: center !important;
   }
 }
 
 .footer-col-protegido {
   .sprite-icon-footer__clearsale {
-    background-image: url('../arquivos/icon-footer__clearsale.png') !important;
+    background-image: url('/arquivos/icon-footer__clearsale.png') !important;
     background-position: center !important;
   }
 }
@@ -808,19 +803,19 @@ table {
 
 
 .footer-barra-beneficios__retire-loja:before {
-  background-image: url('../arquivos/icon-barra-beneficios__retire.png') !important;
+  background-image: url('/arquivos/icon-barra-beneficios__retire.png') !important;
 }
 
 .footer-barra-beneficios__lojas-brasil:before {
-  background-image: url('../arquivos/icon-barra-beneficios__lojas.png') !important;
+  background-image: url('/arquivos/icon-barra-beneficios__lojas.png') !important;
 }
 
 .footer-barra-beneficios__troca:before {
-  background-image: url('../arquivos/icon-barra-beneficios__troca.png') !important;
+  background-image: url('/arquivos/icon-barra-beneficios__troca.png') !important;
 }
 
 .footer-barra-beneficios__formas-pagamento:before {
-  background-image: url('../arquivos/icon-barra-beneficios__pagamentos.png') !important;
+  background-image: url('/arquivos/icon-barra-beneficios__pagamentos.png') !important;
 }
 
 
@@ -856,6 +851,7 @@ table {
 
 
 .shipping-sla-selector {
+
   // display: none;
   .monetary {
     font-size: 0;
@@ -888,6 +884,7 @@ table {
   li {
     display: none;
   }
+
   .seller-1-sla-Normal,
   .seller-1-sla-Agendada,
   .seller-1-sla-Padrao,
@@ -912,7 +909,7 @@ table {
   border-radius: 0;
   background-color: transparent;
   text-align: left;
-  
+
 
   /* width */
   &::-webkit-scrollbar {
@@ -923,7 +920,7 @@ table {
     pointer-events: none;
     // display: none;
   }
-  
+
   /* Track */
   &::-webkit-scrollbar-track {
     box-shadow: none;
@@ -932,26 +929,26 @@ table {
     width: 5px;
     position: absolute;
     right: 20px;
-    pointer-events: none;  
+    pointer-events: none;
     // display: none;
   }
-  
+
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background: rgba($silver, 0.5);
     border-radius: 5px;
     width: 3px;
     height: 25px;
-    pointer-events: none;  
+    pointer-events: none;
     // display: none;
   }
-  
+
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
     background: $silver;
     // display: none;
   }
-  
+
   .icon-ok {
     // @include decathlonIcon('\E026', $mineShaftDarker, 25px);
     // // display: none !important;
@@ -962,11 +959,13 @@ table {
 
     display: none;
   }
-  > li {
+
+  >li {
     padding: 5px 0;
 
     &:hover {
-      > a {
+      >a {
+
         // color: $lochmara;
         // font-weight: bold;
         .icon-lock {
@@ -979,19 +978,20 @@ table {
         }
       }
     }
-    > a {
+
+    >a {
       font-size: 12px;
       padding: 0;
       display: block;
       cursor: default;
       pointer-events: none;
-      
+
       &:focus,
       &:hover {
         background: 0 0;
         color: initial;
       }
-      
+
       span {
         padding: 0;
         display: inline-block;
@@ -1040,6 +1040,7 @@ table {
 }
 
 label {
+
   &[for*=seller-1-sla-Loja],
   &[for=seller-1-sla-RetiraremLoja] {
     display: none !important;
@@ -1751,7 +1752,7 @@ label {
       display: block;
       width: auto;
       margin: 5px 0 10px;
-      
+
       span {
         font-size: 15px;
         font-weight: bold;
@@ -1939,11 +1940,14 @@ label {
             }
           }
         }
+
         .fr.mt4.w-30-ns {
           margin-top: 5px;
         }
+
         .fl.w-100.w-50-ns {
           height: auto;
+
           .dark-green {
             &.f4 {
               font-size: 22px;
@@ -2175,7 +2179,5 @@ label {
 }
 
 .link.link-gift-cart {
-  display: none!important;
+  display: none !important;
 }
-
-@import '0-dcs-web-login';
