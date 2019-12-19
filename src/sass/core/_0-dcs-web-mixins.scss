@@ -57,9 +57,11 @@
   @each $position in $positions {
     $index: index($positions, $position);
 
-    @if nth($directions, $index) == $direction {
+    @if nth($directions, $index)==$direction {
       border-#{$position}: $size solid $color;
-    } @else {
+    }
+
+    @else {
       border-#{$position}: $size solid transparent;
     }
   }
@@ -86,6 +88,7 @@
   zoom: 1;
   font-size: $size;
   color: $color;
+
   &:before {
     content: $iconCode;
   }
@@ -100,13 +103,19 @@
 @mixin arrow($direction, $size, $color, $borderSize: 1px) {
   $angle: null;
 
-  @if $direction == 'bottom' {
+  @if $direction=='bottom' {
     $angle: -45deg;
-  } @else if $direction == 'right' {
+  }
+
+  @else if $direction=='right' {
     $angle: -135deg;
-  } @else if $direction == 'left' {
+  }
+
+  @else if $direction=='left' {
     $angle: 45deg;
-  } @else if $direction == 'top' {
+  }
+
+  @else if $direction=='top' {
     $angle: 135deg;
   }
 
@@ -125,6 +134,7 @@
 /* Close X Button*/
 
 @mixin closeX($color, $width, $height) {
+
   &:before,
   &:after {
     content: '';
@@ -136,6 +146,7 @@
     left: 50%;
     top: 50%;
   }
+
   &:before {
     @include transform(translate(-50%, -50%) rotate(45deg));
   }
@@ -205,9 +216,13 @@
   cursor: pointer;
   @include skew(10deg, 0);
 
-  &.slick-active { background-color: $color; }
+  &.slick-active {
+    background-color: $color;
+  }
 
-  button { display: none; }
+  button {
+    display: none;
+  }
 }
 
 /*
@@ -258,7 +273,7 @@
 
 @mixin hexagon_rotated($height, $color) {
   $width: round($height / 1.73);
-  $half_width:  round($width / 2);
+  $half_width: round($width / 2);
   $half_height: round($height / 2);
 
   width: $width + px;
@@ -306,6 +321,7 @@
   margin-right: 15px;
   position: relative;
   vertical-align: middle;
+
   &:before {
     display: block;
     content: '';
@@ -319,10 +335,11 @@
     @include transform(translate(-50%, -50%));
     background-color: $white;
   }
+
   &:checked {
     &:after {
       display: block;
-      content: '';          
+      content: '';
       width: ($width - 7) + px;
       height: ($height - 7) + px;
       background-color: $lochmara;
@@ -373,5 +390,19 @@
     margin-left: 10px;
     font-size: 12px;
     text-transform: uppercase;
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes $animation-name {
+    @content;
+  }
+
+  @-moz-keyframes $animation-name {
+    @content;
+  }
+
+  @keyframes $animation-name {
+    @content;
   }
 }

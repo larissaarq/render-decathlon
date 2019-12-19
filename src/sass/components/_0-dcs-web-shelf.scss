@@ -12,16 +12,28 @@
       padding-bottom: 60px;
 
       &:after {
-        content: '';
-        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 25%);
+        content: "";
+        background: -moz-linear-gradient(
+          top,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 25%
+        );
         /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 25%);
+        background: -webkit-linear-gradient(
+          top,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 25%
+        );
         /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 25%);
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 1) 25%
+        );
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
         /* IE6-9 */
-        width: 99.9%;
+        width: 100%;
         position: absolute;
         bottom: 0px;
         right: 0;
@@ -36,21 +48,18 @@
   }
 }
 
-
-
 .mob-shelf {
-  >ul {
+  > ul {
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
     display: block;
 
     &:not(.slick-initialized) {
       display: none;
       opacity: 0;
-      transition: opacity .3s;
+      transition: opacity 0.3s;
     }
   }
-
 
   .slick-initialized {
     &:after {
@@ -65,8 +74,6 @@
     padding: 12px 15px;
     margin: 0 15px;
   }
-
-  .shelf-item__titles {}
 
   .shelf-item__brand,
   .shelf-item__title-link {
@@ -177,7 +184,7 @@
 }
 
 .main-shelf {
-  >ul {
+  > ul {
     @extend .av-row;
 
     border-top: 1px solid $alto;
@@ -200,7 +207,7 @@
       }
     }
 
-    >li {
+    > li {
       @extend .av-col-xs-12;
       @extend .av-col-sm-8;
 
@@ -225,7 +232,7 @@
   padding-bottom: 10px;
 
   &:hover {
-    @include box-shadow(0 0 5px 0 rgba(0, 0, 0, .5));
+    @include box-shadow(0 0 5px 0 rgba(0, 0, 0, 0.5));
 
     .shelf-item__hover {
       opacity: 1;
@@ -240,24 +247,6 @@
 /**
      * Shelf - Favorites
      */
-
-.shelf__content {
-  .main-shelf {
-    >ul {
-      opacity: 1;
-      transition: opacity .3s;
-      display: block;
-
-      &:not(.slick-initialized) {
-        // display: none;
-        opacity: 0;
-        transition: opacity .3s;
-      }
-    }
-  }
-}
-
-
 .shelf-item__favorite {
   display: none !important;
   opacity: 0;
@@ -315,10 +304,29 @@
 }
 
 /**
-     * Shelf - Flags
-     */
+* Shelf - Flags
+*/
+
 .shelf-item__flags {
-  display: none;
+  .flag-offer {
+    span {
+      position: absolute;
+      top: 0;
+      padding: 3px 16px;
+      background-color: #e20c18;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    &.flags-spec {
+      &.visible {
+        span {
+          background-color: #0082c3;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
 
 /**
@@ -330,8 +338,7 @@
 
 .shelf-item__img-link {
   display: block;
-  padding: 15px;
-  padding-bottom: 0;
+  padding: 24px 15px 0;
 }
 
 .shelf-item__image {
@@ -351,7 +358,6 @@
      */
 .shelf-item__info {
   text-align: center;
-
 }
 
 .shelf-item__colors {
@@ -370,12 +376,15 @@
     width: 50px;
     height: 50px;
 
+    @media (min-width: 768px) {
+      width: 20px;
+    }
     &.slick-prev {
       left: 15px;
 
       &:before {
-        @include arrow('left', 14px, $lochmara);
-        left: 0px;
+        @include arrow("left", 14px, $lochmara);
+        left: 5px;
         @include transform(translateY(-50%) rotate(45deg));
       }
     }
@@ -384,8 +393,8 @@
       right: 15px;
 
       &:before {
-        @include arrow('right', 14px, $lochmara);
-        right: 0px;
+        @include arrow("right", 14px, $lochmara);
+        right: 5px;
         left: inherit;
         @include transform(translateY(-50%) rotate(-135deg));
       }
@@ -579,7 +588,7 @@
     @include translateY(-50%);
 
     background-repeat: repeat-x;
-    content: '';
+    content: "";
     height: 12px;
     left: 0;
     position: absolute;
@@ -587,7 +596,7 @@
   }
 
   &:before {
-    $iconStars: 'inline/icon-star--empty.png';
+    $iconStars: "inline/icon-star--empty.png";
     background-image: inline-image($iconStars);
     width: 100%;
     display: none;
@@ -595,7 +604,7 @@
 
   &--1 {
     &:after {
-      $iconStars: 'inline/icon-star--full.png';
+      $iconStars: "inline/icon-star--full.png";
       background-color: $white;
       background-image: inline-image($iconStars);
       width: (20 * 1) * 1%;
@@ -605,7 +614,7 @@
 
   &--2 {
     &:after {
-      $iconStars: 'inline/icon-star--full.png';
+      $iconStars: "inline/icon-star--full.png";
       background-color: $white;
       background-image: inline-image($iconStars);
       width: (20 * 2) * 1%;
@@ -615,7 +624,7 @@
 
   &--3 {
     &:after {
-      $iconStars: 'inline/icon-star--full.png';
+      $iconStars: "inline/icon-star--full.png";
       background-color: $white;
       background-image: inline-image($iconStars);
       width: (20 * 3) * 1%;
@@ -625,7 +634,7 @@
 
   &--4 {
     &:after {
-      $iconStars: 'inline/icon-star--full.png';
+      $iconStars: "inline/icon-star--full.png";
       background-color: $white;
       background-image: inline-image($iconStars);
       width: (20 * 4) * 1%;
@@ -635,7 +644,7 @@
 
   &--5 {
     &:after {
-      $iconStars: 'inline/icon-star--full.png';
+      $iconStars: "inline/icon-star--full.png";
       background-color: $white;
       background-image: inline-image($iconStars);
       width: (20 * 5) * 1%;
@@ -652,15 +661,41 @@
 
 .shelf-item__bottom {
   @include clearfix();
-
   border-top: 1px solid #eeeeee;
-  margin: 15px;
-  margin-top: 0;
   padding-top: 20px;
-  text-align: left;
+  text-align: center;
+  margin: 0 10px 15px;
 
-  @media (max-width: $screen-sm-max) {
-    text-align: center;
+  @media (min-width: $screen-md-min) {
+    margin: 15px;
+    text-align: left;
+  }
+}
+
+.shelf-item__stock{
+  display: block;
+  text-align: center;
+  opacity: 1;
+  transition: opacity .3s;
+  
+  @media (min-width: $screen-md-min) {
+    opacity: 0;
+  }
+  &-button{
+    text-transform: uppercase;
+    color: $lochmara;
+    font-size: 12px;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    i{
+      font-size: 25px;
+      vertical-align: middle;
+      height: 16px;
+      line-height: 16px;
+      width: 24px;
+      text-align: center;
+    }
   }
 }
 
@@ -697,7 +732,7 @@
     @include translateY(-50%);
 
     border: 1px solid $checkboxBorderInactive;
-    content: '';
+    content: "";
     height: 22px;
     left: 0;
     position: absolute;
@@ -728,7 +763,7 @@
     }
 
     &:after {
-      content: '';
+      content: "";
     }
   }
 }
@@ -756,13 +791,13 @@
   height: 30px;
 
   i.shelf-item__buy-icon {
-    @include decathlonIcon('\E064', $lochmara, 24px);
+    @include decathlonIcon("\E064", $lochmara, 24px);
   }
 }
 
 .shelf-carousel {
   .main-shelf {
-    >ul {
+    > ul {
       padding: 5px 0 40px;
     }
 
@@ -796,18 +831,27 @@
     padding: 0 100px;
   }
 
-  >.main-shelf {
+  > .main-shelf {
     @media (min-width: $screen-md-min) {
       text-align: center;
     }
 
-    >h2 {
+    > h2 {
       @include sectionTitle();
     }
 
-    >ul {
+    > ul {
       border-top: 0;
       padding-bottom: 30px;
+      opacity: 1;
+      transition: opacity 0.3s;
+      display: block;
+
+      &:not(.slick-initialized) {
+        // display: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
 
       @media (min-width: $screen-md-min) {
         &:before {
@@ -815,7 +859,7 @@
         }
       }
 
-      >.slick-arrow {
+      > .slick-arrow {
         @include transform(translateY(-50%));
 
         display: block !important;
@@ -832,14 +876,14 @@
         margin-top: -35px;
 
         &.slick-disabled {
-          opacity: .3;
+          opacity: 0.3;
         }
 
         &.slick-prev {
           left: -90px;
 
           &:before {
-            @include arrow('left', 28px, $lochmara);
+            @include arrow("left", 28px, $lochmara);
             @include transform(translateY(-50%) rotate(45deg));
 
             left: 0px;
@@ -851,7 +895,7 @@
           right: -90px;
 
           &:before {
-            @include arrow('right', 28px, $lochmara);
+            @include arrow("right", 28px, $lochmara);
             @include transform(translateY(-50%) rotate(-135deg));
 
             right: 0px;
@@ -911,7 +955,7 @@
       left: -10px;
 
       &:before {
-        @include arrow('left', 14px, $lochmara);
+        @include arrow("left", 14px, $lochmara);
         left: 0px;
         @include transform(translateY(-50%) rotate(45deg));
       }
@@ -921,7 +965,7 @@
       right: -10px;
 
       &:before {
-        @include arrow('right', 14px, $lochmara);
+        @include arrow("right", 14px, $lochmara);
         right: 0px;
         left: inherit;
         @include transform(translateY(-50%) rotate(-135deg));
@@ -944,6 +988,83 @@
 
     .shelf-item__bottom {
       display: none;
+    }
+  }
+}
+
+.rate-stars {
+  color: $white;
+  display: inline-block;
+  margin-left: 5px;
+  position: relative;
+  width: 65px;
+  margin-right: 10px;
+
+  &:before,
+  &:after {
+    @include translateY(-50%);
+
+    background-repeat: repeat-x;
+    content: "";
+    height: 12px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+  }
+
+  &:before {
+    $iconStars: "inline/icon-star--empty.png";
+    background-image: inline-image($iconStars);
+    width: 100%;
+  }
+
+  &--1 {
+    &:after {
+      $iconStars: "inline/icon-star--full.png";
+      background-color: $white;
+      background-image: inline-image($iconStars);
+      width: (20 * 1) * 1%;
+      z-index: 1;
+    }
+  }
+
+  &--2 {
+    &:after {
+      $iconStars: "inline/icon-star--full.png";
+      background-color: $white;
+      background-image: inline-image($iconStars);
+      width: (20 * 2) * 1%;
+      z-index: 1;
+    }
+  }
+
+  &--3 {
+    &:after {
+      $iconStars: "inline/icon-star--full.png";
+      background-color: $white;
+      background-image: inline-image($iconStars);
+      width: (20 * 3) * 1%;
+      z-index: 1;
+    }
+  }
+
+  &--4 {
+    &:after {
+      $iconStars: "inline/icon-star--full.png";
+      background-color: $white;
+      background-image: inline-image($iconStars);
+      width: (20 * 4) * 1%;
+      z-index: 1;
+    }
+  }
+
+  &--5 {
+    &:after {
+      $iconStars: "inline/icon-star--full.png";
+      background-color: $white;
+      background-image: inline-image($iconStars);
+      width: (20 * 5) * 1%;
+      z-index: 1;
     }
   }
 }
