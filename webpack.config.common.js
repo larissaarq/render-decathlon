@@ -54,10 +54,12 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
   })
 }
 
+const commonComponentsRootPath = path.join(__dirname, 'src/js/common/components')
+const commonControllersRootPath = path.join(__dirname, 'src/js/common/controllers')
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
-let filesToConcat = []
+let commonFilesToConcat = []
 
 getPaths(controllersRootPath, file => {
   let fileName = file.substring(0, file.length - 3)
@@ -69,11 +71,10 @@ getPaths(controllersRootPath, file => {
   })
 })
 
-filesToConcat = [
-  ...getPaths(componentsRootPath),
-  ...getPaths(controllersRootPath)
+commonFilesToConcat = [
+  ...getPaths(commonComponentsRootPath),
+  ...getPaths(commonControllersRootPath)
 ]
-
 
 const sprites = []
 const spritesDir = {
@@ -101,7 +102,8 @@ module.exports = {
     polyfill: '@babel/polyfill',
     theme: path.join(__dirname, 'src/js', 'index'),
     app: path.join(__dirname, 'src/react', 'index'),
-    all: filesToConcat,
+    common: commonFilesToConcat,
+    components: getPaths(componentsRootPath),
     ...controllers,
     checkout: path.join(__dirname, 'src/js', 'checkout5-custom')
   },

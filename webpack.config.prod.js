@@ -21,7 +21,6 @@ module.exports = merge(common, {
       after: {
         include: [
           `${ROOT_PATH}/arquivos/0-dcs-web-theme-script.js`,
-          `${ROOT_PATH}/arquivos/0-dcs-web-all-style.css`
         ],
         log: false
       },
