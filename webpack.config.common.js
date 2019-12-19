@@ -45,11 +45,11 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
       glob: '*.png'
     },
     target: {
-      image: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.png`),
+      image: path.resolve(__dirname, 'src/images', `sprite-${spriteOutputName}.png`),
       css: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.scss`)
     },
     apiOptions: {
-      cssImageRef: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.png`)
+      cssImageRef: `../../images/sprite-${spriteOutputName}.png`
     }
   })
 }
@@ -59,6 +59,15 @@ const commonControllersRootPath = path.join(__dirname, 'src/js/common/controller
 const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
+const sprites = []
+const spritesDir = {
+  'retire-na-loja': 'src/images/sprite-retire-na-loja',
+  'store-detail': 'src/images/sprite-store-detail',
+  'tamanhos': 'src/images/sprite-tamanhos',
+  'sprite': 'src/images/sprite',
+  'output': 'src/sass/sprites'
+}
+
 let commonFilesToConcat = []
 
 getPaths(controllersRootPath, file => {
@@ -75,15 +84,6 @@ commonFilesToConcat = [
   ...getPaths(commonComponentsRootPath),
   ...getPaths(commonControllersRootPath)
 ]
-
-const sprites = []
-const spritesDir = {
-  'retire-na-loja': 'src/images/sprite-retire-na-loja',
-  'store-detail': 'src/images/sprite-store-detail',
-  'tamanhos': 'src/images/sprite-tamanhos',
-  'sprite': 'src/images/sprite',
-  'output': 'src/sass/sprites'
-}
 
 sprites.push(makeSprite(spritesDir['retire-na-loja'], spritesDir.output, 'retire-na-loja'))
 sprites.push(makeSprite(spritesDir['store-detail'], spritesDir.output, 'store-detail'))
@@ -144,7 +144,6 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'resolve-url-loader',
           'postcss-loader',
           {
             loader: 'sass-loader',

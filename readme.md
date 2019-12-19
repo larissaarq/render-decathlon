@@ -4,7 +4,7 @@ Render Decathlon Store
 
 ## Install NodeJS, NPM (or Yarn) and Webpack
 
-- [Node.js](https://nodejs.org/) - v10.0.0
+- [Node.js](https://nodejs.org/) - `v10.0.0`
 - [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 - [Webpack](https://webpack.js.org/)
 
