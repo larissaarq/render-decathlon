@@ -100,12 +100,12 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    theme: path.join(__dirname, 'src/js', 'index'),
-    app: path.join(__dirname, 'src/react', 'index'),
+    main: path.join(__dirname, 'src/js', 'index'),
     common: commonFilesToConcat,
     components: getPaths(componentsRootPath),
     ...controllers,
-    checkout: path.join(__dirname, 'src/js', 'checkout5-custom')
+    checkout: path.join(__dirname, 'src/js', 'checkout5-custom'),
+    app: path.join(__dirname, 'src/react', 'index')
   },
   module: {
     rules: [{
