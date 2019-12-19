@@ -27,31 +27,31 @@ npm run build or yarn build
 
 ## Structure
 
-# Libs:
+#### Libs:
 
 - 0-dcs-web-vendors-script.js
 
-# Global:
+#### Global:
 
-0-dcs-web-common-script.js
-0-dcs-web-components-script.js
-0-dcs-web-main-script-js
-0-dcs-web-main-style.css
+- 0-dcs-web-common-script.js
+- 0-dcs-web-components-script.js
+- 0-dcs-web-main-script-js
+- 0-dcs-web-main-style.css
 
-# Páginas:
+#### Páginas:
 
-0-dcs-web-`name`-script.js
-0-dcs-web-`name`-style.css
+- 0-dcs-web-`name`-script.js
+- 0-dcs-web-`name`-style.css
 
-# Landings:
+#### Landings:
 
-0-dcs-web-`name`-script.js
-0-dcs-web-`name`-style.css
+- 0-dcs-web-`name`-script.js
+- 0-dcs-web-`name`-style.css
 
-# React Components:
+#### React Components:
 
-0-dcs-web-app-script.js
-0-dcs-web-app-style.css
+- 0-dcs-web-app-script.js
+- 0-dcs-web-app-style.css
 
 ## Built with
 
