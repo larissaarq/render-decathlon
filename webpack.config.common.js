@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 const env = process.env.NODE_ENV
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 
@@ -189,6 +190,11 @@ module.exports = {
         flatten: true
       }
     ]),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '95-100'
+      }
+    }),
     new MergeIntoSingleFilePlugin({
       files: {
         'arquivos/0-dcs-web-vendors-script.js': [
