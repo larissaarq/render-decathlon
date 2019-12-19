@@ -1,3 +1,5 @@
+import '../../../sass/0-dcs-web-style.scss'
+
 APP.controller.General = ClassAvanti.extend({
   init() {
     this.setup();

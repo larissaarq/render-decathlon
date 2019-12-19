@@ -100,7 +100,6 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    main: path.join(__dirname, 'src/js', 'index'),
     common: commonFilesToConcat,
     components: getPaths(componentsRootPath),
     ...controllers,

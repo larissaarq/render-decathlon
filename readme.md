@@ -35,8 +35,7 @@ npm run build or yarn build
 
 - 0-dcs-web-common-script.js
 - 0-dcs-web-components-script.js
-- 0-dcs-web-main-script-js
-- 0-dcs-web-main-style.css
+- 0-dcs-web-common-style.css
 
 #### Páginas:
 
