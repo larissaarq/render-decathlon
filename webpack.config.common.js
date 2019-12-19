@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
-
+const env = process.env.NODE_ENV
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 
 /**
@@ -49,7 +49,7 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
       css: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.scss`)
     },
     apiOptions: {
-      cssImageRef: `../../images/sprite-${spriteOutputName}.png`
+      cssImageRef: `${env === 'production'? '/arquivos' : '.'}/sprite-${spriteOutputName}.png`
     }
   })
 }
@@ -135,7 +135,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name: 'arquivos/[name].[ext]'
+            name: 'arquivos/[name].[ext]',
+            useRelativePath: true
           }
         }]
       },
@@ -143,7 +144,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          'css-loader?url=false',
           'postcss-loader',
           {
             loader: 'sass-loader',
