@@ -1,3 +1,5 @@
+import '../avanti-search'
+
 APP.controller.List = ClassAvanti.extend({
   init() {
     this.setup()
@@ -51,14 +53,14 @@ APP.controller.List = ClassAvanti.extend({
       },
       singleNavigatorUls: $('.search-single-navigator ul').clone()
     }
-    
+
     APP.i.FilterPriceRange = new APP.component.FilterPriceRange()
     APP.i.EnhancedEcommerce = new APP.component.EnhancedEcommerce()
   },
-  
+
   start() {
     this.clearUTMCookies()
-    
+
     this.changeFilterOrder()
 
     this.hideSportFilter()
@@ -68,7 +70,7 @@ APP.controller.List = ClassAvanti.extend({
       this.orderAlphabeticSports()
       this.searchTerm()
     }
-    
+
     this.searchResult()
     // this.removeFilterCounter()
     this.seeMore()
@@ -76,7 +78,7 @@ APP.controller.List = ClassAvanti.extend({
     this.setRateStars()
     this.startAvantiSearch()
     this.seeMoreSeo()
-    
+
     APP.i.EnhancedEcommerce.onAccessListPage()
   },
   clearUTMCookies() {
@@ -145,7 +147,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   hideSportFilter() {
-    const { classShowSportFilter } = this.options
+    const {
+      classShowSportFilter
+    } = this.options
 
     if ($("body").hasClass(classShowSportFilter)) {
       return false
@@ -157,17 +161,24 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   departmentHides() {
-    const { classShowSportFilter, classDepartament } = this.options
+    const {
+      classShowSportFilter,
+      classDepartament
+    } = this.options
 
     if ($("body").hasClass(classDepartament) && $("body").hasClass(classShowSportFilter) === false) {
       $(".search-multiple-navigator fieldset h5:contains(Tipo de Produto)")
         .parent()
-        // .hide()
+      // .hide()
     }
   },
 
   searchTerm() {
-    const { ComponentSearchResult, classSearchResultTotal, classSearchResultTerm } = this.options
+    const {
+      ComponentSearchResult,
+      classSearchResultTotal,
+      classSearchResultTerm
+    } = this.options
 
     const terms = $(".resultado-busca-termo:first strong").text()
     const total = ComponentSearchResult.getTotalSearchResult()
@@ -185,7 +196,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   searchResult() {
-    const { ComponentSearchResult, classSearchBar } = this.options
+    const {
+      ComponentSearchResult,
+      classSearchBar
+    } = this.options
 
     const total = ComponentSearchResult.getTotalSearchResult()
 
@@ -207,7 +221,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   removeFilterCounter() {
-    const { $filterCounter } = this.options
+    const {
+      $filterCounter
+    } = this.options
 
     $filterCounter.each((index, element) => {
       const _this = $(element)
@@ -228,7 +244,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   createClearSearchButton() {
-    const { classClearFilterButton } = this.options
+    const {
+      classClearFilterButton
+    } = this.options
 
     const htmlClearFilter = `<div class="clear-filter">
                               <button class="${classClearFilterButton}">Limpar filtros</button>
@@ -239,7 +257,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   setRateStars() {
-    const { $rates } = this.options
+    const {
+      $rates
+    } = this.options
 
     $rates.each((index, element) => {
       const _this = $(element)
@@ -256,7 +276,12 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   startAvantiSearch() {
-    const { ComponentListFilters, $resultItems, searchOptions, classTotalproducts } = this.options
+    const {
+      ComponentListFilters,
+      $resultItems,
+      searchOptions,
+      classTotalproducts
+    } = this.options
 
     const $loading = $(".search-default__loading")
     const $noResult = $(".search-default__no-result")
@@ -289,7 +314,7 @@ APP.controller.List = ClassAvanti.extend({
       // $loading.show()
       $noResult.hide()
     })
-    
+
     $resultItems.on("avantisearch.afterSearch", (event, options, request) => {
       APP.i.Shelf = new APP.component.Shelf()
 
@@ -299,7 +324,7 @@ APP.controller.List = ClassAvanti.extend({
         $noResult.show()
       }
 
-      if($('.search-multiple-navigator').length > 0 && $("body").hasClass("list search")){
+      if ($('.search-multiple-navigator').length > 0 && $("body").hasClass("list search")) {
         $('.search-single-navigator .list__toggle-title').remove()
       }
 
@@ -363,15 +388,15 @@ APP.controller.List = ClassAvanti.extend({
       }
     }, 100)
   },
-  
+
   seeMoreSeo() {
-    if($(".wrap-seo").find("p").length){
+    if ($(".wrap-seo").find("p").length) {
       $(".wrap-seo").parent().append(`
         <a href="#" class="wrap-seo__button"><span>Ver Mais</span><i class="dkti-arrow2-down"></i></a>
       `);
     }
 
-    $(".wrap-seo__button").on("click", function(e){
+    $(".wrap-seo__button").on("click", function (e) {
       e.preventDefault();
       $(".wrap-seo__button").toggleClass("active");
       $(".wrap-seo").toggleClass("active");
@@ -462,7 +487,7 @@ APP.controller.List = ClassAvanti.extend({
     this.bindApplyFilter()
     this.bindClickCategoryFilter()
 
-    if ($("body").hasClass("collection--menu")){
+    if ($("body").hasClass("collection--menu")) {
       this.bindClickMenuCollection()
     }
   },
@@ -471,7 +496,7 @@ APP.controller.List = ClassAvanti.extend({
     $('.search-single-navigator ul li a').on('click', event => {
       let urlPath = event.target.pathname;
 
-      if(urlPath !== undefined || urlPath !== null){
+      if (urlPath !== undefined || urlPath !== null) {
         ga("send", "event", "Filtro Categoria", "Click Categoria", urlPath)
       }
     })
@@ -485,7 +510,7 @@ APP.controller.List = ClassAvanti.extend({
     this.bindApplyCurrentLinkColletion()
   },
 
-  bindApplyCurrentLinkColletion () {
+  bindApplyCurrentLinkColletion() {
     const currentUrl = window.location.pathname
     $('.collection--menu .menu-list a').each((i, e) => {
       const _this = $(e)
@@ -513,7 +538,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bindToggleTitle() {
-    const { $asideTitle, classToggleTitle } = this.options
+    const {
+      $asideTitle,
+      classToggleTitle
+    } = this.options
 
     var genderFirstTime = true
 
@@ -555,7 +583,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bindClearFilter() {
-    const { classClearFilters, classTotal } = this.options
+    const {
+      classClearFilters,
+      classTotal
+    } = this.options
 
     $("body").on("click", `.${classClearFilters}`, event => {
       event.preventDefault()
@@ -592,7 +623,12 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bindOpenFilters() {
-    const { classFilterButton, classResponsiveFilter, classResponsiveFilterOpen, classBodySidebarOpen } = this.options
+    const {
+      classFilterButton,
+      classResponsiveFilter,
+      classResponsiveFilterOpen,
+      classBodySidebarOpen
+    } = this.options
 
     $(`.${classFilterButton}`).on("click", event => {
       event.preventDefault()
@@ -611,14 +647,23 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   _closeFilter() {
-    const { classResponsiveFilter, classResponsiveFilterOpen, classBodySidebarOpen } = this.options
+    const {
+      classResponsiveFilter,
+      classResponsiveFilterOpen,
+      classBodySidebarOpen
+    } = this.options
 
     $(`.${classResponsiveFilter}`).removeClass(classResponsiveFilterOpen)
     $("body").removeClass(`body-lock ${classBodySidebarOpen}`)
   },
 
   bindFixedFilter() {
-    const { $header, classResponsiveFilter, classResponsiveFilterFixed, classSearchBar } = this.options
+    const {
+      $header,
+      classResponsiveFilter,
+      classResponsiveFilterFixed,
+      classSearchBar
+    } = this.options
 
     $(window).on("scroll", () => {
       if ($header.offset().top > $(`.${classSearchBar}`).offset().top - 100) {
