@@ -7,8 +7,9 @@ const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
-const env = process.env.NODE_ENV
+
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
+const env = process.env.NODE_ENV
 
 /**
  * @description Return list of files path from root path
@@ -55,21 +56,8 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
   })
 }
 
-const commonComponentsRootPath = path.join(__dirname, 'src/js/common/components')
-const commonControllersRootPath = path.join(__dirname, 'src/js/common/controllers')
-const componentsRootPath = path.join(__dirname, 'src/js/components')
 const controllersRootPath = path.join(__dirname, 'src/js/controllers')
 const controllers = {}
-const sprites = []
-const spritesDir = {
-  'retire-na-loja': 'src/images/sprite-retire-na-loja',
-  'store-detail': 'src/images/sprite-store-detail',
-  'tamanhos': 'src/images/sprite-tamanhos',
-  'sprite': 'src/images/sprite',
-  'output': 'src/sass/sprites'
-}
-
-let commonFilesToConcat = []
 
 getPaths(controllersRootPath, file => {
   let fileName = file.substring(0, file.length - 3)
@@ -81,10 +69,15 @@ getPaths(controllersRootPath, file => {
   })
 })
 
-commonFilesToConcat = [
-  ...getPaths(commonComponentsRootPath),
-  ...getPaths(commonControllersRootPath)
-]
+const sprites = []
+
+const spritesDir = {
+  'retire-na-loja': 'src/images/sprite-retire-na-loja',
+  'store-detail': 'src/images/sprite-store-detail',
+  'tamanhos': 'src/images/sprite-tamanhos',
+  'sprite': 'src/images/sprite',
+  'output': 'src/sass/sprites'
+}
 
 sprites.push(makeSprite(spritesDir['retire-na-loja'], spritesDir.output, 'retire-na-loja'))
 sprites.push(makeSprite(spritesDir['store-detail'], spritesDir.output, 'store-detail'))
@@ -101,8 +94,7 @@ module.exports = {
   },
   entry: {
     polyfill: '@babel/polyfill',
-    common: commonFilesToConcat,
-    components: getPaths(componentsRootPath),
+    common: path.join(__dirname, 'src/js/common/controllers', '_0-dcs-web-general'),
     ...controllers,
     checkout: path.join(__dirname, 'src/js', 'checkout5-custom'),
     app: path.join(__dirname, 'src/react', 'index')

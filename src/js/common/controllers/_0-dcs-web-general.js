@@ -1,3 +1,21 @@
+import '../components/_0-dcs-web-blog-entries'
+import '../components/_0-dcs-web-buylist'
+import '../components/_0-dcs-web-compare'
+import '../components/_0-dcs-web-enhanced-ecommerce'
+import '../components/_0-dcs-web-favorites'
+import '../components/_0-dcs-web-flash-msg'
+import '../components/_0-dcs-web-footer'
+import '../components/_0-dcs-web-header'
+import '../components/_0-dcs-web-helpers'
+import '../components/_0-dcs-web-menu-filter'
+import '../components/_0-dcs-web-menu-header'
+import '../components/_0-dcs-web-minicart'
+import '../components/_0-dcs-web-modal'
+import '../components/_0-dcs-web-search'
+import '../components/_0-dcs-web-shelf-sku'
+import '../components/_0-dcs-web-shelf'
+import '../components/_0-dcs-web-split-price'
+
 import '../../../sass/0-dcs-web-style.scss'
 
 APP.controller.General = ClassAvanti.extend({
@@ -34,8 +52,8 @@ APP.controller.General = ClassAvanti.extend({
       template(variables) {
         return variables
           .map(item =>
-            item
-              ? `
+            item ?
+            `
                   <div class="blog-tips">
                     <div class="blog-tips__img">
                       <a href="${
@@ -74,8 +92,8 @@ APP.controller.General = ClassAvanti.extend({
                       </h4>
                     </div>
                   </div>
-                `
-              : ""
+                ` :
+            ""
           )
           .join("");
       }
@@ -89,8 +107,7 @@ APP.controller.General = ClassAvanti.extend({
     }
 
     APP.i.BlogEventsEntries = new APP.component.BlogEntries({
-      url:
-        "https://souesportista.decathlon.com.br/wp-json/eventos_order/v1/" +
+      url: "https://souesportista.decathlon.com.br/wp-json/eventos_order/v1/" +
         typeBlogCall +
         "?slug=",
       $target: $(".section-sportive-events .blog-entries"),
@@ -98,7 +115,7 @@ APP.controller.General = ClassAvanti.extend({
         if (variables === "false") {
           $(".section-sportive-events .blog-entries").css("display", "none");
         } else {
-          const getEventDate = function(_item, _type) {
+          const getEventDate = function (_item, _type) {
             let _pos = _type == "d" ? 0 : 1;
 
             return _item.controledata.split("/")[_pos];
@@ -106,8 +123,8 @@ APP.controller.General = ClassAvanti.extend({
 
           return variables
             .map(item =>
-              item
-                ? `
+              item ?
+              `
                   <div class="blog-events">
                     <div class="blog-events__img">
                       <a href="${item.link}" class="blog-tips__img-link" title="${item.title}" target="_blank">
@@ -118,18 +135,18 @@ APP.controller.General = ClassAvanti.extend({
                     <div class="blog-events__content">
 
                       ` +
-                  (getEventDate(item, "d")
-                    ? `
+              (getEventDate(item, "d") ?
+                `
                       <div class="blog-events__date">
                         <span class="blog-events__date-day">` +
-                      getEventDate(item, "d") +
-                      `</span>
+                getEventDate(item, "d") +
+                `</span>
                         <span class="blog-events__date-month">` +
-                      getEventDate(item, "m") +
-                      `</span>
-                      </div> `
-                    : "") +
-                  `
+                getEventDate(item, "m") +
+                `</span>
+                      </div> ` :
+                "") +
+              `
 
                       <h3 class="blog-events__title">
                         <a href="${item.link}" class="blog-events__title-link" title="${item.title}" target="_blank">${item.title}</a>
@@ -138,8 +155,8 @@ APP.controller.General = ClassAvanti.extend({
                       <a href="${item.link}" class="blog-events__local-link" title="${item.excerpt}" target="_blank">${item.excerpt}</a>
                     </div>
                   </div>
-                `
-                : ""
+                ` :
+              ""
             )
             .join("");
         }
@@ -159,7 +176,7 @@ APP.controller.General = ClassAvanti.extend({
 
     // APP.i.EnhancedEcommerce.onAccessGeneralPages()
   },
-  
+
   redirectTotem() {
     const nameTotem = localStorage.getItem("decathlon-nameTotem");
     //console.log(nameTotem)
@@ -173,7 +190,7 @@ APP.controller.General = ClassAvanti.extend({
 
     if (!APP.i.Helpers._isMobile()) {
       if (_self.$shelfCarousel.find("li").length > 0) {
-        
+
         _self.$shelfCarousel
           .parents(".shelf-carousel")
           .addClass("shelf-carousel--visible");
@@ -233,15 +250,13 @@ APP.controller.General = ClassAvanti.extend({
       arrows: true,
       slidesToShow: 4,
       slidesToScroll: 4,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
         }
-      ]
+      }]
     };
 
     this._registerSlickIntervalBind(() => {
@@ -278,7 +293,7 @@ APP.controller.General = ClassAvanti.extend({
     `);
     }
 
-    $(".wrap-seo__button").on("click", function(e) {
+    $(".wrap-seo__button").on("click", function (e) {
       e.preventDefault();
       $(".wrap-seo__button").toggleClass("active");
       $(".wrap-seo").toggleClass("active");
@@ -364,7 +379,9 @@ APP.controller.General = ClassAvanti.extend({
     $(".back-to-top__button").on("click", event => {
       event.preventDefault();
 
-      $("html, body").animate({ scrollTop: 0 }, "fast");
+      $("html, body").animate({
+        scrollTop: 0
+      }, "fast");
     });
   },
 
@@ -376,12 +393,19 @@ APP.controller.General = ClassAvanti.extend({
 
       _this.parent().addClass("avalie-fixed--hidden");
 
-      Cookies.set("dkt-avalieHidden", true, { expires: 3 });
+      Cookies.set("dkt-avalieHidden", true, {
+        expires: 3
+      });
     });
   },
 
   bindScrollOptions() {
-    const { $avalieFixed, $mainHeader, $mainTopHeader, $headerAlert } = this.options;
+    const {
+      $avalieFixed,
+      $mainHeader,
+      $mainTopHeader,
+      $headerAlert
+    } = this.options;
     let previousScroll = 0;
 
     const avalieCookie = Cookies.get("dkt-avalieHidden");
@@ -424,13 +448,15 @@ APP.controller.General = ClassAvanti.extend({
   },
 
   bindAccount() {
-    let { nameUserLogged } = this.options;
+    let {
+      nameUserLogged
+    } = this.options;
 
     $.ajax({
-      type: "get",
-      url: "/no-cache/profileSystem/getProfile"
-    })
-      .done(function(res) {
+        type: "get",
+        url: "/no-cache/profileSystem/getProfile"
+      })
+      .done(function (res) {
         nameUserLogged = res.FirstName;
 
         if (res.IsUserDefined == true) {
@@ -442,8 +468,8 @@ APP.controller.General = ClassAvanti.extend({
           );
           $(".account-user-name").html(
             `Olá <span class="link-blue">` +
-              nameUserLogged +
-              `</span>!<a href="/minha-conta">Acesse sua conta</a>`
+            nameUserLogged +
+            `</span>!<a href="/minha-conta">Acesse sua conta</a>`
           );
           $(".header__content--user")
             .removeClass("not-logged")
@@ -454,7 +480,7 @@ APP.controller.General = ClassAvanti.extend({
         }
         // return name;
       })
-      .fail(function(e) {
+      .fail(function (e) {
         console.log("erro");
       });
   },

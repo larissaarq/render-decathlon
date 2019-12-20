@@ -1,4 +1,8 @@
 // import '../../sass/pages/_0-dcs-web-account.scss'
+import '../components/_0-dcs-web-get-masterdata-register'
+import '../components/_0-dcs-web-validate-password'
+import '../components/_0-dcs-web-reset-password'
+import '../components/_0-dcs-web-account-data'
 
 jQuery.validator.addMethod('cep', function (value, element) {
   return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
