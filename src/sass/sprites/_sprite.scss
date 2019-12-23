@@ -45,3 +45,7 @@
 .icon-orders__cancel {
   @include sprite($icon-orders-cancel);
 }
+
+.icon-list__filter {
+  @include sprite($icon-list-filter);
+}

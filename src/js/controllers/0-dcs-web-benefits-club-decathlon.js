@@ -1,3 +1,5 @@
+import '../../sass/pages/_0-dcs-web-beneficios-clube-decathlon.scss'
+
 APP.controller.BenefitsClubDecathlon = ClassAvanti.extend({
   init() {
     this.start()

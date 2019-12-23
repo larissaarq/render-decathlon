@@ -1,3 +1,5 @@
+import '../../sass/pages/_0-dcs-web-list-empty-v2.scss'
+
 APP.controller.ListEmptyV2 = ClassAvanti.extend({
   init(options) {
     this.setup(options)

@@ -1,3 +1,9 @@
+import '../../sass/pages/_0-dcs-web-list.scss'
+
+import '../avanti-search'
+import '../components/_0-dcs-web-search-result'
+import '../components/_0-dcs-web-list-filters'
+
 APP.controller.List = ClassAvanti.extend({
   init() {
     this.setup();
@@ -55,7 +61,7 @@ APP.controller.List = ClassAvanti.extend({
       },
       singleNavigatorUls: $('.search-single-navigator ul').clone()
     }
-    
+
     APP.i.StockStores = new APP.component.StockStores({
       page: "list"
     })
@@ -108,7 +114,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   listOrderAlphabetic() {
-    const { $shelfCollectionList, classCollectionShelf } = this.options;
+    const {
+      $shelfCollectionList,
+      classCollectionShelf
+    } = this.options;
 
     $(`.${classCollectionShelf} .av-row h2`).remove();
     $(`.${classCollectionShelf} .av-row li`)
@@ -118,19 +127,19 @@ APP.controller.List = ClassAvanti.extend({
 
     $(".collection-shelf__list").html(
       $(`.collection-shelf__list`)
-        .children("li")
-        .sort(function(a, b) {
-          return $(a)
+      .children("li")
+      .sort(function (a, b) {
+        return $(a)
+          .find(".shelf-item__name")
+          .text()
+          .toUpperCase()
+          .localeCompare(
+            $(b)
             .find(".shelf-item__name")
             .text()
             .toUpperCase()
-            .localeCompare(
-              $(b)
-                .find(".shelf-item__name")
-                .text()
-                .toUpperCase()
-            );
-        })
+          );
+      })
     );
 
     $shelfCollectionList.addClass("list-show");
@@ -138,14 +147,16 @@ APP.controller.List = ClassAvanti.extend({
 
   orderAlphabeticSports() {
     const _self = this;
-    const { $singleNavigator } = this.options;
+    const {
+      $singleNavigator
+    } = this.options;
 
     let itmClass1 = "";
     let itmClass2 = "";
 
     const listItems = $("h3", $singleNavigator).get();
 
-    listItems.sort(function(a, b) {
+    listItems.sort(function (a, b) {
       var keyA = $(a)
         .find("a")
         .text()
@@ -160,7 +171,7 @@ APP.controller.List = ClassAvanti.extend({
 
     $singleNavigator.empty();
 
-    $.each(listItems, function(i, itm) {
+    $.each(listItems, function (i, itm) {
       itmClass2 = $(itm)
         .attr("class")
         .replace(/^(\S*).*/, "$1");
@@ -175,10 +186,12 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   getUlClass(itmClass) {
-    const { singleNavigatorUls } = this.options;
+    const {
+      singleNavigatorUls
+    } = this.options;
     let ret = false;
 
-    singleNavigatorUls.map(function(i, el) {
+    singleNavigatorUls.map(function (i, el) {
       if ($(el).attr("class") == itmClass) {
         ret = el;
       }
@@ -187,7 +200,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   hideSportFilter() {
-    const { classShowSportFilter } = this.options;
+    const {
+      classShowSportFilter
+    } = this.options;
 
     if ($("body").hasClass(classShowSportFilter)) {
       return false;
@@ -199,7 +214,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   departmentHides() {
-    const { classShowSportFilter, classDepartament } = this.options;
+    const {
+      classShowSportFilter,
+      classDepartament
+    } = this.options;
 
     if (
       $("body").hasClass(classDepartament) &&
@@ -236,7 +254,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   searchResult() {
-    const { ComponentSearchResult, classSearchBar } = this.options;
+    const {
+      ComponentSearchResult,
+      classSearchBar
+    } = this.options;
 
     const total = ComponentSearchResult.getTotalSearchResult();
 
@@ -261,7 +282,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   removeFilterCounter() {
-    const { $filterCounter } = this.options;
+    const {
+      $filterCounter
+    } = this.options;
 
     $filterCounter.each((index, element) => {
       const _this = $(element);
@@ -282,7 +305,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   createClearSearchButton() {
-    const { classClearFilterButton } = this.options;
+    const {
+      classClearFilterButton
+    } = this.options;
 
     const htmlClearFilter = `<div class="clear-filter">
                               <button class="${classClearFilterButton}">Limpar filtros</button>
@@ -293,7 +318,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   setRateStars() {
-    const { $rates } = this.options;
+    const {
+      $rates
+    } = this.options;
 
     $rates.each((index, element) => {
       const _this = $(element);
@@ -495,7 +522,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bind() {
-    const { classSearchBar } = this.options;
+    const {
+      classSearchBar
+    } = this.options;
 
     this.bindToggleTitle();
     this.bindClearFilter();
@@ -516,7 +545,9 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bindSlickBanners() {
-    const { $bannerFull } = this.options;
+    const {
+      $bannerFull
+    } = this.options;
 
     if ($bannerFull.find(".banner-full__item").length < 2) {
       $bannerFull.addClass("slick-started");
@@ -588,7 +619,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bindToggleTitle() {
-    const { $asideTitle, classToggleTitle } = this.options;
+    const {
+      $asideTitle,
+      classToggleTitle
+    } = this.options;
 
     var genderFirstTime = true;
 
@@ -630,7 +664,10 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   bindClearFilter() {
-    const { classClearFilters, classTotal } = this.options;
+    const {
+      classClearFilters,
+      classTotal
+    } = this.options;
 
     $("body").on("click", `.${classClearFilters}`, event => {
       event.preventDefault();
@@ -721,7 +758,7 @@ APP.controller.List = ClassAvanti.extend({
   },
 
   _flagSpacification() {
-    $(".main-shelf li:not(.skus-loaded)").each(function() {
+    $(".main-shelf li:not(.skus-loaded)").each(function () {
       const _self = this;
       const shelf = $(this);
       const productId = shelf.find(".shelf-item").attr("data-product-id");
@@ -730,7 +767,7 @@ APP.controller.List = ClassAvanti.extend({
       if (productId !== undefined) {
         $.get(
           "/api/catalog_system/pub/products/search?fq=productId:" + productId
-        ).done(function(response) {
+        ).done(function (response) {
           const skuId = response[0].items[0].itemId;
 
           $.ajax({
@@ -741,7 +778,7 @@ APP.controller.List = ClassAvanti.extend({
             if (response.data == null || response.data == undefined) {
               return;
             }
-      
+
             const data = response.data;
 
             /*------- Flags Spscifications -------*/
@@ -750,7 +787,7 @@ APP.controller.List = ClassAvanti.extend({
               let idSpec = [55, 56, 54, 57],
                 spec = data.ProductSpecifications,
                 $fieldName = "";
-      
+
               for (let f = 0; f < idSpec.length; f++) {
                 for (let i = 0; i < data.ProductSpecifications.length; i++) {
                   if ($fieldName == "") {
@@ -761,13 +798,13 @@ APP.controller.List = ClassAvanti.extend({
                         daysDates = "",
                         dataTodayNum = "",
                         dateFlagNum = "";
-      
+
                       if (spec[i].FieldId == 55) {
                         dataToday = new Date();
                         let day = dataToday.getDate().toString(),
                           month = dataToday.getMonth() + 1,
                           year = dataToday.getFullYear().toString();
-      
+
                         dateFlag = typeFlag
                           .split("/")
                           .reverse()
@@ -776,7 +813,7 @@ APP.controller.List = ClassAvanti.extend({
                         daysDates =
                           (Date.parse(dataToday) - Date.parse(dateFlag)) /
                           (24 * 60 * 60 * 1000);
-      
+
                         dataTodayNum = parseInt(
                           dataToday.toString().replace(/\-/g, "")
                         );
@@ -784,7 +821,7 @@ APP.controller.List = ClassAvanti.extend({
                           dateFlag.toString().replace(/\-/g, "")
                         );
                       }
-      
+
                       if (typeFlag == "true" || (dataTodayNum > dateFlagNum && daysDates <= 30)) {
                         $fieldName = spec[i].FieldName;
                         implementedFlag();
@@ -796,7 +833,7 @@ APP.controller.List = ClassAvanti.extend({
                       }
                     }
                   }
-      
+
                   function implementedFlag() {
                     $(".shelf-item__flags", _self).html(
                       `<div class="flag-offer visible flags-spec"><span>${$fieldName}</span></div>`
@@ -806,9 +843,8 @@ APP.controller.List = ClassAvanti.extend({
               }
             }
           }, (error) => {
-              throw new Error(error);
-            }
-          )
+            throw new Error(error);
+          })
         });
       }
     });
