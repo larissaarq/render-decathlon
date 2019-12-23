@@ -1,4 +1,10 @@
 import '../../sass/pages/_0-dcs-web-product.scss'
+import '../components/_0-dcs-web-product-color-thumbs'
+import '../components/_0-dcs-web-list-filters'
+import '../components/_0-dcs-web-fixed-buy-bar'
+import '../components/_0-dcs-web-stock-stores'
+import '../components/_0-dcs-web-product-image-slider'
+import '../components/_0-dcs-web-share-buttons'
 
 APP.controller.Produto = ClassAvanti.extend({
   init() {
