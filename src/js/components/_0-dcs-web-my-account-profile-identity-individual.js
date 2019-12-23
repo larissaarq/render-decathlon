@@ -14,20 +14,24 @@ APP.component.MyAccountProfileIdentityIndividual = ClassAvanti.extend({
       $nameInput: $('[name="identity_individual[name]"]'),
       $surnameInput: $('[name="identity_individual[surname]"]'),
       $birthdateInput: $('[name="identity_individual[birthdate]"]'),
-      $cpfInput: $('[name="identity_individual[national_id]"]')
     }, options)
   },
 
   start () {
+    //const { genderSelect } = this.options
+
     this._fillIdentityIndividualForm()
+
+    //$(`.${genderSelect}`).selectpicker()
   },
 
   _fillIdentityIndividualForm () {
     const {
+      //genderSelect,
+      //$sexeInput,
       $nameInput,
       $surnameInput,
       $birthdateInput,
-      $cpfInput,
     } = this.options
 
     const {
@@ -35,14 +39,14 @@ APP.component.MyAccountProfileIdentityIndividual = ClassAvanti.extend({
       name,
       surname,
       birthdate,
-      national_id
     } = this.options.identity_individual
+
+    //$(`.${genderSelect} option[value="${sexe}"]`).attr('selected','selected')
 
     $(`[name="identity_individual[sexe]"][value="${sexe}"]`).attr('checked','checked')
     $nameInput.val(name)
     $surnameInput.val(surname)
     $birthdateInput.val(birthdate === null ? '' : this.parseDateTimeToBrazilian(birthdate))
-    $cpfInput.val(national_id)
   },
 
   parseDateTimeToBrazilian (date) {
@@ -58,7 +62,7 @@ APP.component.MyAccountProfileIdentityIndividual = ClassAvanti.extend({
           identity_individual: {
             name: "${data.name}",
             surname: "${data.surname}",
-            national_id: "${data.national_id}",
+            national_id: "${this.options.identity_individual.national_id}",
             sexe: ${data.sexe},
             name2: "${this.options.identity_individual.name2}",
             birthdate: "${data.birthdate}",
@@ -116,32 +120,27 @@ APP.component.MyAccountProfileIdentityIndividual = ClassAvanti.extend({
       $nameInput,
       $surnameInput,
       $birthdateInput,
-      $cpfInput
     } = this.options
 
     $formIdentityIndividual.on('submit', event => {
       event.preventDefault()
 
-      let user_national = $cpfInput.val() == null || $cpfInput.val() == undefined || $cpfInput.val() == "" ? $('.my-account-page--profile__personal-informations .my-account-page-list').find('[name="identity_individual[national_id]"]').val() : $cpfInput.val();
-      
       const data = {
         //sexe: $(`.${genderSelect} :selected`).val(),
         sexe: $(`[name="identity_individual[sexe]"][checked="checked"]`).val(),
         name: $nameInput.val(),
         surname: $surnameInput.val(),
         birthdate: $birthdateInput.val(),
-        national_id: user_national.replace(/[^0-9]/g, '')
       }
 
       this.saveIdentityIndividual(data, response => {
-        
+        console.log('saveIdentityIndividual Form Response:', response)
+
         if (response.data && response.data.updateUserIdentity == "success") {
           APP.i.flash_msg = new APP.component.FlashMsg()
           APP.i.flash_msg.showMsg('Suas alterações foram salvas', 'success')
-
-          if(data.national_id){
-            $('.cpf').remove();
-          }
+          
+          APP.i.currentController.disableInputsForm($(event.currentTarget))
         } else {
           if (response.errors && response.errors.length > 0) {
             APP.i.flash_msg = new APP.component.FlashMsg()
@@ -158,12 +157,10 @@ APP.component.MyAccountProfileIdentityIndividual = ClassAvanti.extend({
   */
   _bindFieldMasks () {
     const {
-      $birthdateInput,
-      $cpfInput
+      $birthdateInput
     } = this.options
 
     $birthdateInput.mask('00/00/0000', { placeholder: '  /  /    ' })
-    $cpfInput.mask('000.000.000-00');
   },
 
   /**

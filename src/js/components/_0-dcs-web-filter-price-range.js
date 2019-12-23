@@ -1,3 +1,11 @@
+/**
+  * @name FilterPriceRange
+  * @description null 
+  * @controllers using this component: 
+  * * Product
+  * * List
+*/
+
 APP.component.FilterPriceRange = ClassAvanti.extend({
   init (options) {
     this.setup(options)

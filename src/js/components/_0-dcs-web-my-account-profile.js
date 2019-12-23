@@ -11,7 +11,8 @@ APP.component.MyAccountProfile = ClassAvanti.extend({
   start () {
     const { endpoint, profile } = this.options
     const { email } = profile.contact
-    new APP.component.MyAccountProfileAddress({
+
+    APP.i.MyAccountProfileAddress = new APP.component.MyAccountProfileAddress({
       email,
       endpoint,
       addresses: profile.shipping_address,
@@ -19,18 +20,18 @@ APP.component.MyAccountProfile = ClassAvanti.extend({
       surname: profile.identity_individual.surname
     })
 
-    new APP.component.MyAccountProfileIdentityIndividual({
+    APP.i.MyAccountProfileAddress = new APP.component.MyAccountProfileIdentityIndividual({
       email,
       endpoint,
       identity_individual: profile.identity_individual,
     })
 
-    new APP.component.MyAccountProfilePassword({
+    APP.i.MyAccountProfileAddress = new APP.component.MyAccountProfilePassword({
       email,
       endpoint
     })
 
-    new APP.component.MyAccountProfileContact({
+    APP.i.MyAccountProfileAddress = new APP.component.MyAccountProfileContact({
       email,
       endpoint,
       contact: profile.contact

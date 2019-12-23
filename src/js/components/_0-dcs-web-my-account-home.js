@@ -12,13 +12,11 @@ APP.component.MyAccountHome = ClassAvanti.extend({
   },
 
   start () {
-    let {
+    const {
       completion: {
         percent
       }
     } = this.options
-    
-    percent === "95" ? percent = 100 : percent
 
     $("#bluecircle").percircle({ percent: percent, text: '' })
     this.stuffCart()
@@ -35,7 +33,8 @@ APP.component.MyAccountHome = ClassAvanti.extend({
           'Content-Type': 'application/json',
           'Accept': 'application/vnd.vtex.ds.v10+json',
           'cache-control': 'no-cache',
-        }
+        },
+        data: {}
       }).done(function (response) {
         const orderFormSkus = JSON.parse(response[0].skus)
         orderFormSkus.map(item => {

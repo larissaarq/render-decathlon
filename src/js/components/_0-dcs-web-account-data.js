@@ -321,7 +321,7 @@ APP.component.AccountData = ClassAvanti.extend({
       addressTemplate
     } = this.options
 
-    $('body').on('click', '.btn-add-address', e => {
+    $('.btn-add-address').on('click', e => {
       e.preventDefault()
       const emptyList = [{
         street_name: '',

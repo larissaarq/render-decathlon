@@ -6,7 +6,6 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
   },
 
   setup (options) {
-
     this.options = $.extend({
       form: 'address--form',
       $addressList: $('.address-list'),
@@ -69,14 +68,14 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
                     <div class="input-group-half-block">
                       <div class="input-district input-text-large">
                         <label for="district">Bairro *</label>
-                        <input type="text" name="billing_address[district]" id="district" class="input-text" aria-label="Bairro" required="required" disabled="disabled"/>
+                        <input type="text" name="billing_address[district]" id="district" class="input-text" aria-label="Bairro" required="required"/>
                       </div>
                     </div>
 
                     <div class="input-group-half-block">
                       <div class="input-city input-text-medium">
                         <label for="city">Cidade *</label>
-                        <input type="text" name="billing_address[city]" id="city" class="input-text" aria-label="Cidade" required="required" disabled="disabled"/>
+                        <input type="text" name="billing_address[city]" id="city" class="input-text" aria-label="Cidade" required="required"/>
                       </div>
                       <div class="input-province input-text-small">
                         <label for="province">UF *</label>
@@ -126,6 +125,7 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
                 </form>`
       }
     }, options)
+    // console.log(this)
   },
 
   start () {
@@ -156,6 +156,8 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
   },
 
   saveAddress (data, next) {
+    console.log('--- saveAddress ---')
+    console.log('>>>', data.is_prefered)
 
     const query = {
       query: `mutation {
@@ -177,11 +179,11 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
             ${ (data.id_address ? `id_address: "${data.id_address}"` : '') }
             ${ ((data.is_prefered == 'true' || data.is_prefered === true) ? `is_prefered: ${data.is_prefered}` : 'is_prefered: false') }
           }
-          )
-        }`
-      }
-      
-      const payload = JSON.stringify(query)
+        )
+      }`
+    }
+
+    const payload = JSON.stringify(query)
 
     this.request(payload, response => {
       next(response)
@@ -342,7 +344,7 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
   _bindUpdateAddress () {
     $(document).on('click', '.update-address', event => {
       event.preventDefault()
-      
+
       const $this = $(event.currentTarget)
       const idAddress = $this.data('id')
       const address = this.find(idAddress)
@@ -394,6 +396,8 @@ APP.component.MyAccountProfileAddress = ClassAvanti.extend({
     const {
       form
     } = this.options
+
+    console.log('>>', address.is_prefered)
 
     $(`.${form}`).find('[name="id_address"]').val(address.id_address)
     $(`.${form}`).find('[name="billing_address[title]"]').val(address.title)

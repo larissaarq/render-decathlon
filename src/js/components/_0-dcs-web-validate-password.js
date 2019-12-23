@@ -1,3 +1,11 @@
+/**
+  * @name ValidatePassword
+  * @description null
+  * @controllers using this component: 
+  * * Account
+  * * MyAccount
+*/
+
 APP.component.ValidatePassword = ClassAvanti.extend({
   init (options) {
     this.setup(options)

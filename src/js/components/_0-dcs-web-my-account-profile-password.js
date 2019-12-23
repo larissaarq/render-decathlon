@@ -93,7 +93,7 @@ APP.component.MyAccountProfilePassword = ClassAvanti.extend({
 
         if (oldPassword.length === 0) {
           if ($oldPasswordInput.parents('li').find('.error').length == 0) {
-            $oldPasswordInput.parents('li').append('<span class="error">Campo obrigatório.</span>')
+            $oldPasswordInput.parents('li').append('<span class="error">Este campo é requerido.</span>')
           } else {
             $oldPasswordInput.parents('li').find('.error').show();
           }
@@ -101,7 +101,7 @@ APP.component.MyAccountProfilePassword = ClassAvanti.extend({
 
         if (newPassword.length === 0) {
           if ($newPasswordInput.parents('li').find('.error').length == 0) {
-            $newPasswordInput.parents('li').append('<span class="error">Campo obrigatório.</span>')
+            $newPasswordInput.parents('li').append('<span class="error">Este campo é requerido.</span>')
           } else {
             $newPasswordInput.parents('li').find('.error').show();
           }

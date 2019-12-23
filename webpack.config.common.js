@@ -182,7 +182,9 @@ module.exports = {
         to: './arquivos',
         flatten: true
       }
-    ]),
+    ], {
+      copyUnmodified: true
+    }),
     new ImageminPlugin({
       pngquant: {
         quality: '95-100'
