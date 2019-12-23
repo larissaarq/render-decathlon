@@ -1,3 +1,5 @@
+import '../components/_0-dcs-web-my-account-menu'
+
 APP.controller.LuckyNumber = ClassAvanti.extend({
   init() {
     this.setup();

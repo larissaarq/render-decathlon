@@ -1,3 +1,17 @@
+import '../../sass/pages/_0-dcs-web-my-account-contact.scss'
+import '../../sass/pages/_0-dcs-web-my-account-identity-individual.scss'
+import '../../sass/pages/_0-dcs-web-my-account-password.scss'
+import '../../sass/pages/_0-dcs-web-my-account-sports.scss'
+import '../../sass/pages/_0-dcs-web-my-account-stores.scss'
+
+import '../components/_0-dcs-web-my-account-menu'
+import '../components/_0-dcs-web-validate-password'
+import '../components/_0-dcs-web-my-account-home'
+import '../components/_0-dcs-web-my-account-profile'
+import '../components/_0-dcs-web-my-account-sports'
+import '../components/_0-dcs-web-my-account-stores'
+import '../components/_0-dcs-web-my-account-optin'
+
 APP.controller.MyAccount = ClassAvanti.extend({
   init () {
     this.setup()

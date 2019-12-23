@@ -1,5 +1,4 @@
 import '../../sass/pages/_0-dcs-web-list.scss'
-
 import '../avanti-search'
 import '../components/_0-dcs-web-search-result'
 import '../components/_0-dcs-web-list-filters'

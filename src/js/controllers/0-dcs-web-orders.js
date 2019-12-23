@@ -1,4 +1,5 @@
 import '../../sass/pages/_0-dcs-web-orders.scss'
+import '../components/_0-dcs-web-my-account-menu'
 
 APP.controller.Orders = ClassAvanti.extend({
   init () {
