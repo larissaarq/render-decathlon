@@ -1,4 +1,4 @@
-// import '../../sass/pages/_0-dcs-web-product.scss'
+import '../../sass/pages/_0-dcs-web-product.scss'
 
 APP.controller.Produto = ClassAvanti.extend({
   init() {

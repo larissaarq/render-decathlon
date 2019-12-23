@@ -177,7 +177,7 @@
 .myo-orders-listing {
   .myo-invoice-btn {
     &:before {
-      @extend .sprite-icon-orders__boleto;
+      @extend .icon-orders__boleto;
 
       content: '';
     }
@@ -314,7 +314,7 @@
           }
 
           &:before {
-            @extend .sprite-icon-orders__cancel;
+            @extend .icon-orders__cancel;
 
             content: '';
             vertical-align: middle;

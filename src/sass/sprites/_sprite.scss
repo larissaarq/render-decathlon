@@ -37,3 +37,11 @@
 .icon-check-available-blue {
   @include sprite($icon-check-available-blue);
 }
+
+.icon-orders__boleto {
+  @include sprite($icon-orders-boleto);
+}
+
+.icon-orders__cancel {
+  @include sprite($icon-orders-cancel);
+}

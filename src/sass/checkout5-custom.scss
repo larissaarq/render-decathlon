@@ -2,26 +2,16 @@
  * Core
  */
 @import './core/0-dcs-web-fonts';
-@import './core/0-dcs-web-helpers';
 
-// Helpers
-@import "./components/0-dcs-web-buttons";
-@import "./components/0-dcs-web-footer";
-
-// Vendor
+/**
+ * Vendor
+ */
 @import "./vendor/0-dcs-web-vendor-slick";
 
-// Login
+/**
+ * Pages
+ */
 @import "./pages/0-dcs-web-login";
-
-/*
-  * GENERAL
-  */
-
-/*
-  * Bullets
-  */
-
 
 a {
   color: $lochmara;
