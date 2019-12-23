@@ -13,21 +13,7 @@
 /**
  * Vendor
  */
-
-// Bootstrap
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/variables';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/mixins';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/scaffolding';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/normalize';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/grid';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/tables';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/utilities';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
-@import '../vendor/avanti-bootstrap-sass/assets/stylesheets/bootstrap/navs';
-
-
-// Others
-@import './vendor/0-dcs-web-vendor-burger';
+@import './vendor/0-dcs-web-vendor-bootstrap';
 
 /**
  * Sprites
