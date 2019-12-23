@@ -1,4 +1,4 @@
-<p align="center">
+<p>
   <img src="https://raw.githubusercontent.com/brenosena/render-decathlon/master/src/images/logo-decathlon-store.png" alt="Decathlon" title="Decathlon">
 </p>
 
