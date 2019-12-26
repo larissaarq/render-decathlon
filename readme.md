@@ -71,3 +71,7 @@ npm run build or yarn build
 - Vue.js
 - SASS
 - PostCSS
+
+<p>
+  <img src="https://raw.githubusercontent.com/brenosena/render-decathlon/master/src/images/stack.png" alt="Stack" title="Stack">
+</p>
