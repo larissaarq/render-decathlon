@@ -40,7 +40,10 @@ APP.controller.Home = ClassAvanti.extend({
   },
 
   checkBannerVideo() {
-    const { $bannerFull, classBannerVideo } = this.options;
+    const {
+      $bannerFull,
+      classBannerVideo
+    } = this.options;
 
     if ($(`.${classBannerVideo} iframe`).length > 0) {
       $bannerFull.addClass("banner-video--open");
@@ -48,7 +51,10 @@ APP.controller.Home = ClassAvanti.extend({
   },
 
   slickBannerFull() {
-    const { $bannerFull, classSlickFrame } = this.options;
+    const {
+      $bannerFull,
+      classSlickFrame
+    } = this.options;
 
     if ($bannerFull.find(".home-banner-full__wrapper").length < 1) {
       return false;
@@ -62,7 +68,7 @@ APP.controller.Home = ClassAvanti.extend({
       arrows: true
     };
 
-  
+
     APP.i.general._registerSlickIntervalBind(() => {
       $bannerFull.find(`.${classSlickFrame}`).slick(slickOptionsFullBanner);
     });
@@ -133,7 +139,10 @@ APP.controller.Home = ClassAvanti.extend({
   },
 
   slickInformative() {
-    const { $sectionInformative, classSlickFrame } = this.options;
+    const {
+      $sectionInformative,
+      classSlickFrame
+    } = this.options;
 
     let enableArrows = false;
 
@@ -156,7 +165,10 @@ APP.controller.Home = ClassAvanti.extend({
   },
 
   slickSportiveTips() {
-    const { $sectionSportiveTips , classSlickFrame } = this.options;
+    const {
+      $sectionSportiveTips,
+      classSlickFrame
+    } = this.options;
 
     let enableArrows = true;
 
@@ -209,7 +221,7 @@ APP.controller.Home = ClassAvanti.extend({
     });
   },
 
-  /* 
+  /*
   START section instagram
   */
   getInstagramMedia() {
@@ -240,11 +252,9 @@ APP.controller.Home = ClassAvanti.extend({
   creatPostInstagram(res) {
     const data = res;
     const list = $(".insta-image-list")[0];
+    const totalPost = APP.i.Helpers._isMobile() ? 4 : 8;
 
-    var totalPost = '';
-    APP.i.Helpers._isMobile() ? totalPost = "4" : totalPost = "8"; 
-
-    $.each(data, function(index) {
+    $.each(data, function (index) {
       if (index < totalPost) {
         list.innerHTML += `
         <li class="insta-image-item insta-image-item--${data[index].type}">
@@ -263,7 +273,7 @@ APP.controller.Home = ClassAvanti.extend({
       $(".section-instagram").addClass("done");
     }, 500);
   }
-  /* 
+  /*
   END section instagram
   */
 });

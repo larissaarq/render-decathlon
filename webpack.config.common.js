@@ -13,6 +13,7 @@ const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 const env = process.env.NODE_ENV
 
 /**
+ * @name getPaths
  * @description Return list of files path from root path
  * @param {string} rootPath Path of files
  * @param {function} cb Return callback with file
@@ -34,6 +35,7 @@ const getPaths = (rootPath, cb) => {
 }
 
 /**
+ * @name makeSprite
  * @description Make sprites from images
  * @param {string} spriteDir Images directory
  * @param {string} spriteOutputDir Output directory of sprites
