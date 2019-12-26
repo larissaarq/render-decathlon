@@ -52,8 +52,13 @@ npm run build or yarn build
 
 #### React Components:
 
-- 0-dcs-web-app-script.js
-- 0-dcs-web-app-style.css
+- 0-dcs-web-react-components-script.js
+- 0-dcs-web-react-components-style.css
+
+#### Vue Components:
+
+- 0-dcs-web-vue-components-script.js
+- 0-dcs-web-vue-components-style.css
 
 ## Built with
 
@@ -63,5 +68,6 @@ npm run build or yarn build
 - ES6+
 - jQuery
 - React.js
+- Vue.js
 - SASS
 - PostCSS

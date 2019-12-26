@@ -7,6 +7,7 @@ const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 const env = process.env.NODE_ENV
@@ -93,11 +94,12 @@ module.exports = {
     warnings: false
   },
   entry: {
-    polyfill: '@babel/polyfill',
-    common: path.join(__dirname, 'src/js/common/controllers', '_0-dcs-web-general'),
+    'polyfill': '@babel/polyfill',
+    'common': path.join(__dirname, 'src/js/common/controllers', '_0-dcs-web-general'),
     ...controllers,
-    checkout: path.join(__dirname, 'src/js', 'checkout5-custom'),
-    app: path.join(__dirname, 'src/react', 'index')
+    'checkout': path.join(__dirname, 'src/js', 'checkout5-custom'),
+    'react-components': path.join(__dirname, 'src/react', 'index'),
+    'vue-components': path.join(__dirname, 'src/vue', 'main')
   },
   module: {
     rules: [{
@@ -113,6 +115,10 @@ module.exports = {
             'syntax-dynamic-import'
           ]
         }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       },
       {
         test: /\.svg$/,
@@ -212,6 +218,7 @@ module.exports = {
           require("uglify-js").minify(code).code
       }
     }),
+    new VueLoaderPlugin(),
     ...sprites
   ]
 }

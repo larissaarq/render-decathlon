@@ -11,7 +11,7 @@ APP.controller.ListEmptyV2 = ClassAvanti.extend({
     if (typeof APP.i.Helpers === 'undefined') {
       throw new TypeError('You need Helpers Component installed.')
     }
-    
+
     this.header = {
       'Accept': 'application/json',
       'REST-range': 'resources=0-5000',
@@ -167,87 +167,70 @@ APP.controller.ListEmptyV2 = ClassAvanti.extend({
     const _self = this;
     let bar = _self.getParameterByName('ft');
 
-    window.urlCollection =
-      {
-        "nike": [
-          {
-            id: "186/216",
-            name: "Todos os tênis para corrida",
-            btn_link_category: "/corrida/calcados/tenis?PS=20"
-          },
-          {
-            id: "186/203",
-            name: "Todas as roupas para corrida",
-            btn_link_category: "/corrida/roupas"
-          }
-        ],
-        "tenis nike": [
-          {
-            id: "186/216",
-            name: "Todos os tênis para corrida",
-            btn_link_category: "/corrida/calcados/tenis?PS=20"
-          }
-        ],
-        "timberland": [
-          {
-            id: "761/821/822",
-            name: "Todas as botas para trilha",
-            btn_link_category: "/trilha-e-trekking/calcados"
-          }
-        ],
-        "patinete eletrico": [
-          {
-            id: "488/489/490",
-            name: "Todos os patinetes",
-            btn_link_category: "/patinetes/equipamentos/patinetes?PS=20"
-          }
-        ],
-        "chuteira nike": [
-          {
-            id: "327/329/330",
-            name: "Todas as chuteiras",
-            btn_link_category: "/futebol/calcados/chuteiras?PS=20"
-          }
-        ],
-        "mochila nike": [
-          {
-            id: "761/778/781",
-            name: "Todas as mochilas",
-            btn_link_category: "/trilha-e-trekking/equipamentos/mochilas-e-bolsas-duffel-bag"
-          }
-        ],
-        "salomon": [
-          {
-            id: "761/790/793",
-            name: "Todas as jaquetas",
-            btn_link_category: "/trilha-e-trekking/roupas/jaquetas"
-          },
-          {
-            id: "761/821/822",
-            name: "Todas as botas",
-            btn_link_category: "/trilha-e-trekking/calcados"
-          },
-          {
-            id: "761/821/823",
-            name: "Todos os tênis",
-            btn_link_category: "/trilha-e-trekking/calcados"
-          },
-        ],
-        "skate eletrico": [
-          {
-            id: "622/623/624",
-            name: "Todos os skates",
-            btn_link_category: "/skateboards/equipamentos/skates?PS=20"
-          }
-        ],
-        "tenda articulada": [
-          {
-            id: "761/778/785",
-            name: "Todas as barracas",
-            btn_link_category: "/camping/equipamentos/barracas-e-abrigos"
-          }
-        ]
-      }
+    window.urlCollection = {
+      "nike": [{
+          id: "186/216",
+          name: "Todos os tênis para corrida",
+          btn_link_category: "/corrida/calcados/tenis?PS=20"
+        },
+        {
+          id: "186/203",
+          name: "Todas as roupas para corrida",
+          btn_link_category: "/corrida/roupas"
+        }
+      ],
+      "tenis nike": [{
+        id: "186/216",
+        name: "Todos os tênis para corrida",
+        btn_link_category: "/corrida/calcados/tenis?PS=20"
+      }],
+      "timberland": [{
+        id: "761/821/822",
+        name: "Todas as botas para trilha",
+        btn_link_category: "/trilha-e-trekking/calcados"
+      }],
+      "patinete eletrico": [{
+        id: "488/489/490",
+        name: "Todos os patinetes",
+        btn_link_category: "/patinetes/equipamentos/patinetes?PS=20"
+      }],
+      "chuteira nike": [{
+        id: "327/329/330",
+        name: "Todas as chuteiras",
+        btn_link_category: "/futebol/calcados/chuteiras?PS=20"
+      }],
+      "mochila nike": [{
+        id: "761/778/781",
+        name: "Todas as mochilas",
+        btn_link_category: "/trilha-e-trekking/equipamentos/mochilas-e-bolsas-duffel-bag"
+      }],
+      "salomon": [{
+          id: "761/790/793",
+          name: "Todas as jaquetas",
+          btn_link_category: "/trilha-e-trekking/roupas/jaquetas"
+        },
+        {
+          id: "761/821/822",
+          name: "Todas as botas",
+          btn_link_category: "/trilha-e-trekking/calcados"
+        },
+        {
+          id: "761/821/823",
+          name: "Todos os tênis",
+          btn_link_category: "/trilha-e-trekking/calcados"
+        },
+      ],
+      "skate eletrico": [{
+        id: "622/623/624",
+        name: "Todos os skates",
+        btn_link_category: "/skateboards/equipamentos/skates?PS=20"
+      }],
+      "tenda articulada": [{
+        id: "761/778/785",
+        name: "Todas as barracas",
+        btn_link_category: "/camping/equipamentos/barracas-e-abrigos"
+      }]
+    }
 
     if (urlCollection[bar] === undefined) {
       $('.empty-search__populars').show()
@@ -317,8 +300,7 @@ APP.controller.ListEmptyV2 = ClassAvanti.extend({
 
             for (let O in products[I].items) {
               if (products[I].items[O].Cor != undefined) {
-                if (colorsPicked.indexOf(products[I].items[O].Cor[0]) > -1) {
-                } else {
+                if (colorsPicked.indexOf(products[I].items[O].Cor[0]) > -1) {} else {
                   colorsPicked.push(products[I].items[O].Cor[0]);
                   for (var C in products[I].items[O].sellers) {
                     if (products[I].items[O].sellers[C].commertialOffer != undefined) {
@@ -436,7 +418,8 @@ APP.controller.ListEmptyV2 = ClassAvanti.extend({
             _this.addClass(classShelfItemInitialized);
 
             APP.i.ShelfSku = new APP.component.ShelfSku({
-              $rates, classShelfItem,
+              $rates,
+              classShelfItem,
               classShelfItemInitialized,
               classBestPrice,
               classBuyButton,
@@ -494,7 +477,7 @@ APP.controller.ListEmptyV2 = ClassAvanti.extend({
 
     $(`#container-shelf-list-empty`).prepend(containerShelf);
   },
-  
+
   slickShelfEmptyPage() {
     const intervalBanner = setTimeout(() => {
       if ($('.list-empty-shelf .main-shelf').find('.slick-slider.slick-initialized')) {
@@ -513,8 +496,7 @@ APP.controller.ListEmptyV2 = ClassAvanti.extend({
       speed: 300,
       slidesToShow: 4,
       slidesToScroll: 4,
-      responsive: [
-        {
+      responsive: [{
           breakpoint: 1024,
           settings: {
             slidesToShow: 3,
