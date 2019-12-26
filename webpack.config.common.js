@@ -209,6 +209,7 @@ module.exports = {
           `${VENDOR_PATH}/avanti-search/src/avanti-search.js`,
           `${VENDOR_PATH}/jquery-lazy/jquery-lazy.min.js`,
           `${VENDOR_PATH}/jquery-mask-plugin/dist/jquery.mask.min.js`,
+          `${VENDOR_PATH}/jquery-validation/dist/jquery.validate.min.js`,
           `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
           `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
           `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
