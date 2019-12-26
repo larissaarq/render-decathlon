@@ -12,6 +12,23 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 const env = process.env.NODE_ENV
 
+const vendors = [
+  `${VENDOR_PATH}/jquery/dist/jquery.min.js`,
+  `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
+  `${VENDOR_PATH}/bootstrap/dist/js/bootstrap.min.js`,
+  `${VENDOR_PATH}/bootstrap-select/dist/bootstrap-select.min.js`,
+  `${VENDOR_PATH}/avanti-class/src/avanti-class.js`,
+  `${VENDOR_PATH}/avanti-search/src/avanti-search.js`,
+  `${VENDOR_PATH}/jquery-lazy/jquery-lazy.min.js`,
+  `${VENDOR_PATH}/jquery-mask-plugin/dist/jquery.mask.min.js`,
+  `${VENDOR_PATH}/jquery-validation/dist/jquery.validate.min.js`,
+  `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
+  `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
+  `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
+  `${VENDOR_PATH}/form.serializeObject/dist/form.serializeObject.min.js`,
+  `${VENDOR_PATH}/percircle/dist/percircle.js`,
+]
+
 /**
  * @name getPaths
  * @description Return list of files path from root path
@@ -195,27 +212,12 @@ module.exports = {
     }),
     new ImageminPlugin({
       pngquant: {
-        quality: '95-100'
+        quality: '65-90'
       }
     }),
     new MergeIntoSingleFilePlugin({
       files: {
-        'arquivos/0-dcs-web-vendors-script.js': [
-          `${VENDOR_PATH}/jquery/dist/jquery.min.js`,
-          `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
-          `${VENDOR_PATH}/bootstrap/dist/js/bootstrap.min.js`,
-          `${VENDOR_PATH}/bootstrap-select/dist/bootstrap-select.min.js`,
-          `${VENDOR_PATH}/avanti-class/src/avanti-class.js`,
-          `${VENDOR_PATH}/avanti-search/src/avanti-search.js`,
-          `${VENDOR_PATH}/jquery-lazy/jquery-lazy.min.js`,
-          `${VENDOR_PATH}/jquery-mask-plugin/dist/jquery.mask.min.js`,
-          `${VENDOR_PATH}/jquery-validation/dist/jquery.validate.min.js`,
-          `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
-          `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
-          `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
-          `${VENDOR_PATH}/form.serializeObject/dist/form.serializeObject.min.js`,
-          `${VENDOR_PATH}/percircle/dist/percircle.js`,
-        ]
+        'arquivos/0-dcs-web-vendors-script.js': vendors
       },
       transform: {
         'arquivos/0-dcs-web-vendors-script.js': code =>

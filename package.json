@@ -47,7 +47,7 @@
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1",
-    "webpack-merge-and-include-globally": "^2.1.20",
+    "webpack-merge-and-include-globally": "^2.1.24",
     "webpack-spritesmith": "^1.0.2"
   }
 }
