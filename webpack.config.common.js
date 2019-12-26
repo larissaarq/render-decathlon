@@ -202,6 +202,7 @@ module.exports = {
       files: {
         'arquivos/0-dcs-web-vendors-script.js': [
           `${VENDOR_PATH}/jquery/dist/jquery.min.js`,
+          `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
           `${VENDOR_PATH}/bootstrap/dist/js/bootstrap.min.js`,
           `${VENDOR_PATH}/avanti-class/src/avanti-class.js`,
           `${VENDOR_PATH}/avanti-search/src/avanti-search.js`,
@@ -211,7 +212,6 @@ module.exports = {
           `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
           `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
           `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
-          `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
           `${VENDOR_PATH}/percircle/dist/percircle.js`,
         ]
       },
