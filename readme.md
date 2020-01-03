@@ -29,7 +29,6 @@ npm start or yarn start
 npm run build or yarn build
 
 # Run tests
-
 npm run test or yarn test
 ```
 
