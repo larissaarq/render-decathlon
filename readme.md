@@ -75,3 +75,5 @@ npm run test or yarn test
 - SASS
 - PostCSS
 - Jest
+- ESlint
+- Stylelint

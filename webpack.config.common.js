@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const {
   VueLoaderPlugin
@@ -125,17 +126,23 @@ module.exports = {
   module: {
     rules: [{
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [{
+            loader: 'babel-loader',
+            query: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react'
+              ],
+              plugins: [
+                'syntax-dynamic-import'
+              ]
+            }
+          },
+          // {
+          //   loader: 'eslint-loader'
+          // }
+        ],
         exclude: /node_modules/,
-        query: {
-          presets: [
-            '@babel/preset-env',
-            '@babel/preset-react'
-          ],
-          plugins: [
-            'syntax-dynamic-import'
-          ]
-        }
       },
       {
         test: /\.vue$/,
@@ -227,6 +234,15 @@ module.exports = {
       }
     }),
     new VueLoaderPlugin(),
+    // new StylelintPlugin({
+    //   failOnError: false,
+    //   configFile: path.resolve(__dirname, '.stylelintrc'),
+    //   context: path.resolve(__dirname, './src/sass'),
+    //   files: '**/*.scss',
+    //   syntax: 'scss',
+    //   failOnError: false,
+    //   quiet: false
+    // }),
     ...sprites
   ]
 }
