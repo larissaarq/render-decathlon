@@ -27,6 +27,10 @@ npm start or yarn start
 
 # Generate build files
 npm run build or yarn build
+
+# Run tests
+
+npm run test or yarn test
 ```
 
 ## Structure
@@ -71,3 +75,4 @@ npm run build or yarn build
 - Vue.js
 - SASS
 - PostCSS
+- Jest

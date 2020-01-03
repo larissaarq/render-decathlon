@@ -7,7 +7,9 @@ const MergeIntoSingleFilePlugin = require('webpack-merge-and-include-globally')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const {
+  VueLoaderPlugin
+} = require('vue-loader')
 
 const VENDOR_PATH = path.resolve(__dirname, 'src/vendor')
 const env = process.env.NODE_ENV
@@ -34,7 +36,7 @@ const vendors = [
  * @description Return list of files path from root path
  * @param {string} rootPath Path of files
  * @param {function} cb Return callback with file
- * @returns {array} Array of files path
+ * @return {array} Array of files path
  */
 
 const getPaths = (rootPath, cb) => {
@@ -57,7 +59,7 @@ const getPaths = (rootPath, cb) => {
  * @param {string} spriteDir Images directory
  * @param {string} spriteOutputDir Output directory of sprites
  * @param {string} spriteOutputName Name of sprite output
- * @returns {SpritesmithPlugin} SpritesmithPlugin object
+ * @return {SpritesmithPlugin} SpritesmithPlugin object
  */
 
 const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
