@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const webpack = require('webpack')
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -138,9 +139,9 @@ module.exports = {
               ]
             }
           },
-          // {
-          //   loader: 'eslint-loader'
-          // }
+          {
+            loader: 'eslint-loader'
+          }
         ],
         exclude: /node_modules/,
       },
