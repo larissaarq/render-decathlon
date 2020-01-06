@@ -8,6 +8,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const SpritesmithPlugin = require('webpack-spritesmith')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 const {
   VueLoaderPlugin
 } = require('vue-loader')
@@ -124,8 +125,7 @@ module.exports = {
     'vue-components': path.join(__dirname, 'src/vue', 'main')
   },
   module: {
-    rules: [
-      {
+    rules: [{
         enforce: 'pre',
         test: /\.js$/,
         use: [{
@@ -239,6 +239,27 @@ module.exports = {
     //   failOnError: false,
     //   quiet: false
     // }),
-    ...sprites
+    ...sprites,
+    new WebpackPwaManifest({
+      "name": "Loja de artigos esportivos: DECATHLON - Esporte para todos, tudo para esporte",
+      "short_name": "Decathlon",
+      "description": "A maior loja de artigos esportivos. Produtos de fitness, musculação, ciclismo, futebol, corrida, camping, trilha, natação, surf, tênis, pesca e muito mais",
+      "background_color": "#ffffff",
+      "theme_color": "#0082c3",
+      "start_url": "/",
+      "prefer_related_applications": false,
+      "orientation": "portrait",
+      "display": "standalone",
+      crossorigin: 'use-credentials',
+      icons: [{
+          src: path.resolve('src/images/icon.png'),
+          sizes: [96, 128, 192, 256, 384, 512]
+        },
+        {
+          src: path.resolve('src/images/large-icon.png'),
+          size: '1024x1024'
+        }
+      ]
+    })
   ]
 }
