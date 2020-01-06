@@ -124,25 +124,30 @@ module.exports = {
     'vue-components': path.join(__dirname, 'src/vue', 'main')
   },
   module: {
-    rules: [{
+    rules: [
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   use: [{
+      //     loader: 'eslint-loader'
+      //   }],
+      //   exclude: /node_modules/
+      // },
+      {
         test: /\.js$/,
         use: [{
-            loader: 'babel-loader',
-            query: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react'
-              ],
-              plugins: [
-                'syntax-dynamic-import'
-              ]
-            }
-          },
-          // {
-          //   loader: 'eslint-loader'
-          // }
-        ],
-        exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react'
+            ],
+            plugins: [
+              'syntax-dynamic-import'
+            ]
+          }
+        }],
+        exclude: /node_modules/
       },
       {
         test: /\.vue$/,
