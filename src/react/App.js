@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 class App extends Component {
 	render() {
 		return (
-			<h1>Exemplo de Component</h1>
+			<article className="hello-world">
+				<h1 className="hello-world__title">Hello World!</h1>
+			</article>
 		)
 	}
 }
