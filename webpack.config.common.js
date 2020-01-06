@@ -125,14 +125,14 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   enforce: 'pre',
-      //   test: /\.js$/,
-      //   use: [{
-      //     loader: 'eslint-loader'
-      //   }],
-      //   exclude: /node_modules/
-      // },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        use: [{
+          loader: 'eslint-loader'
+        }],
+        exclude: /node_modules/
+      },
       {
         test: /\.js$/,
         use: [{
