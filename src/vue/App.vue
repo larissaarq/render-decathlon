@@ -5,17 +5,9 @@
 </template>
 
 <script>
+import './App.scss'
+
 export default {
   name: "app"
 }
 </script>
-
-<style lang="scss">
-  .hello-world {
-    &__title {
-      color: #000;
-      font-size: 20px;
-      text-transform: uppercase;
-    }
-  }
-</style>
