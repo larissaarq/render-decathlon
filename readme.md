@@ -28,8 +28,11 @@ npm start or yarn start
 # Generate build files
 npm run build or yarn build
 
-# Run tests
+# Tests
 npm run test or yarn test
+
+# Code coverage
+npm run coverage or yarn coverage
 ```
 
 ## Structure
