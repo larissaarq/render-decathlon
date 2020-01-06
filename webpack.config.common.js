@@ -251,6 +251,7 @@ module.exports = {
       "orientation": "portrait",
       "display": "standalone",
       crossorigin: 'use-credentials',
+      fingerprints: false,
       icons: [{
           src: path.resolve('src/images/icon.png'),
           sizes: [96, 128, 192, 256, 384, 512]
