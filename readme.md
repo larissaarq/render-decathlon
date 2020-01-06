@@ -27,7 +27,11 @@ npm start or yarn start
 
 # Generate build files
 npm run build or yarn build
+```
 
+## Run tests
+
+```sh
 # Tests
 npm run test or yarn test
 
