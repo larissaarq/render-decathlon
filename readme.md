@@ -31,8 +31,11 @@ npm run build or yarn build
 # Tests
 npm run test or yarn test
 
+# Tests watch
+npm run test:watch or yarn test:watch
+
 # Code coverage
-npm run coverage or yarn coverage
+npm run test:coverage or yarn test:coverage
 ```
 
 ## Structure
