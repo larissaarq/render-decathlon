@@ -125,14 +125,15 @@ module.exports = {
     'vue-components': path.join(__dirname, 'src/vue', 'main')
   },
   module: {
-    rules: [{
-        enforce: 'pre',
-        test: /\.js$/,
-        use: [{
-          loader: 'eslint-loader'
-        }],
-        exclude: /node_modules/
-      },
+    rules: [
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   use: [{
+      //     loader: 'eslint-loader'
+      //   }],
+      //   exclude: /node_modules/
+      // },
       {
         test: /\.js$/,
         use: [{
@@ -252,6 +253,7 @@ module.exports = {
       "display": "standalone",
       crossorigin: 'use-credentials',
       fingerprints: false,
+      publicPath: '/arquivos',
       icons: [{
           src: path.resolve('src/images/icon.png'),
           sizes: [96, 128, 192, 256, 384, 512]
