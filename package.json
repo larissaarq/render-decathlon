@@ -19,6 +19,8 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.7.4",
     "@babel/runtime": "^7.5.5",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
     "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
@@ -40,6 +42,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs": "0.0.1-security",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.0.7",
     "identity-obj-proxy": "^3.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "jest": "^24.9.0",
@@ -71,5 +74,10 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "vue": "^2.6.11"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }

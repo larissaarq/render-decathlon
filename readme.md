@@ -8,7 +8,14 @@
 
 - [Node.js](https://nodejs.org/) - `^10.0.0`
 - [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
-- [Webpack](https://webpack.js.org/)
+
+```sh
+$ npm i -g webpack webpack-cli
+
+# or
+
+$ yarn add global webpack webpack-cli
+```
 
 ## Run project
 
@@ -17,59 +24,122 @@
 $ git clone https://github.com/brenosena/render-decathlon
 
 # Install dependencies
-cd render-decathlon
-npm install or yarn install
+$ cd render-decathlon
+
+$ npm install
+
+# or
+
+$ yarn install
 
 # Run in development mode
-npm start or yarn start
+$ npm start
+
+# or
+
+$ yarn start
 
 # Generate build files
-npm run build or yarn build
+$ npm run build
+
+# or
+
+$ yarn build
 ```
 
 ## Run tests
 
 ```sh
+# ~/render-decathlon
+
 # Tests
-npm run test or yarn test
+$ npm run test
+
+# or
+
+$ yarn test
 
 # Watch tests
-npm run test:watch or yarn test:watch
+$ npm run test:watch
+
+# or
+
+$ yarn test:watch
 
 # Code coverage
-npm run test:coverage or yarn test:coverage
+$ npm run test:coverage
+
+# or
+
+$ yarn test:coverage
 ```
 
-## Structure
+## Commits
 
-#### Libs:
+`<type>[optional scope]: <description>`
 
-- 0-dcs-web-vendors-script.js
+feat: a feature that is visible for end users.
 
-#### Global:
+fix: a bugfix that is visible for end users.
 
-- 0-dcs-web-common-script.js
-- 0-dcs-web-common-style.css
+chore: a change that doesn't impact end users (e.g. chances to CI pipeline)
 
-#### Páginas:
+docs: a change in the README or documentation
 
-- 0-dcs-web-`name`-script.js
-- 0-dcs-web-`name`-style.css
+refactor: a change in production code focused on readability, style and/or performance.
 
-#### Landings:
+## Directory structure
 
-- 0-dcs-web-`name`-script.js
-- 0-dcs-web-`name`-style.css
-
-#### React Components:
-
-- 0-dcs-web-react-components-script.js
-- 0-dcs-web-react-components-style.css
-
-#### Vue Components:
-
-- 0-dcs-web-vue-components-script.js
-- 0-dcs-web-vue-components-style.css
+```
+📦build                       # Compiled and minified files
+📦dist                        # Compiled files
+📦src
+┃ ┣ 📂fonts
+┃ ┣ 📂html
+┃ ┃ ┣ 📂checkout
+┃ ┃ ┣ 📂custom-elements
+┃ ┃ ┣ 📂emails
+┃ ┃ ┣ 📂gtm
+┃ ┃ ┣ 📂placeholders
+┃ ┃ ┣ 📂prateleiras
+┃ ┃ ┣ 📂subtemplates
+┃ ┃ ┗ 📂templates
+┃ ┣ 📂images
+┃ ┣ 📂js
+┃ ┃ ┣ 📂common
+┃ ┃ ┃ ┣ 📂components
+┃ ┃ ┃ ┗ 📂controllers
+┃ ┃ ┣ 📂components
+┃ ┃ ┣ 📂controllers
+┃ ┃ ┣ 📜avanti-search.js
+┃ ┃ ┗ 📜checkout5-custom.js
+┃ ┣ 📂react
+┃ ┣ 📂sass
+┃ ┃ ┣ 📂components
+┃ ┃ ┣ 📂core
+┃ ┃ ┣ 📂landings
+┃ ┃ ┣ 📂pages
+┃ ┃ ┣ 📂sprites
+┃ ┃ ┣ 📂vendor
+┃ ┣ 📂vendor
+┃ ┗ 📂vue
+┣ 📜.babelrc
+┣ 📜.editorconfig
+┣ 📜.eslintrc.js
+┣ 📜.gitignore
+┣ 📜.node-version
+┣ 📜.stylelintrc
+┣ 📜commitlint.config.js
+┣ 📜jest.config.js
+┣ 📜package-lock.json
+┣ 📜package.json
+┣ 📜postcss.config.js
+┣ 📜readme.md
+┣ 📜webpack.config.common.js
+┣ 📜webpack.config.dev.js
+┣ 📜webpack.config.prod.js
+┗ 📜yarn.lock
+```
 
 ## Built with
 
@@ -83,6 +153,7 @@ npm run test:coverage or yarn test:coverage
 - SASS
 - PostCSS
 - Jest
-- ESlint
+- ESLint
 - Stylelint
+- Commitlint
 - PWA
