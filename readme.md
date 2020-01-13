@@ -58,6 +58,34 @@ $ npm run lint:js
 # or
 
 $ yarn lint:js
+
+# ESLint fix
+$ npm run fix:js
+
+# or
+
+$ yarn fix:js
+
+# Stylelint
+$ npm run lint:scss
+
+# or
+
+$ yarn lint:scss
+
+# Stylelint fix
+$ npm run fix:scss
+
+# or
+
+$ yarn fix:scss
+
+# Lint JS and SCSS
+$ npm run lint
+
+# or
+
+$ yarn lint
 ```
 
 ## Tests

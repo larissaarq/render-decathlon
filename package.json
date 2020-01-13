@@ -10,7 +10,11 @@
     "start": "cross-env NODE_ENV=development webpack --config webpack.config.dev.js --mode development --watch --progress",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --mode production --progress",
     "lint:js": "eslint ./src/js/",
-    "fix:js": "eslint ./src/js/ --fix"
+    "fix:js": "eslint ./src/js/ --fix",
+    "lint:scss": "stylelint ./src/sass/**/*.scss",
+    "fix:scss": "stylelint ./src/sass/**/*.scss --fix",
+    "lint": "npm run lint:js && npm run lint:scss"
+
   },
   "author": "Breno Sena",
   "license": "ISC",
