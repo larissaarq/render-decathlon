@@ -8,7 +8,9 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "start": "cross-env NODE_ENV=development webpack --config webpack.config.dev.js --mode development --watch --progress",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --mode production --progress"
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --mode production --progress",
+    "lint:js": "eslint ./src/js/",
+    "fix:js": "eslint ./src/js/ --fix"
   },
   "author": "Breno Sena",
   "license": "ISC",

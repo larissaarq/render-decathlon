@@ -47,7 +47,20 @@ $ npm run build
 $ yarn build
 ```
 
-## Run tests
+## Lint
+
+```sh
+# ~/render-decathlon
+
+# ESLint
+$ npm run lint:js
+
+# or
+
+$ yarn lint:js
+```
+
+## Tests
 
 ```sh
 # ~/render-decathlon
