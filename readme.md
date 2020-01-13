@@ -119,15 +119,15 @@ $ yarn test:coverage
 
 `<type>[optional scope]: <description>`
 
-feat: a feature that is visible for end users.
+`feat:` a feature that is visible for end users.
 
-fix: a bugfix that is visible for end users.
+`fix:` a bugfix that is visible for end users.
 
-chore: a change that doesn't impact end users (e.g. chances to CI pipeline)
+`chore:` a change that doesn't impact end users (e.g. chances to CI pipeline)
 
-docs: a change in the README or documentation
+`docs:` a change in the README or documentation
 
-refactor: a change in production code focused on readability, style and/or performance.
+`refactor:` a change in production code focused on readability, style and/or performance.
 
 ## Directory structure
 
@@ -173,14 +173,12 @@ refactor: a change in production code focused on readability, style and/or perfo
 ┣ 📜.stylelintrc
 ┣ 📜commitlint.config.js
 ┣ 📜jest.config.js
-┣ 📜package-lock.json
 ┣ 📜package.json
 ┣ 📜postcss.config.js
 ┣ 📜readme.md
 ┣ 📜webpack.config.common.js
 ┣ 📜webpack.config.dev.js
 ┣ 📜webpack.config.prod.js
-┗ 📜yarn.lock
 ```
 
 ## Built with
