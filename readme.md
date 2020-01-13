@@ -128,6 +128,7 @@ refactor: a change in production code focused on readability, style and/or perfo
 ┣ 📜.eslintrc.js
 ┣ 📜.gitignore
 ┣ 📜.node-version
+┣ 📜.npmrc
 ┣ 📜.stylelintrc
 ┣ 📜commitlint.config.js
 ┣ 📜jest.config.js
