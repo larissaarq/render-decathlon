@@ -75,7 +75,9 @@ const makeSprite = (spriteDir, spriteOutputDir, spriteOutputName) => {
       css: path.resolve(__dirname, spriteOutputDir, `sprite-${spriteOutputName}.scss`)
     },
     apiOptions: {
-      cssImageRef: `${env === 'production' ? '/arquivos' : '.'}/sprite-${spriteOutputName}.png`
+      cssImageRef: `${env === 'production'
+      ? '/arquivos'
+      : '../images'}/sprite-${spriteOutputName}.png`
     }
   })
 }
