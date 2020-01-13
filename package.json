@@ -14,7 +14,6 @@
     "lint:scss": "stylelint ./src/sass/**/*.scss",
     "fix:scss": "stylelint ./src/sass/**/*.scss --fix",
     "lint": "npm run lint:js && npm run lint:scss"
-
   },
   "author": "Breno Sena",
   "license": "ISC",
