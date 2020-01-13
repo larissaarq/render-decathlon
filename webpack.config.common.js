@@ -156,11 +156,21 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [{
           loader: 'file-loader',
           options: {
-            name: 'arquivos/[name].[ext]',
+            name: 'arquivos/images/[name].[ext]',
+            useRelativePath: true
+          }
+        }]
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: 'arquivos/fonts/[name].[ext]',
             useRelativePath: true
           }
         }]
@@ -195,8 +205,8 @@ module.exports = {
     }),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'arquivos/0-dcs-web-[name]-style.css',
-      chunkFilename: 'arquivos/0-dcs-web-[name]-style.css',
+      filename: 'arquivos/css/0-dcs-web-[name]-style.css',
+      chunkFilename: 'arquivos/css/0-dcs-web-[name]-style.css',
       ignoreOrder: true
     }),
     new CopyPlugin([{
@@ -205,12 +215,12 @@ module.exports = {
       },
       {
         from: path.resolve(__dirname, 'src/images', '*'),
-        to: './arquivos',
+        to: './arquivos/images',
         flatten: true
       },
       {
         from: path.resolve(__dirname, 'src/fonts/DecathlonFontIcon/fonts', '*'),
-        to: './arquivos',
+        to: './arquivos/fonts',
         flatten: true
       }
     ], {
@@ -223,10 +233,10 @@ module.exports = {
     }),
     new MergeIntoSingleFilePlugin({
       files: {
-        'arquivos/0-dcs-web-vendors-script.js': vendors
+        'arquivos/js/0-dcs-web-vendors-script.js': vendors
       },
       transform: {
-        'arquivos/0-dcs-web-vendors-script.js': code =>
+        'arquivos/js/0-dcs-web-vendors-script.js': code =>
           require("uglify-js").minify(code).code
       }
     }),
