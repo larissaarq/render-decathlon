@@ -12,9 +12,9 @@ import '../components/_0-dcs-web-menu-header'
 import '../components/_0-dcs-web-minicart'
 import '../components/_0-dcs-web-modal'
 import '../components/_0-dcs-web-search'
+import '../components/_0-dcs-web-split-price'
 import '../components/_0-dcs-web-shelf-sku'
 import '../components/_0-dcs-web-shelf'
-import '../components/_0-dcs-web-split-price'
 
 import '../../../sass/0-dcs-web-style.scss'
 
@@ -177,7 +177,7 @@ APP.controller.General = ClassAvanti.extend({
 
     // APP.i.EnhancedEcommerce.onAccessGeneralPages()
   },
-  
+
   redirectTotem() {
     const nameTotem = localStorage.getItem("decathlon-nameTotem");
     //console.log(nameTotem)
@@ -191,7 +191,7 @@ APP.controller.General = ClassAvanti.extend({
 
     if (!APP.i.Helpers._isMobile()) {
       if (_self.$shelfCarousel.find("li").length > 0) {
-        
+
         _self.$shelfCarousel
           .parents(".shelf-carousel")
           .addClass("shelf-carousel--visible");

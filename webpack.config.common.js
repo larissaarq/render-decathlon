@@ -19,18 +19,19 @@ const env = process.env.NODE_ENV
 const vendors = [
   `${VENDOR_PATH}/jquery/dist/jquery.min.js`,
   `${VENDOR_PATH}/pointer_events_polyfill/pointer_events_polyfill.js`,
+  `${VENDOR_PATH}/popper/popper.min.js`,
   `${VENDOR_PATH}/bootstrap/dist/js/bootstrap.min.js`,
-  `${VENDOR_PATH}/bootstrap-select/dist/bootstrap-select.min.js`,
+  `${VENDOR_PATH}/bootstrap-select/dist/js/bootstrap-select.min.js`,
   `${VENDOR_PATH}/avanti-class/src/avanti-class.js`,
-  `${VENDOR_PATH}/avanti-search/src/avanti-search.js`,
-  `${VENDOR_PATH}/jquery-lazy/jquery-lazy.min.js`,
+  `${VENDOR_PATH}/avanti-search/dist/avanti-search.min.js`,
+  `${VENDOR_PATH}/jquery-lazy/jquery.lazy.min.js`,
   `${VENDOR_PATH}/jquery-mask-plugin/dist/jquery.mask.min.js`,
   `${VENDOR_PATH}/jquery-validation/dist/jquery.validate.min.js`,
   `${VENDOR_PATH}/js-cookie/src/js.cookie.js`,
   `${VENDOR_PATH}/nouislider/distribute/nouislider.min.js`,
   `${VENDOR_PATH}/slick-carousel/slick/slick.min.js`,
   `${VENDOR_PATH}/form.serializeObject/dist/form.serializeObject.min.js`,
-  `${VENDOR_PATH}/percircle/dist/percircle.js`,
+  `${VENDOR_PATH}/percircle/dist/js/percircle.js`,
 ]
 
 /**
@@ -88,7 +89,7 @@ const controllers = {}
 getPaths(controllersRootPath, file => {
   let fileName = file.substring(0, file.length - 3)
   const filePath = path.join(controllersRootPath, fileName)
-  fileName = fileName.replace('_0-dcs-web-', '')
+  fileName = fileName.replace('0-dcs-web-', '')
 
   Object.assign(controllers, {
     [fileName]: filePath
